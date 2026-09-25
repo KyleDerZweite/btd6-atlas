@@ -2,7 +2,7 @@
 
 Independent fan project: the map-and-behavior layer Mod Helper's static export doesn't cover, plus indexed game-data storage and derived patterns.
 
-Not affiliated with Ninja Kiwi. Not part of Mardwerk — Mardwerk projects may cite it the same way they cite any public source. Requires a legitimately owned copy of BTD6; nothing here helps piracy.
+Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; nothing here helps piracy.
 
 ## Licenses
 
@@ -24,7 +24,7 @@ Not affiliated with Ninja Kiwi. Not part of Mardwerk — Mardwerk projects may c
 
 1. Install the mod (`mod/README.md`).
 2. Mod Helper **Export Game Data** → base catalog.
-3. Per map: load solo, pause, **Export Atlas Data** — or arm **Export All Maps**
+3. Per map: load solo, pause, **Export Atlas Data**. Or arm **Export All Maps**
    at the main menu (press twice to confirm) and let it walk the catalog.
 4. Copy outputs into `data/<patch>/`, publish to GitHub.
 

@@ -1,8 +1,8 @@
 # data/
 
 Accepted captures, versioned per game patch. We host the current version ourselves:
-full exports (towers, upgrades, bloons, rounds, maps, costs) as we actually use them —
-upstream repos lag and go stale, so they are cross-checks, not the source of truth.
+full exports (towers, upgrades, bloons, rounds, maps, costs) as we actually use them.
+Upstream repos lag and go stale, so they are cross-checks, not the source of truth.
 
 Layout per patch:
 

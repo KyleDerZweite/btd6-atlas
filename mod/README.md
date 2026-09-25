@@ -14,7 +14,7 @@ dotnet build mod/Btd6Atlas.csproj
 ```
 
 (Flatpak Steam on this machine; plain `~/.steam` does not exist here. dotnet runs
-natively on Linux — only the path matters, Proton is irrelevant to the build.)
+natively on Linux (only the path matters; Proton is irrelevant to the build).
 
 ## Install
 
@@ -25,10 +25,10 @@ directory next to `Btd6ModHelper.dll`. No config, no startup work.
 
 Two buttons, in Mods menu → BTD6 Atlas exporter settings:
 
-1. **Export Atlas Data** — writes the current map's geometry. Load a normal solo
+1. **Export Atlas Data** writes the current map's geometry. Load a normal solo
    match first, pause, then export. Use Mod Helper's Export Game Data button
    beforehand for the static tower/enemy/round catalog.
-2. **Export All Maps (auto)** — walks every map through the normal game loader
+2. **Export All Maps (auto)** walks every map through the normal game loader
    (Easy Sandbox) and exports each. Press once to arm, press again within
    60 seconds to confirm. Takes a long time; do not touch the game while it runs.
    Any fault stops the run (restart BTD6 to retry); completed maps are kept.

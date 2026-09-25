@@ -1,14 +1,14 @@
 # Agent instructions (btd6-atlas)
 
-Independent BTD6 fan project. Not affiliated with Ninja Kiwi. Not part of Mardwerk.
+Independent BTD6 fan project. Not affiliated with Ninja Kiwi.
 
 ## Layout
 
-- `mod/` — the installable exporter (C#). Build with `dotnet build mod/Btd6Atlas.csproj`
+- `mod/`: the installable exporter (C#). Build with `dotnet build mod/Btd6Atlas.csproj`
   and `BTD6_GAME_DIR` set. First build on a new machine is the real test.
-- `data/` — accepted captures per game patch. Empty until the first export run.
-- `patterns/` — our derived analyses. First thing that goes public.
-- `docs/` — workflow plans. Keep them shorter than the code.
+- `data/`: accepted captures per game patch. Empty until the first export run.
+- `patterns/`: our derived analyses. First thing that goes public.
+- `docs/`: workflow plans. Keep them shorter than the code.
 
 ## Rules
 
