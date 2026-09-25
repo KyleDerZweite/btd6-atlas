@@ -33,19 +33,28 @@ namespace Btd6Atlas;
 // auto mode walks every map through the normal game loader (takes a while).
 public sealed class AtlasExporter : BloonsTD6Mod
 {
-    public const string ModVersion = "0.2.0";
+    public const string ModVersion = "0.2.2";
     private const string Format = "btd6-atlas-map";
     private const string FormatVersion = "0.1";
     private static readonly TimeSpan LoadTimeout = TimeSpan.FromMinutes(2);
     private static readonly TimeSpan MenuTimeout = TimeSpan.FromMinutes(1);
+    private static readonly TimeSpan InitialMenuTimeout = TimeSpan.FromMinutes(5);
     private static readonly TimeSpan ConfirmWindow = TimeSpan.FromSeconds(60);
     private static readonly HashSet<string> AllowedMelons = new(StringComparer.Ordinal)
     {
         "BloonsTD6 Mod Helper",
         "BTD6 Mod Helper",
-        "BTD6 Atlas exporter"
+        "BTD6 Atlas exporter",
+        "Updater Plugin"
     };
     private static bool autoRunning;
+    private static readonly HashSet<string> SkippedMapIds = new(StringComparer.Ordinal)
+    {
+        // Map-editor base template (static export flags: isBrowserOnly, not
+        // IsStandard). Not loadable through the normal game loader: the load
+        // enumerator wedges on the loading screen and never yields back.
+        "BaseEditorMap"
+    };
     private static bool autoFaulted;
     private static DateTimeOffset? autoArmedAt;
 
@@ -66,7 +75,8 @@ public sealed class AtlasExporter : BloonsTD6Mod
         description =
             "Loads every map one by one through the normal game loader and exports " +
             "each. Takes a long time and drives the game automatically. Press once " +
-            "to arm, press again within 60 seconds to confirm."
+            "to arm, press again within 60 seconds to confirm, then close Mod " +
+            "settings to a clean main menu with no popups open."
     };
 
     private static void ExportAtlasData()
@@ -97,11 +107,13 @@ public sealed class AtlasExporter : BloonsTD6Mod
     {
         if (autoRunning)
         {
+            ModHelper.Msg<AtlasExporter>("Export All Maps pressed while a run is already active.");
             ShowStatus("Automatic export is already running.");
             return;
         }
         if (autoFaulted)
         {
+            ModHelper.Msg<AtlasExporter>("Export All Maps pressed after a fault; restart required.");
             ShowStatus("Automatic export stopped on a fault. Restart BTD6 before retrying.");
             return;
         }
@@ -109,6 +121,7 @@ public sealed class AtlasExporter : BloonsTD6Mod
         if (autoArmedAt is null || now - autoArmedAt > ConfirmWindow)
         {
             autoArmedAt = now;
+            ModHelper.Msg<AtlasExporter>("Export All Maps armed; press again within 60 seconds to confirm.");
             ShowStatus(
                 "Armed: pressing Export All Maps again within 60 seconds will load " +
                 "every map automatically. This takes a long time. Do not touch the game.");
@@ -117,10 +130,16 @@ public sealed class AtlasExporter : BloonsTD6Mod
         autoArmedAt = null;
         if (InGame.instance != null)
         {
+            ModHelper.Msg<AtlasExporter>("Export All Maps confirmed while in a match; needs the main menu.");
             ShowStatus("Return to the main menu before running the automatic export.");
             return;
         }
         autoRunning = true;
+        // Log only here: a status popup would itself block the clean main menu
+        // the run is about to wait for.
+        ModHelper.Msg<AtlasExporter>(
+            "Automatic export starting. Close Mod settings now so the game sits on " +
+            "a clean main menu with no popups open.");
         MelonCoroutines.Start(RunAllMapsSafely());
     }
 
@@ -177,19 +196,44 @@ public sealed class AtlasExporter : BloonsTD6Mod
         var catalog = GameData.Instance;
         if (catalog?.mapSet?.Maps?.items is null)
             throw new InvalidOperationException("Game data is not ready");
-        var mapIds = catalog.mapSet.Maps.items
+        var allIds = catalog.mapSet.Maps.items
             .Where(detail => detail is not null && !string.IsNullOrWhiteSpace(detail.id))
             .Select(detail => detail.id)
             .Distinct()
             .ToArray();
+        var skipped = allIds.Where(id => SkippedMapIds.Contains(id)).ToArray();
+        var mapIds = allIds.Where(id => !SkippedMapIds.Contains(id)).ToArray();
         ModHelper.Msg<AtlasExporter>($"Automatic atlas export: {mapIds.Length} maps queued.");
+        foreach (var skippedId in skipped)
+            ModHelper.Msg<AtlasExporter>($"Automatic atlas export: skipping {skippedId} (not loadable via the normal game loader).");
+        // Resume: keep maps that already have an export on disk so a stopped
+        // run continues where it left off. Delete Btd6AtlasExports to force a
+        // full re-export.
+        var exportDir = Path.Combine(MelonEnvironment.ModsDirectory, "Btd6AtlasExports");
+        if (Directory.Exists(exportDir))
+        {
+            foreach (var mapId in mapIds)
+            {
+                if (ExportExists(exportDir, mapId))
+                    ModHelper.Msg<AtlasExporter>($"Automatic atlas export: skipping {mapId} (already exported).");
+            }
+            mapIds = mapIds.Where(id => !ExportExists(exportDir, id)).ToArray();
+        }
         foreach (var mapId in mapIds)
         {
-            var menuDeadline = DateTimeOffset.UtcNow + MenuTimeout;
+            var menuDeadline = DateTimeOffset.UtcNow + InitialMenuTimeout;
+            var lastMenuLog = DateTimeOffset.MinValue;
             while (!MainMenuReady())
             {
                 if (DateTimeOffset.UtcNow > menuDeadline)
-                    throw new TimeoutException("The main menu did not become ready");
+                    throw new TimeoutException(
+                        "The main menu did not become ready: " + MenuBlocker() +
+                        ". Close Mod settings to a clean main menu with no popups, then retry.");
+                if (DateTimeOffset.UtcNow - lastMenuLog > TimeSpan.FromSeconds(5))
+                {
+                    lastMenuLog = DateTimeOffset.UtcNow;
+                    ModHelper.Msg<AtlasExporter>("Waiting for clean main menu: " + MenuBlocker());
+                }
                 yield return null;
             }
             AssertEnvironment();
@@ -240,9 +284,28 @@ public sealed class AtlasExporter : BloonsTD6Mod
             yield return null;
 
             AssertEnvironment();
+            // The Sandbox intro dialog ("Dr. Monkey's Bloon simulator is ready")
+            // appears after every map load. It is info-only, so hide it on
+            // first sight instead of waiting. Hiding invokes no dialog
+            // buttons, so it cannot claim rewards or advance flows. The
+            // pre-run main menu gate stays strict and is never auto-dismissed.
+            for (var attempt = 1;
+                 attempt <= 3 &&
+                 (PopupScreen.instance == null || PopupScreen.instance.IsPopupActiveOrLoading());
+                 attempt++)
+            {
+                ModHelper.Msg<AtlasExporter>(
+                    $"Automatic atlas export: hiding blocking dialog after loading {mapId} (attempt {attempt}/3).");
+                PopupScreen.instance?.HideAllPopups();
+                var attemptDeadline = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(2);
+                while (PopupScreen.instance != null &&
+                       PopupScreen.instance.IsPopupActiveOrLoading() &&
+                       DateTimeOffset.UtcNow <= attemptDeadline)
+                    yield return null;
+            }
             if (PopupScreen.instance == null || PopupScreen.instance.IsPopupActiveOrLoading())
                 throw new InvalidOperationException(
-                    $"A popup is active after loading {mapId}; it was not dismissed automatically");
+                    $"A dialog is still active after loading {mapId} and 3 hide attempts; it was not clicked automatically");
             var written = WriteAtlasMap(mapId, InGame.instance.GetGameModel().map, mapId);
             ModHelper.Msg<AtlasExporter>($"Automatic atlas export: {mapId} -> {written.FileName}");
 
@@ -269,14 +332,25 @@ public sealed class AtlasExporter : BloonsTD6Mod
             while (!MainMenuReady())
             {
                 if (DateTimeOffset.UtcNow > returnDeadline)
-                    throw new TimeoutException($"Main menu did not recover after {mapId}");
+                    throw new TimeoutException(
+                        $"Main menu did not recover after {mapId}: " + MenuBlocker());
                 yield return null;
             }
         }
     }
 
-    private sealed record WrittenAtlas(string FileName, string Sha256);
+    private static bool ExportExists(string exportDir, string mapId)
+    {
+        var prefix = "atlas-" + SafeFile(mapId) + "-";
+        foreach (var file in Directory.GetFiles(exportDir, prefix + "*.json"))
+        {
+            if (Path.GetFileName(file).StartsWith(prefix, StringComparison.Ordinal))
+                return true;
+        }
+        return false;
+    }
 
+    private sealed record WrittenAtlas(string FileName, string Sha256);
     private static WrittenAtlas WriteAtlasMap(string mapId, MapModel mapModel, string expectedMapId = null)
     {
         if (expectedMapId is not null && mapModel?.mapName != expectedMapId)
@@ -336,6 +410,24 @@ public sealed class AtlasExporter : BloonsTD6Mod
                currentMenu.Is<MainMenu>() &&
                popup != null &&
                !popup.IsPopupActiveOrLoading();
+    }
+
+    private static string MenuBlocker()
+    {
+        if (InGame.instance != null) return "still in a match (InGame active)";
+        var ui = UI.instance;
+        if (ui == null) return "UI instance missing";
+        if (ui.isLoadingGame) return "game loader busy";
+        var menu = MenuManager.instance;
+        if (menu == null) return "menu manager missing";
+        var currentMenu = menu.GetCurrentMenu();
+        if (currentMenu == null) return "no current menu";
+        if (!currentMenu.Is<MainMenu>())
+            return "current menu is " + currentMenu.GetType().Name + ", not MainMenu (close Mod settings)";
+        var popup = PopupScreen.instance;
+        if (popup == null) return "popup manager missing";
+        if (popup.IsPopupActiveOrLoading()) return "a popup is open or loading (dismiss it)";
+        return "unknown";
     }
 
     private static bool MapReady(string mapId)

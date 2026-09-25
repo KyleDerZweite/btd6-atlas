@@ -1,0 +1,58 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.BoostArtifactData, Assembly-CSharp",
+  "boostArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+    "towerTypes": [],
+    "inverseTowerTypes": false,
+    "towerSets": [
+      8
+    ],
+    "towerSet": 0,
+    "ignoreSubTowers": false,
+    "inverseSets": false,
+    "tiers": [],
+    "tiersMustBeEqual": false,
+    "inverseTiers": false,
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PierceBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 1.35,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 1.18,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "SupportVelocity",
+    "nameLocKey": "BoostArtifactSupportInspirationX",
+    "descriptionLocKey": "BoostArtifactSupportInspirationXDescription",
+    "descriptionParams": [
+      "25",
+      "18"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "fa4023bf8a4cc4d22a869fe8aad78e23",
+      "AssetGUID": "fa4023bf8a4cc4d22a869fe8aad78e23"
+    },
+    "rarityFrameType": "Support",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": true,
+    "ArtifactName": "BoostArtifactSupportInspiration3",
+    "ArtifactPower": 9,
+    "name": "BoostArtifactSupportInspiration3"
+  },
+  "name": "BoostArtifactSupportInspiration3",
+  "hideFlags": 0
+}

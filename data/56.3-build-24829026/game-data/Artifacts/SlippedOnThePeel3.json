@@ -1,0 +1,138 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "BananaFarm",
+      "tiers": [
+        2,
+        0,
+        0
+      ],
+      "currentCooldown": 0,
+      "lootType": 1,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddTowerBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Behaviors.SlowBloonsZoneModel, Assembly-CSharp",
+            "zoneRadius": 40.0,
+            "mutationId": "SlippedOnThePeel",
+            "isUnique": true,
+            "filters": null,
+            "speedScale": 0.7,
+            "speedChange": 0.0,
+            "bindRadiusToTowerRange": true,
+            "radiusOffset": 0.0,
+            "bloonTag": "",
+            "bloonTags": [],
+            "inclusive": false,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [
+          "BananaFarm",
+          "Benjamin"
+        ],
+        "inverseTowerTypes": false,
+        "towerSets": [],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [
+            "Benjamin"
+          ],
+          "inverseTowerTypes": false,
+          "towerSets": [],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 2.0,
+              "name": ""
+            }
+          ],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "SlippedOnThePeel",
+    "nameLocKey": "SlippedOnThePeelX",
+    "descriptionLocKey": "SlippedOnThePeelXDescription",
+    "descriptionParams": [
+      "30",
+      "2-0-0"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "c23c06951743b704795df8c934aa9515",
+      "AssetGUID": "c23c06951743b704795df8c934aa9515"
+    },
+    "rarityFrameType": "Support",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "SlippedOnThePeel3",
+    "ArtifactPower": 9,
+    "name": "SlippedOnThePeel3"
+  },
+  "name": "SlippedOnThePeel3",
+  "hideFlags": 0
+}

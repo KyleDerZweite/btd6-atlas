@@ -1,0 +1,116 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "MonkeyBuccaneer",
+      "tiers": [
+        0,
+        2,
+        0
+      ],
+      "currentCooldown": 0,
+      "lootType": 1,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [
+            "MonkeyBuccaneer"
+          ],
+          "inverseTowerTypes": false,
+          "towerSets": [],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CooldownBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 1.7,
+              "name": ""
+            },
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PierceBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 1.7,
+              "name": ""
+            }
+          ],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AbilityStackingBehaviorModel, Assembly-CSharp",
+        "stackCount": 2,
+        "towerTypes": [
+          "MonkeyBuccaneer"
+        ],
+        "inverseTowerTypes": false,
+        "towerSets": [],
+        "towerSet": 0,
+        "inverseSets": false,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "FullBroadside",
+    "nameLocKey": "FullBroadsideX",
+    "descriptionLocKey": "FullBroadsideXDescription",
+    "descriptionParams": [
+      "70",
+      "0-2-0"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "3c8a2a93c0b8849538318e5c145a69b5",
+      "AssetGUID": "3c8a2a93c0b8849538318e5c145a69b5"
+    },
+    "rarityFrameType": "Military",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "FullBroadside3",
+    "ArtifactPower": 9,
+    "name": "FullBroadside3"
+  },
+  "name": "FullBroadside3",
+  "hideFlags": 0
+}

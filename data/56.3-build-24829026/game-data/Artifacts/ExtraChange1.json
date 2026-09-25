@@ -1,0 +1,107 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 1,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [],
+          "inverseTowerTypes": false,
+          "towerSets": [],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      }
+    ],
+    "tier": 0,
+    "baseId": "ExtraChange",
+    "nameLocKey": "ExtraChangeX",
+    "descriptionLocKey": "ExtraChangeXDescription",
+    "descriptionParams": [
+      "500",
+      "75",
+      "50"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [
+        {
+          "$type": "Il2CppAssets.Scripts.Models.Gameplay.Mods.StartingCashModModel, Assembly-CSharp",
+          "changeBase": 0.0,
+          "addition": 500.0,
+          "multiplier": 0.0,
+          "name": ""
+        },
+        {
+          "$type": "Il2CppAssets.Scripts.Models.Gameplay.Mods.BonusCashPerRoundModModel, Assembly-CSharp",
+          "roundMultiple": 0.0,
+          "baseCash": 75.0,
+          "name": ""
+        },
+        {
+          "$type": "Il2CppAssets.Scripts.Models.Gameplay.Mods.ModifyTowerCashModModel, Assembly-CSharp",
+          "multiplier": 0.5,
+          "name": ""
+        }
+      ],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "c5b4c96d3143a49938b0564202d058ce",
+      "AssetGUID": "c5b4c96d3143a49938b0564202d058ce"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "ExtraChange1",
+    "ArtifactPower": 3,
+    "name": "ExtraChange1"
+  },
+  "name": "ExtraChange1",
+  "hideFlags": 0
+}

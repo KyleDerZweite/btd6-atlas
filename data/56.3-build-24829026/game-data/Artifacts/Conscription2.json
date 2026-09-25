@@ -1,0 +1,186 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CountAllCategoriesBehaviorModel, Assembly-CSharp",
+        "towerSetList": [
+          2
+        ],
+        "towerSet": 0,
+        "inverseTowerSets": false,
+        "towerTypes": [],
+        "inverseTowerTypes": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "alsoCountsAsList": [
+          15
+        ],
+        "alsoCountsAs": 0,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [
+            "DartMonkey",
+            "BoomerangMonkey",
+            "BombShooter",
+            "TackShooter",
+            "IceMonkey",
+            "GlueGunner",
+            "Desperado",
+            "WizardMonkey",
+            "SuperMonkey",
+            "NinjaMonkey",
+            "Alchemist",
+            "Druid",
+            "Mermonkey",
+            "Skywarden",
+            "BananaFarm",
+            "SpikeFactory",
+            "MonkeyVillage",
+            "EngineerMonkey",
+            "BeastHandler"
+          ],
+          "inverseTowerTypes": false,
+          "towerSets": [],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DiscountBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 1.5,
+              "name": ""
+            },
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 0.5,
+              "name": ""
+            }
+          ],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [],
+          "inverseTowerTypes": false,
+          "towerSets": [
+            2
+          ],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 0.85,
+              "name": ""
+            }
+          ],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      }
+    ],
+    "tier": 1,
+    "baseId": "Conscription",
+    "nameLocKey": "ConscriptionX",
+    "descriptionLocKey": "ConscriptionXDescription",
+    "descriptionParams": [
+      "15",
+      "50",
+      "50"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "b74685f09a6ab4033b02d764a72f3c2c",
+      "AssetGUID": "b74685f09a6ab4033b02d764a72f3c2c"
+    },
+    "rarityFrameType": "Military",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "Conscription2",
+    "ArtifactPower": 6,
+    "name": "Conscription2"
+  },
+  "name": "Conscription2",
+  "hideFlags": 0
+}

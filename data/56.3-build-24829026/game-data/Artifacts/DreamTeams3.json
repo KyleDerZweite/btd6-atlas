@@ -1,0 +1,139 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [
+            "MonkeySub",
+            "NinjaMonkey",
+            "Druid",
+            "BeastHandler",
+            "WizardMonkey"
+          ],
+          "inverseTowerTypes": false,
+          "towerSets": [],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 1.35,
+              "name": ""
+            },
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CooldownBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 1.1,
+              "name": ""
+            },
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RateBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 0.9,
+              "name": ""
+            }
+          ],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp",
+        "towerType": "MonkeySub",
+        "addedCooldown": -2,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp",
+        "towerType": "NinjaMonkey",
+        "addedCooldown": -2,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp",
+        "towerType": "Druid",
+        "addedCooldown": -2,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp",
+        "towerType": "WizardMonkey",
+        "addedCooldown": -2,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp",
+        "towerType": "BeastHandler",
+        "addedCooldown": -2,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "DreamTeams",
+    "nameLocKey": "DreamTeamsX",
+    "descriptionLocKey": "DreamTeamsXDescription",
+    "descriptionParams": [
+      "35",
+      "2"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "f0067d9619fa543fab6404163a8386ef",
+      "AssetGUID": "f0067d9619fa543fab6404163a8386ef"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "DreamTeams3",
+    "ArtifactPower": 9,
+    "name": "DreamTeams3"
+  },
+  "name": "DreamTeams3",
+  "hideFlags": 0
+}

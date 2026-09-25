@@ -1,0 +1,80 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForBloonStateModel, Assembly-CSharp",
+            "bloonState": "Stun,Trance",
+            "bloonStates": [],
+            "damageMultiplier": 3.0,
+            "damageAdditive": 0.0,
+            "mustIncludeAllStates": false,
+            "applyOverMaxDamage": false,
+            "mustBeModified": true,
+            "collisionPass": 0,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [],
+        "inverseTowerTypes": false,
+        "towerSets": [
+          20
+        ],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "ConfuddlingSpelling",
+    "nameLocKey": "ConfuddlingSpellingX",
+    "descriptionLocKey": "ConfuddlingSpellingXDescription",
+    "descriptionParams": [
+      "3"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "fba734ac153584918aaa4b3fad33e19e",
+      "AssetGUID": "fba734ac153584918aaa4b3fad33e19e"
+    },
+    "rarityFrameType": "Magic",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "ConfuddlingSpelling3",
+    "ArtifactPower": 9,
+    "name": "ConfuddlingSpelling3"
+  },
+  "name": "ConfuddlingSpelling3",
+  "hideFlags": 0
+}

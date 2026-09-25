@@ -1,0 +1,181 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "WizardMonkey",
+      "tiers": [
+        2,
+        0,
+        0
+      ],
+      "currentCooldown": 0,
+      "lootType": 1,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.WindModel, Assembly-CSharp",
+            "distanceMin": 50.0,
+            "distanceMax": 50.0,
+            "chance": 0.6,
+            "affectMoab": false,
+            "distanceScaleForTags": 0.5,
+            "distanceScaleForTagsTags": "Ceramic",
+            "distanceScaleForTagsTagsList": [],
+            "speedMultiplier": 2.0,
+            "tagFilter": [],
+            "tagInclusive": false,
+            "overlayType": "",
+            "collisionPass": 0,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.AddBehaviorToBloonModel, Assembly-CSharp",
+            "mutationId": "Dot:Fire",
+            "layers": 9999999,
+            "lifespan": 4.6,
+            "lifespanFrames": 0,
+            "filter": null,
+            "filters": [],
+            "behaviors": [
+              {
+                "$type": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageOverTimeCustomModel, Assembly-CSharp",
+                "bloonTagsList": [],
+                "multiplier": 0.0,
+                "additive": 0.0,
+                "damage": 9.0,
+                "payloadCount": 0,
+                "immuneBloonProperties": 8,
+                "immuneBloonPropertiesOriginal": 8,
+                "interval": 1.5,
+                "intervalFrames": 0,
+                "displayPath": {
+                  "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                  "guidRef": "",
+                  "AssetGUID": ""
+                },
+                "displayLifetime": 4.6,
+                "triggerImmediate": false,
+                "rotateEffectWithBloon": false,
+                "initialDelay": 0.0,
+                "initialDelayFrames": 0,
+                "damageOnDestroy": false,
+                "overrideDistributionBlocker": false,
+                "distributeToChildren": true,
+                "damageModifierModels": [],
+                "isFireBased": true,
+                "Interval": 1.5,
+                "name": ""
+              }
+            ],
+            "isUnique": true,
+            "lastAppliesFirst": false,
+            "collideThisFrame": true,
+            "cascadeMutators": true,
+            "glueLevel": 0,
+            "applyOnlyIfDamaged": true,
+            "stackCount": 0,
+            "dontCopy": false,
+            "parentDamageModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModel, Assembly-CSharp",
+              "damage": 1.0,
+              "maxDamage": 0.0,
+              "distributeToChildren": false,
+              "overrideDistributeBlocker": false,
+              "createPopEffect": false,
+              "immuneBloonProperties": 8,
+              "immuneBloonPropertiesOriginal": 8,
+              "ignoreImmunityDestroy": false,
+              "ignoreDamageMultipliers": false,
+              "CappedDamage": 1.0,
+              "collisionPass": 0,
+              "name": ""
+            },
+            "chance": 0.6,
+            "dontRemoveOnBloonDegrade": false,
+            "overlayType": "Fire",
+            "collisionPass": 1,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.FreezeModel, Assembly-CSharp",
+            "speed": 0.0,
+            "layers": 1,
+            "mutationId": "Ice:Regular:Freeze",
+            "percentChanceToFreeze": 0.6,
+            "enablePercentChanceToFreeze": true,
+            "damageModel": null,
+            "canFreezeMoabs": false,
+            "bossImmunity": false,
+            "cascadeMutators": true,
+            "growBlockModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.GrowBlockModel, Assembly-CSharp",
+              "name": ""
+            },
+            "applyAfterDamage": true,
+            "lifespan": 1.0,
+            "lifespanFrames": 0,
+            "Lifespan": 1.0,
+            "overlayType": "Ice",
+            "collisionPass": 2,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [
+          "WizardMonkey"
+        ],
+        "inverseTowerTypes": false,
+        "towerSets": [],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "EsotericElementalist",
+    "nameLocKey": "EsotericElementalistX",
+    "descriptionLocKey": "EsotericElementalistXDescription",
+    "descriptionParams": [
+      "60",
+      "9",
+      "2-0-0"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "de384554085f8433685b477c40e6e143",
+      "AssetGUID": "de384554085f8433685b477c40e6e143"
+    },
+    "rarityFrameType": "Magic",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "EsotericElementalist3",
+    "ArtifactPower": 9,
+    "name": "EsotericElementalist3"
+  },
+  "name": "EsotericElementalist3",
+  "hideFlags": 0
+}

@@ -1,0 +1,58 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.BoostArtifactData, Assembly-CSharp",
+  "boostArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+    "towerTypes": [],
+    "inverseTowerTypes": false,
+    "towerSets": [
+      2
+    ],
+    "towerSet": 0,
+    "ignoreSubTowers": false,
+    "inverseSets": false,
+    "tiers": [],
+    "tiersMustBeEqual": false,
+    "inverseTiers": false,
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 1.2,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SpreadBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 0.85,
+        "name": ""
+      }
+    ],
+    "tier": 1,
+    "baseId": "MilitaryToughness",
+    "nameLocKey": "BoostArtifactMilitaryPrecisionX",
+    "descriptionLocKey": "BoostArtifactMilitaryPrecisionXDescription",
+    "descriptionParams": [
+      "20",
+      "15"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "f4ebf193fc5714c59a49ef7e8b655a44",
+      "AssetGUID": "f4ebf193fc5714c59a49ef7e8b655a44"
+    },
+    "rarityFrameType": "Military",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": true,
+    "ArtifactName": "BoostArtifactMilitaryPrecision2",
+    "ArtifactPower": 6,
+    "name": "BoostArtifactMilitaryPrecision2"
+  },
+  "name": "BoostArtifactMilitaryPrecision2",
+  "hideFlags": 0
+}

@@ -1,0 +1,137 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FollowMeBehaviorModel, Assembly-CSharp",
+        "target": {
+          "$type": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetPointerModel, Assembly-CSharp",
+          "isSelectable": false,
+          "customName": "FollowMe",
+          "setOnAttached": false,
+          "isOnSubTower": false,
+          "name": ""
+        },
+        "rotate": {
+          "$type": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToPointerModel, Assembly-CSharp",
+          "rate": 300.0,
+          "rateFrames": 0.0,
+          "rotateTower": true,
+          "rotateOnlyOnEmit": false,
+          "weaponEjectZ": 0.0,
+          "name": ""
+        },
+        "towerTypes": [
+          "DartMonkey",
+          "BombShooter",
+          "TackShooter",
+          "SuperMonkey",
+          "Druid",
+          "Mermonkey",
+          "BoomerangMonkey"
+        ],
+        "inverseTowerTypes": false,
+        "towerSets": [
+          5
+        ],
+        "inverseTowerSet": false,
+        "towerSet": 0,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+        "boostToInvokeModel": {
+          "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+          "towerTypes": [
+            "DartMonkey",
+            "BombShooter",
+            "TackShooter",
+            "SuperMonkey",
+            "Druid",
+            "Mermonkey",
+            "BoomerangMonkey"
+          ],
+          "inverseTowerTypes": false,
+          "towerSets": [],
+          "towerSet": 0,
+          "ignoreSubTowers": false,
+          "inverseSets": false,
+          "tiers": [],
+          "tiersMustBeEqual": false,
+          "inverseTiers": false,
+          "artifactBehaviors": [
+            {
+              "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RateBoostBehaviorModel, Assembly-CSharp",
+              "multiplier": 1.1,
+              "name": ""
+            }
+          ],
+          "tier": 0,
+          "baseId": "",
+          "nameLocKey": "",
+          "descriptionLocKey": "",
+          "descriptionParams": [],
+          "monkeyKnowledgeModModels": {
+            "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+            "mutatorMods": [],
+            "name": ""
+          },
+          "isBossArtifact": false,
+          "isSheriffArtifact": false,
+          "icon": {
+            "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+            "guidRef": "",
+            "AssetGUID": ""
+          },
+          "rarityFrameType": "",
+          "merchantCostMultiplier": 0,
+          "isQuestArtifact": false,
+          "IsBoost": true,
+          "ArtifactName": "",
+          "ArtifactPower": 3,
+          "name": ""
+        },
+        "name": ""
+      }
+    ],
+    "tier": 1,
+    "baseId": "FollowMe",
+    "nameLocKey": "FollowMeX",
+    "descriptionLocKey": "FollowMeXDescription",
+    "descriptionParams": [
+      "300",
+      "9"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "f295ef9a90932a34e9b7628fd33091f3",
+      "AssetGUID": "f295ef9a90932a34e9b7628fd33091f3"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "FollowMe2",
+    "ArtifactPower": 6,
+    "name": "FollowMe2"
+  },
+  "name": "FollowMe2",
+  "hideFlags": 0
+}

@@ -1,0 +1,61 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.BoostArtifactData, Assembly-CSharp",
+  "boostArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+    "towerTypes": [],
+    "inverseTowerTypes": false,
+    "towerSets": [],
+    "towerSet": 0,
+    "ignoreSubTowers": false,
+    "inverseSets": false,
+    "tiers": [],
+    "tiersMustBeEqual": false,
+    "inverseTiers": false,
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CooldownBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 1.04,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RateBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 0.96,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSpeedBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 0.1,
+        "name": ""
+      }
+    ],
+    "tier": 0,
+    "baseId": "AllTowerQuickening",
+    "nameLocKey": "BoostArtifactAllTowerQuickeningX",
+    "descriptionLocKey": "BoostArtifactAllTowerQuickeningXDescription",
+    "descriptionParams": [
+      "4",
+      "10"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "1a5ee5749554241ff8a2010af984d118",
+      "AssetGUID": "1a5ee5749554241ff8a2010af984d118"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": true,
+    "ArtifactName": "BoostArtifactAllTowerQuickening1",
+    "ArtifactPower": 3,
+    "name": "BoostArtifactAllTowerQuickening1"
+  },
+  "name": "BoostArtifactAllTowerQuickening1",
+  "hideFlags": 0
+}

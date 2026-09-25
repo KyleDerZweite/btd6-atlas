@@ -1,0 +1,67 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileCarouselBehaviorModel, Assembly-CSharp",
+        "applyOnlyIfScriptExists": [],
+        "dontApplyIfScriptExists": [],
+        "towerTypes": [
+          "BoomerangMonkey",
+          "IceMonkey",
+          "MortarMonkey",
+          "MonkeyAce",
+          "Alchemist",
+          "BeastHandler",
+          "BananaFarm"
+        ],
+        "inverseTowerTypes": true,
+        "towerSets": [
+          16
+        ],
+        "towerSet": 0,
+        "inverseSets": true,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "ProjectileCarousel",
+    "nameLocKey": "ProjectileCarousel1",
+    "descriptionLocKey": "ProjectileCarousel1Description",
+    "descriptionParams": [],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "2d56ba9c053384caf8be649cbcffd233",
+      "AssetGUID": "2d56ba9c053384caf8be649cbcffd233"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": true,
+    "IsBoost": false,
+    "ArtifactName": "ProjectileCarousel1",
+    "ArtifactPower": 9,
+    "name": "ProjectileCarousel1"
+  },
+  "name": "ProjectileCarousel1",
+  "hideFlags": 0
+}

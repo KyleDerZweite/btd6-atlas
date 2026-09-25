@@ -1,0 +1,197 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.KnockbackModel, Assembly-CSharp",
+            "moabMultiplier": 0.5,
+            "heavyMultiplier": 0.0,
+            "lightMultiplier": 0.0,
+            "mutationId": "EssenceOfVortex",
+            "lifespan": 0.2,
+            "lifespanFrames": 0,
+            "Lifespan": 0.2,
+            "collisionPass": 0,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.CreateEffectOnContactModel, Assembly-CSharp",
+            "effectModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp",
+              "assetId": {
+                "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                "guidRef": "5da5da542593f934aa1ef439bc9cf36f",
+                "AssetGUID": "5da5da542593f934aa1ef439bc9cf36f"
+              },
+              "scale": 0.65,
+              "lifespan": 1.6,
+              "fullscreen": 0,
+              "useCenterPosition": false,
+              "useTransformPosition": true,
+              "useTransfromRotation": true,
+              "destroyOnTransformDestroy": true,
+              "alwaysUseAge": false,
+              "useRoundTime": false,
+              "name": ""
+            },
+            "collisionPass": 0,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.WindModel, Assembly-CSharp",
+            "distanceMin": 5.0,
+            "distanceMax": 25.0,
+            "chance": 0.1,
+            "affectMoab": true,
+            "distanceScaleForTags": 1.0,
+            "distanceScaleForTagsTags": "1",
+            "distanceScaleForTagsTagsList": [],
+            "speedMultiplier": 5.0,
+            "tagFilter": [],
+            "tagInclusive": false,
+            "overlayType": "",
+            "collisionPass": 0,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [],
+        "inverseTowerTypes": false,
+        "towerSets": [
+          16
+        ],
+        "towerSet": 0,
+        "inverseSets": true,
+        "tiers": [
+          4,
+          4,
+          4
+        ],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.KnockbackModel, Assembly-CSharp",
+            "moabMultiplier": 0.5,
+            "heavyMultiplier": 0.0,
+            "lightMultiplier": 0.0,
+            "mutationId": "EssenceOfVortex",
+            "lifespan": 0.2,
+            "lifespanFrames": 0,
+            "Lifespan": 0.2,
+            "collisionPass": 0,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.CreateEffectOnContactModel, Assembly-CSharp",
+            "effectModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp",
+              "assetId": {
+                "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                "guidRef": "5da5da542593f934aa1ef439bc9cf36f",
+                "AssetGUID": "5da5da542593f934aa1ef439bc9cf36f"
+              },
+              "scale": 0.65,
+              "lifespan": 1.6,
+              "fullscreen": 0,
+              "useCenterPosition": false,
+              "useTransformPosition": true,
+              "useTransfromRotation": true,
+              "destroyOnTransformDestroy": true,
+              "alwaysUseAge": false,
+              "useRoundTime": false,
+              "name": ""
+            },
+            "collisionPass": 0,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.WindModel, Assembly-CSharp",
+            "distanceMin": 5.0,
+            "distanceMax": 25.0,
+            "chance": 0.1,
+            "affectMoab": true,
+            "distanceScaleForTags": 1.0,
+            "distanceScaleForTagsTags": "1",
+            "distanceScaleForTagsTagsList": [],
+            "speedMultiplier": 5.0,
+            "tagFilter": [],
+            "tagInclusive": false,
+            "overlayType": "",
+            "collisionPass": 0,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [],
+        "inverseTowerTypes": false,
+        "towerSets": [
+          16
+        ],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [
+          15
+        ],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "EssenceOfVortex",
+    "nameLocKey": "EssenceOfVortex1",
+    "descriptionLocKey": "EssenceOfVortex1Description",
+    "descriptionParams": [],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": true,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "12d18fcf4bf6c4a488e5f1a1ae799484",
+      "AssetGUID": "12d18fcf4bf6c4a488e5f1a1ae799484"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "EssenceOfVortex1",
+    "ArtifactPower": 18,
+    "name": "EssenceOfVortex1"
+  },
+  "name": "EssenceOfVortex1",
+  "hideFlags": 0
+}

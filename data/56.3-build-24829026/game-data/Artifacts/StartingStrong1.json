@@ -1,0 +1,78 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddTowerBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Behaviors.StartOfRoundRateBuffModel, Assembly-CSharp",
+            "modifier": 0.89,
+            "duration": 20.0,
+            "isUnique": true,
+            "durationFrames": 0,
+            "mutatorId": "StartingStrong",
+            "Duration": 20.0,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [
+          "Projectile"
+        ],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [],
+        "inverseTowerTypes": false,
+        "towerSets": [],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 0,
+    "baseId": "StartingStong",
+    "nameLocKey": "StartingStrongX",
+    "descriptionLocKey": "StartingStrongXDescription",
+    "descriptionParams": [
+      "12"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "3b001fc91707d4baf908df52e340bd12",
+      "AssetGUID": "3b001fc91707d4baf908df52e340bd12"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "StartingStrong1",
+    "ArtifactPower": 3,
+    "name": "StartingStrong1"
+  },
+  "name": "StartingStrong1",
+  "hideFlags": 0
+}

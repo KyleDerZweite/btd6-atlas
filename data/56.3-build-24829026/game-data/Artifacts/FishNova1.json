@@ -1,0 +1,266 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddTowerBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Behaviors.TowerCreateProjectileOnProjectileExhaustModel, Assembly-CSharp",
+            "id": "",
+            "projectileModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp",
+              "display": {
+                "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                "guidRef": "c5d9f15eb94d6c44fad8e3ea4ed27527",
+                "AssetGUID": "c5d9f15eb94d6c44fad8e3ea4ed27527"
+              },
+              "id": "FishPleaseWork",
+              "maxPierce": 0.0,
+              "pierce": 2.0,
+              "scale": 0.65,
+              "ignoreBlockers": false,
+              "usePointCollisionWithBloons": false,
+              "canCollisionBeBlockedByMapLos": true,
+              "filters": [
+                {
+                  "$type": "Il2CppAssets.Scripts.Models.Towers.Filters.FilterInvisibleModel, Assembly-CSharp",
+                  "isActive": true,
+                  "ignoreBroadPhase": false,
+                  "name": ""
+                }
+              ],
+              "behaviors": [
+                {
+                  "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModel, Assembly-CSharp",
+                  "damage": 1.0,
+                  "maxDamage": 0.0,
+                  "distributeToChildren": true,
+                  "overrideDistributeBlocker": false,
+                  "createPopEffect": true,
+                  "immuneBloonProperties": 1,
+                  "immuneBloonPropertiesOriginal": 1,
+                  "ignoreImmunityDestroy": false,
+                  "ignoreDamageMultipliers": false,
+                  "CappedDamage": 1.0,
+                  "collisionPass": 0,
+                  "name": ""
+                },
+                {
+                  "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.AgeRandomModel, Assembly-CSharp",
+                  "minLifespan": 1.0,
+                  "minLifespanFrames": 0,
+                  "maxLifespan": 1.0,
+                  "maxLifespanFrames": 0,
+                  "rounds": 0,
+                  "useRoundTime": false,
+                  "lifespanFrames": 0,
+                  "endOfRoundClearBypassModel": {
+                    "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.EndOfRoundClearBypassModel, Assembly-CSharp",
+                    "gameModes": "",
+                    "gameModesList": [],
+                    "collisionPass": 0,
+                    "name": ""
+                  },
+                  "Lifespan": 1.0,
+                  "collisionPass": 1,
+                  "name": ""
+                },
+                {
+                  "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.ProjectileFilterModel, Assembly-CSharp",
+                  "filters": [
+                    {
+                      "$type": "Il2CppAssets.Scripts.Models.Towers.Filters.FilterInvisibleModel, Assembly-CSharp",
+                      "isActive": true,
+                      "ignoreBroadPhase": false,
+                      "name": ""
+                    }
+                  ],
+                  "collisionPass": 2,
+                  "name": ""
+                },
+                {
+                  "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.TravelCurvyModel, Assembly-CSharp",
+                  "maxTurnAngle": 80.0,
+                  "turnRate": 80.0,
+                  "turnRatePerFrame": 0.0,
+                  "TurnRate": 80.0,
+                  "speed": 40.0,
+                  "speedFrames": 0.0,
+                  "lifespan": 0.8,
+                  "lifespanFrames": 0,
+                  "Speed": 40.0,
+                  "Lifespan": 0.8,
+                  "collisionPass": 3,
+                  "name": ""
+                }
+              ],
+              "collisionPasses": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "canCollideWithBloons": true,
+              "radius": 1.0,
+              "vsBlockerRadius": 0.0,
+              "hasDamageModifiers": false,
+              "dontUseCollisionChecker": false,
+              "checkCollisionInterval": 0.1,
+              "checkCollisionIntervalFrames": 0,
+              "ignoreNonTargetable": false,
+              "ignorePierceExhaustion": false,
+              "saveId": "",
+              "displayModel": {
+                "$type": "Il2CppAssets.Scripts.Models.GenericBehaviors.DisplayModel, Assembly-CSharp",
+                "display": {
+                  "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                  "guidRef": "",
+                  "AssetGUID": ""
+                },
+                "layer": 0,
+                "positionOffset": {
+                  "$type": "Il2CppAssets.Scripts.Simulation.SMath.Vector3, Assembly-CSharp",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "MagnitudeSquared": 0.0,
+                  "Magnitude": 0.0,
+                  "Rotation": 0.0,
+                  "SimToDispRotation": 180.0
+                },
+                "scale": 0.0,
+                "ignoreRotation": false,
+                "animationChanges": [],
+                "delayedReveal": 0.0,
+                "category": 0,
+                "isAnimationPaused": false,
+                "name": ""
+              },
+              "cantCreateSubProjectiles": false,
+              "CappedPierce": 2.0,
+              "name": ""
+            },
+            "emissionModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.ArcEmissionModel, Assembly-CSharp",
+              "angle": 360.0,
+              "offsetStart": 0.0,
+              "offset": 0.0,
+              "useProjectileRotation": false,
+              "useAirUnitRotation": false,
+              "SliceSize": 0.0,
+              "Count": 5,
+              "sliceSize": 0.0,
+              "count": 5,
+              "behaviors": [],
+              "name": ""
+            },
+            "effectModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp",
+              "assetId": {
+                "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                "guidRef": "",
+                "AssetGUID": ""
+              },
+              "scale": 0.0,
+              "lifespan": 0.0,
+              "fullscreen": 0,
+              "useCenterPosition": false,
+              "useTransformPosition": false,
+              "useTransfromRotation": false,
+              "destroyOnTransformDestroy": false,
+              "alwaysUseAge": false,
+              "useRoundTime": false,
+              "name": ""
+            },
+            "onlyCreateIfScriptsExists": [],
+            "dontCreateIfScriptsExist": [
+              "AgeRandomModel"
+            ],
+            "useTowerPosition": false,
+            "useChance": true,
+            "chance": 0.2,
+            "cooldown": 0.0,
+            "sound": {
+              "$type": "Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp",
+              "assetId": {
+                "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common",
+                "guidRef": "",
+                "AssetGUID": ""
+              },
+              "name": ""
+            },
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [
+          "AgeRandomModel"
+        ],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [
+          "BombShooter",
+          "MortarMonkey",
+          "IceMonkey",
+          "GlueGunner",
+          "BananaFarm"
+        ],
+        "inverseTowerTypes": false,
+        "towerSets": [],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [
+          3,
+          3,
+          3
+        ],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 0,
+    "baseId": "FishNova",
+    "nameLocKey": "FishNovaX",
+    "descriptionLocKey": "FishNovaXDescription",
+    "descriptionParams": [
+      "1",
+      "2"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "355e141d51ad044909e4cf7b94f1a891",
+      "AssetGUID": "355e141d51ad044909e4cf7b94f1a891"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "FishNova1",
+    "ArtifactPower": 3,
+    "name": "FishNova1"
+  },
+  "name": "FishNova1",
+  "hideFlags": 0
+}

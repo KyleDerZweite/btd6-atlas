@@ -1,0 +1,47 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+  "mapArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddBanAmountBehaviorModel, Assembly-CSharp",
+        "addedBanAmounts": 4,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RemoveArtifactIfNoTowerBanAmountBehaviorModel, Assembly-CSharp",
+        "artifactModelName": "NoMorePlease2",
+        "legendsDataProvider": null,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "NoMorePlease",
+    "nameLocKey": "NoMorePleaseX",
+    "descriptionLocKey": "NoMorePleaseXDescription",
+    "descriptionParams": [
+      "4"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "4234cb93630486541955767e709cc620",
+      "AssetGUID": "4234cb93630486541955767e709cc620"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "NoMorePlease2",
+    "ArtifactPower": 9,
+    "name": "NoMorePlease2"
+  },
+  "name": "NoMorePlease2",
+  "hideFlags": 0
+}

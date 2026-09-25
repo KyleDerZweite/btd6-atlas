@@ -1,0 +1,50 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+  "mapArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueBoostBehaviorModel, Assembly-CSharp",
+        "tower": {
+          "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+          "baseId": "CaveMonkey",
+          "tiers": [],
+          "currentCooldown": 0,
+          "lootType": 0,
+          "uniqueId": 0,
+          "isFree": false
+        },
+        "amountToAdd": 2,
+        "name": ""
+      }
+    ],
+    "tier": 1,
+    "baseId": "CarryABigStick",
+    "nameLocKey": "CarryABigStickX",
+    "descriptionLocKey": "CarryABigStickXDescription",
+    "descriptionParams": [
+      "2"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "66d4d599d11684951ab09818b505c524",
+      "AssetGUID": "66d4d599d11684951ab09818b505c524"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "CarryABigStick2",
+    "ArtifactPower": 6,
+    "name": "CarryABigStick2"
+  },
+  "name": "CarryABigStick2",
+  "hideFlags": 0
+}

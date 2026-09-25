@@ -1,0 +1,41 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+  "mapArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRewardChoiceBehaviorModel, Assembly-CSharp",
+        "choiceAdditionAmount": 2,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "AbundantChoices",
+    "nameLocKey": "AbundantChoicesX",
+    "descriptionLocKey": "AbundantChoicesXDescription",
+    "descriptionParams": [
+      "2"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "de40dc3f131dead4b8e997672b89d738",
+      "AssetGUID": "de40dc3f131dead4b8e997672b89d738"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "AbundantChoices2",
+    "ArtifactPower": 9,
+    "name": "AbundantChoices2"
+  },
+  "name": "AbundantChoices2",
+  "hideFlags": 0
+}

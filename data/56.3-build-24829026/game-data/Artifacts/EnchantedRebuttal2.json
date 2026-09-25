@@ -1,0 +1,78 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "",
+      "tiers": [],
+      "currentCooldown": 0,
+      "lootType": 0,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.PushBackModel, Assembly-CSharp",
+            "pushAmount": 3.0,
+            "tag": "",
+            "multiplierMOAB": 0.0,
+            "multiplierBFB": 0.0,
+            "multiplierDDT": 0.0,
+            "multiplierZOMG": 0.0,
+            "onlyIfDamaged": true,
+            "collisionPass": 0,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [],
+        "inverseTowerTypes": false,
+        "towerSets": [
+          4
+        ],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 1,
+    "baseId": "EnchantedRebuttal",
+    "nameLocKey": "EnchantedRebuttal2",
+    "descriptionLocKey": "EnchantedRebuttal2Description",
+    "descriptionParams": [],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "57569ca18a25b45efb706de32df6cb82",
+      "AssetGUID": "57569ca18a25b45efb706de32df6cb82"
+    },
+    "rarityFrameType": "Magic",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "EnchantedRebuttal2",
+    "ArtifactPower": 6,
+    "name": "EnchantedRebuttal2"
+  },
+  "name": "EnchantedRebuttal2",
+  "hideFlags": 0
+}

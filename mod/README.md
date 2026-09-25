@@ -30,7 +30,9 @@ Two buttons, in Mods menu → BTD6 Atlas exporter settings:
    beforehand for the static tower/enemy/round catalog.
 2. **Export All Maps (auto)** walks every map through the normal game loader
    (Easy Sandbox) and exports each. Press once to arm, press again within
-   60 seconds to confirm. Takes a long time; do not touch the game while it runs.
+   60 seconds to confirm, then close Mod settings so the game sits on a
+   clean main menu with no popups open (you have 5 minutes for that part). Takes a long time; do not touch
+   the game while it runs.
    Any fault stops the run (restart BTD6 to retry); completed maps are kept.
    Start from the main menu with all popups dismissed.
 

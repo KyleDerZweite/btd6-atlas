@@ -1,0 +1,50 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+  "mapArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueBoostBehaviorModel, Assembly-CSharp",
+        "tower": {
+          "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+          "baseId": "BattleCat",
+          "tiers": [],
+          "currentCooldown": 0,
+          "lootType": 0,
+          "uniqueId": 0,
+          "isFree": false
+        },
+        "amountToAdd": 2,
+        "name": ""
+      }
+    ],
+    "tier": 1,
+    "baseId": "BattleCat",
+    "nameLocKey": "BattleCatX",
+    "descriptionLocKey": "BattleCatXDescription",
+    "descriptionParams": [
+      "2"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "8cbf476445cc84f5bb5a2936ad089f5d",
+      "AssetGUID": "8cbf476445cc84f5bb5a2936ad089f5d"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "BattleCat2",
+    "ArtifactPower": 6,
+    "name": "BattleCat2"
+  },
+  "name": "BattleCat2",
+  "hideFlags": 0
+}

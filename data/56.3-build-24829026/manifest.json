@@ -1,0 +1,44 @@
+{
+  "gameVersion": "56.3",
+  "steamBuildId": "24829026",
+  "captureDateUtc": "2026-09-25",
+  "modHelperVersion": "3.6.8",
+  "atlasExporterVersion": "0.2.1",
+  "captureMethod": "Mod Helper Export Game Data button, in-game; Proton prefix C:/users/steamuser/AppData/LocalLow/Ninja Kiwi/BloonsTD6 copied to data dir on Linux host",
+  "sourcePaths": {
+    "protonPrefix": "~/.var/app/com.valvesoftware.Steam/data/Steam/steamapps/compatdata/960090/pfx/drive_c/users/steamuser/AppData/LocalLow/Ninja Kiwi/BloonsTD6",
+    "linuxGameDir": "~/.var/app/com.valvesoftware.Steam/data/Steam/steamapps/common/BloonsTD6 (bind-identical to .local/share/Steam path behind S: drive)"
+  },
+  "atlasStatus": "COMPLETED: 89 atlas-*.json in atlas-maps/, run completed without faults. Skipped BaseEditorMap (editor template, wedges loader) and Tutorial (forced onboarding popup). See MelonLoader log 2026-09-25 18:21-18:55.",
+  "atlasFiles": 89,
+  "atlasSkipped": ["BaseEditorMap"],
+  "categories": {
+    "Achievements": 162,
+    "Artifacts": 571,
+    "BloonOverlays": 58,
+    "Bloons": 235,
+    "Bosses": 7,
+    "Buffs": 98,
+    "GeraldoItems": 16,
+    "IncomeSets": 7,
+    "Knowledge": 134,
+    "Maps": 90,
+    "Mods": 22,
+    "Powers": 28,
+    "Rounds": 5181,
+    "Skins": 52,
+    "Towers": 2167,
+    "TrophyStoreItems": 432,
+    "Upgrades": 790
+  },
+  "topLevelSha256": {
+    "frontierData.json": "5efe7ba4d243299319806e701fea75dda66d29eb98e1af4c0406576406864557",
+    "paragonDegreeData.json": "142530995fee70d1a907e3d420000d214bd51ecae59a9ff4c3bb66db7958644a",
+    "resources.json": "4e9ae2fb13f176313d8119c9935743fe4d0e310bd14f2a29ec5c1ab867817048",
+    "rogueData.json": "c62a6e920f3e8338e7d99ea1ae89bcc4efce00e8c3d1053b8c54a1c9ae2cbc97",
+    "textTable.json": "94cc4f37aeb6aebf53789017331f031c7ad860506ec52c5912aa1abdf5fc8271"
+  },
+  "acceptedBy": "",
+  "knownPartials": "none declared for static export; atlas spatial layer absent (auto run failed)",
+  "totalFiles": 10055
+}

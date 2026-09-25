@@ -1,0 +1,56 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "BombShooter",
+      "tiers": [
+        0,
+        0,
+        4
+      ],
+      "currentCooldown": 0,
+      "lootType": 1,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CatsMeowBehaviorModel, Assembly-CSharp",
+        "maxLives": 9,
+        "livesRecovery": 9,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "CatsMeow",
+    "nameLocKey": "CatsMeowX",
+    "descriptionLocKey": "CatsMeowXDescription",
+    "descriptionParams": [
+      "9",
+      "0-0-4"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "45cc34b064b964c679f3fa88de81c2e3",
+      "AssetGUID": "45cc34b064b964c679f3fa88de81c2e3"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "CatsMeow2",
+    "ArtifactPower": 9,
+    "name": "CatsMeow2"
+  },
+  "name": "CatsMeow2",
+  "hideFlags": 0
+}

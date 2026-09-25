@@ -1,0 +1,63 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.BoostArtifactData, Assembly-CSharp",
+  "boostArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+    "towerTypes": [],
+    "inverseTowerTypes": false,
+    "towerSets": [
+      8
+    ],
+    "towerSet": 0,
+    "ignoreSubTowers": false,
+    "inverseSets": false,
+    "tiers": [],
+    "tiersMustBeEqual": false,
+    "inverseTiers": false,
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CooldownBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 1.07,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RateBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 0.93,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSpeedBoostBehaviorModel, Assembly-CSharp",
+        "multiplier": 0.2,
+        "name": ""
+      }
+    ],
+    "tier": 0,
+    "baseId": "SupportQuickening",
+    "nameLocKey": "BoostArtifactSupportQuickeningX",
+    "descriptionLocKey": "BoostArtifactSupportQuickeningXDescription",
+    "descriptionParams": [
+      "7",
+      "20"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "1a5ee5749554241ff8a2010af984d118",
+      "AssetGUID": "1a5ee5749554241ff8a2010af984d118"
+    },
+    "rarityFrameType": "Support",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": true,
+    "ArtifactName": "BoostArtifactSupportQuickening1",
+    "ArtifactPower": 3,
+    "name": "BoostArtifactSupportQuickening1"
+  },
+  "name": "BoostArtifactSupportQuickening1",
+  "hideFlags": 0
+}

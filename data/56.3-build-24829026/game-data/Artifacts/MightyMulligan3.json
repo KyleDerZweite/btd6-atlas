@@ -1,0 +1,47 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+  "mapArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddEndOfRoundRerollBehaviorModel, Assembly-CSharp",
+        "addedRerolls": 10,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RemoveArtifactAfterEndOfGameRerollBehaviorModel, Assembly-CSharp",
+        "artifactModelName": "MightyMulligan3",
+        "legendsDataProvider": null,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "MightyMulligan",
+    "nameLocKey": "MightyMulliganX",
+    "descriptionLocKey": "MightyMulliganXDescription",
+    "descriptionParams": [
+      "10"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "0da7fce12fc7f3a48ba102608257e410",
+      "AssetGUID": "0da7fce12fc7f3a48ba102608257e410"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "MightyMulligan3",
+    "ArtifactPower": 9,
+    "name": "MightyMulligan3"
+  },
+  "name": "MightyMulligan3",
+  "hideFlags": 0
+}

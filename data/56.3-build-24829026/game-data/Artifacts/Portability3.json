@@ -1,0 +1,64 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+  "mapArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueBoostBehaviorModel, Assembly-CSharp",
+        "tower": {
+          "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+          "baseId": "PortableLake",
+          "tiers": [],
+          "currentCooldown": 0,
+          "lootType": 0,
+          "uniqueId": 0,
+          "isFree": false
+        },
+        "amountToAdd": 3,
+        "name": ""
+      },
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueBoostBehaviorModel, Assembly-CSharp",
+        "tower": {
+          "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+          "baseId": "Pontoon",
+          "tiers": [],
+          "currentCooldown": 0,
+          "lootType": 0,
+          "uniqueId": 0,
+          "isFree": false
+        },
+        "amountToAdd": 3,
+        "name": ""
+      }
+    ],
+    "tier": 2,
+    "baseId": "Portability",
+    "nameLocKey": "PortabilityX",
+    "descriptionLocKey": "PortabilityXDescription",
+    "descriptionParams": [
+      "3"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "bcf7a7fcff7ea40a59066425f7aa96a3",
+      "AssetGUID": "bcf7a7fcff7ea40a59066425f7aa96a3"
+    },
+    "rarityFrameType": "AllMonkeyTowerSets",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "Portability3",
+    "ArtifactPower": 9,
+    "name": "Portability3"
+  },
+  "name": "Portability3",
+  "hideFlags": 0
+}

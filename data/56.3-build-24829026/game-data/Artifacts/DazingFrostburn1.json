@@ -1,0 +1,194 @@
+{
+  "$type": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+  "itemArtifactModel": {
+    "$type": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+    "instaTowerToGive": {
+      "$type": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "baseId": "IceMonkey",
+      "tiers": [
+        1,
+        0,
+        1
+      ],
+      "currentCooldown": 0,
+      "lootType": 1,
+      "uniqueId": 0,
+      "isFree": false
+    },
+    "artifactBehaviors": [
+      {
+        "$type": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+        "behaviorModels": [
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.SlowModel, Assembly-CSharp",
+            "effectModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp",
+              "assetId": {
+                "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                "guidRef": "",
+                "AssetGUID": ""
+              },
+              "scale": 0.0,
+              "lifespan": 0.0,
+              "fullscreen": 0,
+              "useCenterPosition": false,
+              "useTransformPosition": false,
+              "useTransfromRotation": false,
+              "destroyOnTransformDestroy": false,
+              "alwaysUseAge": false,
+              "useRoundTime": false,
+              "name": ""
+            },
+            "layers": 9,
+            "overlayLayer": 0,
+            "glueLevel": 0,
+            "isUnique": true,
+            "dontRefreshDuration": false,
+            "cascadeMutators": false,
+            "removeMutatorIfNotMatching": false,
+            "matchLayersWithDamage": true,
+            "mutationId": "Stun:Weak",
+            "countGlueAchievement": false,
+            "lifespan": 2.0,
+            "lifespanFrames": 0,
+            "multiplier": 0.0,
+            "chance": 0.0,
+            "dontRemoveOnBloonDegrade": false,
+            "Lifespan": 2.0,
+            "Multiplier": 0.0,
+            "overlayType": "Stun",
+            "collisionPass": 0,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.AddBehaviorToBloonModel, Assembly-CSharp",
+            "mutationId": "Dot:Fire",
+            "layers": 9999999,
+            "lifespan": 5.1,
+            "lifespanFrames": 0,
+            "filter": null,
+            "filters": [],
+            "behaviors": [
+              {
+                "$type": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageOverTimeCustomModel, Assembly-CSharp",
+                "bloonTagsList": [],
+                "multiplier": 0.0,
+                "additive": 0.0,
+                "damage": 2.0,
+                "payloadCount": 0,
+                "immuneBloonProperties": 8,
+                "immuneBloonPropertiesOriginal": 8,
+                "interval": 1.5,
+                "intervalFrames": 0,
+                "displayPath": {
+                  "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+                  "guidRef": "",
+                  "AssetGUID": ""
+                },
+                "displayLifetime": 10.1,
+                "triggerImmediate": false,
+                "rotateEffectWithBloon": false,
+                "initialDelay": 0.0,
+                "initialDelayFrames": 0,
+                "damageOnDestroy": false,
+                "overrideDistributionBlocker": false,
+                "distributeToChildren": true,
+                "damageModifierModels": [],
+                "isFireBased": false,
+                "Interval": 1.5,
+                "name": ""
+              }
+            ],
+            "isUnique": true,
+            "lastAppliesFirst": false,
+            "collideThisFrame": true,
+            "cascadeMutators": true,
+            "glueLevel": 0,
+            "applyOnlyIfDamaged": false,
+            "stackCount": 0,
+            "dontCopy": false,
+            "parentDamageModel": {
+              "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModel, Assembly-CSharp",
+              "damage": 0.0,
+              "maxDamage": 0.0,
+              "distributeToChildren": false,
+              "overrideDistributeBlocker": false,
+              "createPopEffect": false,
+              "immuneBloonProperties": 0,
+              "immuneBloonPropertiesOriginal": 0,
+              "ignoreImmunityDestroy": false,
+              "ignoreDamageMultipliers": false,
+              "CappedDamage": 0.0,
+              "collisionPass": 0,
+              "name": ""
+            },
+            "chance": 0.0,
+            "dontRemoveOnBloonDegrade": false,
+            "overlayType": "Fire",
+            "collisionPass": 1,
+            "name": ""
+          },
+          {
+            "$type": "Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.SlowModifierForTagModel, Assembly-CSharp",
+            "tag": "Moabs",
+            "slowId": "",
+            "slowMultiplier": 1.0,
+            "resetToUnmodified": true,
+            "preventMutation": false,
+            "lifespanOverride": 0.0,
+            "makeNotTag": false,
+            "collisionPass": 0,
+            "name": ""
+          }
+        ],
+        "addOnlyIfScriptsExists": [],
+        "dontAddIfScriptsExists": [],
+        "replaceScriptNames": [],
+        "replaceScriptIds": [],
+        "towerTypes": [
+          "IceMonkey"
+        ],
+        "inverseTowerTypes": false,
+        "towerSets": [],
+        "towerSet": 0,
+        "inverseSets": false,
+        "tiers": [],
+        "tiersMustBeEqual": false,
+        "inverseTiers": false,
+        "ignoreSubTowers": false,
+        "ignorePowerTowers": false,
+        "modelNameToAddTo": "",
+        "name": ""
+      }
+    ],
+    "tier": 0,
+    "baseId": "DazingFrostburn",
+    "nameLocKey": "DazingFrostburnX",
+    "descriptionLocKey": "DazingFrostburnXDescription",
+    "descriptionParams": [
+      "2",
+      "1-0-1"
+    ],
+    "monkeyKnowledgeModModels": {
+      "$type": "Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp",
+      "mutatorMods": [],
+      "name": ""
+    },
+    "isBossArtifact": false,
+    "isSheriffArtifact": false,
+    "icon": {
+      "$type": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "guidRef": "efe2156604b084011a85b21b02b4659f",
+      "AssetGUID": "efe2156604b084011a85b21b02b4659f"
+    },
+    "rarityFrameType": "Primary",
+    "merchantCostMultiplier": 0,
+    "isQuestArtifact": false,
+    "IsBoost": false,
+    "ArtifactName": "DazingFrostburn1",
+    "ArtifactPower": 3,
+    "name": "DazingFrostburn1"
+  },
+  "name": "DazingFrostburn1",
+  "hideFlags": 0
+}

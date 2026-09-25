@@ -8,10 +8,10 @@ Layout per patch:
 
 ```
 data/<game-version>-build-<steam-build>/
-  atlas-<map>-<timestamp>.json   accepted map captures (from the mod)
-  game-data/                     matching Mod Helper Export Game Data output
-  manifest.json                  exporter/mod-helper versions, method, SHA-256s,
-                                 accepted-by, known partials
+  atlas-maps/                  accepted map captures (from the mod)
+  game-data/                   matching Mod Helper Export Game Data output
+  manifest.json                exporter/mod-helper versions, method, SHA-256s,
+                               accepted-by, known partials
 ```
 
 Workflow: install the mod (`../mod/README.md`), run the base export, run the atlas
