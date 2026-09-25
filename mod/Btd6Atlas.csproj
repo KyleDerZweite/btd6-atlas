@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Btd6Atlas</AssemblyName>
+    <RootNamespace>Btd6Atlas</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>10</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>embedded</DebugType>
+    <Version>0.1.0</Version>
+    <Btd6GameDir Condition="'$(Btd6GameDir)' == ''">$(BTD6_GAME_DIR)</Btd6GameDir>
+    <Il2CppDir>$(Btd6GameDir)/MelonLoader/Il2CppAssemblies</Il2CppDir>
+    <MelonDir>$(Btd6GameDir)/MelonLoader/net6</MelonDir>
+    <ModHelperPath>$(Btd6GameDir)/Mods/Btd6ModHelper.dll</ModHelperPath>
+  </PropertyGroup>
+
+  <Target Name="ValidateBtd6GameDir" BeforeTargets="ResolveReferences">
+    <Error
+      Condition="!Exists('$(Btd6GameDir)/BloonsTD6.exe')"
+      Text="Set BTD6_GAME_DIR (or -p:Btd6GameDir=...) to the local BloonsTD6 installation." />
+    <Error
+      Condition="!Exists('$(ModHelperPath)')"
+      Text="Install the compatible BTD Mod Helper before building the atlas exporter." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="MelonLoader" HintPath="$(MelonDir)/MelonLoader.dll" Private="false" />
+    <Reference Include="Btd6ModHelper" HintPath="$(ModHelperPath)" Private="false" />
+    <Reference Include="Il2CppInterop.Runtime" HintPath="$(MelonDir)/Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="Assembly-CSharp" HintPath="$(Il2CppDir)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="Il2Cppmscorlib" HintPath="$(Il2CppDir)/Il2Cppmscorlib.dll" Private="false" />
+    <Reference Include="Il2CppSystem" HintPath="$(Il2CppDir)/Il2CppSystem.dll" Private="false" />
+    <Reference Include="Il2CppSystem.Core" HintPath="$(Il2CppDir)/Il2CppSystem.Core.dll" Private="false" />
+    <Reference Include="Il2CppNinjaKiwi.Common" HintPath="$(Il2CppDir)/Il2CppNinjaKiwi.Common.dll" Private="false" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(Il2CppDir)/UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="Unity.ResourceManager" HintPath="$(Il2CppDir)/Unity.ResourceManager.dll" Private="false" />
+  </ItemGroup>
+</Project>
