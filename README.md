@@ -15,8 +15,10 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 | Path | Meaning |
 |---|---|
 | `mod/` | The installable exporter mod (build + install: `mod/README.md`). |
-| `data/` | Accepted captures per patch (empty until first export). |
+| `data/` | Accepted captures per patch. |
 | `patterns/` | Our derived analyses (empty until first write-up). |
+| `profile/` | Reusable game-data reading contract and JSON Schema. |
+| `cmd/atlas-validate/` | Go integrity validator. |
 | `docs/` | Workflow plans for mod, data, patterns. |
 | `AGENTS.md` | Contributor rules for agents and humans. |
 
@@ -27,6 +29,11 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 3. Per map: load solo, pause, **Export Atlas Data**. Or arm **Export All Maps**
    at the main menu (press twice to confirm) and let it walk the catalog.
 4. Copy outputs into `data/<patch>/`, publish to GitHub.
+
+Build the data validator with `go build -o bin/atlas-validate ./cmd/atlas-validate`.
+Run `bin/atlas-validate --data data/56.3-build-24829026/game-data --profile profile`.
+See [the game profile](profile/README.md) for validation coverage and diagnostics.
+Add `--relations` to include resolved references and file backlinks in the JSON result.
 
 ## Attribution
 

@@ -6,9 +6,11 @@ Independent BTD6 fan project. Not affiliated with Ninja Kiwi.
 
 - `mod/`: the installable exporter (C#). Build with `dotnet build mod/Btd6Atlas.csproj`
   and `BTD6_GAME_DIR` set. First build on a new machine is the real test.
-- `data/`: accepted captures per game patch. Empty until the first export run.
+- `data/`: accepted captures per game patch.
 - `patterns/`: our derived analyses. First thing that goes public.
 - `docs/`: workflow plans. Keep them shorter than the code.
+- `profile/`: the reusable raw game-data contract and schema. Preserve raw field names and `$type`.
+- `cmd/atlas-validate/`: Go validator. Build with `go build -o bin/atlas-validate ./cmd/atlas-validate` and test with `go test ./...`.
 
 ## Rules
 

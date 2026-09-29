@@ -1,0 +1,644 @@
+{
+  "formatVersion": 1,
+  "game": "btd6",
+  "schemaFile": "schema.json",
+  "collections": [
+    {
+      "name": "Achievements",
+      "path": "Achievements",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "Artifacts",
+      "path": "Artifacts",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "BloonOverlays",
+      "path": "BloonOverlays",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "Bloons",
+      "path": "Bloons",
+      "idField": "name",
+      "schema": "bloon"
+    },
+    {
+      "name": "Bosses",
+      "path": "Bosses",
+      "idField": "@stem",
+      "schema": "model"
+    },
+    {
+      "name": "Buffs",
+      "path": "Buffs",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "GeraldoItems",
+      "path": "GeraldoItems",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "IncomeSets",
+      "path": "IncomeSets",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "Knowledge",
+      "path": "Knowledge",
+      "idField": "name",
+      "schema": "knowledge"
+    },
+    {
+      "name": "Maps",
+      "path": "Maps",
+      "idField": "id",
+      "schema": "map"
+    },
+    {
+      "name": "Mods",
+      "path": "Mods",
+      "idField": "name",
+      "schema": "mod"
+    },
+    {
+      "name": "Powers",
+      "path": "Powers",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "Rounds",
+      "path": "Rounds",
+      "idField": "@path",
+      "schema": "round"
+    },
+    {
+      "name": "Skins",
+      "path": "Skins",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "Towers",
+      "path": "Towers",
+      "idField": "name",
+      "schema": "tower"
+    },
+    {
+      "name": "TrophyStoreItems",
+      "path": "TrophyStoreItems",
+      "idField": "name",
+      "schema": "namedModel"
+    },
+    {
+      "name": "Upgrades",
+      "path": "Upgrades",
+      "idField": "name",
+      "schema": "upgrade"
+    },
+    {
+      "name": "text",
+      "path": "textTable.json",
+      "idField": "@keys",
+      "schema": "stringTable"
+    },
+    {
+      "name": "resources",
+      "path": "resources.json",
+      "idField": "@keys",
+      "schema": "stringTable"
+    },
+    {
+      "name": "roundSets",
+      "path": "Rounds",
+      "idField": "@parent",
+      "schema": "round"
+    },
+    {
+      "name": "towerFamilies",
+      "path": "Towers",
+      "idField": "@parent",
+      "schema": "tower"
+    },
+    {
+      "name": "bloonFamilies",
+      "path": "Bloons",
+      "idField": "@parent",
+      "schema": "bloon"
+    }
+  ],
+  "modelSchemas": {
+    "TowerModel": "tower",
+    "UpgradeModel": "upgrade",
+    "PowerProUpgradeModel": "upgrade",
+    "UpgradePathModel": "purchase",
+    "PowerProUpgradePathModel": "purchase",
+    "AttackModel": "attack",
+    "WeaponModel": "weapon",
+    "ProjectileModel": "projectile",
+    "DamageModel": "damage",
+    "AbilityModel": "ability",
+    "KnowledgeModel": "knowledge",
+    "ModModel": "mod",
+    "BloonModel": "bloon",
+    "BloonGroupModel": "bloonGroup",
+    "RoundModel": "round",
+    "MapDetails": "map"
+  },
+  "references": [
+    {
+      "models": [
+        "UpgradePathModel",
+        "PowerProUpgradePathModel"
+      ],
+      "field": "tower",
+      "target": "Towers"
+    },
+    {
+      "models": [
+        "UpgradePathModel",
+        "PowerProUpgradePathModel"
+      ],
+      "field": "upgrade",
+      "target": "Upgrades"
+    },
+    {
+      "models": [
+        "TowerModel"
+      ],
+      "field": "appliedUpgrades",
+      "target": "Upgrades"
+    },
+    {
+      "models": [
+        "ApplyModModel"
+      ],
+      "field": "mod",
+      "target": "Knowledge",
+      "externalSymbols": {
+        "AlchemistTouch": "Referenced in accepted capture 56.3, but no target record is exported in this collection.",
+        "DeepHeat": "Referenced in accepted capture 56.3, but no target record is exported in this collection.",
+        "Heartless": "Referenced in accepted capture 56.3, but no target record is exported in this collection.",
+        "RoyalTreatment": "Referenced in accepted capture 56.3, but no target record is exported in this collection.",
+        "Sharpsplosion": "Referenced in accepted capture 56.3, but no target record is exported in this collection."
+      }
+    },
+    {
+      "models": [
+        "KnowledgeModel"
+      ],
+      "field": "prerequisiteIds",
+      "target": "Knowledge"
+    },
+    {
+      "models": [
+        "AbilityModel"
+      ],
+      "field": "addedViaUpgrade",
+      "target": "Upgrades"
+    },
+    {
+      "models": [
+        "UpgradeCostModModel"
+      ],
+      "field": "upgradeName",
+      "target": "Upgrades"
+    },
+    {
+      "models": [
+        "DiscountZoneModel"
+      ],
+      "field": "upgradeId",
+      "target": "Upgrades"
+    },
+    {
+      "models": [
+        "BloonGroupModel"
+      ],
+      "field": "bloon",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "BloonModel"
+      ],
+      "field": "baseId",
+      "target": "bloonFamilies"
+    },
+    {
+      "models": [
+        "FilterOutBloonModel",
+        "DamageModifierForBloonTypeModel",
+        "MorphBloonModel",
+        "SetHealthForBloonModModel",
+        "BloonAssetChange"
+      ],
+      "field": "bloonId",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "DamageModifierForBloonTypeModel"
+      ],
+      "field": "bloonIds",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "DamageModifierForBloonStateAndTypeModel",
+        "ColdChainBuffModel"
+      ],
+      "field": "bloonTypes",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "BloonTagDamageOverrideModel",
+        "SlowForBloonModel"
+      ],
+      "field": "bloonIds",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "CreateGreatWhiteEffectModel"
+      ],
+      "field": "maxGrabBloonName",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "SpawnBloonsActionModel",
+        "LychTombstoneSpawnActionModel",
+        "SpawnBloonsUntilArmourBreaksActionModel"
+      ],
+      "field": "bloonType",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "SpawnTombstoneBloonsActionModel"
+      ],
+      "field": "bloonTypePerTombstoneTier",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "DiamondbackBehaviorModel"
+      ],
+      "field": "headSegmentBloonId",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "DiamondbackBehaviorModel"
+      ],
+      "field": "middleSegmentBloonId",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "DiamondbackBehaviorModel"
+      ],
+      "field": "tailSegmentBloonId",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "VigilanteTowerBehaviorModel"
+      ],
+      "field": "oneHealthHighestBloon",
+      "target": "Bloons"
+    },
+    {
+      "models": [
+        "GeraldoItemModel"
+      ],
+      "field": "towerId",
+      "target": "Towers"
+    },
+    {
+      "models": [
+        "GeraldoUpgradeTowerModel"
+      ],
+      "field": "towerId",
+      "target": "Towers"
+    },
+    {
+      "models": [
+        "GeraldoItemModel"
+      ],
+      "field": "blockPurchaseIfTowerPlaced",
+      "target": "Towers"
+    },
+    {
+      "models": [
+        "PetRabbitMergeModel"
+      ],
+      "field": "wererabbitTowerId",
+      "target": "Towers"
+    },
+    {
+      "models": [
+        "PrimordialWrathModel"
+      ],
+      "field": "treeSubtowerId",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "MonkeyCityModel",
+        "AddFreeTowerAfterRoundsModel",
+        "TowerAssetChange",
+        "Pet",
+        "Prop",
+        "DestroyChildTowersOnUpgradeModel"
+      ],
+      "field": "towerId",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "GeraldoChangeTowerBehaviorModel"
+      ],
+      "field": "resultingTowerName",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "GeraldoChangeTowerBehaviorModel"
+      ],
+      "field": "targetTowerBaseId",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "GeraldoChangeTowerBehaviorModel"
+      ],
+      "field": "upgradeBlockId",
+      "target": "GeraldoItems"
+    },
+    {
+      "models": [
+        "BoostArtifactModel",
+        "CountAllCategoriesBehaviorModel",
+        "AddProjectileBehaviorsArtifactModel",
+        "AddTowerBehaviorsArtifactModel",
+        "ProjectileCarouselBehaviorModel",
+        "FollowMeBehaviorModel",
+        "AbilityStackingBehaviorModel",
+        "AttackSpeedArtifactModel",
+        "AddDisplayArtifactModel",
+        "AddControlledZoneBehaviorsArtifactModel",
+        "DisableAttackArtifactModel"
+      ],
+      "field": "towerTypes",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "TraitArtifactModel"
+      ],
+      "field": "excludedTowerTypes",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "AddBehaviorToTowerTypeSupportModel"
+      ],
+      "field": "towerTypeIds",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "EmitFromSharedTowersModel"
+      ],
+      "field": "sharedTowerTypes",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "CashPerTowerInRangeModel"
+      ],
+      "field": "towerIds",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "DiscountZoneModel"
+      ],
+      "field": "towerBaseIdList",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "SubTowerFilterModel"
+      ],
+      "field": "baseSubTowerIds",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "TargetCloseSharedRangeModel",
+        "TargetFirstSharedRangeModel",
+        "TargetLastSharedRangeModel",
+        "TargetStrongSharedRangeModel"
+      ],
+      "field": "specificTowerType",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "TierFiveCountModModel"
+      ],
+      "field": "towerBaseId",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "FreeTowerModModel"
+      ],
+      "field": "baseTowerID",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "SkinData"
+      ],
+      "field": "baseTowerName",
+      "target": "towerFamilies"
+    },
+    {
+      "models": [
+        "TowerAssetChange"
+      ],
+      "field": "skinId",
+      "target": "Skins"
+    },
+    {
+      "models": [
+        "FilterInHeroSkinIdModel"
+      ],
+      "field": "skinIds",
+      "target": "Skins"
+    },
+    {
+      "models": [
+        "PowerAssetChange"
+      ],
+      "field": "powerId",
+      "target": "Powers"
+    },
+    {
+      "models": [
+        "MuatorModXpShopMod"
+      ],
+      "field": "modName",
+      "target": "Knowledge"
+    },
+    {
+      "models": [
+        "ItemArtifactModel",
+        "TraitArtifactModel",
+        "BoostArtifactModel",
+        "MapArtifactModel",
+        "FrontierMapArtifactModel",
+        "StaminaTraitArtifactModel",
+        "TraitData"
+      ],
+      "field": "ArtifactName",
+      "target": "Artifacts"
+    },
+    {
+      "models": [
+        "RemoveArtifactAfterEndOfGameRerollBehaviorModel",
+        "RemoveArtifactIfNoTowerBanAmountBehaviorModel"
+      ],
+      "field": "artifactModelName",
+      "target": "Artifacts"
+    },
+    {
+      "models": [
+        "EndOfRoundClearBypassModel"
+      ],
+      "field": "gameModesList",
+      "target": "Mods"
+    },
+    {
+      "models": [
+        "GeraldoItemModel"
+      ],
+      "field": "bannedForModesList",
+      "target": "Mods",
+      "externalSymbols": {
+        "BossRush": "Referenced in accepted capture 56.3, but no target record is exported in this collection."
+      }
+    },
+    {
+      "models": [
+        "RogueData"
+      ],
+      "field": "bannedBossMaps",
+      "target": "Maps",
+      "aliases": {
+        "ProtecttheYacht": "ProtectTheYacht"
+      }
+    },
+    {
+      "models": [
+        "RogueData"
+      ],
+      "field": "bannedBossRushMaps",
+      "target": "Maps",
+      "aliases": {
+        "ProtecttheYacht": "ProtectTheYacht"
+      }
+    }
+  ],
+  "reading": {
+    "typeDiscriminator": "$type",
+    "typeName": "Class name before the assembly suffix. Generic dictionaries remain containers.",
+    "towerIdentity": {
+      "family": "baseId",
+      "state": "name",
+      "tiers": "tiers"
+    },
+    "upgradeIdentity": "name, never a guessed filename",
+    "localization": {
+      "file": "textTable.json",
+      "upgradeName": "LocsKey",
+      "upgradeDescriptionSuffix": " Description",
+      "towerName": "baseId",
+      "towerDescriptionSuffix": " Description",
+      "requiredScope": "Ordinary three-path towers and their purchases. Hero progression uses different text conventions."
+    },
+    "costs": "TowerModel.cost is base placement cost. Sum applied upgrade costs for ordinary baseline investment. Difficulty and Knowledge remain conditional.",
+    "units": {
+      "WeaponModel.rate": {
+        "unit": "seconds",
+        "meaning": "seconds between attacks"
+      },
+      "AbilityModel.cooldown": {
+        "unit": "seconds",
+        "meaning": "seconds"
+      },
+      "MonkeyFanClubModel.lifespan": {
+        "unit": "seconds",
+        "meaning": "seconds"
+      },
+      "TravelStraitModel.speed": {
+        "unit": "gameUnitsPerSecond",
+        "meaning": "game units per second"
+      },
+      "TowerModel.range": {
+        "unit": "gameUnits",
+        "meaning": "game units"
+      },
+      "ProjectileModel.pierce": {
+        "unit": "pierceBudget",
+        "meaning": "pierce budget"
+      }
+    },
+    "towerSets": {
+      "1": "primary",
+      "2": "military",
+      "4": "magic",
+      "8": "support",
+      "16": "hero",
+      "32": "paragon",
+      "64": "power"
+    },
+    "immunityFlags": {
+      "1": "lead",
+      "2": "black",
+      "4": "white",
+      "8": "purple",
+      "16": "frozen",
+      "32": "immune",
+      "64": "glass"
+    },
+    "caches": "Zero derived frame values can be uninitialized. Do not replace source seconds with zero frame caches.",
+    "presentation": "Assets and display references are retained. They refer to game resources, not required JSON files.",
+    "scope": "Files receive JSON syntax and root structure checks. Declared collections and model types receive schemas; declared typed references resolve recursively. No capture version, file count, or filename inventory is required.",
+    "costFields": {
+      "placement": "TowerModel.cost",
+      "appliedUpgradeIds": "TowerModel.appliedUpgrades",
+      "upgradePrice": "UpgradeModel.cost",
+      "upgradeUnlockXp": "UpgradeModel.xpCost",
+      "difficultyCollection": "Mods",
+      "knowledgeCollection": "Knowledge"
+    }
+  },
+  "requiredFiles": [
+    "textTable.json"
+  ]
+}

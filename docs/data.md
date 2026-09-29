@@ -5,9 +5,11 @@ current version ourselves: full exports as actually used. Upstream (Mod Helper
 data, Cyber Quincy costs) lags behind the live patch, so it is a cross-check,
 not the source of truth.
 
-Planned layout per patch (simplified snapshot scheme):
+Layout per patch:
 
-- `data/<game-version>/towers/`, `upgrades/`, `maps/`, `rounds/`: accepted exports plus SHA-256 manifest.
+- `data/<game-version>-build-<steam-build>/game-data/`: accepted Mod Helper exports.
+- `data/<game-version>-build-<steam-build>/atlas-maps/`: accepted Atlas map captures.
 - One `manifest.json` per patch: exporter version, capture method, accepted-by, known partials.
 
-Policy (decide before first publish): raw exports stay local until the data policy is settled; what goes public first is derivations in `../patterns/`, never full verbatim exports.
+Read and validate `game-data/` through [the reusable profile](../profile/README.md).
+The validator checks declared schemas and references. Capture versions, counts, and provenance remain in the manifest.

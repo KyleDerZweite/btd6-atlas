@@ -10,7 +10,6 @@ Layout per patch:
 data/<game-version>-build-<steam-build>/
   atlas-maps/                  accepted map captures (from the mod)
   game-data/                   matching Mod Helper Export Game Data output
-  gameplay-towers/             derived ordinary Tower gameplay JSON
   manifest.json                exporter/mod-helper versions, method, SHA-256s,
                                accepted-by, known partials
 ```
@@ -18,6 +17,8 @@ data/<game-version>-build-<steam-build>/
 Workflow: install the mod (`../mod/README.md`), run the base export, run the atlas
 export per map, copy the files here, record them in PROVENANCE.md, then publish.
 
-Generate gameplay Tower files with `python3 scripts/export-gameplay-towers.py` from the repository root.
-The converter reads the latest committed capture and processes every family; `--tower DartMonkey` selects one family for inspection.
-See [the format and workflow](../docs/gameplay-towers.md).
+Read the raw files through [the game profile](../profile/README.md).
+Build the validator with `go build -o bin/atlas-validate ./cmd/atlas-validate`.
+Run `bin/atlas-validate --data data/56.3-build-24829026/game-data --profile profile` from the repository root.
+The validator reports structural and reference errors without rewriting the capture.
+It discovers files and identities dynamically; different versions and collection sizes do not require an inventory update.
