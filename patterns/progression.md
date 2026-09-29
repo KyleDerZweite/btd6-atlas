@@ -3,7 +3,7 @@
 Purchase structure distilled from the full tower capture. Earlier web
 research (September 2026, 26 towers) proposed most of these claims; every
 number below was rechecked against all 26 standard towers, 18 heroes and
-78 upgrade paths in this patch. See `towers.json` for the tables.
+78 upgrade paths in this patch. See `../data/56.3-build-24829026/towers.json` for the tables.
 
 ## Tier roles
 

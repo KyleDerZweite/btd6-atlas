@@ -136,7 +136,7 @@ def main():
         patch = manifest.get("gameVersion", patch_dir.name)
     except Exception:
         patch = patch_dir.name
-    out_path = ROOT / "patterns" / "towers.json"
+    out_path = patch_dir / "towers.json"
 
     costs = upg_costs(upgrades_dir)
     entities = []

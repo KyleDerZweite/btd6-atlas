@@ -9,9 +9,13 @@
     "protonPrefix": "~/.var/app/com.valvesoftware.Steam/data/Steam/steamapps/compatdata/960090/pfx/drive_c/users/steamuser/AppData/LocalLow/Ninja Kiwi/BloonsTD6",
     "linuxGameDir": "~/.var/app/com.valvesoftware.Steam/data/Steam/steamapps/common/BloonsTD6 (bind-identical to .local/share/Steam path behind S: drive)"
   },
-  "atlasStatus": "COMPLETED: 89 atlas-*.json in atlas-maps/, run completed without faults. Skipped BaseEditorMap (editor template, wedges loader) and Tutorial (forced onboarding popup). See MelonLoader log 2026-09-25 18:21-18:55.",
+  "atlasStatus": "COMPLETED: 89 atlas-*.json in atlas-maps/. First run faulted once on the Tutorial dialog; resume run with dialog hiding completed without faults. Skipped BaseEditorMap (editor template, wedges loader). See MelonLoader log 2026-09-25 18:21-19:54.",
   "atlasFiles": 89,
   "atlasSkipped": ["BaseEditorMap"],
+  "derivedSha256": {
+    "towers.json": "7d59fbe9a049a8710e5b1a2ce7e82120efd57914cdfd670653dd7313058e9101",
+    "maps.json": "c988116e56ac5dbc5dfea8e369c5b8aefe48b7e637d6365d9dac9d33f92a212b"
+  },
   "categories": {
     "Achievements": 162,
     "Artifacts": 571,
@@ -39,6 +43,6 @@
     "textTable.json": "94cc4f37aeb6aebf53789017331f031c7ad860506ec52c5912aa1abdf5fc8271"
   },
   "acceptedBy": "",
-  "knownPartials": "none declared for static export; atlas spatial layer absent (auto run failed)",
+  "knownPartials": "static export complete; atlas geometry declares per file unsupported items (splitter topology, coop layouts, map events, circle approximation)",
   "totalFiles": 10055
 }

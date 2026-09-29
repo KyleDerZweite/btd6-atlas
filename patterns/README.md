@@ -8,11 +8,12 @@ Current patch: 56.3 (also recorded inside each JSON).
 Files keep stable names across patches; only the content and the patch note
 change:
 
-- `towers.json` (generated) and `towers.md`: roster, tiers, costs.
-- `maps.json` (generated) and `maps.md`: geometry by difficulty.
+- `towers.md`: roster, tiers, costs (tables in `../data/<patch>/towers.json`).
+- `maps.md`: geometry by difficulty (tables in `../data/<patch>/maps.json`).
 - `progression.md`: purchase structure.
 
-Regenerate the JSON after a new capture, then review and update the markdown:
+Regenerate the JSON into the capture dir after a new export, then review and
+update the markdown:
 
 ```sh
 uv run scripts/analyze-towers.py [data/<patch-dir>]

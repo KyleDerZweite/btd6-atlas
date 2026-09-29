@@ -2,7 +2,7 @@
 
 Derived from `data/56.3-build-24829026/atlas-maps` (89 maps) joined with the
 static difficulty in `game-data/Maps`. Lengths are game units measured along
-exported route polylines. Full per map tables are in `maps.json`.
+exported route polylines. Full per map tables are in `../data/56.3-build-24829026/maps.json`.
 
 ## Difficulty comes from track structure, not canvas size
 

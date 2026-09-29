@@ -2,7 +2,7 @@
 
 Derived from `data/56.3-build-24829026/game-data/Towers` (94 entities, 2167
 files) and `game-data/Upgrades` (790 tier records). Full per entity tables are
-in `towers.json`. Amounts are Medium list prices unless noted.
+in `../data/56.3-build-24829026/towers.json`. Amounts are Medium list prices unless noted.
 
 ## Roster shape
 
