@@ -22,10 +22,10 @@ func TestInvalidProfileDocuments(t *testing.T) {
 		{"unknown identity selector", "collections.json", "unknown identity selector", func(p map[string]any) { p["collections"].([]any)[0].(map[string]any)["idField"] = "@unknown" }},
 		{"missing collection schema", "collections.json", "missing.schema.json", func(p map[string]any) { p["collections"].([]any)[0].(map[string]any)["schema"] = "missing.schema.json" }},
 		{"missing schema definition", "collections.json", "", func(p map[string]any) {
-			p["collections"].([]any)[0].(map[string]any)["schema"] = "model.schema.json#/$defs/missing"
+			p["collections"].([]any)[0].(map[string]any)["schema"] = "schemas/game-data/model.schema.json#/$defs/missing"
 		}},
 		{"invalid scope collection", "collections.json", "unknown collection", func(p map[string]any) {
-			p["scopes"] = []any{map[string]any{"name": "ordinary", "collection": "missing", "rootSchema": "model.schema.json", "memberSchema": "model.schema.json", "edgesField": "upgrades", "targetField": "tower"}}
+			p["scopes"] = []any{map[string]any{"name": "ordinary", "collection": "missing", "rootSchema": "schemas/game-data/model.schema.json", "memberSchema": "schemas/game-data/model.schema.json", "edgesField": "upgrades", "targetField": "tower"}}
 		}},
 		{"unknown reference collection", "references.json", "unknown reference target", func(p map[string]any) { p["references"].([]any)[0].(map[string]any)["target"] = "missing" }},
 		{"unexplained external symbol", "references.json", "", func(p map[string]any) {
@@ -60,7 +60,7 @@ func TestSplitSchemaResolution(t *testing.T) {
 	data, profileDir := fixture(t)
 	// Collection schemas may resolve a fragment through another local file.
 	writeFixture(t, profileDir, "fixture/entry.schema.json", map[string]any{"$ref": "defs.schema.json#/$defs/thing"})
-	writeFixture(t, profileDir, "fixture/defs.schema.json", map[string]any{"$defs": map[string]any{"thing": map[string]any{"allOf": []any{map[string]any{"$ref": "../model.schema.json#/$defs/namedModel"}, map[string]any{"properties": map[string]any{"name": map[string]any{"enum": []string{"a", "b"}}}}}}}})
+	writeFixture(t, profileDir, "fixture/defs.schema.json", map[string]any{"$defs": map[string]any{"thing": map[string]any{"allOf": []any{map[string]any{"$ref": "../schemas/game-data/model.schema.json#/$defs/namedModel"}, map[string]any{"properties": map[string]any{"name": map[string]any{"enum": []string{"a", "b"}}}}}}}})
 	editDocument(t, profileDir, "collections.json", func(p map[string]any) {
 		p["collections"].([]any)[0].(map[string]any)["schema"] = "fixture/entry.schema.json"
 	})
@@ -76,11 +76,11 @@ func TestSplitSchemaResolution(t *testing.T) {
 }
 
 func TestProfileDependenciesStayLocal(t *testing.T) {
-	for _, ref := range []string{"https://example.invalid/schema.json", "../outside.schema.json", "file:///tmp/outside.schema.json"} {
+	for _, ref := range []string{"https://example.invalid/schema.json", "../../../outside.schema.json", "file:///tmp/outside.schema.json"} {
 		t.Run(ref, func(t *testing.T) {
 			_, profileDir := fixture(t)
 			writeFixture(t, filepath.Dir(profileDir), "outside.schema.json", map[string]any{"type": "object"})
-			writeFixture(t, profileDir, "weapon.schema.json", map[string]any{"$ref": ref})
+			writeFixture(t, profileDir, "schemas/game-data/weapon.schema.json", map[string]any{"$ref": ref})
 			if _, _, err := loadProfile(profileDir); err == nil {
 				t.Fatal("Profile accepted an external dependency")
 			}
@@ -90,7 +90,7 @@ func TestProfileDependenciesStayLocal(t *testing.T) {
 		_, profileDir := fixture(t)
 		outside := filepath.Join(t.TempDir(), "external.json")
 		writeFixture(t, filepath.Dir(outside), filepath.Base(outside), map[string]any{"type": "object"})
-		path := filepath.Join(profileDir, "weapon.schema.json")
+		path := filepath.Join(profileDir, "schemas/game-data/weapon.schema.json")
 		if err := os.Remove(path); err != nil {
 			t.Fatal(err)
 		}
@@ -125,7 +125,7 @@ func TestProfileDigest(t *testing.T) {
 	if first.Identity != unused.Identity {
 		t.Fatal("unreferenced file altered dependency identity")
 	}
-	editDocument(t, secondDir, "model.schema.json", func(p map[string]any) { p["description"] = "Changed dependency content" })
+	editDocument(t, secondDir, "schemas/game-data/model.schema.json", func(p map[string]any) { p["description"] = "Changed dependency content" })
 	changed, _, err := loadProfile(secondDir)
 	if err != nil {
 		t.Fatal(err)
@@ -156,7 +156,7 @@ func TestMechanicProposalSchema(t *testing.T) {
 		t.Fatal("proposal with invalid mechanic accepted")
 	}
 	// Compiling the proposal also requires its transitive dependencies.
-	writeFixture(t, profileDir, "mechanic-proposal.schema.json", map[string]any{"$ref": "missing.schema.json"})
+	writeFixture(t, profileDir, "schemas/profile/mechanic-proposal.schema.json", map[string]any{"$ref": "missing.schema.json"})
 	if _, _, err := loadProfile(profileDir); err == nil {
 		t.Fatal("missing proposal dependency accepted")
 	}
@@ -181,7 +181,7 @@ func TestScopeMemberSchemaIsRequiredAndResolved(t *testing.T) {
 	for _, member := range []string{"", "missing.schema.json"} {
 		t.Run(member, func(t *testing.T) {
 			data, profileDir := fixture(t)
-			scope := map[string]any{"name": "ordinary", "collection": "things", "rootSchema": "model.schema.json", "edgesField": "buys", "targetField": "next"}
+			scope := map[string]any{"name": "ordinary", "collection": "things", "rootSchema": "schemas/game-data/model.schema.json", "edgesField": "buys", "targetField": "next"}
 			if member != "" {
 				scope["memberSchema"] = member
 			}
@@ -200,7 +200,7 @@ func TestTowerClassificationFieldsCannotEvadeValidation(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	schema, err := loader.resolve("tower.schema.json")
+	schema, err := loader.resolve("schemas/game-data/tower.schema.json")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -267,7 +267,7 @@ func TestCollectionAndRequiredPathsAreNormalized(t *testing.T) {
 func TestRootCollectionIncludesNestedRecords(t *testing.T) {
 	data, profileDir := fixture(t)
 	editDocument(t, profileDir, "collections.json", func(p map[string]any) {
-		p["collections"] = []any{map[string]any{"name": "things", "path": ".", "idField": "@path", "schema": "model.schema.json#/$defs/namedModel"}}
+		p["collections"] = []any{map[string]any{"name": "things", "path": ".", "idField": "@path", "schema": "schemas/game-data/model.schema.json#/$defs/namedModel"}}
 	})
 	writeFixture(t, data, "text.json", map[string]any{"$type": "Example.TextModel", "name": "text"})
 	writeFixture(t, data, "Things/a.json", map[string]any{"$type": "Example.ThingModel", "name": "a", "target": "Things/b.json"})

@@ -6,7 +6,7 @@
       "models": [
         "TowerModel"
       ],
-      "schema": "tower.schema.json",
+      "schema": "schemas/game-data/tower.schema.json",
       "role": "structure"
     },
     {
@@ -15,7 +15,7 @@
         "UpgradeModel",
         "PowerProUpgradeModel"
       ],
-      "schema": "upgrade.schema.json",
+      "schema": "schemas/game-data/upgrade.schema.json",
       "role": "progression"
     },
     {
@@ -24,7 +24,7 @@
         "UpgradePathModel",
         "PowerProUpgradePathModel"
       ],
-      "schema": "purchase.schema.json",
+      "schema": "schemas/game-data/purchase.schema.json",
       "role": "progression"
     },
     {
@@ -32,7 +32,7 @@
       "models": [
         "AttackModel"
       ],
-      "schema": "attack.schema.json",
+      "schema": "schemas/game-data/attack.schema.json",
       "role": "structure"
     },
     {
@@ -40,7 +40,7 @@
       "models": [
         "WeaponModel"
       ],
-      "schema": "weapon.schema.json",
+      "schema": "schemas/game-data/weapon.schema.json",
       "role": "trigger"
     },
     {
@@ -48,7 +48,7 @@
       "models": [
         "ProjectileModel"
       ],
-      "schema": "projectile.schema.json",
+      "schema": "schemas/game-data/projectile.schema.json",
       "role": "delivery"
     },
     {
@@ -56,7 +56,7 @@
       "models": [
         "DamageModel"
       ],
-      "schema": "damage.schema.json",
+      "schema": "schemas/game-data/damage.schema.json",
       "role": "effect"
     },
     {
@@ -64,7 +64,7 @@
       "models": [
         "AbilityModel"
       ],
-      "schema": "ability.schema.json",
+      "schema": "schemas/game-data/ability.schema.json",
       "role": "ability"
     },
     {
@@ -72,7 +72,7 @@
       "models": [
         "KnowledgeModel"
       ],
-      "schema": "knowledge.schema.json",
+      "schema": "schemas/game-data/knowledge.schema.json",
       "role": "structure"
     },
     {
@@ -80,7 +80,7 @@
       "models": [
         "ModModel"
       ],
-      "schema": "mod.schema.json",
+      "schema": "schemas/game-data/mod.schema.json",
       "role": "structure"
     },
     {
@@ -88,7 +88,7 @@
       "models": [
         "BloonModel"
       ],
-      "schema": "bloon.schema.json",
+      "schema": "schemas/game-data/bloon.schema.json",
       "role": "structure"
     },
     {
@@ -96,7 +96,7 @@
       "models": [
         "BloonGroupModel"
       ],
-      "schema": "round.schema.json#/$defs/bloonGroup",
+      "schema": "schemas/game-data/round.schema.json#/$defs/bloonGroup",
       "role": "structure"
     },
     {
@@ -104,7 +104,7 @@
       "models": [
         "RoundModel"
       ],
-      "schema": "round.schema.json",
+      "schema": "schemas/game-data/round.schema.json",
       "role": "structure"
     },
     {
@@ -112,7 +112,7 @@
       "models": [
         "MapDetails"
       ],
-      "schema": "map.schema.json",
+      "schema": "schemas/game-data/map.schema.json",
       "role": "structure"
     }
   ]

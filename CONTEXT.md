@@ -4,6 +4,8 @@ A Profile is the reusable set of schemas, mechanic bindings, reference declarati
 
 A capture is recorded game-data with its source versions, exporter identity and hashes. A compatible Profile can validate multiple captures.
 
+A collection layout is a Profile requirement for the depth of record files and their folder or filename bindings. Tower family folders and state filenames can therefore be checked against recorded identities.
+
 A Tower family groups records for one base Tower identity. It can contain ordinary builds, a paragon and temporary forms.
 
 A permanent build is a Tower state reachable through ordinary purchase links from a selected base Tower. Its tier tuple identifies the build within that progression family.

@@ -194,10 +194,11 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 	if err != nil {
 		return p, nil, err
 	}
-	if err := resolve("manifest.schema.json"); err != nil {
+	manifestSchema := "schemas/profile/manifest.schema.json"
+	if err := resolve(manifestSchema); err != nil {
 		return p, nil, err
 	}
-	if err := schemas["manifest.schema.json"].Validate(manifestValue); err != nil {
+	if err := schemas[manifestSchema].Validate(manifestValue); err != nil {
 		return p, nil, fmt.Errorf("manifest.json: %w", err)
 	}
 	if err := decodeDocument(manifestValue, &p.Manifest); err != nil {
@@ -236,6 +237,13 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 		}
 	}
 	p.Collections, p.RequiredFiles, p.Scopes = collections.Collections, collections.RequiredFiles, collections.Scopes
+	p.UnmatchedFiles = collections.UnmatchedFiles
+	if p.UnmatchedFiles == "" {
+		p.UnmatchedFiles = "report"
+	}
+	if p.UnmatchedFiles != "report" && p.UnmatchedFiles != "error" {
+		return p, nil, documentError(p.Manifest.Documents["collections"].File, fmt.Errorf("unknown unmatched-file policy %q", p.UnmatchedFiles))
+	}
 	p.References, p.Mechanics, p.UnknownModels, p.Rules = references.References, mechanics.Mechanics, mechanics.UnknownModels, rules.Rules
 	p.ModelSchemas = map[string]string{}
 	names := map[string]bool{}
@@ -250,6 +258,9 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 			return p, nil, documentError(p.Manifest.Documents["collections"].File, err)
 		}
 		c.Path = filepath.ToSlash(path)
+		if c.Layout != nil && c.Layout.Depth < 0 {
+			return p, nil, documentError(p.Manifest.Documents["collections"].File, fmt.Errorf("collection %q has a negative layout depth", c.Name))
+		}
 		if err := resolve(c.Schema); err != nil {
 			return p, nil, err
 		}

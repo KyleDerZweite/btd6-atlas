@@ -18,6 +18,12 @@ type manifest struct {
 
 type collection struct {
 	Name, Path, IDField, Schema string
+	Layout                      *recordLayout
+}
+
+type recordLayout struct {
+	Depth                  int
+	ParentField, StemField string
 }
 
 type scope struct {
@@ -25,9 +31,10 @@ type scope struct {
 }
 
 type collectionsDocument struct {
-	Collections   []collection
-	RequiredFiles []string
-	Scopes        []scope
+	Collections    []collection
+	RequiredFiles  []string
+	Scopes         []scope
+	UnmatchedFiles string
 }
 
 type referenceRule struct {
@@ -80,17 +87,18 @@ type unitsDocument struct {
 }
 
 type profile struct {
-	Manifest      manifest
-	Collections   []collection
-	RequiredFiles []string
-	Scopes        []scope
-	References    []referenceRule
-	Mechanics     []mechanic
-	ModelSchemas  map[string]string
-	UnknownModels string
-	Rules         []rule
-	Units         unitsDocument
-	Identity      ProfileIdentity
+	Manifest       manifest
+	Collections    []collection
+	RequiredFiles  []string
+	Scopes         []scope
+	UnmatchedFiles string
+	References     []referenceRule
+	Mechanics      []mechanic
+	ModelSchemas   map[string]string
+	UnknownModels  string
+	Rules          []rule
+	Units          unitsDocument
+	Identity       ProfileIdentity
 }
 
 type record struct {

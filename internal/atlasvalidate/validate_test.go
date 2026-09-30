@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -30,31 +31,44 @@ func fixture(t *testing.T) (string, string) {
 	if err := os.MkdirAll(profileDir, 0755); err != nil {
 		t.Fatal(err)
 	}
-	paths, err := filepath.Glob(filepath.Join("..", "..", "profile", "*.json"))
+	source := filepath.Join("..", "..", "profile")
+	err := filepath.WalkDir(source, func(path string, entry os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
+			return nil
+		}
+		relative, err := filepath.Rel(source, path)
+		if err != nil {
+			return err
+		}
+		raw, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		destination := filepath.Join(profileDir, relative)
+		if err := os.MkdirAll(filepath.Dir(destination), 0755); err != nil {
+			return err
+		}
+		return os.WriteFile(destination, raw, 0644)
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, path := range paths {
-		raw, err := os.ReadFile(path)
-		if err != nil {
-			t.Fatal(err)
-		}
-		if err := os.WriteFile(filepath.Join(profileDir, filepath.Base(path)), raw, 0644); err != nil {
-			t.Fatal(err)
-		}
-	}
+
 	writeFixture(t, data, "Things/a.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "a", "target": "b"})
 	writeFixture(t, data, "Things/b.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "b"})
 	writeFixture(t, data, "text.json", map[string]any{"hello": "Hello"})
 	writeFixture(t, profileDir, "collections.json", map[string]any{
 		"requiredFiles": []string{"text.json"}, "scopes": []any{},
-		"collections": []any{map[string]any{"name": "things", "path": "Things", "idField": "name", "schema": "model.schema.json#/$defs/namedModel"}, map[string]any{"name": "text", "path": "text.json", "idField": "@keys", "schema": "model.schema.json#/$defs/stringTable"}},
+		"collections": []any{map[string]any{"name": "things", "path": "Things", "idField": "name", "schema": "schemas/game-data/model.schema.json#/$defs/namedModel"}, map[string]any{"name": "text", "path": "text.json", "idField": "@keys", "schema": "schemas/game-data/model.schema.json#/$defs/stringTable"}},
 	})
 	writeFixture(t, profileDir, "references.json", map[string]any{"references": []any{map[string]any{"models": []string{"ThingModel"}, "field": "target", "target": "things", "aliases": map[string]string{"legacy-b": "b"}, "externalSymbols": map[string]string{"runtime-only": "This test symbol has no file definition."}}}})
 	writeFixture(t, profileDir, "mechanics.json", map[string]any{"unknownModels": "report", "mechanics": []any{
-		map[string]any{"id": "thing", "models": []string{"ThingModel"}, "schema": "model.schema.json#/$defs/namedModel", "role": "structure"},
-		map[string]any{"id": "weapon", "models": []string{"WeaponModel"}, "schema": "weapon.schema.json", "role": "structure"},
-		map[string]any{"id": "attack", "models": []string{"AttackModel"}, "schema": "attack.schema.json", "role": "structure"},
+		map[string]any{"id": "thing", "models": []string{"ThingModel"}, "schema": "schemas/game-data/model.schema.json#/$defs/namedModel", "role": "structure"},
+		map[string]any{"id": "weapon", "models": []string{"WeaponModel"}, "schema": "schemas/game-data/weapon.schema.json", "role": "structure"},
+		map[string]any{"id": "attack", "models": []string{"AttackModel"}, "schema": "schemas/game-data/attack.schema.json", "role": "structure"},
 	}})
 	writeFixture(t, profileDir, "rules.json", map[string]any{"rules": []any{}})
 	return data, profileDir
@@ -193,7 +207,7 @@ func TestDynamicDataAndRelations(t *testing.T) {
 func TestFamilyRelations(t *testing.T) {
 	data, profileDir := fixture(t)
 	editDocument(t, profileDir, "collections.json", func(p map[string]any) {
-		p["collections"] = append(p["collections"].([]any), map[string]any{"name": "families", "path": "Things", "idField": "@parent", "schema": "model.schema.json#/$defs/namedModel"})
+		p["collections"] = append(p["collections"].([]any), map[string]any{"name": "families", "path": "Things", "idField": "@parent", "schema": "schemas/game-data/model.schema.json#/$defs/namedModel"})
 	})
 	editDocument(t, profileDir, "references.json", func(p map[string]any) {
 		p["references"] = append(p["references"].([]any), map[string]any{"models": []string{"ThingModel"}, "field": "family", "target": "families"})
@@ -265,7 +279,7 @@ func TestDeclaredProgressionIntegration(t *testing.T) {
 	data, profileDir := fixture(t)
 	writeFixture(t, profileDir, "fixture-root.schema.json", map[string]any{"type": "object", "required": []string{"origin"}, "properties": map[string]any{"origin": map[string]any{"const": true}}})
 	editDocument(t, profileDir, "collections.json", func(p map[string]any) {
-		p["scopes"] = []any{map[string]any{"name": "ordinary", "collection": "things", "rootSchema": "fixture-root.schema.json", "memberSchema": "model.schema.json#/$defs/namedModel", "edgesField": "buys", "targetField": "next"}}
+		p["scopes"] = []any{map[string]any{"name": "ordinary", "collection": "things", "rootSchema": "fixture-root.schema.json", "memberSchema": "schemas/game-data/model.schema.json#/$defs/namedModel", "edgesField": "buys", "targetField": "next"}}
 	})
 	writeFixture(t, profileDir, "rules.json", map[string]any{"rules": []any{map[string]any{
 		"id": "fixture-progression", "operation": "purchaseProgression", "scope": "ordinary", "tiersField": "levels", "familyField": "kind", "requireCompleteStates": true,

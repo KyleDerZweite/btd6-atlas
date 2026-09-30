@@ -7,24 +7,24 @@
   "documents": {
     "collections": {
       "file": "collections.json",
-      "schema": "collections.schema.json"
+      "schema": "schemas/profile/collections.schema.json"
     },
     "references": {
       "file": "references.json",
-      "schema": "references.schema.json"
+      "schema": "schemas/profile/references.schema.json"
     },
     "mechanics": {
       "file": "mechanics.json",
-      "schema": "mechanics.schema.json"
+      "schema": "schemas/profile/mechanics.schema.json"
     },
     "rules": {
       "file": "rules.json",
-      "schema": "rules.schema.json"
+      "schema": "schemas/profile/rules.schema.json"
     },
     "numericalUnits": {
       "file": "numerical-units.json",
-      "schema": "numerical-units.schema.json"
+      "schema": "schemas/profile/numerical-units.schema.json"
     }
   },
-  "proposalSchema": "mechanic-proposal.schema.json"
+  "proposalSchema": "schemas/profile/mechanic-proposal.schema.json"
 }

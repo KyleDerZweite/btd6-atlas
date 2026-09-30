@@ -37,7 +37,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 		for _, rule := range result.Rules {
 			fmt.Fprintf(stdout, "rule=%s; roots=%d; records=%d; transitions=%d; expectedStates=%d; excluded=%d; errors=%d\n", rule.ID, rule.Roots, rule.RecordsChecked, rule.TransitionsChecked, rule.ExpectedStates, rule.OutOfScopeRecords, rule.Errors)
 		}
-		fmt.Fprintf(stdout, "schemaCoverage: files=%d; unboundModelTypes=%d; unitBindings=%d\n", result.Coverage.FilesWithSchema, len(result.Coverage.UnboundModelTypes), result.Coverage.UnitBindingsChecked)
+		fmt.Fprintf(stdout, "coverage: schemaFiles=%d; layoutFiles=%d; unboundModelTypes=%d; unitBindings=%d\n", result.Coverage.FilesWithSchema, result.Coverage.LayoutFilesChecked, len(result.Coverage.UnboundModelTypes), result.Coverage.UnitBindingsChecked)
 	} else {
 		encoder := json.NewEncoder(stdout)
 		encoder.SetIndent("", "  ")

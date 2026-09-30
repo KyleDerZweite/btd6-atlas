@@ -6,6 +6,29 @@ Keep raw field names, nesting and `$type`. Tower instances, capture versions and
 
 ## Files
 
+```text
+profile/
+  manifest.json
+  collections.json
+  references.json
+  mechanics.json
+  rules.json
+  numerical-units.json
+  schemas/
+    profile/
+      manifest.schema.json
+      mechanics.schema.json
+      mechanic-proposal.schema.json
+      ...
+    game-data/
+      tower.schema.json
+      attack.schema.json
+      ...
+    scopes/
+      ordinary-tower-root.schema.json
+      ordinary-tower-member.schema.json
+```
+
 | File | Responsibility |
 |---|---|
 | `manifest.json` | Profile identity, revision, format version and local document references. |
@@ -14,16 +37,55 @@ Keep raw field names, nesting and `$type`. Tower instances, capture versions and
 | `mechanics.json` | Model classes, their schemas and the policy for unknown model types. |
 | `rules.json` | Cross-record operations, their field bindings and progression limits. |
 | `numerical-units.json` | Numerical units and bindings to raw fields. |
-| `tower.schema.json` | Raw Tower records, including nested behavior slots and purchase links. |
-| `mechanics.schema.json` | The format of the mechanics catalog. |
-| `mechanic-proposal.schema.json` | Separate proposals for extending the catalog. A proposal does not enable a mechanic. |
-| `ordinary-tower-root.schema.json` | Select the starting record for each ordinary purchase graph. |
-| `ordinary-tower-member.schema.json` | Select candidate families that must have a starting record. |
-| Other `*.schema.json` files | Smaller schemas for attacks, weapons, projectiles, upgrades and Profile documents. |
+| [tower.schema.json](schemas/game-data/tower.schema.json) | Raw Tower records, including nested behavior slots and purchase links. |
+| [mechanics.schema.json](schemas/profile/mechanics.schema.json) | The format of the mechanics catalog. |
+| [mechanic-proposal.schema.json](schemas/profile/mechanic-proposal.schema.json) | Separate proposals for extending the catalog. A proposal does not enable a mechanic. |
+| [ordinary-tower-root.schema.json](schemas/scopes/ordinary-tower-root.schema.json) | Select the starting record for each ordinary purchase graph. |
+| [ordinary-tower-member.schema.json](schemas/scopes/ordinary-tower-member.schema.json) | Select candidate families that must have a starting record. |
+| Other schemas in `schemas/` | Smaller schemas for raw models and Profile documents, grouped by responsibility. |
 
 Schemas own field shapes and local numerical bounds. The mechanics catalog selects schemas by model class.
 Rules own relationships between records. The same constraint should have one authoritative definition.
 Schema references resolve inside the Profile directory. No network lookup or capture file is required to load the Profile.
+
+## Game-data layout
+
+The data directory contains records separately from the Profile:
+
+```text
+game-data/
+  Towers/
+    DartMonkey/
+      DartMonkey.json
+      DartMonkey-100.json
+      ...
+  Bloons/
+    Red/
+      Red.json
+      ...
+  Upgrades/
+    Sharp Shots.json
+    ...
+  textTable.json
+  paragonDegreeData.json
+  rogueData.json
+  frontierData.json
+  ...
+```
+
+These names illustrate a compatible capture. The Profile declares the layout pattern without listing every expected file.
+Each collection can declare `layout.depth`: zero for a singleton file, one for a flat collection and two for files inside family folders.
+Optional `parentField` and `stemField` bindings compare the containing folder and JSON filename stem with recorded field values.
+Towers and Bloons bind their family folders to `baseId` and filenames to `name`. Each file contains one root record, and record identities must be unique.
+Upgrades require a flat directory but keep their `name` identity independent of filenames, which can contain sanitized names.
+The Profile declares layouts for all 22 primary collections, plus three shared family indexes.
+Other filename bindings use recorded names or IDs when the capture preserves them; Skins also binds its family folder to `baseTowerName`.
+BloonOverlays has only a depth constraint because its filenames differ from recorded names.
+Rounds requires two levels, but the checker does not interpret numeric round filenames or require consecutive rounds.
+Category and difficulty folder meanings are also outside these layout checks.
+`collections.json` sets `unmatchedFiles: "error"`, so files outside declared collections fail with `unmatched_file`.
+This also catches a Tower moved outside `Towers/`. Other Profiles can choose `"report"`, the default when omitted, to permit and count unclassified files.
+The same generic checks support a different game's declared layout.
 
 ## Run the checker
 
@@ -66,6 +128,7 @@ Unresolved references appear in diagnostics and are absent from the resolved gra
 ## What validation covers
 
 Every JSON file receives syntax and root-object checks. Duplicate JSON keys and duplicate record identities fail.
+Declared layouts reject incorrect nesting, family folders and state filenames as integrity errors.
 Declared collections and known model classes receive schema checks, including nested records.
 The checker indexes identities and gathers typed references while scanning files, then resolves links after all files are indexed.
 Forward references and cycles are allowed.
@@ -91,6 +154,9 @@ Set the policy to `"error"` to require catalog coverage for encountered model ty
 A catalog schema checks recorded structure. It does not prove simulation behavior, balance or compatibility with a consuming game.
 
 Additional raw fields remain permitted. Support and economy Towers need no damaging attack.
+All 10,055 files in the accepted capture now belong to a collection with a layout and a schema.
+The singleton `paragonDegreeData.json`, `rogueData.json` and `frontierData.json` use only the shared basic model schema.
+File coverage therefore includes basic structure checks as well as the deeper schemas for core models.
 Upgrade metadata agreement is separate from purchase-graph validation. Skywarden's captured upgrade tier metadata remains outside the progression check.
 Detailed Atlas map geometry is also outside these schemas.
 
@@ -138,7 +204,7 @@ New executable rule operations need a Go implementation and tests; changing exis
 
 Collections support recorded fields plus `@keys`, `@parent`, `@stem` and `@path` identity selectors.
 Collection and required-file paths normalize locally; a `.` collection includes root and nested records.
-The same files can supply separate state and family indexes. Renaming a file preserves a field-based identity if the file remains in its collection.
+The same files can supply separate state and family indexes. Renaming preserves a field-based identity, but the new path must also satisfy any declared layout.
 The Profile requires `textTable.json`; other unreferenced records can be removed unless a declared completeness rule requires them.
 
 Reuse the Profile across captures while their format remains compatible. Change its revision when its requirements change.

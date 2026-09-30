@@ -102,9 +102,14 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 			continue
 		}
 		checked := map[string]bool{}
+		layoutChecked := false
 		for _, collection := range p.Collections {
 			if !matches(path, collection.Path) {
 				continue
+			}
+			if collection.Layout != nil {
+				checkLayout(path, object, collection, &r)
+				layoutChecked = true
 			}
 			if !checked[collection.Schema] {
 				if err := schemas[collection.Schema].Validate(object); err != nil {
@@ -145,10 +150,16 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 				}
 			}
 		}
+		if layoutChecked {
+			r.Coverage.LayoutFilesChecked++
+		}
 		if len(checked) > 0 {
 			r.Coverage.FilesWithSchema++
 		} else {
 			r.Coverage.FilesWithoutSchema++
+			if p.UnmatchedFiles == "error" {
+				r.add(path, "", "unmatched_file", "file does not belong to a declared collection")
+			}
 		}
 		var walk func(any, string)
 		walk = func(value any, pointer string) {

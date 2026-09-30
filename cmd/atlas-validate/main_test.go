@@ -18,22 +18,31 @@ func TestCLI(t *testing.T) {
 	}
 	profile := t.TempDir()
 	source := filepath.Join("..", "..", "profile")
-	entries, err := os.ReadDir(source)
+	err := filepath.WalkDir(source, func(path string, entry os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
+			return nil
+		}
+		relative, err := filepath.Rel(source, path)
+		if err != nil {
+			return err
+		}
+		raw, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		destination := filepath.Join(profile, relative)
+		if err := os.MkdirAll(filepath.Dir(destination), 0755); err != nil {
+			return err
+		}
+		return os.WriteFile(destination, raw, 0644)
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, entry := range entries {
-		if !strings.HasSuffix(entry.Name(), ".json") {
-			continue
-		}
-		raw, err := os.ReadFile(filepath.Join(source, entry.Name()))
-		if err != nil {
-			t.Fatal(err)
-		}
-		if err := os.WriteFile(filepath.Join(profile, entry.Name()), raw, 0644); err != nil {
-			t.Fatal(err)
-		}
-	}
+
 	// This CLI fixture checks only collection integrity, without a Tower corpus.
 	if err := os.WriteFile(filepath.Join(profile, "rules.json"), []byte(`{"rules":[]}`), 0644); err != nil {
 		t.Fatal(err)

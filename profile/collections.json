@@ -4,133 +4,234 @@
       "name": "Achievements",
       "path": "Achievements",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "Artifacts",
       "path": "Artifacts",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "BloonOverlays",
       "path": "BloonOverlays",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1
+      }
     },
     {
       "name": "Bloons",
       "path": "Bloons",
       "idField": "name",
-      "schema": "bloon.schema.json"
+      "schema": "schemas/game-data/bloon.schema.json",
+      "layout": {
+        "depth": 2,
+        "parentField": "baseId",
+        "stemField": "name"
+      }
     },
     {
       "name": "Bosses",
       "path": "Bosses",
       "idField": "@stem",
-      "schema": "model.schema.json#/$defs/model"
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 1,
+        "stemField": "LocsKey"
+      }
     },
     {
       "name": "Buffs",
       "path": "Buffs",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "GeraldoItems",
       "path": "GeraldoItems",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "IncomeSets",
       "path": "IncomeSets",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "Knowledge",
       "path": "Knowledge",
       "idField": "name",
-      "schema": "knowledge.schema.json"
+      "schema": "schemas/game-data/knowledge.schema.json",
+      "layout": {
+        "depth": 2,
+        "stemField": "name"
+      }
     },
     {
       "name": "Maps",
       "path": "Maps",
       "idField": "id",
-      "schema": "map.schema.json"
+      "schema": "schemas/game-data/map.schema.json",
+      "layout": {
+        "depth": 2,
+        "stemField": "id"
+      }
     },
     {
       "name": "Mods",
       "path": "Mods",
       "idField": "name",
-      "schema": "mod.schema.json"
+      "schema": "schemas/game-data/mod.schema.json",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "Powers",
       "path": "Powers",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      }
     },
     {
       "name": "Rounds",
       "path": "Rounds",
       "idField": "@path",
-      "schema": "round.schema.json"
+      "schema": "schemas/game-data/round.schema.json",
+      "layout": {
+        "depth": 2
+      }
     },
     {
       "name": "Skins",
       "path": "Skins",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 2,
+        "parentField": "baseTowerName",
+        "stemField": "name"
+      }
     },
     {
       "name": "Towers",
       "path": "Towers",
       "idField": "name",
-      "schema": "tower.schema.json"
+      "schema": "schemas/game-data/tower.schema.json",
+      "layout": {
+        "depth": 2,
+        "parentField": "baseId",
+        "stemField": "name"
+      }
     },
     {
       "name": "TrophyStoreItems",
       "path": "TrophyStoreItems",
       "idField": "name",
-      "schema": "model.schema.json#/$defs/namedModel"
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 3,
+        "stemField": "Id"
+      }
     },
     {
       "name": "Upgrades",
       "path": "Upgrades",
       "idField": "name",
-      "schema": "upgrade.schema.json"
+      "schema": "schemas/game-data/upgrade.schema.json",
+      "layout": {
+        "depth": 1
+      }
     },
     {
       "name": "text",
       "path": "textTable.json",
       "idField": "@keys",
-      "schema": "model.schema.json#/$defs/stringTable"
+      "schema": "schemas/game-data/model.schema.json#/$defs/stringTable",
+      "layout": {
+        "depth": 0
+      }
     },
     {
       "name": "resources",
       "path": "resources.json",
       "idField": "@keys",
-      "schema": "model.schema.json#/$defs/stringTable"
+      "schema": "schemas/game-data/model.schema.json#/$defs/stringTable",
+      "layout": {
+        "depth": 0
+      }
     },
     {
       "name": "roundSets",
       "path": "Rounds",
       "idField": "@parent",
-      "schema": "round.schema.json"
+      "schema": "schemas/game-data/round.schema.json"
     },
     {
       "name": "towerFamilies",
       "path": "Towers",
       "idField": "@parent",
-      "schema": "tower.schema.json"
+      "schema": "schemas/game-data/tower.schema.json"
     },
     {
       "name": "bloonFamilies",
       "path": "Bloons",
       "idField": "@parent",
-      "schema": "bloon.schema.json"
+      "schema": "schemas/game-data/bloon.schema.json"
+    },
+    {
+      "name": "paragonDegreeData",
+      "path": "paragonDegreeData.json",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 0
+      }
+    },
+    {
+      "name": "rogueData",
+      "path": "rogueData.json",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 0
+      }
+    },
+    {
+      "name": "frontierData",
+      "path": "frontierData.json",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 0
+      }
     }
   ],
   "requiredFiles": [
@@ -140,10 +241,11 @@
     {
       "name": "ordinaryTowerStates",
       "collection": "Towers",
-      "rootSchema": "ordinary-tower-root.schema.json",
+      "rootSchema": "schemas/scopes/ordinary-tower-root.schema.json",
       "edgesField": "upgrades",
       "targetField": "tower",
-      "memberSchema": "ordinary-tower-member.schema.json"
+      "memberSchema": "schemas/scopes/ordinary-tower-member.schema.json"
     }
-  ]
+  ],
+  "unmatchedFiles": "error"
 }

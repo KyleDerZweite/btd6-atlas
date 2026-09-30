@@ -47,6 +47,7 @@ type ModelCount struct {
 }
 
 type Coverage struct {
+	LayoutFilesChecked    int          `json:"layoutFilesChecked"`
 	FilesWithSchema       int          `json:"filesWithSchema"`
 	FilesWithoutSchema    int          `json:"filesWithoutSchema"`
 	BoundModelInstances   int          `json:"boundModelInstances"`

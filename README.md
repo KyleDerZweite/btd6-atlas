@@ -18,6 +18,7 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 | `data/` | Accepted captures per patch. |
 | `patterns/` | Our derived analyses (empty until first write-up). |
 | `profile/` | Reusable schemas, mechanics, references, numerical units and game rules. |
+| `profile/schemas/` | Schemas grouped into `profile/`, `game-data/` and `scopes/`. |
 | `cmd/atlas-validate/` | Small CLI for the Profile checker. |
 | `internal/atlasvalidate/` | Reusable Go validation package. |
 | `docs/` | Workflow plans for mod, data, patterns. |
@@ -36,6 +37,8 @@ Run `bin/atlas-validate --data data/56.3-build-24829026/game-data --profile prof
 See [the game profile](profile/README.md) for validation coverage and diagnostics.
 Add `--relations` to include resolved references and file backlinks in the JSON result.
 The checker applies the Profile to separate raw game-data, including ordinary purchase progression.
+The Profile also defines directory depth and field bindings for family folders and record filenames.
+For example, Towers use `Towers/<baseId>/<name>.json`; upgrades retain independent record identifiers and filenames.
 Its report records Profile and checker identities, rule coverage and model types without schemas.
 Atlas owns this contract and checker independently of any consuming game or generator.
 

@@ -23,6 +23,27 @@
           "schema": {
             "type": "string",
             "minLength": 1
+          },
+          "layout": {
+            "type": "object",
+            "properties": {
+              "depth": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "parentField": {
+                "type": "string",
+                "minLength": 1
+              },
+              "stemField": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "depth"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
@@ -83,6 +104,13 @@
         ],
         "additionalProperties": false
       }
+    },
+    "unmatchedFiles": {
+      "type": "string",
+      "enum": [
+        "report",
+        "error"
+      ]
     }
   },
   "required": [
