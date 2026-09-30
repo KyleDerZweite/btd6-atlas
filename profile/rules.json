@@ -1,0 +1,19 @@
+{
+  "rules": [
+    {
+      "id": "ordinary-tower-progression",
+      "operation": "purchaseProgression",
+      "scope": "ordinaryTowerStates",
+      "tiersField": "tiers",
+      "familyField": "baseId",
+      "limits": {
+        "pathCount": 3,
+        "maxTier": 5,
+        "maxPurchasedPaths": 2,
+        "secondaryTierLimit": 2,
+        "maxPathsAboveSecondaryTier": 1
+      },
+      "requireCompleteStates": true
+    }
+  ]
+}

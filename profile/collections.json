@@ -1,0 +1,149 @@
+{
+  "collections": [
+    {
+      "name": "Achievements",
+      "path": "Achievements",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "Artifacts",
+      "path": "Artifacts",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "BloonOverlays",
+      "path": "BloonOverlays",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "Bloons",
+      "path": "Bloons",
+      "idField": "name",
+      "schema": "bloon.schema.json"
+    },
+    {
+      "name": "Bosses",
+      "path": "Bosses",
+      "idField": "@stem",
+      "schema": "model.schema.json#/$defs/model"
+    },
+    {
+      "name": "Buffs",
+      "path": "Buffs",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "GeraldoItems",
+      "path": "GeraldoItems",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "IncomeSets",
+      "path": "IncomeSets",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "Knowledge",
+      "path": "Knowledge",
+      "idField": "name",
+      "schema": "knowledge.schema.json"
+    },
+    {
+      "name": "Maps",
+      "path": "Maps",
+      "idField": "id",
+      "schema": "map.schema.json"
+    },
+    {
+      "name": "Mods",
+      "path": "Mods",
+      "idField": "name",
+      "schema": "mod.schema.json"
+    },
+    {
+      "name": "Powers",
+      "path": "Powers",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "Rounds",
+      "path": "Rounds",
+      "idField": "@path",
+      "schema": "round.schema.json"
+    },
+    {
+      "name": "Skins",
+      "path": "Skins",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "Towers",
+      "path": "Towers",
+      "idField": "name",
+      "schema": "tower.schema.json"
+    },
+    {
+      "name": "TrophyStoreItems",
+      "path": "TrophyStoreItems",
+      "idField": "name",
+      "schema": "model.schema.json#/$defs/namedModel"
+    },
+    {
+      "name": "Upgrades",
+      "path": "Upgrades",
+      "idField": "name",
+      "schema": "upgrade.schema.json"
+    },
+    {
+      "name": "text",
+      "path": "textTable.json",
+      "idField": "@keys",
+      "schema": "model.schema.json#/$defs/stringTable"
+    },
+    {
+      "name": "resources",
+      "path": "resources.json",
+      "idField": "@keys",
+      "schema": "model.schema.json#/$defs/stringTable"
+    },
+    {
+      "name": "roundSets",
+      "path": "Rounds",
+      "idField": "@parent",
+      "schema": "round.schema.json"
+    },
+    {
+      "name": "towerFamilies",
+      "path": "Towers",
+      "idField": "@parent",
+      "schema": "tower.schema.json"
+    },
+    {
+      "name": "bloonFamilies",
+      "path": "Bloons",
+      "idField": "@parent",
+      "schema": "bloon.schema.json"
+    }
+  ],
+  "requiredFiles": [
+    "textTable.json"
+  ],
+  "scopes": [
+    {
+      "name": "ordinaryTowerStates",
+      "collection": "Towers",
+      "rootSchema": "ordinary-tower-root.schema.json",
+      "edgesField": "upgrades",
+      "targetField": "tower",
+      "memberSchema": "ordinary-tower-member.schema.json"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raw round model",
+  "type": "object",
+  "required": [
+    "$type",
+    "groups"
+  ],
+  "properties": {
+    "$type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "(^|\\.)(RoundModel)(,|$)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "groups": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "round.schema.json#/$defs/bloonGroup"
+      }
+    },
+    "emissions_": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "model.schema.json#/$defs/model"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "bloonGroup": {
+      "type": "object",
+      "required": [
+        "$type",
+        "bloon",
+        "count",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "$type": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "(^|\\.)(BloonGroupModel)(,|$)"
+        },
+        "name": {
+          "type": "string"
+        },
+        "bloon": {
+          "type": "string",
+          "minLength": 1
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "start": {
+          "type": "number"
+        },
+        "end": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

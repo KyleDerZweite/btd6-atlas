@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raw projectile model",
+  "type": "object",
+  "required": [
+    "$type",
+    "pierce",
+    "behaviors"
+  ],
+  "properties": {
+    "$type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "(^|\\.)(ProjectileModel)(,|$)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pierce": {
+      "type": "number"
+    },
+    "maxPierce": {
+      "type": "number"
+    },
+    "behaviors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "model.schema.json#/$defs/model"
+      }
+    }
+  },
+  "additionalProperties": true
+}

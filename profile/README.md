@@ -1,75 +1,145 @@
-# Game-data profile
+# Game-data Profile
 
-Use raw `game-data/` files directly. Preserve every field, including `$type`.
-The profile describes the format and its references; it does not require a particular version, file count, or filename inventory.
-The bundled rules describe BTD6 data, with deeper schemas for core Tower models.
+The Profile defines the schemas, references, mechanics and rules that `atlas-validate` applies to separate `game-data/` records.
+Atlas owns both the Profile and its checker. They work without another project or a game runtime.
+Keep raw field names, nesting and `$type`. Tower instances, capture versions and source hashes belong with the capture.
 
-`game-profile.json` declares collections, identity fields, model schemas, reference rules, and reading conventions.
-`schema.json` contains JSON Schema draft 2020-12 definitions. Additional game fields remain permitted.
-Capture provenance stays in the data directory's manifest, outside the profile.
+## Files
 
-Build a standalone binary from the repository root with Go 1.23 or newer:
+| File | Responsibility |
+|---|---|
+| `manifest.json` | Profile identity, revision, format version and local document references. |
+| `collections.json` | Record locations, identity selectors, validation scopes and required files. |
+| `references.json` | Typed links between collections, aliases and documented external symbols. |
+| `mechanics.json` | Model classes, their schemas and the policy for unknown model types. |
+| `rules.json` | Cross-record operations, their field bindings and progression limits. |
+| `numerical-units.json` | Numerical units and bindings to raw fields. |
+| `tower.schema.json` | Raw Tower records, including nested behavior slots and purchase links. |
+| `mechanics.schema.json` | The format of the mechanics catalog. |
+| `mechanic-proposal.schema.json` | Separate proposals for extending the catalog. A proposal does not enable a mechanic. |
+| `ordinary-tower-root.schema.json` | Select the starting record for each ordinary purchase graph. |
+| `ordinary-tower-member.schema.json` | Select candidate families that must have a starting record. |
+| Other `*.schema.json` files | Smaller schemas for attacks, weapons, projectiles, upgrades and Profile documents. |
+
+Schemas own field shapes and local numerical bounds. The mechanics catalog selects schemas by model class.
+Rules own relationships between records. The same constraint should have one authoritative definition.
+Schema references resolve inside the Profile directory. No network lookup or capture file is required to load the Profile.
+
+## Run the checker
+
+Build from the repository root with Go 1.23 or newer:
 
 ```sh
 CGO_ENABLED=0 go build -trimpath -ldflags='-s -w' -o bin/atlas-validate ./cmd/atlas-validate
 bin/atlas-validate --data data/56.3-build-24829026/game-data --profile profile
 ```
 
-Both arguments accept absolute paths. The binary requires the profile files at runtime and has no Git or network dependency.
-Generated binaries stay in the ignored `bin/` directory.
+Both arguments accept absolute paths. The binary reads the Profile at runtime and does not modify either directory.
+Generated binaries stay in the ignored `bin/` directory. The command is a small CLI; reusable validation code lives in `internal/atlasvalidate/`.
 
-The validator parses each JSON file once. During that traversal it checks schemas, indexes exported identities, and collects references recursively.
-After scanning every file, it resolves references against the indices. Forward references and cycles are allowed.
-Identities come from the profile's selectors, usually recorded fields rather than filenames.
-Family identifiers and individual state identifiers use separate collections.
-Moving or renaming a file preserves a field-based identity if the file still belongs to the same collection.
+JSON output separates `integrityValid` and `rulesValid`; `valid` requires both to pass.
+It also includes file and reference counts, diagnostics, Profile identity, checker identity and coverage.
+Profile identity includes its revision and a content digest. Checker identity includes its version and executable hash, with VCS information when available.
+An optional sibling capture `manifest.json` supplies game, build and exporter metadata, plus its own digest.
+These fields record the source without constraining compatible captures or verifying every capture file hash.
 
-The default output is JSON with `valid`, `filesChecked`, `referencesChecked`, `externalReferences`, and an `errors` array.
-An optional sibling `manifest.json` supplies the informational `gameVersion` field. Its version and file counts do not constrain validation.
-Each error contains `file`, `pointer`, `code`, and `message`. Pointers use JSON Pointer syntax and refer to the reported file.
-Use `--format text` for terminal diagnostics such as:
+Each diagnostic contains `file`, `pointer`, `code` and `message`. Pointers use JSON Pointer syntax.
+Use `--format text` for terminal diagnostics:
 
 ```text
 Towers/DartMonkey/DartMonkey.json#/upgrades/0/tower: missing_reference: Towers record "DartMonkey-100" does not exist
 ```
 
-Exit codes are 0 for valid data, 1 for invalid data, and 2 for an invalid invocation or profile.
-The validator reads files without modifying them.
+Exit codes are 0 for valid data, 1 for invalid data, and 2 for an invalid invocation or Profile.
+An unknown rule operation fails Profile loading before game-data validation.
 
-Add `--relations` to include the graph in JSON output:
+Add `--relations` to include resolved references and file backlinks in JSON output:
 
 ```sh
 bin/atlas-validate --data /path/to/game-data --profile /path/to/profile --relations > relations.json
 ```
 
-`relations` lists each resolved source file and JSON pointer, original value, target collection, target identity, and target files.
-A family target can have several files. Aliases retain the original value and report the canonical target identity.
-`backlinks` maps each target file to its incoming source files and pointers.
-Documented external symbols have `external: true` and an empty target-file list.
-Unresolved references appear in `errors` and are absent from the resolved graph.
+Relations retain the source pointer and value, target collection, canonical identity and target files.
+Family targets can contain several files. External symbols have `external: true` and no target files.
+Unresolved references appear in diagnostics and are absent from the resolved graph.
 
-Every JSON file receives syntax and root-object checks. Duplicate JSON keys and duplicate record identities fail validation.
-Declared collections and core models receive schema checks. Known model slots also require the appropriate `$type` class.
-Reference rules cover purchases, applied upgrades, Knowledge prerequisites, Bloon emissions, selected actor and artifact references, and map catalogs.
-Unknown files and behavior parameters remain permitted. Add schemas and reference rules when those fields need validation.
+## What validation covers
 
-Deleting a referenced record fails. Adding a valid record or removing an unreferenced record can pass.
-Optional `requiredFiles` declares files required by the format. The bundled profile requires `textTable.json` for localization.
-This checks structural and reference integrity, not whether the data reproduces an earlier capture or implements correct gameplay.
+Every JSON file receives syntax and root-object checks. Duplicate JSON keys and duplicate record identities fail.
+Declared collections and known model classes receive schema checks, including nested records.
+The checker indexes identities and gathers typed references while scanning files, then resolves links after all files are indexed.
+Forward references and cycles are allowed.
 
-Reuse the same profile for later captures while their format remains compatible.
-For your own game, copy the profile directory and edit the collections, schemas, reference rules, required files, and reading conventions to match your format.
-The walker does not contain BTD6 model names or file counts. Model dispatch uses the `$type` class name, ignoring namespace and assembly suffix.
-A reference rule identifies the source class, field, and target collection. Values can be strings or arrays of strings; null and empty values mean no reference.
-Indices support record fields, dictionary keys with `@keys`, directory families with `@parent`, filename stems with `@stem`, and collection-relative paths with `@path`.
-The same files can supply a state index and a family index.
+The bundled `purchaseProgression` rule starts from records selected by `ordinary-tower-root.schema.json`.
+These have `IsBaseTower: true`, `isSubTower: false` and an ordinary `towerSet`. It follows `upgrades[].tower` within each family.
+The member schema selects ordinary categories with `isSubTower: false` and `isParagon: false`.
+Every candidate family must have a root when completeness is required. A scope with no roots also fails.
+The Tower schema requires boolean selection flags, so malformed flags cannot silently exclude a record from these checks.
+Paragons, heroes and separate temporary forms receive applicable schemas and reference checks but remain outside this progression scope.
+Tier tuples alone cannot identify ordinary permanent builds because transformed Alchemist records reuse those tuples.
+Alchemist's transformed records share its candidate family without becoming required purchase-graph members.
 
-The BTD6 rules retain exact documented symbols for five modifier names without exported Knowledge definitions and the unexported `BossRush` mode.
-An exported target takes precedence over an external-symbol allowance. Other unresolved values fail.
+The rule checks legal tier combinations, unique permanent builds, same-family purchase targets and increments of exactly one tier on one path.
+Its limits live in `rules.json`: three paths, at most tier five, at most two purchased paths and at most one path above tier two.
+These limits derive 64 legal builds. Complete-family checking requires every derived build to be reachable.
+It also requires every legal outgoing purchase transition and rejects duplicate transitions.
+The Profile contains no copied list of Tower states or prices.
+
+Reports identify executed rules, root and record counts, checked transitions, expected state counts and records outside their scope.
+They also count model types without a catalog schema. The bundled `unknownModels: "report"` policy permits those models and reports the gap.
+Set the policy to `"error"` to require catalog coverage for encountered model types.
+A catalog schema checks recorded structure. It does not prove simulation behavior, balance or compatibility with a consuming game.
+
+Additional raw fields remain permitted. Support and economy Towers need no damaging attack.
+Upgrade metadata agreement is separate from purchase-graph validation. Skywarden's captured upgrade tier metadata remains outside the progression check.
+Detailed Atlas map geometry is also outside these schemas.
+
+The accepted BTD6 56.3 capture passes integrity checks but fails the new progression rule on one repeated purchase.
+`Towers/BoomerangMonkey/BoomerangMonkey-012.json` repeats its purchase to `BoomerangMonkey-013` at `upgrades[2]`.
+The checker reports the second entry as `duplicate-purchase` at `/upgrades/2/tower`.
+This is a finding in the recorded data; the original capture remains unchanged.
+See [the implementation evidence](../docs/profile-implementation.md) for the complete run and follow-up checks.
+
+## Reading the raw records
+
+Tower `name` identifies a recorded state; `baseId` identifies its Tower family, and `tiers` describes its build.
+Resolve upgrade identifiers using `UpgradeModel.name`, never a guessed filename.
+Repeated or empty embedded model names are valid and do not constitute globally unique record identifiers.
+Model dispatch uses the `$type` class name, ignoring namespace and assembly suffix. Generic dictionaries remain containers.
+
+`TowerModel.cost` is the base placement cost. Ordinary baseline investment adds the prices of `appliedUpgrades` from `UpgradeModel.cost`.
+`UpgradeModel.xpCost` is unlock XP; captured `-1` values remain valid. Difficulty modifiers and Knowledge are separate conditions.
+
+Tower names and descriptions use `baseId` and `baseId` plus ` Description` in `textTable.json`.
+Ordinary upgrade names use `LocsKey`; their descriptions append ` Description`.
+Hero progression uses different text conventions. Localization prose can disagree with captured behavior values.
+
+`WeaponModel.rate`, `AbilityModel.cooldown` and `MonkeyFanClubModel.lifespan` use seconds.
+`TravelStraitModel.speed` uses game units per second, Tower range uses game units, and projectile pierce is a budget.
+Unit bindings require a bound field to be numeric when present. They do not convert or rewrite values.
+Zero derived frame caches can be uninitialized. Preserve them, but do not substitute them for canonical durations.
+
+The `towerSet` flags are primary `1`, military `2`, magic `4`, support `8`, hero `16`, paragon `32` and power `64`.
+Immunity flags are lead `1`, black `2`, white `4`, purple `8`, frozen `16`, immune `32` and glass `64`.
+These meanings describe the raw flags, not a new damage model.
+
+Assets and display references point to game resources. They are retained without requiring corresponding JSON files.
+Local mutation identifiers also differ from exported record references.
+The reference catalog retains explicit allowances for five modifier names without exported Knowledge records and the unexported `BossRush` mode.
+Their reasons record the observed capture omission. An exported target takes precedence over an allowance; other unresolved values fail.
 `ProtecttheYacht` resolves through an explicit alias to `ProtectTheYacht`.
-Assets and local mutation IDs have different semantics from exported record references.
-Nullable fields, anonymous embedded Tower models, and `xpCost: -1` values remain valid as captured.
-Skywarden's purchase links resolve, so it passes integrity checks; inconsistent upgrade tiers remain a gameplay-data concern.
-Upgrade descriptions use `textTable.json` keys built from `LocsKey` plus ` Description`. Hero progression uses different text conventions.
 
-See [the reviewed design and validation evidence](../docs/game-profile.md).
+## Change the contract
+
+Edit a schema for field requirements, `references.json` for record links, or `rules.json` for cross-record constraints.
+Add mechanic bindings only with a reviewed schema. Keep proposals and their evidence outside gameplay records.
+A proposal contains a `mechanic` entry and a `reason`; its entry uses the catalog's schema. Proposals are not loaded by game-data validation.
+New executable rule operations need a Go implementation and tests; changing existing rule limits does not.
+
+Collections support recorded fields plus `@keys`, `@parent`, `@stem` and `@path` identity selectors.
+Collection and required-file paths normalize locally; a `.` collection includes root and nested records.
+The same files can supply separate state and family indexes. Renaming a file preserves a field-based identity if the file remains in its collection.
+The Profile requires `textTable.json`; other unreferenced records can be removed unless a declared completeness rule requires them.
+
+Reuse the Profile across captures while their format remains compatible. Change its revision when its requirements change.
+See [the design](../docs/game-profile.md), [implementation evidence](../docs/profile-implementation.md) and [domain terms](../CONTEXT.md).

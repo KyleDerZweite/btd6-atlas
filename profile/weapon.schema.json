@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raw weapon model",
+  "type": "object",
+  "required": [
+    "$type",
+    "rate",
+    "projectile",
+    "emission"
+  ],
+  "properties": {
+    "$type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "(^|\\.)(WeaponModel)(,|$)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "number"
+    },
+    "projectile": {
+      "anyOf": [
+        {
+          "$ref": "projectile.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "emission": {
+      "anyOf": [
+        {
+          "$ref": "model.schema.json#/$defs/model"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "behaviors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "model.schema.json#/$defs/model"
+      }
+    }
+  },
+  "additionalProperties": true
+}

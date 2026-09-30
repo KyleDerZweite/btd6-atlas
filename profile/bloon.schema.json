@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raw bloon model",
+  "type": "object",
+  "required": [
+    "$type",
+    "name",
+    "id",
+    "baseId",
+    "behaviors"
+  ],
+  "properties": {
+    "$type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "(^|\\.)(BloonModel)(,|$)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "behaviors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "model.schema.json#/$defs/model"
+      }
+    },
+    "maxHealth": {
+      "type": "number"
+    },
+    "speed": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": true
+}

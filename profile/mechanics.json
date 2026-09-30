@@ -1,0 +1,119 @@
+{
+  "unknownModels": "report",
+  "mechanics": [
+    {
+      "id": "tower",
+      "models": [
+        "TowerModel"
+      ],
+      "schema": "tower.schema.json",
+      "role": "structure"
+    },
+    {
+      "id": "upgrade",
+      "models": [
+        "UpgradeModel",
+        "PowerProUpgradeModel"
+      ],
+      "schema": "upgrade.schema.json",
+      "role": "progression"
+    },
+    {
+      "id": "purchase",
+      "models": [
+        "UpgradePathModel",
+        "PowerProUpgradePathModel"
+      ],
+      "schema": "purchase.schema.json",
+      "role": "progression"
+    },
+    {
+      "id": "attack",
+      "models": [
+        "AttackModel"
+      ],
+      "schema": "attack.schema.json",
+      "role": "structure"
+    },
+    {
+      "id": "weapon",
+      "models": [
+        "WeaponModel"
+      ],
+      "schema": "weapon.schema.json",
+      "role": "trigger"
+    },
+    {
+      "id": "projectile",
+      "models": [
+        "ProjectileModel"
+      ],
+      "schema": "projectile.schema.json",
+      "role": "delivery"
+    },
+    {
+      "id": "damage",
+      "models": [
+        "DamageModel"
+      ],
+      "schema": "damage.schema.json",
+      "role": "effect"
+    },
+    {
+      "id": "ability",
+      "models": [
+        "AbilityModel"
+      ],
+      "schema": "ability.schema.json",
+      "role": "ability"
+    },
+    {
+      "id": "knowledge",
+      "models": [
+        "KnowledgeModel"
+      ],
+      "schema": "knowledge.schema.json",
+      "role": "structure"
+    },
+    {
+      "id": "mod",
+      "models": [
+        "ModModel"
+      ],
+      "schema": "mod.schema.json",
+      "role": "structure"
+    },
+    {
+      "id": "bloon",
+      "models": [
+        "BloonModel"
+      ],
+      "schema": "bloon.schema.json",
+      "role": "structure"
+    },
+    {
+      "id": "bloonGroup",
+      "models": [
+        "BloonGroupModel"
+      ],
+      "schema": "round.schema.json#/$defs/bloonGroup",
+      "role": "structure"
+    },
+    {
+      "id": "round",
+      "models": [
+        "RoundModel"
+      ],
+      "schema": "round.schema.json",
+      "role": "structure"
+    },
+    {
+      "id": "map",
+      "models": [
+        "MapDetails"
+      ],
+      "schema": "map.schema.json",
+      "role": "structure"
+    }
+  ]
+}

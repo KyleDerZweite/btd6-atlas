@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raw mod model",
+  "type": "object",
+  "required": [
+    "$type",
+    "name",
+    "mutatorMods"
+  ],
+  "properties": {
+    "$type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "(^|\\.)(ModModel)(,|$)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "mutatorMods": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "model.schema.json#/$defs/model"
+      }
+    }
+  },
+  "additionalProperties": true
+}

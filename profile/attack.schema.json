@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raw attack model",
+  "type": "object",
+  "required": [
+    "$type",
+    "weapons",
+    "range"
+  ],
+  "properties": {
+    "$type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "(^|\\.)(AttackModel)(,|$)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "weapons": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "weapon.schema.json"
+      }
+    },
+    "range": {
+      "type": "number"
+    },
+    "behaviors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "model.schema.json#/$defs/model"
+      }
+    }
+  },
+  "additionalProperties": true
+}

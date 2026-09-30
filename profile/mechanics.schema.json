@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mechanics catalog",
+  "description": "Binds raw model classes to validation schemas. Catalog membership declares structural coverage, not behavior simulation.",
+  "type": "object",
+  "properties": {
+    "unknownModels": {
+      "enum": [
+        "report",
+        "error"
+      ]
+    },
+    "mechanics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mechanic"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "unknownModels",
+    "mechanics"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "mechanic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "structure",
+            "trigger",
+            "targeting",
+            "delivery",
+            "collision",
+            "effect",
+            "ability",
+            "progression",
+            "presentation"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "models",
+        "schema",
+        "role"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

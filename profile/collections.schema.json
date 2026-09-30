@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Collections and purchase graph scopes",
+  "type": "object",
+  "properties": {
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "idField": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "path",
+          "idField",
+          "schema"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "requiredFiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "collection": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rootSchema": {
+            "type": "string",
+            "minLength": 1
+          },
+          "edgesField": {
+            "type": "string",
+            "minLength": 1
+          },
+          "targetField": {
+            "type": "string",
+            "minLength": 1
+          },
+          "memberSchema": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "collection",
+          "rootSchema",
+          "edgesField",
+          "targetField",
+          "memberSchema"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "collections",
+    "requiredFiles",
+    "scopes"
+  ],
+  "additionalProperties": false
+}

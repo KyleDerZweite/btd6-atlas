@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ordinary purchase progression roots",
+  "description": "Select base states of ordinary non-subtower families. Purchase links determine the remaining states.",
+  "type": "object",
+  "required": [
+    "IsBaseTower",
+    "isSubTower",
+    "towerSet"
+  ],
+  "properties": {
+    "IsBaseTower": {
+      "const": true
+    },
+    "isSubTower": {
+      "const": false
+    },
+    "towerSet": {
+      "enum": [
+        1,
+        2,
+        4,
+        8
+      ]
+    }
+  },
+  "additionalProperties": true
+}

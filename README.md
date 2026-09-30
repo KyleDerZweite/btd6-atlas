@@ -17,8 +17,9 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 | `mod/` | The installable exporter mod (build + install: `mod/README.md`). |
 | `data/` | Accepted captures per patch. |
 | `patterns/` | Our derived analyses (empty until first write-up). |
-| `profile/` | Reusable game-data reading contract and JSON Schema. |
-| `cmd/atlas-validate/` | Go integrity validator. |
+| `profile/` | Reusable schemas, mechanics, references, numerical units and game rules. |
+| `cmd/atlas-validate/` | Small CLI for the Profile checker. |
+| `internal/atlasvalidate/` | Reusable Go validation package. |
 | `docs/` | Workflow plans for mod, data, patterns. |
 | `AGENTS.md` | Contributor rules for agents and humans. |
 
@@ -34,6 +35,9 @@ Build the data validator with `go build -o bin/atlas-validate ./cmd/atlas-valida
 Run `bin/atlas-validate --data data/56.3-build-24829026/game-data --profile profile`.
 See [the game profile](profile/README.md) for validation coverage and diagnostics.
 Add `--relations` to include resolved references and file backlinks in the JSON result.
+The checker applies the Profile to separate raw game-data, including ordinary purchase progression.
+Its report records Profile and checker identities, rule coverage and model types without schemas.
+Atlas owns this contract and checker independently of any consuming game or generator.
 
 ## Attribution
 
