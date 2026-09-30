@@ -1,0 +1,52 @@
+{
+  "formatVersion": 5,
+  "validatorFormatVersion": 5,
+  "id": "btd6-raw",
+  "revision": "5.0.0",
+  "game": "btd6",
+  "documents": {
+    "collections": {
+      "file": "collections.json",
+      "schema": "schemas/profile/collections.schema.json"
+    },
+    "references": {
+      "file": "references.json",
+      "schema": "schemas/profile/references.schema.json"
+    },
+    "mechanics": {
+      "file": "mechanics.json",
+      "schema": "schemas/profile/mechanics.schema.json"
+    },
+    "rules": {
+      "file": "rules.json",
+      "schema": "schemas/profile/rules.schema.json"
+    },
+    "numericalUnits": {
+      "file": "numerical-units.json",
+      "schema": "schemas/profile/numerical-units.schema.json"
+    },
+    "scoring": {
+      "file": "scoring.json",
+      "schema": "schemas/profile/scoring.schema.json"
+    },
+    "classifications": {
+      "file": "classifications.json",
+      "schema": "schemas/profile/classifications.schema.json"
+    },
+    "modelContracts": {
+      "file": "model-contracts.json",
+      "schema": "schemas/profile/model-contracts.schema.json"
+    }
+  },
+  "proposalSchema": "schemas/profile/mechanic-proposal.schema.json",
+  "captureMetadata": {
+    "path": "manifest.json",
+    "fields": {
+      "gameVersion": "gameVersion",
+      "buildId": "steamBuildId",
+      "exporterVersion": "atlasExporterVersion",
+      "helperVersion": "modHelperVersion"
+    },
+    "base": "parent"
+  }
+}

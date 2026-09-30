@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "collection": "towers",
+      "types": [
+        {
+          "id": "purchased",
+          "rule": "ordinary-tower-progression",
+          "membership": "checked",
+          "validation": "progression",
+          "selector": "ordinaryMember"
+        },
+        {
+          "id": "levelled",
+          "rule": "levelled-tower-progression",
+          "membership": "checked",
+          "validation": "progression",
+          "selector": "levelledMember"
+        },
+        {
+          "id": "branchOnly",
+          "rule": "branch-tower-progression",
+          "membership": "checked",
+          "validation": "progression",
+          "selector": "branchMember"
+        },
+        {
+          "id": "advanced",
+          "validation": "schemaAndReferences",
+          "reason": "Special upgrade state. Shared shape and outgoing references are checked; advanced progression behavior is not simulated.",
+          "selector": "advanced"
+        },
+        {
+          "id": "subordinate",
+          "validation": "schemaAndReferences",
+          "reason": "Created or controlled entity. Ownership and lifetime behavior still require dedicated mechanic schemas.",
+          "selector": "subordinate"
+        },
+        {
+          "id": "transformed",
+          "validation": "schemaAndReferences",
+          "reason": "Alternate form shares a family. It is not a separate permanent level ladder.",
+          "selector": "transformed"
+        },
+        {
+          "id": "familyVariant",
+          "rule": "ordinary-tower-progression",
+          "membership": "unchecked",
+          "validation": "schemaAndReferences",
+          "reason": "Family record outside its permanent purchase graph. Raw indicators do not establish a separate progression.",
+          "selector": "ordinaryMember"
+        },
+        {
+          "id": "excludedFeature",
+          "validation": "schemaAndReferences",
+          "reason": "Source feature is outside primary-game scope. Only shared raw shape and references are checked.",
+          "selector": "excludedFeature"
+        }
+      ]
+    }
+  ]
+}

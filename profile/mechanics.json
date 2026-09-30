@@ -1,0 +1,287 @@
+{
+  "unknownModels": "error",
+  "mechanics": [
+    {
+      "id": "tower",
+      "models": [
+        "TowerModel"
+      ],
+      "schema": "schemas/game-data/tower.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "name",
+        "familyId": "baseId",
+        "placementPrice": "cost",
+        "range": "range",
+        "buildTiers": "tiers",
+        "category": "towerSet",
+        "upgradeOptions": "upgrades",
+        "appliedUpgrades": "appliedUpgrades",
+        "behaviors": "behaviors",
+        "isBase": "IsBaseTower",
+        "isSubordinate": "isSubTower",
+        "isAdvanced": "isParagon",
+        "advancedUpgrade": "paragonUpgrade",
+        "placementAreas": "areaTypes",
+        "level": "tier"
+      },
+      "requiredFields": [
+        "familyId",
+        "placementPrice",
+        "range",
+        "buildTiers",
+        "category",
+        "upgradeOptions",
+        "appliedUpgrades",
+        "behaviors",
+        "isBase",
+        "isSubordinate",
+        "isAdvanced"
+      ]
+    },
+    {
+      "id": "upgrade",
+      "models": [
+        "UpgradeModel",
+        "PowerProUpgradeModel"
+      ],
+      "schema": "schemas/game-data/upgrade.schema.json",
+      "role": "progression",
+      "fields": {
+        "id": "name",
+        "price": "cost",
+        "experiencePrice": "xpCost",
+        "pathIndex": "path",
+        "tier": "tier",
+        "localizationKey": "LocsKey",
+        "isAdvanced": "IsParagon"
+      },
+      "requiredFields": [
+        "price",
+        "experiencePrice",
+        "pathIndex",
+        "tier",
+        "localizationKey"
+      ]
+    },
+    {
+      "id": "purchase",
+      "models": [
+        "UpgradePathModel",
+        "PowerProUpgradePathModel"
+      ],
+      "schema": "schemas/game-data/purchase.schema.json",
+      "role": "progression",
+      "fields": {
+        "id": "name",
+        "targetTower": "tower",
+        "upgradeId": "upgrade"
+      },
+      "requiredFields": [
+        "targetTower",
+        "upgradeId"
+      ]
+    },
+    {
+      "id": "attack",
+      "models": [
+        "AttackModel"
+      ],
+      "schema": "schemas/game-data/attack.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "name",
+        "weapons": "weapons",
+        "range": "range",
+        "behaviors": "behaviors"
+      },
+      "requiredFields": [
+        "weapons",
+        "range"
+      ]
+    },
+    {
+      "id": "weapon",
+      "models": [
+        "WeaponModel"
+      ],
+      "schema": "schemas/game-data/weapon.schema.json",
+      "role": "trigger",
+      "fields": {
+        "id": "name",
+        "interval": "rate",
+        "projectile": "projectile",
+        "emission": "emission",
+        "behaviors": "behaviors"
+      },
+      "requiredFields": [
+        "interval",
+        "projectile",
+        "emission"
+      ]
+    },
+    {
+      "id": "projectile",
+      "models": [
+        "ProjectileModel"
+      ],
+      "schema": "schemas/game-data/projectile.schema.json",
+      "role": "delivery",
+      "fields": {
+        "id": "name",
+        "hitCapacity": "pierce",
+        "maximumHitCapacity": "maxPierce",
+        "behaviors": "behaviors"
+      },
+      "requiredFields": [
+        "hitCapacity",
+        "behaviors"
+      ]
+    },
+    {
+      "id": "damage",
+      "models": [
+        "DamageModel"
+      ],
+      "schema": "schemas/game-data/damage.schema.json",
+      "role": "effect",
+      "fields": {
+        "id": "name",
+        "amount": "damage",
+        "maximumAmount": "maxDamage",
+        "immunityMask": "immuneBloonProperties"
+      },
+      "requiredFields": [
+        "amount"
+      ]
+    },
+    {
+      "id": "ability",
+      "models": [
+        "AbilityModel"
+      ],
+      "schema": "schemas/game-data/ability.schema.json",
+      "role": "ability",
+      "fields": {
+        "id": "name",
+        "cooldown": "cooldown",
+        "behaviors": "behaviors",
+        "sourceUpgrade": "addedViaUpgrade"
+      },
+      "requiredFields": [
+        "cooldown",
+        "behaviors"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "models": [
+        "KnowledgeModel"
+      ],
+      "schema": "schemas/game-data/knowledge.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "name",
+        "prerequisites": "prerequisiteIds",
+        "modifier": "mod",
+        "category": "category",
+        "requiredInvestment": "investmentRequired",
+        "price": "monkeyMoneyCost"
+      },
+      "requiredFields": [
+        "prerequisites",
+        "modifier"
+      ]
+    },
+    {
+      "id": "mod",
+      "models": [
+        "ModModel"
+      ],
+      "schema": "schemas/game-data/mod.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "name",
+        "modifiers": "mutatorMods"
+      },
+      "requiredFields": [
+        "modifiers"
+      ]
+    },
+    {
+      "id": "enemy",
+      "models": [
+        "BloonModel"
+      ],
+      "schema": "schemas/game-data/enemy.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "id",
+        "familyId": "baseId",
+        "behaviors": "behaviors",
+        "maxHealth": "maxHealth",
+        "speed": "speed"
+      },
+      "requiredFields": [
+        "familyId",
+        "behaviors"
+      ]
+    },
+    {
+      "id": "enemyGroup",
+      "models": [
+        "BloonGroupModel"
+      ],
+      "schema": "schemas/game-data/round.schema.json#/$defs/enemyGroup",
+      "role": "structure",
+      "fields": {
+        "id": "name",
+        "enemyId": "bloon",
+        "count": "count",
+        "start": "start",
+        "end": "end"
+      },
+      "requiredFields": [
+        "enemyId",
+        "count",
+        "start",
+        "end"
+      ]
+    },
+    {
+      "id": "round",
+      "models": [
+        "RoundModel"
+      ],
+      "schema": "schemas/game-data/round.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "name",
+        "groups": "groups",
+        "emissions": "emissions_"
+      },
+      "requiredFields": [
+        "groups"
+      ]
+    },
+    {
+      "id": "map",
+      "models": [
+        "MapDetails"
+      ],
+      "schema": "schemas/game-data/map.schema.json",
+      "role": "structure",
+      "fields": {
+        "id": "id",
+        "difficulty": "difficulty"
+      },
+      "requiredFields": [
+        "difficulty"
+      ]
+    }
+  ],
+  "typeIdentity": {
+    "field": "$type",
+    "encoding": "dotnet"
+  }
+}

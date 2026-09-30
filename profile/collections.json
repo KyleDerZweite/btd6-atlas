@@ -1,0 +1,319 @@
+{
+  "collections": [
+    {
+      "name": "achievements",
+      "path": "Achievements",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "artifacts",
+      "path": "Artifacts",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "enemyOverlays",
+      "path": "BloonOverlays",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1
+      },
+      "typed": true
+    },
+    {
+      "name": "enemies",
+      "path": "Bloons",
+      "idField": "name",
+      "schema": "schemas/game-data/enemy.schema.json",
+      "layout": {
+        "depth": 2,
+        "parentField": "baseId",
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "bosses",
+      "path": "Bosses",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 1,
+        "stemField": "LocsKey"
+      },
+      "typed": true
+    },
+    {
+      "name": "buffs",
+      "path": "Buffs",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "geraldoItems",
+      "path": "GeraldoItems",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "incomeSets",
+      "path": "IncomeSets",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "knowledge",
+      "path": "Knowledge",
+      "idField": "name",
+      "schema": "schemas/game-data/knowledge.schema.json",
+      "layout": {
+        "depth": 2,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "maps",
+      "path": "Maps",
+      "idField": "id",
+      "schema": "schemas/game-data/map.schema.json",
+      "layout": {
+        "depth": 2,
+        "stemField": "id"
+      },
+      "typed": true
+    },
+    {
+      "name": "mods",
+      "path": "Mods",
+      "idField": "name",
+      "schema": "schemas/game-data/mod.schema.json",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "powers",
+      "path": "Powers",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 1,
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "rounds",
+      "path": "Rounds",
+      "idField": "@path",
+      "schema": "schemas/game-data/round.schema.json",
+      "layout": {
+        "depth": 2
+      },
+      "typed": true
+    },
+    {
+      "name": "skins",
+      "path": "Skins",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 2,
+        "parentField": "baseTowerName",
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "towers",
+      "path": "Towers",
+      "idField": "name",
+      "schema": "schemas/game-data/tower.schema.json",
+      "layout": {
+        "depth": 2,
+        "parentField": "baseId",
+        "stemField": "name"
+      },
+      "typed": true
+    },
+    {
+      "name": "trophyStoreItems",
+      "path": "TrophyStoreItems",
+      "idField": "name",
+      "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
+      "layout": {
+        "depth": 3,
+        "stemField": "Id"
+      },
+      "typed": true
+    },
+    {
+      "name": "upgrades",
+      "path": "Upgrades",
+      "idField": "name",
+      "schema": "schemas/game-data/upgrade.schema.json",
+      "layout": {
+        "depth": 1
+      },
+      "typed": true
+    },
+    {
+      "name": "localization",
+      "path": "textTable.json",
+      "idField": "@keys",
+      "schema": "schemas/game-data/model.schema.json#/$defs/stringTable",
+      "layout": {
+        "depth": 0
+      },
+      "requireWhen": [
+        {
+          "collection": "towers"
+        },
+        {
+          "collection": "upgrades"
+        }
+      ],
+      "excludedKeys": [
+        "$type"
+      ]
+    },
+    {
+      "name": "resources",
+      "path": "resources.json",
+      "idField": "@keys",
+      "schema": "schemas/game-data/model.schema.json#/$defs/stringTable",
+      "layout": {
+        "depth": 0
+      },
+      "requireWhen": [
+        {
+          "models": [
+            "PrefabReference",
+            "AudioClipReference",
+            "SpriteReference"
+          ],
+          "field": "guidRef"
+        }
+      ],
+      "excludedKeys": [
+        "$type"
+      ]
+    },
+    {
+      "name": "roundSets",
+      "path": "Rounds",
+      "idField": "@parent",
+      "schema": "schemas/game-data/round.schema.json",
+      "typed": true
+    },
+    {
+      "name": "towerFamilies",
+      "path": "Towers",
+      "idField": "@parent",
+      "schema": "schemas/game-data/tower.schema.json",
+      "typed": true
+    },
+    {
+      "name": "enemyFamilies",
+      "path": "Bloons",
+      "idField": "@parent",
+      "schema": "schemas/game-data/enemy.schema.json",
+      "typed": true
+    },
+    {
+      "name": "advancedProgression",
+      "path": "paragonDegreeData.json",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 0
+      },
+      "requireWhen": [
+        {
+          "collection": "towers",
+          "selector": "advanced"
+        }
+      ],
+      "typed": true
+    },
+    {
+      "name": "rogueMode",
+      "path": "rogueData.json",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 0
+      },
+      "enabled": false,
+      "typed": true
+    },
+    {
+      "name": "frontierMode",
+      "path": "frontierData.json",
+      "idField": "@stem",
+      "schema": "schemas/game-data/model.schema.json#/$defs/model",
+      "layout": {
+        "depth": 0
+      },
+      "enabled": false,
+      "typed": true
+    }
+  ],
+  "scopes": [
+    {
+      "name": "ordinaryTowerStates",
+      "collection": "towers",
+      "edgesField": "upgrades",
+      "targetField": "tower",
+      "rootSelector": "ordinaryRoot",
+      "memberSelector": "ordinaryMember"
+    },
+    {
+      "name": "levelledTowerStates",
+      "collection": "towers",
+      "edgesField": "upgrades",
+      "targetField": "tower",
+      "rootSelector": "levelledRoot",
+      "memberSelector": "levelledMember"
+    },
+    {
+      "name": "branchTowerStates",
+      "collection": "towers",
+      "edgesField": "upgrades",
+      "targetField": "tower",
+      "rootSelector": "branchRoot",
+      "memberSelector": "branchMember"
+    }
+  ],
+  "unmatchedFiles": "error"
+}

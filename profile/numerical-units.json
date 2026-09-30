@@ -1,0 +1,74 @@
+{
+  "units": [
+    {
+      "id": "seconds",
+      "dimension": "time",
+      "description": "Native elapsed seconds."
+    },
+    {
+      "id": "gameUnitsPerSecond",
+      "dimension": "speed",
+      "description": "Native game distance units per second."
+    },
+    {
+      "id": "gameUnits",
+      "dimension": "distance",
+      "description": "Native game distance units."
+    },
+    {
+      "id": "pierceBudget",
+      "dimension": "collisionBudget",
+      "description": "Native projectile pierce budget. Spending semantics depend on behaviors."
+    }
+  ],
+  "bindings": [
+    {
+      "models": [
+        "WeaponModel"
+      ],
+      "field": "rate",
+      "unit": "seconds",
+      "meaning": "seconds between attacks"
+    },
+    {
+      "models": [
+        "AbilityModel"
+      ],
+      "field": "cooldown",
+      "unit": "seconds",
+      "meaning": "seconds"
+    },
+    {
+      "models": [
+        "MonkeyFanClubModel"
+      ],
+      "field": "lifespan",
+      "unit": "seconds",
+      "meaning": "seconds"
+    },
+    {
+      "models": [
+        "TravelStraitModel"
+      ],
+      "field": "speed",
+      "unit": "gameUnitsPerSecond",
+      "meaning": "game units per second"
+    },
+    {
+      "models": [
+        "TowerModel"
+      ],
+      "field": "range",
+      "unit": "gameUnits",
+      "meaning": "game units"
+    },
+    {
+      "models": [
+        "ProjectileModel"
+      ],
+      "field": "pierce",
+      "unit": "pierceBudget",
+      "meaning": "pierce budget"
+    }
+  ]
+}

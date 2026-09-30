@@ -1,0 +1,1418 @@
+{
+  "contracts": [
+    {
+      "sourceType": "Assets.Scripts.Models.Rounds.RoundThresholdMultiplier, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"threshold","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Assets.Scripts.Simulation.SMath.Vector3, Assembly-CSharp",
+      "fields": [
+        {"field":"x","shape":{"type":"number"}},
+        {"field":"y","shape":{"type":"number"}},
+        {"field":"z","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Achievements.Achievement, Assembly-CSharp",
+      "fields": [
+        {"field":"AppleArcadeId","shape":{"type":"string"}},
+        {"field":"AppleId","shape":{"type":"string"}},
+        {"field":"achievementGoal","shape":{"type":"number"}},
+        {"field":"achievementIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"achievementId","shape":{"type":"number"}},
+        {"field":"googlePlayId","shape":{"type":"string"}},
+        {"field":"hidden","shape":{"type":"boolean"}},
+        {"field":"hiddenAchievementIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"isCoop","shape":{"type":"boolean"}},
+        {"field":"legendsName","shape":{"type":"string"}},
+        {"field":"loot","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"steamStatName","shape":{"type":"string"}},
+        {"field":"subscript","shape":{"type":"string"}},
+        {"field":"type","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Artifacts.BoostArtifactData, Assembly-CSharp",
+      "fields": [
+        {"field":"boostArtifactModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp"]}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Artifacts.FrontierMapArtifactData, Assembly-CSharp",
+      "fields": [
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"mapArtifactModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.FrontierMapArtifactModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Artifacts.ItemArtifactData, Assembly-CSharp",
+      "fields": [
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"itemArtifactModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Artifacts.MapArtifactData, Assembly-CSharp",
+      "fields": [
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"mapArtifactModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Artifacts.StaminaTraitArtifactData, Assembly-CSharp",
+      "fields": [
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitArtifactModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.StaminaTraitArtifactModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Artifacts.TraitArtifactData, Assembly-CSharp",
+      "fields": [
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitArtifactModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.TraitArtifactModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Audio.MusicItem, Assembly-CSharp",
+      "fields": [
+        {"field":"Clip","shape":{"type":"model","models":["UnityEngine.AudioClip, UnityEngine.AudioModule"]}},
+        {"field":"clip","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"freeTrack","shape":{"type":"boolean"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"locKey","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"unavailableInJukeBox","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Bloons.BloonOverlayScriptable, Assembly-CSharp",
+      "fields": [
+        {"field":"assets","shape":{"type":"null"}},
+        {"field":"displayLayer","shape":{"type":"number"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Boss.BossData, Assembly-CSharp",
+      "fields": [
+        {"field":"LocsKey","shape":{"type":"string"}},
+        {"field":"ambientMapFXPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"bossChildrenOverlay","shape":{"type":"string"}},
+        {"field":"bossRushDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"ctTileTopper","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eliteBadgeIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eliteBtn","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eliteDefeatPortrait","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eliteHudIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"elitePortrait","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eventBackground","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eventBtn","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"eventIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"id","shape":{"type":"number"}},
+        {"field":"legendsEliteDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"legendsNormalDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"mainMenuDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"musicTrack","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Audio.MusicItem, Assembly-CSharp"]}},
+        {"field":"normalBadgeIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"normalBtn","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"normalDefeatPortrait","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"normalHudIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"normalPortrait","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"titlePrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"trackFXPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"worldScene","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.AnimationSwap, Assembly-CSharp",
+      "fields": [
+        {"field":"original","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AnimationClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"swapToo","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AnimationClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.AudioSwap, Assembly-CSharp",
+      "fields": [
+        {"field":"original","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"swapToo","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.BloonAssetChanges.BloonAssetChange, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonId","shape":{"type":"string"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"prefabSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.PrefabSwap, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.BloonDecals.BloonDecal, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonOverlayLayers","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.BloonDecals.BloonDecalSwap, Assembly-CSharp"]}}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"layer","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.BloonDecals.BloonDecalSwap, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonOverlayLayer","shape":{"type":"string"}},
+        {"field":"decal","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.BloonPopFXs.BloonPopFX, Assembly-CSharp",
+      "fields": [
+        {"field":"applyGlobal","shape":{"type":"boolean"}},
+        {"field":"bloonIds","shape":{"type":"string"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"popFX","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"popSound1","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"popSound2","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"popSound3","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"popSound4","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundEffectTimeDelay","shape":{"type":"number"}},
+        {"field":"soundEffectTimeDelayFF","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.Pets.Pet, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetModelUnsynced, Assembly-CSharp"]}},
+        {"field":"behaviours","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateEffectOnPlace, Assembly-CSharp","Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateEffectOnSell, Assembly-CSharp","Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateSoundOnIdle, Assembly-CSharp","Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateSoundOnPlace, Assembly-CSharp","Il2CppAssets.Scripts.Unity.Towers.Pets.Wander, Assembly-CSharp"]}}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"isFlying","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"skinId","shape":{"type":"string"}},
+        {"field":"towerId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.PowerAssetChanges.PowerAssetChange, Assembly-CSharp",
+      "fields": [
+        {"field":"audioSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.AudioSwap, Assembly-CSharp"]}}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"powerId","shape":{"type":"string"}},
+        {"field":"prefabArraySwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.PrefabArraySwap, Assembly-CSharp"]}}},
+        {"field":"prefabSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.PrefabSwap, Assembly-CSharp"]}}},
+        {"field":"spriteSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.SpriteSwap, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.PrefabArraySwap, Assembly-CSharp",
+      "fields": [
+        {"field":"swapToos","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.PrefabSwap, Assembly-CSharp",
+      "fields": [
+        {"field":"original","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"swapToo","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.Props.Prop+OffsetDictionary, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "fields": [
+      ],
+      "additionalFields": {"type":"object","fields":[{"field":"x","shape":{"type":"number"}},{"field":"y","shape":{"type":"number"}},{"field":"z","shape":{"type":"number"}}]}
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.Props.Prop, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Props.PropAssetChangeModel, Assembly-CSharp"]}},
+        {"field":"behaviours","shape":{"type":"array","maxItems":0}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayOffsets","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.Props.Prop+OffsetDictionary, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"]}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"skinId","shape":{"type":"string"}},
+        {"field":"towerId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.SpriteSwap, Assembly-CSharp",
+      "fields": [
+        {"field":"original","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"swapToo","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Cosmetics.TowerAssetChanges.TowerAssetChange, Assembly-CSharp",
+      "fields": [
+        {"field":"animationSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.AnimationSwap, Assembly-CSharp"]}}},
+        {"field":"applyGlobal","shape":{"type":"boolean"}},
+        {"field":"applyTowerSets","shape":{"type":"string"}},
+        {"field":"audioSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.AudioSwap, Assembly-CSharp"]}}},
+        {"field":"delayedReveal","shape":{"type":"number"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"prefabSwaps","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Cosmetics.PrefabSwap, Assembly-CSharp"]}}},
+        {"field":"skinId","shape":{"type":"string"}},
+        {"field":"towerId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.EmotesNS.Emote, Assembly-CSharp",
+      "fields": [
+        {"field":"canvasEmote","shape":{"type":"boolean"}},
+        {"field":"displayDuration","shape":{"type":"number"}},
+        {"field":"fullscreenEmote","shape":{"type":"boolean"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"prefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"standardEmote","shape":{"type":"boolean"}},
+        {"field":"textEmote","shape":{"type":"boolean"}},
+        {"field":"textLocString","shape":{"type":"string"}},
+        {"field":"uiPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp",
+      "fields": [
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"currentCooldown","shape":{"type":"number"}},
+        {"field":"isFree","shape":{"type":"boolean"}},
+        {"field":"lootType","shape":{"type":"number"}},
+        {"field":"tiers","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"uniqueId","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.MapSets.MapDetails, Assembly-CSharp",
+      "fields": [
+        {"field":"IsBrowserOnly","shape":{"type":"boolean"}},
+        {"field":"IsStandard","shape":{"type":"boolean"}},
+        {"field":"coopMapDivisionType","shape":{"type":"number"}},
+        {"field":"difficulty","shape":{"type":"number"}},
+        {"field":"hasWater","shape":{"type":"boolean"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"isBrowserOnly","shape":{"type":"boolean"}},
+        {"field":"isDebug","shape":{"type":"boolean"}},
+        {"field":"mapMusic","shape":{"type":"string"}},
+        {"field":"mapSprite","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"odysseyStatue","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"theme","shape":{"type":"number"}},
+        {"field":"unlockDifficulty","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.ParagonData.ParagonDegreeDataModel, Assembly-CSharp",
+      "fields": [
+        {"field":"MaxInvestment","shape":{"type":"number"}},
+        {"field":"attackCooldownReductionX","shape":{"type":"number"}},
+        {"field":"bonusBossDamagePerDegrees","shape":{"type":"number"}},
+        {"field":"bonusBossDamagePercent","shape":{"type":"number"}},
+        {"field":"cashEarnedContributionModifier","shape":{"type":"number"}},
+        {"field":"damageIncreaseForDegrees","shape":{"type":"number"}},
+        {"field":"damageIncreasePerDegree","shape":{"type":"number"}},
+        {"field":"damagePercentPerDegree","shape":{"type":"number"}},
+        {"field":"degreeCount","shape":{"type":"number"}},
+        {"field":"maxPowerFromMoneySpent","shape":{"type":"number"}},
+        {"field":"maxPowerFromNonTier5Count","shape":{"type":"number"}},
+        {"field":"maxPowerFromPops","shape":{"type":"number"}},
+        {"field":"maxPowerFromTier5Count","shape":{"type":"number"}},
+        {"field":"moneySpentOverX","shape":{"type":"number"}},
+        {"field":"nonTier5TowersMultByX","shape":{"type":"number"}},
+        {"field":"paidContributionPenalty","shape":{"type":"number"}},
+        {"field":"pierceIncreasePerDegree","shape":{"type":"number"}},
+        {"field":"piercePercentPerDegree","shape":{"type":"number"}},
+        {"field":"popsOverX","shape":{"type":"number"}},
+        {"field":"powerDegreeRequirements","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"tier5TowersMultByX","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.ProfileAvatarsNS.ProfileAvatar, Assembly-CSharp",
+      "fields": [
+        {"field":"IapStoreItemKey","shape":{"type":"string"}},
+        {"field":"ProfileItemType","shape":{"type":"number"}},
+        {"field":"TrophyStoreId","shape":{"type":"string"}},
+        {"field":"customUnlockInfoLocKey","shape":{"type":"string"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"iapStoreItemKey","shape":{"type":"string"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"profileItemType","shape":{"type":"number"}},
+        {"field":"trophyStoreId","shape":{"type":"string"}},
+        {"field":"unlockPlayScene","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.ProfileAvatarsNS.ProfileBanner, Assembly-CSharp",
+      "fields": [
+        {"field":"IapStoreItemKey","shape":{"type":"string"}},
+        {"field":"ProfileItemType","shape":{"type":"number"}},
+        {"field":"TrophyStoreId","shape":{"type":"string"}},
+        {"field":"customUnlockInfoLocKey","shape":{"type":"string"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"iapStoreItemKey","shape":{"type":"string"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"iconSmall","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"profileItemType","shape":{"type":"number"}},
+        {"field":"trophyStoreId","shape":{"type":"string"}},
+        {"field":"unlockPlayScene","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.PortraitContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.StorePortraits, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SkinData, Assembly-CSharp",
+      "fields": [
+        {"field":"IsHiddenBecauseIapsDisabled","shape":{"type":"boolean"}},
+        {"field":"MmCost","shape":{"type":"number"}},
+        {"field":"Portraits","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.StorePortraits, Assembly-CSharp"]}}},
+        {"field":"StorePortraitsContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.PortraitContainer, Assembly-CSharp"]}},
+        {"field":"SwapAudio","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapAudio, Assembly-CSharp"]}}},
+        {"field":"SwapAudioContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapAudioContainer, Assembly-CSharp"]}},
+        {"field":"SwapOverlay","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapOverlay, Assembly-CSharp"]}}},
+        {"field":"SwapOverlayContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapOverlayContainer, Assembly-CSharp"]}},
+        {"field":"SwapPrefab","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapPrefab, Assembly-CSharp"]}}},
+        {"field":"SwapPrefabContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapPrefabContainer, Assembly-CSharp"]}},
+        {"field":"SwapProjectileSpriteGroup","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapProjectileSpriteGroup, Assembly-CSharp"]}}},
+        {"field":"SwapProjectileSpriteGroupContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapProjectileSpriteGroupContainer, Assembly-CSharp"]}},
+        {"field":"SwapShopPortrait","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopPortrait, Assembly-CSharp"]}}},
+        {"field":"SwapShopPortraitContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopPortraitContainer, Assembly-CSharp"]}},
+        {"field":"SwapShopProjectilePrefab","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopProjectilePrefab, Assembly-CSharp"]}}},
+        {"field":"SwapShopProjectilePrefabContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopProjectilePrefabContainer, Assembly-CSharp"]}},
+        {"field":"SwapShopSprite","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopSprite, Assembly-CSharp"]}}},
+        {"field":"SwapShopSpriteContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopSpriteContainer, Assembly-CSharp"]}},
+        {"field":"SwapSprite","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapSprite, Assembly-CSharp"]}}},
+        {"field":"SwapSpriteContainer","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapSpriteContainer, Assembly-CSharp"]}},
+        {"field":"alternateLocsName","shape":{"type":"string"}},
+        {"field":"backgroundBanner","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"backgroundColourTintOverride","shape":{"type":"model","models":["UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"]}},
+        {"field":"baseTowerName","shape":{"type":"string"}},
+        {"field":"description","shape":{"type":"string"}},
+        {"field":"fontMaterial","shape":{"type":"string"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"iapName","shape":{"type":"string"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"iconSquare","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isDefaultTowerSkin","shape":{"type":"boolean"}},
+        {"field":"isHiddenWhenLocked","shape":{"type":"boolean"}},
+        {"field":"isPeriodicExclusive","shape":{"type":"boolean"}},
+        {"field":"mmCost","shape":{"type":"number"}},
+        {"field":"mutatedSkinName","shape":{"type":"string"}},
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"skinName","shape":{"type":"string"}},
+        {"field":"textMaterialId","shape":{"type":"string"}},
+        {"field":"unlockScreenName","shape":{"type":"string"}},
+        {"field":"unlockScreenSound","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"unlockedEventSound","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"unlockedVoiceSound","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.StorePortraits, Assembly-CSharp",
+      "fields": [
+        {"field":"asset","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"levelTxt","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapAudio, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"assetToReplace","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapAudioContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapAudio, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapOverlay, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"string"}},
+        {"field":"assetToReplace","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapOverlayContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapOverlay, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapPrefab, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"assetToReplace","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapPrefabContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapPrefab, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapProjectileSpriteGroup, Assembly-CSharp",
+      "fields": [
+        {"field":"newSpriteGroup","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"projectileSaveId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapProjectileSpriteGroupContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapProjectileSpriteGroup, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapShopPortrait, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"assetToReplace","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapShopPortraitContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopPortrait, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapShopProjectilePrefab, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"assetToReplace","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapShopProjectilePrefabContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopProjectilePrefab, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapShopSprite, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"assetToReplace","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapShopSpriteContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapShopSprite, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapSprite, Assembly-CSharp",
+      "fields": [
+        {"field":"assetReplacement","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"assetToReplace","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.Skins.SwapSpriteContainer, Assembly-CSharp",
+      "fields": [
+        {"field":"items","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.Skins.SwapSprite, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.TrophyStore.TrophyItemTypeData, Assembly-CSharp",
+      "fields": [
+        {"field":"itemTarget","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Data.Audio.MusicItem, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.BloonAssetChanges.BloonAssetChange, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.BloonDecals.BloonDecal, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.BloonPopFXs.BloonPopFX, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.Pets.Pet, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.PowerAssetChanges.PowerAssetChange, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.Props.Prop, Assembly-CSharp","Il2CppAssets.Scripts.Data.Cosmetics.TowerAssetChanges.TowerAssetChange, Assembly-CSharp","Il2CppAssets.Scripts.Data.EmotesNS.Emote, Assembly-CSharp","Il2CppAssets.Scripts.Data.ProfileAvatarsNS.ProfileAvatar, Assembly-CSharp","Il2CppAssets.Scripts.Data.ProfileAvatarsNS.ProfileBanner, Assembly-CSharp"]}]}},
+        {"field":"itemType","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Data.TrophyStore.TrophyStoreItem, Assembly-CSharp",
+      "fields": [
+        {"field":"Id","shape":{"type":"string"}},
+        {"field":"OriginalId","shape":{"type":"string"}},
+        {"field":"cosmeticPriority","shape":{"type":"number"}},
+        {"field":"exclusivity","shape":{"type":"string"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"hideUnlessUnlocked","shape":{"type":"boolean"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"itemTypes","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Data.TrophyStore.TrophyItemTypeData, Assembly-CSharp"]}}},
+        {"field":"lootSetFilter","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"questId","shape":{"type":"string"}},
+        {"field":"storeFilter","shape":{"type":"number"}},
+        {"field":"subFilter","shape":{"type":"number"}},
+        {"field":"walletIdOverride","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AbilityStackingBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"stackCount","shape":{"type":"number"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","maxItems":0}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddBanAmountBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addedBanAmounts","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddCampfireRecruitsModifierModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"recruitAmount","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddControlledZoneBehaviorsArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addOnlyIfScriptsExists","shape":{"type":"array","maxItems":0}},
+        {"field":"behaviorModels","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledDamageModifierZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledDamageTypeZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledSlowZoneModel, Assembly-CSharp"]}}},
+        {"field":"dontAddIfScriptsExists","shape":{"type":"array","maxItems":0}},
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"modelNameToAddTo","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"replaceScriptIds","shape":{"type":"array","maxItems":0}},
+        {"field":"replaceScriptNames","shape":{"type":"array","maxItems":0}},
+        {"field":"tiers","shape":{"type":"array","maxItems":0}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","maxItems":0}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddDisplayArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"extraDisplay","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.GenericBehaviors.DisplayModel, Assembly-CSharp"]}},
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tiers","shape":{"type":"array","maxItems":0}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","maxItems":0}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddEndOfRoundRerollBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addedRerolls","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddMerchantDiscountsModifierModel, Assembly-CSharp",
+      "fields": [
+        {"field":"discountAmount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddMonkeyMoneyBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"monkeyMoneyPerStage","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addOnlyIfScriptsExists","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"behaviorModels","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.AddBehaviorToBloonModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.AddBonusDamagePerHitToBloonModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.ClearHitBloonsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.ClearHitBloonsWhenNoLongerCollidingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.CreateEffectOnContactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.CreateEffectOnExhaustFractionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.CreateSoundOnProjectileCollisionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.CreateTextEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForBloonStateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForModifiersModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForRoundModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierWrathModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.FreezeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.FrontierGiveRewardsOnHitChanceModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.IncreaseBloonWorthModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.InstantModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.KnockbackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.MapBorderReboundModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.ProjectileBlockerCollisionReboundModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.ProjectileZeroRotationModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.PushBackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.RetargetOnContactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.RotateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.SlowMaimMoabModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.SlowModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.SlowModifierForTagModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.SlowOnPopModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.TrackTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.TrackTargetOrOrbitTowerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.TravelCurvyModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.WindModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.ZigZagModel, Assembly-CSharp"]}}},
+        {"field":"dontAddIfScriptsExists","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"modelNameToAddTo","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"replaceScriptIds","shape":{"type":"array","maxItems":0}},
+        {"field":"replaceScriptNames","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"tiers","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRewardChoiceBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"choiceAdditionAmount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"amountToAdd","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tower","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueXpBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"xpPerStage","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddTowerBehaviorsArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addOnlyIfScriptsExists","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"behaviorModels","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.AbilityCooldownScaleSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateNearbyWaterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateProjectileOnTowerDestroyModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnTowerExpireModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.DamageBasedAttackSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.DamageModifierSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.DamageTypeSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.FreezeDurationSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.FreezeNearbyWaterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.GainSheriffMoraleOnBloonDestroyedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.GainShieldPerRoundModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.LinkDisplayScaleToTowerRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.OverrideCamoDetectionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ProjectileLifespanSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ProjectileSpeedSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.RandomTeleportInRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.RangeSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.RateSupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.SheriffAutoGiddyUpModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.SlowBloonsZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.StartOfRoundRateBuffModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.StunImmunitySupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.TowerCreateProjectileOnProjectileExhaustModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.VisibilitySupportModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.WeaponReloadPercentageOnTargetPrioModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.WindyZoneModel, Assembly-CSharp"]}}},
+        {"field":"dontAddIfScriptsExists","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"modelNameToAddTo","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"replaceScriptIds","shape":{"type":"array","maxItems":0}},
+        {"field":"replaceScriptNames","shape":{"type":"array","maxItems":0}},
+        {"field":"tiers","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddWeaponBehaviorsArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addOnlyIfScriptsExists","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"behaviorModels","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BloonsInRangeAttackSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BurstWeaponBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritRollModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritRollWithDistanceModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LeakDangerAttackSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomAngleOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomRateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomSpeedOffsetModel, Assembly-CSharp"]}}},
+        {"field":"dontAddIfScriptsExists","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"modelNameToAddTo","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"replaceScriptIds","shape":{"type":"array","maxItems":0}},
+        {"field":"replaceScriptNames","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"tiers","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ArtifactDamageModifierIncludeDotsModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damageIncrease","shape":{"type":"number"}},
+        {"field":"damageModifier","shape":{"type":"null"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tiers","shape":{"type":"array","maxItems":0}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","maxItems":0}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AttackSpeedArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tiers","shape":{"type":"array","maxItems":0}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","maxItems":0}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AttackSpeedTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.BlockSellingTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.BoostRerollCostModifierModel, Assembly-CSharp",
+      "fields": [
+        {"field":"boostRerollModifier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CatsMeowBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"livesRecovery","shape":{"type":"number"}},
+        {"field":"maxLives","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CooldownBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CountAllCategoriesBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"alsoCountsAs","shape":{"type":"number"}},
+        {"field":"alsoCountsAsList","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerSets","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tiers","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSetList","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageImmunityModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonProperties","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damageMultiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DeputyBadgeBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"heroAddition","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DisableAttackArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"exclusiveAttackIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"ignorePowerTowers","shape":{"type":"boolean"}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inclusiveAttackIds","shape":{"type":"array","maxItems":0}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tiers","shape":{"type":"array","maxItems":0}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","maxItems":0}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DiscountBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.EssenceOfLychBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ImmortalityDurationFrames","shape":{"type":"number"}},
+        {"field":"SpawnDelayFrames","shape":{"type":"number"}},
+        {"field":"bfbProjectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"bfbProjectileCount","shape":{"type":"number"}},
+        {"field":"healthThreshold","shape":{"type":"number"}},
+        {"field":"immortalityDuration","shape":{"type":"number"}},
+        {"field":"maxCharges","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"spawnDelay","shape":{"type":"number"}},
+        {"field":"zomgProjectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"zomgProjectileCount","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FollowMeBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"inverseTowerSet","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotate","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToPointerModel, Assembly-CSharp"]}},
+        {"field":"target","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetPointerModel, Assembly-CSharp"]}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierEncounterRollIncreaseTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"increase","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierFishSpeedModifierBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"fishSpeedModifier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierFishingRodUpgradeBehaviourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rodTier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierGainLivesOnWinBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"livesRecovery","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierGoldIncreaseBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"goldMultiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierGoldIncreaseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierHomesteadIncreaseBehaviour, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"increaseAmount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierInvisibleToWanderingBloonsModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierMovementAnimModifierModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"walkAnimName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierMovementSpeedBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"speedMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierQuickDrawTargetSizeModifier, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"targetSizeModifier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierRecruitAmountUpgradeBehaviourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"increaseAmount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierReducedPlacementStaminaModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"staminaMultiplier","shape":{"type":"number"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierSaloonDiscountModifierBehaviourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"discountModifier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GamblerTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"allowNegativeTraits","shape":{"type":"boolean"}},
+        {"field":"allowPositiveTraits","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"newTraitAmount","shape":{"type":"number"}},
+        {"field":"newTraitRarity","shape":{"type":"number"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GiveCritChanceBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"critModel","shape":{"type":"null"}},
+        {"field":"critText","shape":{"type":"null"}},
+        {"field":"critTextLifeSpan","shape":{"type":"number"}},
+        {"field":"critTextPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"critTextUseTowerPosition","shape":{"type":"boolean"}},
+        {"field":"distributeToChildren","shape":{"type":"boolean"}},
+        {"field":"lower","shape":{"type":"number"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overridesExistingCrit","shape":{"type":"boolean"}},
+        {"field":"showTextOnHitModel","shape":{"type":"null"}},
+        {"field":"upper","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GlobalTechBotLinkBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GluesplosionBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonCount","shape":{"type":"number"}},
+        {"field":"damageType","shape":{"type":"string"}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"range","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.HeroEndOfRoundXpScaleBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"scale","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.HeroXpPerBloonLayerBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"xpPerLayer","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addedCooldown","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"towerType","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"boostToInvokeModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.MaxLivePercentIncreaseBehaviourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percentIncrease","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PierceBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PierceTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PopsFiredBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damageType","shape":{"type":"string"}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileCarouselBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"applyOnlyIfScriptExists","shape":{"type":"array","maxItems":0}},
+        {"field":"dontApplyIfScriptExists","shape":{"type":"array","maxItems":0}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tiers","shape":{"type":"array","maxItems":0}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileLifespanBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSizeTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"assetSizeMultiplier","shape":{"type":"number"}},
+        {"field":"hitSizeMultiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSpeedBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSpeedTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"matchDistance","shape":{"type":"boolean"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rangeMultiplier","shape":{"type":"number"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RateBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RemoveArtifactAfterEndOfGameRerollBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"artifactModelName","shape":{"type":"string"}},
+        {"field":"legendsDataProvider","shape":{"type":"null"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RemoveArtifactIfNoTowerBanAmountBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"artifactModelName","shape":{"type":"string"}},
+        {"field":"legendsDataProvider","shape":{"type":"null"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SheriffDetectionDelayBoostBehaviourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percentBoost","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SheriffMoraleBoostBehaviourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"maxMoraleIncreasePercent","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SpreadBoostBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SpreadTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.StaminaCostReductionBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Priority","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"staminaMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.StunTowerTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.TowerEffectTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"towerEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.Behaviors.TowerSizeTraitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"traitName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.BoostArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ArtifactName","shape":{"type":"string"}},
+        {"field":"ArtifactPower","shape":{"type":"number"}},
+        {"field":"IsBoost","shape":{"type":"boolean"}},
+        {"field":"artifactBehaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CooldownBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DiscountBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GiveCritChanceBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PierceBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileLifespanBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSpeedBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RateBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SpreadBoostBehaviorModel, Assembly-CSharp"]}}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"descriptionLocKey","shape":{"type":"string"}},
+        {"field":"descriptionParams","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"inverseSets","shape":{"type":"boolean"}},
+        {"field":"inverseTiers","shape":{"type":"boolean"}},
+        {"field":"inverseTowerTypes","shape":{"type":"boolean"}},
+        {"field":"isBossArtifact","shape":{"type":"boolean"}},
+        {"field":"isQuestArtifact","shape":{"type":"boolean"}},
+        {"field":"isSheriffArtifact","shape":{"type":"boolean"}},
+        {"field":"merchantCostMultiplier","shape":{"type":"number"}},
+        {"field":"monkeyKnowledgeModModels","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nameLocKey","shape":{"type":"string"}},
+        {"field":"rarityFrameType","shape":{"type":"string"}},
+        {"field":"tier","shape":{"type":"number"}},
+        {"field":"tiers","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"tiersMustBeEqual","shape":{"type":"boolean"}},
+        {"field":"towerSet","shape":{"type":"number"}},
+        {"field":"towerSets","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"towerTypes","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.FrontierMapArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ArtifactName","shape":{"type":"string"}},
+        {"field":"ArtifactPower","shape":{"type":"number"}},
+        {"field":"IsBoost","shape":{"type":"boolean"}},
+        {"field":"artifactBehaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DeputyBadgeBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierFishSpeedModifierBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierFishingRodUpgradeBehaviourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierGoldIncreaseBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierHomesteadIncreaseBehaviour, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierInvisibleToWanderingBloonsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierMovementAnimModifierModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierMovementSpeedBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierQuickDrawTargetSizeModifier, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierRecruitAmountUpgradeBehaviourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierSaloonDiscountModifierBehaviourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.MaxLivePercentIncreaseBehaviourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SheriffDetectionDelayBoostBehaviourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SheriffMoraleBoostBehaviourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.StaminaCostReductionBehaviorModel, Assembly-CSharp"]}}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"descriptionLocKey","shape":{"type":"string"}},
+        {"field":"descriptionParams","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isBossArtifact","shape":{"type":"boolean"}},
+        {"field":"isQuestArtifact","shape":{"type":"boolean"}},
+        {"field":"isSheriffArtifact","shape":{"type":"boolean"}},
+        {"field":"maxCopies","shape":{"type":"number"}},
+        {"field":"merchantCostMultiplier","shape":{"type":"number"}},
+        {"field":"monkeyKnowledgeModModels","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nameLocKey","shape":{"type":"string"}},
+        {"field":"rarityFrameType","shape":{"type":"string"}},
+        {"field":"tier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.ItemArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ArtifactName","shape":{"type":"string"}},
+        {"field":"ArtifactPower","shape":{"type":"number"}},
+        {"field":"IsBoost","shape":{"type":"boolean"}},
+        {"field":"artifactBehaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AbilityStackingBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddControlledZoneBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddDisplayArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddTowerBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddWeaponBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ArtifactDamageModifierIncludeDotsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AttackSpeedArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CatsMeowBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.CountAllCategoriesBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DisableAttackArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.EssenceOfLychBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FollowMeBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierGainLivesOnWinBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GlobalTechBotLinkBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GluesplosionBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.HeroEndOfRoundXpScaleBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.HeroXpPerBloonLayerBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InstaCooldownBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.InvokeBoostBuffBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PopsFiredBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileCarouselBehaviorModel, Assembly-CSharp"]}}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"descriptionLocKey","shape":{"type":"string"}},
+        {"field":"descriptionParams","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"instaTowerToGive","shape":{"type":"model","models":["Il2CppAssets.Scripts.Data.Legends.RogueInstaMonkey, Assembly-CSharp"]}},
+        {"field":"isBossArtifact","shape":{"type":"boolean"}},
+        {"field":"isQuestArtifact","shape":{"type":"boolean"}},
+        {"field":"isSheriffArtifact","shape":{"type":"boolean"}},
+        {"field":"merchantCostMultiplier","shape":{"type":"number"}},
+        {"field":"monkeyKnowledgeModModels","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nameLocKey","shape":{"type":"string"}},
+        {"field":"rarityFrameType","shape":{"type":"string"}},
+        {"field":"tier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.MapArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ArtifactName","shape":{"type":"string"}},
+        {"field":"ArtifactPower","shape":{"type":"number"}},
+        {"field":"IsBoost","shape":{"type":"boolean"}},
+        {"field":"artifactBehaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddBanAmountBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddCampfireRecruitsModifierModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddEndOfRoundRerollBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddMerchantDiscountsModifierModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddMonkeyMoneyBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRewardChoiceBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueBoostBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddRogueXpBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.BoostRerollCostModifierModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RemoveArtifactAfterEndOfGameRerollBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RemoveArtifactIfNoTowerBanAmountBehaviorModel, Assembly-CSharp"]}}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"descriptionLocKey","shape":{"type":"string"}},
+        {"field":"descriptionParams","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isBossArtifact","shape":{"type":"boolean"}},
+        {"field":"isQuestArtifact","shape":{"type":"boolean"}},
+        {"field":"isSheriffArtifact","shape":{"type":"boolean"}},
+        {"field":"merchantCostMultiplier","shape":{"type":"number"}},
+        {"field":"monkeyKnowledgeModModels","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nameLocKey","shape":{"type":"string"}},
+        {"field":"rarityFrameType","shape":{"type":"string"}},
+        {"field":"tier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.StaminaTraitArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ArtifactName","shape":{"type":"string"}},
+        {"field":"ArtifactPower","shape":{"type":"number"}},
+        {"field":"IsBoost","shape":{"type":"boolean"}},
+        {"field":"artifactBehaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AttackSpeedTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.StunTowerTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.TowerEffectTraitModel, Assembly-CSharp"]}}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"descriptionLocKey","shape":{"type":"string"}},
+        {"field":"descriptionParams","shape":{"type":"array","maxItems":0}},
+        {"field":"excludedTowerTypes","shape":{"type":"array","maxItems":0}},
+        {"field":"frontierIds","shape":{"type":"array","maxItems":0}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isBossArtifact","shape":{"type":"boolean"}},
+        {"field":"isQuestArtifact","shape":{"type":"boolean"}},
+        {"field":"isSheriffArtifact","shape":{"type":"boolean"}},
+        {"field":"isTemporary","shape":{"type":"boolean"}},
+        {"field":"merchantCostMultiplier","shape":{"type":"number"}},
+        {"field":"monkeyKnowledgeModModels","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nameLocKey","shape":{"type":"string"}},
+        {"field":"rarity","shape":{"type":"number"}},
+        {"field":"rarityFrameType","shape":{"type":"string"}},
+        {"field":"removalStaminaRequirement","shape":{"type":"number"}},
+        {"field":"staminaRequirement","shape":{"type":"number"}},
+        {"field":"tier","shape":{"type":"number"}},
+        {"field":"traitModifierIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    }
+  ]
+}

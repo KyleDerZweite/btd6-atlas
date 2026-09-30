@@ -1,0 +1,958 @@
+{
+  "contracts": [
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Upgrades.PowerProUpgradeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"IsParagon","shape":{"type":"boolean"}},
+        {"field":"LocsKey","shape":{"type":"string"}},
+        {"field":"confirmation","shape":{"type":"string"}},
+        {"field":"cost","shape":{"type":"number"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"localizedNameOverride","shape":{"type":"string"}},
+        {"field":"locked","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"path","shape":{"type":"number"}},
+        {"field":"tier","shape":{"type":"number"}},
+        {"field":"xpCost","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Upgrades.PowerProUpgradePathModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tower","shape":{"type":"string"}},
+        {"field":"upgrade","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Upgrades.UpgradeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"IsParagon","shape":{"type":"boolean"}},
+        {"field":"LocsKey","shape":{"type":"string"}},
+        {"field":"confirmation","shape":{"type":"string"}},
+        {"field":"cost","shape":{"type":"number"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"localizedNameOverride","shape":{"type":"string"}},
+        {"field":"locked","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"path","shape":{"type":"number"}},
+        {"field":"tier","shape":{"type":"number"}},
+        {"field":"xpCost","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Upgrades.UpgradePathModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tower","shape":{"type":"string"}},
+        {"field":"upgrade","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AcidicMixtureModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AlternateAnimationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"originState","shape":{"type":"number"}},
+        {"field":"states","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AlternateProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"alternateAnimation","shape":{"type":"number"}},
+        {"field":"emissionModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.ArcEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmissionOverTimeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionAtTowerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}]}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"priority","shape":{"type":"number"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AlternatingEjectEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"fullscreen","shape":{"type":"number"}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotateToWeapon","shape":{"type":"boolean"}},
+        {"field":"secondAssetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"secondEffectLifespan","shape":{"type":"number"}},
+        {"field":"secondEffectModel","shape":{"type":"null"}},
+        {"field":"useEjectPoint","shape":{"type":"boolean"}},
+        {"field":"useEmittedFrom","shape":{"type":"boolean"}},
+        {"field":"useMainAttackRotation","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AngleToMapCenterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offset","shape":{"type":"number"}},
+        {"field":"range","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AnimateAirUnitOnFireModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animationState","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BananaPeelLimitProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bananasRequired","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BerserkerBrewModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BloonDistanceRateBonusModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rangeMax","shape":{"type":"number"}},
+        {"field":"rateBonusPerRange","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BloonsInRangeAttackSpeedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonsPerStack","shape":{"type":"number"}},
+        {"field":"maxStacks","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rateIncreasePerStack","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BonusProjectileAfterIntervalModel, Assembly-CSharp",
+      "fields": [
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"cooldownFrames","shape":{"type":"number"}},
+        {"field":"emissionModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"expInterval","shape":{"type":"null"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"useTowerPosition","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BurstWeaponBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"alwaysEmptyClip","shape":{"type":"boolean"}},
+        {"field":"count","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BurstWeaponIncreasingArcBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"alwaysEmptyClip","shape":{"type":"boolean"}},
+        {"field":"angleIncreaseString","shape":{"type":"null"}},
+        {"field":"angleIncreases","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"count","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ChangeProjectilePerEmitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animationState","shape":{"type":"number"}},
+        {"field":"animationStateBeforeChangedProjectile","shape":{"type":"number"}},
+        {"field":"changedProjectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"effectBeforeChangedProjectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"effectMarkerX","shape":{"type":"number"}},
+        {"field":"effectMarkerY","shape":{"type":"number"}},
+        {"field":"effectMarkerZ","shape":{"type":"number"}},
+        {"field":"forProjectileCount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"originalProjectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckAdoraCanFireModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckAirUnitOverTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"futureTime","shape":{"type":"number"}},
+        {"field":"futureTimeFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckIsOverTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckTempleCanFireModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ClearProjectileHitListModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Rate","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rate","shape":{"type":"number"}},
+        {"field":"rateFrames","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CreateSequencedTypedTowerCurrentIndexModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyAllowOneTowerPerType","shape":{"type":"boolean"}},
+        {"field":"projectileDisplays","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}},
+        {"field":"towers","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerModel, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CreateSoundOnProjectileCreatedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"altSound1","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"altSound2","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"altSound3","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"altSound4","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"altSound5","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"altType","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileId","shape":{"type":"string"}},
+        {"field":"sound1","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound2","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound3","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound4","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound5","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"type","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CreateTypedTowerCurrentIndexModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritMultiplierModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damage","shape":{"type":"number"}},
+        {"field":"displayModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.GenericBehaviors.DisplayModel, Assembly-CSharp"]}},
+        {"field":"distributeToChildren","shape":{"type":"boolean"}},
+        {"field":"lower","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"upper","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritRollModel, Assembly-CSharp",
+      "fields": [
+        {"field":"chance","shape":{"type":"number"}},
+        {"field":"critSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"damageAdditive","shape":{"type":"number"}},
+        {"field":"damageMultiplier","shape":{"type":"number"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritRollWithDistanceModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bonusPerDistance","shape":{"type":"number"}},
+        {"field":"chance","shape":{"type":"number"}},
+        {"field":"critSound","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"damageAdditive","shape":{"type":"number"}},
+        {"field":"damageMultiplier","shape":{"type":"number"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CycleAnimationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"loopMode","shape":{"type":"string"}},
+        {"field":"maxAnimationState","shape":{"type":"number"}},
+        {"field":"minAnimationState","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"randomize","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.DamageUpPerAbilityActivateModel, Assembly-CSharp",
+      "fields": [
+        {"field":"abilityName","shape":{"type":"string"}},
+        {"field":"activationMax","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percentPerAbility","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.DuplicateProjectilePerEmitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"additionalProjectiles","shape":{"type":"number"}},
+        {"field":"angleOffset","shape":{"type":"number"}},
+        {"field":"animationState","shape":{"type":"number"}},
+        {"field":"animationStateBeforeChangedProjectile","shape":{"type":"number"}},
+        {"field":"effectBeforeDuplicatedProjectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"effectMarkerX","shape":{"type":"number"}},
+        {"field":"effectMarkerY","shape":{"type":"number"}},
+        {"field":"effectMarkerZ","shape":{"type":"number"}},
+        {"field":"forProjectileCount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"originalProjectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EjectAnimationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animationState","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EjectEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"fullscreen","shape":{"type":"number"}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotateToWeapon","shape":{"type":"boolean"}},
+        {"field":"useEjectPoint","shape":{"type":"boolean"}},
+        {"field":"useEmittedFrom","shape":{"type":"boolean"}},
+        {"field":"useMainAttackRotation","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EjectEffectWithOffsetsModel, Assembly-CSharp",
+      "fields": [
+        {"field":"assetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotateToWeapon","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EmissionsPerRoundFilterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"count","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FilterTargetAngleFilterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"baseTowerRotationOffset","shape":{"type":"number"}},
+        {"field":"fieldOfView","shape":{"type":"number"}},
+        {"field":"minTimeBetweenFilterTargetsFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"shareFilterTargets","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FireAlternateWeaponModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"weaponId","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FireFromAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FireWhenAlternateWeaponIsReadyModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"weaponId","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FlagshipAttackSpeedIncreaseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"attackSpeedIncrease","shape":{"type":"number"}},
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"dontAffectSelf","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyAffectParagon","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FlipFollowPathModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectOnFlip","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"flipTowerDisplayX","shape":{"type":"boolean"}},
+        {"field":"flipTowerDisplayY","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.GreatWhiteLimitProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.HasSpellcastProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.HasUpgradeableProjectilesModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectiles","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}},
+        {"field":"upgradeIndicatorId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.IgnoreThrowMarkerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.JungleVineLimitProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"delayInFrames","shape":{"type":"number"}},
+        {"field":"limit","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LeakDangerAttackSpeedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"maxRateIncreasePercent","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LifeBasedAttackSpeedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"baseRateIncrease","shape":{"type":"number"}},
+        {"field":"lifeCap","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"ratePerLife","shape":{"type":"number"}},
+        {"field":"saveId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LimitByHauntSpellModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LimitProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"delayInFrames","shape":{"type":"number"}},
+        {"field":"globalForPlayer","shape":{"type":"boolean"}},
+        {"field":"limit","shape":{"type":"number"}},
+        {"field":"limitByDestroyedPriorProjectile","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LineEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"displayLengthPerFrame","shape":{"type":"number"}},
+        {"field":"displayLengthSpeed","shape":{"type":"number"}},
+        {"field":"effectAtEnd","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"effectAtStart","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"effectDuration","shape":{"type":"number"}},
+        {"field":"ignoreBlockers","shape":{"type":"boolean"}},
+        {"field":"isLineDisplayEndless","shape":{"type":"boolean"}},
+        {"field":"lineDisplayLength","shape":{"type":"number"}},
+        {"field":"lineDisplayPath","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.AssetPathModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"useDisplayLengthSpeed","shape":{"type":"boolean"}},
+        {"field":"useLineProjectileEmissionShowEffect","shape":{"type":"boolean"}},
+        {"field":"useRotateToPointer","shape":{"type":"boolean"}},
+        {"field":"useWeaponEjectForDisplay","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.MagusPerfectusGraveyardModel, Assembly-CSharp",
+      "fields": [
+        {"field":"graveyardManaChange","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"roundUntilManaDecay","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.NecroEmissionFilterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isPriceOfDakrnessEmission","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.OffsetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"angleOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"range","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.PauseOtherAttacksModel, Assembly-CSharp",
+      "fields": [
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"durationFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.PierceFromLivesGainedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"lifeCap","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"piercePercentPerLife","shape":{"type":"number"}},
+        {"field":"saveId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.PsiLimitProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomAngleOffsetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"minOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomRateModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetRate","shape":{"type":"number"}},
+        {"field":"offsetRateFrames","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomRotationWeaponBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomSpeedOffsetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"minOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RateBasedAnimationOffsetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"baseRate","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offset","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ResetRateOnInitialiseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"weaponModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Weapons.WeaponModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SetTriggerOnAirUnitFireModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"triggerState","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SpinModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotationPerFrame","shape":{"type":"number"}},
+        {"field":"rotationPerSecond","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.StandoffModel, Assembly-CSharp",
+      "fields": [
+        {"field":"maxRateIncrease","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rateDecreasePerBloon","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SubTowerFilterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"baseSubTowerId","shape":{"type":"string"}},
+        {"field":"baseSubTowerIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"checkForPreExisting","shape":{"type":"boolean"}},
+        {"field":"maxNumberOfSubTowers","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SwapProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ejectXForA","shape":{"type":"number"}},
+        {"field":"ejectXForB","shape":{"type":"number"}},
+        {"field":"ejectYForA","shape":{"type":"number"}},
+        {"field":"ejectYForB","shape":{"type":"number"}},
+        {"field":"ejectZForA","shape":{"type":"number"}},
+        {"field":"ejectZForB","shape":{"type":"number"}},
+        {"field":"emitBoth","shape":{"type":"boolean"}},
+        {"field":"emitBothAnimation","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projASound1","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"projASound2","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"projASound3","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"projASound4","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"projBSound1","shape":{"type":"null"}},
+        {"field":"projBSound2","shape":{"type":"null"}},
+        {"field":"projBSound3","shape":{"type":"null"}},
+        {"field":"projBSound4","shape":{"type":"null"}},
+        {"field":"projectileAAnimation","shape":{"type":"number"}},
+        {"field":"projectileBAnimation","shape":{"type":"number"}},
+        {"field":"projectileModelA","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"projectileModelB","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"swapProjASound1","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"swapProjASound2","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"swapProjBSound1","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"swapProjBSound2","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"swapToAAnimationState","shape":{"type":"number"}},
+        {"field":"swapToBAnimationState","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SwitchAnimStateForBloonTypeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"badAnimId","shape":{"type":"number"}},
+        {"field":"bfbAnimId","shape":{"type":"number"}},
+        {"field":"ddtAnimId","shape":{"type":"number"}},
+        {"field":"moabAnimId","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nonMoabsAnimId","shape":{"type":"number"}},
+        {"field":"zomgAnimId","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.TheBlazingSunModel, Assembly-CSharp",
+      "fields": [
+        {"field":"attackSpeedPerStack","shape":{"type":"number"}},
+        {"field":"burnBehaviorArea","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"burnBehaviorModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.AddBehaviorToBloonModel, Assembly-CSharp"]}},
+        {"field":"debuffExpiresAfterFrames","shape":{"type":"number"}},
+        {"field":"ejectEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"ejectEffectOverheatModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"maxStacks","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"stacksToBurn","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ThrowMarkerOffsetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ejectX","shape":{"type":"number"}},
+        {"field":"ejectY","shape":{"type":"number"}},
+        {"field":"ejectZ","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotation","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.UseAttackRotationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.UseParentEjectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.VagrantWeaponBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonInRangeAttackSpeedBuff","shape":{"type":"number"}},
+        {"field":"buffDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"buffLocsFullName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"maxBloonAttackSpeedBuff","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"noTowersRateBonus","shape":{"type":"number"}},
+        {"field":"towerRangeBonusReduction","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.WeaponRateMinModel, Assembly-CSharp",
+      "fields": [
+        {"field":"min","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ZeroRotationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Weapons.WeaponModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Rate","shape":{"type":"number"}},
+        {"field":"UseThrowMarker","shape":{"type":"boolean"}},
+        {"field":"animateOnMainAttack","shape":{"type":"boolean"}},
+        {"field":"animation","shape":{"type":"number"}},
+        {"field":"animationOffset","shape":{"type":"number"}},
+        {"field":"animationOffsetFrames","shape":{"type":"number"}},
+        {"field":"behaviors","shape":{"anyOf":[{"type":"null"},{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AcidicMixtureModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AlternateAnimationModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AlternateProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AlternatingEjectEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AngleToMapCenterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.AnimateAirUnitOnFireModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BananaPeelLimitProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BerserkerBrewModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BloonDistanceRateBonusModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BloonsInRangeAttackSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BonusProjectileAfterIntervalModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BurstWeaponBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.BurstWeaponIncreasingArcBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ChangeProjectilePerEmitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckAdoraCanFireModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckAirUnitOverTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckIsOverTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CheckTempleCanFireModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ClearProjectileHitListModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CreateSequencedTypedTowerCurrentIndexModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CreateSoundOnProjectileCreatedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CreateTypedTowerCurrentIndexModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritMultiplierModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CritRollWithDistanceModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.CycleAnimationModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.DamageUpPerAbilityActivateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.DuplicateProjectilePerEmitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EjectAnimationModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EjectEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EjectEffectWithOffsetsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.EmissionsPerRoundFilterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FilterTargetAngleFilterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FireAlternateWeaponModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FireFromAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FireWhenAlternateWeaponIsReadyModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.FlipFollowPathModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.GreatWhiteLimitProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.HasSpellcastProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.HasUpgradeableProjectilesModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.IgnoreThrowMarkerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.JungleVineLimitProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LeakDangerAttackSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LifeBasedAttackSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LimitByHauntSpellModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LimitProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.LineEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.MagusPerfectusGraveyardModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.NecroEmissionFilterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.OffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.PauseOtherAttacksModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.PierceFromLivesGainedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.PsiLimitProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomAngleOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomRateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomRotationWeaponBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RandomSpeedOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.RateBasedAnimationOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ResetRateOnInitialiseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SetTriggerOnAirUnitFireModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SpinModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.StandoffModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SubTowerFilterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SwapProjectileModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.SwitchAnimStateForBloonTypeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.TheBlazingSunModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ThrowMarkerOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.UseAttackRotationModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.UseParentEjectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.VagrantWeaponBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.WeaponRateMinModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors.ZeroRotationModel, Assembly-CSharp"]}}]}},
+        {"field":"customStartCooldown","shape":{"type":"number"}},
+        {"field":"customStartCooldownFrames","shape":{"type":"number"}},
+        {"field":"ejectX","shape":{"type":"number"}},
+        {"field":"ejectY","shape":{"type":"number"}},
+        {"field":"ejectZ","shape":{"type":"number"}},
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.AdoraEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.ArcEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmissionAtClosestPathSegmentModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmissionAtLastPathSegmentModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmissionClosestOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmissionOverTimeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmissionWithOffsetsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.EmitFromSharedTowersModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.GrappleEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.InstantDamageEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.LineProjectileEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.MultiEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.MultiInstantEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.NecromancerEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.ParallelEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.PrinceOfDarknessEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.RandomArcEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.RandomEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.RandomTargetSpreadModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SendToBankModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionAtTowerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmmisionTowardsTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.WererabbitEmissionModel, Assembly-CSharp"]}},
+        {"field":"fireBetweenRounds","shape":{"type":"boolean"}},
+        {"field":"fireWithoutTarget","shape":{"type":"boolean"}},
+        {"field":"isStunned","shape":{"type":"boolean"}},
+        {"field":"modelName","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"rate","shape":{"type":"number"}},
+        {"field":"rateFrames","shape":{"type":"number"}},
+        {"field":"startInCooldown","shape":{"type":"boolean"}},
+        {"field":"useAttackPosition","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.WintersMercyTowerBuffModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonInRangeDamageBuff","shape":{"type":"number"}},
+        {"field":"buffPerBloonAmount","shape":{"type":"number"}},
+        {"field":"destroyFrozenBuffDuration","shape":{"type":"number"}},
+        {"field":"maxDamageBonus","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Simulation.SMath.Vector2, Assembly-CSharp",
+      "fields": [
+        {"field":"Magnitude","shape":{"type":"number"}},
+        {"field":"MagnitudeSquared","shape":{"type":"number"}},
+        {"field":"Rotation","shape":{"type":"number"}},
+        {"field":"x","shape":{"type":"number"}},
+        {"field":"y","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Simulation.SMath.Vector3, Assembly-CSharp",
+      "fields": [
+        {"field":"Magnitude","shape":{"type":"number"}},
+        {"field":"MagnitudeSquared","shape":{"type":"number"}},
+        {"field":"Rotation","shape":{"type":"number"}},
+        {"field":"SimToDispRotation","shape":{"type":"number"}},
+        {"field":"x","shape":{"type":"number"}},
+        {"field":"y","shape":{"type":"number"}},
+        {"field":"z","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Simulation.Towers.Projectiles.Behaviors.Curve, Assembly-CSharp",
+      "fields": [
+        {"field":"samples","shape":{"type":"array","items":{"type":"number"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateEffectOnPlace, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateEffectOnPlaceModel, Assembly-CSharp"]}},
+        {"field":"Model","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateEffectOnPlaceModel, Assembly-CSharp"]}},
+        {"field":"Type","shape":{"type":"null"}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"effect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"lifespan","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateEffectOnSell, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateEffectOnSellModel, Assembly-CSharp"]}},
+        {"field":"Model","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateEffectOnSellModel, Assembly-CSharp"]}},
+        {"field":"Type","shape":{"type":"null"}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"effect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"lifespan","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateSoundOnIdle, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateSoundOnIdleModel, Assembly-CSharp"]}},
+        {"field":"Model","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateSoundOnIdleModel, Assembly-CSharp"]}},
+        {"field":"Type","shape":{"type":"null"}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"idleMax","shape":{"type":"number"}},
+        {"field":"idleMin","shape":{"type":"number"}},
+        {"field":"sound1","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound2","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound3","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound4","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Unity.Towers.Pets.PetCreateSoundOnPlace, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateSoundOnPlaceModel, Assembly-CSharp"]}},
+        {"field":"Model","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.PetCreateSoundOnPlaceModel, Assembly-CSharp"]}},
+        {"field":"Type","shape":{"type":"null"}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"delay","shape":{"type":"number"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Unity.Towers.Pets.Wander, Assembly-CSharp",
+      "fields": [
+        {"field":"Def","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.WanderModel, Assembly-CSharp"]}},
+        {"field":"Model","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Pets.WanderModel, Assembly-CSharp"]}},
+        {"field":"Type","shape":{"type":"null"}},
+        {"field":"def","shape":{"type":"null"}},
+        {"field":"idleTimeMax","shape":{"type":"number"}},
+        {"field":"idleTimeMin","shape":{"type":"number"}},
+        {"field":"innerRadius","shape":{"type":"number"}},
+        {"field":"motionCurve","shape":{"type":"model","models":["UnityEngine.AnimationCurve, UnityEngine.CoreModule"]}},
+        {"field":"outerRadius","shape":{"type":"number"}},
+        {"field":"speed","shape":{"type":"number"}},
+        {"field":"startAtTower","shape":{"type":"boolean"}},
+        {"field":"stayInArea","shape":{"type":"boolean"}},
+        {"field":"useSyncedRandom","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppNinjaKiwi.Common.ResourceUtils.AnimationClipReference, Il2CppNinjaKiwi.Common",
+      "fields": [
+        {"field":"AssetGUID","shape":{"type":"string"}},
+        {"field":"guidRef","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common",
+      "fields": [
+        {"field":"AssetGUID","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}},
+        {"field":"guidRef","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common",
+      "fields": [
+        {"field":"AssetGUID","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}},
+        {"field":"guidRef","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common",
+      "fields": [
+        {"field":"AssetGUID","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}},
+        {"field":"guidRef","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppSystem.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Il2CppInterop.Runtime.InteropTypes.Arrays.Il2CppStringArray, Il2CppInterop.Runtime, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null]], Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "fields": [
+      ],
+      "additionalFields": {"type":"array","items":{"type":"string"}}
+    },
+    {
+      "sourceType": "Il2CppSystem.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Single, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "fields": [
+      ],
+      "additionalFields": {"type":"number"}
+    },
+    {
+      "sourceType": "Il2CppSystem.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "fields": [
+      ],
+      "additionalFields": {"type":"string"}
+    },
+    {
+      "sourceType": "UnityEngine.AnimationCurve, UnityEngine.CoreModule",
+      "fields": [
+        {"field":"keys","shape":{"type":"array","items":{"type":"model","models":["UnityEngine.Keyframe, UnityEngine.CoreModule"]}}},
+        {"field":"length","shape":{"type":"number"}},
+        {"field":"m_RequiresNativeCleanup","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "UnityEngine.AudioClip, UnityEngine.AudioModule",
+      "fields": [
+        {"field":"ambisonic","shape":{"type":"boolean"}},
+        {"field":"channels","shape":{"type":"number"}},
+        {"field":"frequency","shape":{"type":"number"}},
+        {"field":"hideFlags","shape":{"type":"number"}},
+        {"field":"isReadyToPlay","shape":{"type":"boolean"}},
+        {"field":"length","shape":{"type":"number"}},
+        {"field":"loadInBackground","shape":{"type":"boolean"}},
+        {"field":"loadState","shape":{"type":"number"}},
+        {"field":"loadType","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"preloadAudioData","shape":{"type":"boolean"}},
+        {"field":"samples","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "fields": [
+        {"field":"a","shape":{"type":"number"}},
+        {"field":"b","shape":{"type":"number"}},
+        {"field":"g","shape":{"type":"number"}},
+        {"field":"r","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "UnityEngine.Keyframe, UnityEngine.CoreModule",
+      "fields": [
+        {"field":"inTangent","shape":{"type":"number"}},
+        {"field":"inWeight","shape":{"type":"number"}},
+        {"field":"outTangent","shape":{"type":"number"}},
+        {"field":"outWeight","shape":{"type":"number"}},
+        {"field":"time","shape":{"type":"number"}},
+        {"field":"value","shape":{"type":"number"}},
+        {"field":"weightedMode","shape":{"type":"number"}}
+      ]
+    }
+  ]
+}

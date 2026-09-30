@@ -1,0 +1,1422 @@
+{
+  "contracts": [
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Artifacts.TraitArtifactModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ArtifactName","shape":{"type":"string"}},
+        {"field":"ArtifactPower","shape":{"type":"number"}},
+        {"field":"IsBoost","shape":{"type":"boolean"}},
+        {"field":"artifactBehaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddProjectileBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddTowerBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AddWeaponBehaviorsArtifactModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.AttackSpeedTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.BlockSellingTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageImmunityModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.DamageTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierEncounterRollIncreaseTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierGoldIncreaseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.FrontierReducedPlacementStaminaModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.GamblerTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.PierceTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSizeTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.ProjectileSpeedTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.RangeTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.SpreadTraitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Artifacts.Behaviors.TowerSizeTraitModel, Assembly-CSharp"]}}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"descriptionLocKey","shape":{"type":"string"}},
+        {"field":"descriptionParams","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"excludedTowerTypes","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"frontierIds","shape":{"type":"array","maxItems":0}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isBossArtifact","shape":{"type":"boolean"}},
+        {"field":"isQuestArtifact","shape":{"type":"boolean"}},
+        {"field":"isSheriffArtifact","shape":{"type":"boolean"}},
+        {"field":"isTemporary","shape":{"type":"boolean"}},
+        {"field":"merchantCostMultiplier","shape":{"type":"number"}},
+        {"field":"monkeyKnowledgeModModels","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.ModModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"nameLocKey","shape":{"type":"string"}},
+        {"field":"rarity","shape":{"type":"number"}},
+        {"field":"rarityFrameType","shape":{"type":"string"}},
+        {"field":"tier","shape":{"type":"number"}},
+        {"field":"traitModifierIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp",
+      "fields": [
+        {"field":"assetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Behaviors.AgeingDestroyModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"time","shape":{"type":"number"}},
+        {"field":"timeFrames","shape":{"type":"number"}},
+        {"field":"useRoundTime","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.AbilityCooldownZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.AbsorbTowerBuffsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"buffsAlwaysRemoved","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"buffsThatDontHeal","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"ignoredBuffs","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"towerFreezeDisplayAsset","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"towerFreezeDuration","shape":{"type":"number"}},
+        {"field":"towerFreezeDurationFrames","shape":{"type":"number"}},
+        {"field":"towersWhichAreDestroyed","shape":{"type":"array","maxItems":0}},
+        {"field":"triggerName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.ApplyTowerSetImmunityModel+TowerTypeImmunity, Assembly-CSharp",
+      "fields": [
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"towerType","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.ApplyTowerSetImmunityModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"immunities","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.ApplyTowerSetImmunityModel+TowerTypeImmunity, Assembly-CSharp"]}}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.DashForwardsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"actionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"dashAnimationName","shape":{"type":"string"}},
+        {"field":"dashDistance","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"setSpeed","shape":{"type":"boolean"}},
+        {"field":"speedMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.GenerateArmourActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"amount","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"properties","shape":{"type":"number"}},
+        {"field":"speedMultiplier","shape":{"type":"number"}},
+        {"field":"tags","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.GenerateShieldActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"amount","shape":{"type":"number"}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"tags","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}},
+        {"field":"tagsArray","shape":{"type":"null"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.ReflectProjectilesInRadiusActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"innerRadius","shape":{"type":"number"}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyIfImmune","shape":{"type":"boolean"}},
+        {"field":"outerRadius","shape":{"type":"number"}},
+        {"field":"reflectionDamper","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.SpawnBloonsUntilArmourBreaksActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"bloonType","shape":{"type":"string"}},
+        {"field":"inheritImmunityFromParent","shape":{"type":"boolean"}},
+        {"field":"initialSpawnPackSize","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"performActionOnSpawn","shape":{"type":"boolean"}},
+        {"field":"timeBetweenSpawns","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.AddHeatActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"heatPercent","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.AnimDamageStateModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"numOfAnimStates","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.BadImmunityModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.BloonDeathEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.BloonSpawnEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.BloonSpeedUpZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"affectsSelf","shape":{"type":"boolean"}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"effectRadius","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overlayType","shape":{"type":"string"}},
+        {"field":"range","shape":{"type":"number"}},
+        {"field":"speedMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.BuffBloonSpeedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"debuffInRadius","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"speedBoost","shape":{"type":"number"}},
+        {"field":"speedBoostOverlayGroup","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CapReceivedDamageModel, Assembly-CSharp",
+      "fields": [
+        {"field":"cap","shape":{"type":"number"}},
+        {"field":"damageTypes","shape":{"type":"array","maxItems":0}},
+        {"field":"effectWhenNoLongerCapped","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"maxHits","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overlayToRemoveWhenNotCapping","shape":{"type":"string"}},
+        {"field":"soundWhenNoLongerCapped","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"soundsWhenDamageCapped","shape":{"type":"array","maxItems":0}},
+        {"field":"useOriginalType","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CarryProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.ChangeSpeedBasedOnCurrentHealthModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pointAHealth","shape":{"type":"number"}},
+        {"field":"pointASpeedMultiplier","shape":{"type":"number"}},
+        {"field":"pointBHealth","shape":{"type":"number"}},
+        {"field":"pointBSpeedMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateEffectActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"effect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"followBloonTransform","shape":{"type":"boolean"}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"scale","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateEffectOnPopModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"ignoreSameFrameDegrade","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreatePropsOnBloonActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"expireEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"expireEffectDuration","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"propScale","shape":{"type":"number"}},
+        {"field":"rockAmount","shape":{"type":"number"}},
+        {"field":"rockCircleRadius","shape":{"type":"number"}},
+        {"field":"rockDuration","shape":{"type":"number"}},
+        {"field":"rockPropId","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"delay","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnBreakArmourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnDamageArmourModel, Assembly-CSharp",
+      "fields": [
+        {"field":"limit","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnDamageBloonModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnSpawnBloonModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageOverTimeCustomModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Interval","shape":{"type":"number"}},
+        {"field":"additive","shape":{"type":"number"}},
+        {"field":"bloonTagsList","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"damage","shape":{"type":"number"}},
+        {"field":"damageModifierModels","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForCashAmountModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp"]}}},
+        {"field":"damageOnDestroy","shape":{"type":"boolean"}},
+        {"field":"displayLifetime","shape":{"type":"number"}},
+        {"field":"displayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"distributeToChildren","shape":{"type":"boolean"}},
+        {"field":"immuneBloonProperties","shape":{"type":"number"}},
+        {"field":"immuneBloonPropertiesOriginal","shape":{"type":"number"}},
+        {"field":"initialDelay","shape":{"type":"number"}},
+        {"field":"initialDelayFrames","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"isFireBased","shape":{"type":"boolean"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overrideDistributionBlocker","shape":{"type":"boolean"}},
+        {"field":"payloadCount","shape":{"type":"number"}},
+        {"field":"rotateEffectWithBloon","shape":{"type":"boolean"}},
+        {"field":"triggerImmediate","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageOverTimeForTagModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Interval","shape":{"type":"number"}},
+        {"field":"damage","shape":{"type":"number"}},
+        {"field":"damageModifierModels","shape":{"type":"array","maxItems":0}},
+        {"field":"damageOnDestroy","shape":{"type":"boolean"}},
+        {"field":"displayLifetime","shape":{"type":"number"}},
+        {"field":"displayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"distributeToChildren","shape":{"type":"boolean"}},
+        {"field":"immuneBloonProperties","shape":{"type":"number"}},
+        {"field":"immuneBloonPropertiesOriginal","shape":{"type":"number"}},
+        {"field":"initialDelay","shape":{"type":"number"}},
+        {"field":"initialDelayFrames","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"isFireBased","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overrideDistributionBlocker","shape":{"type":"boolean"}},
+        {"field":"payloadCount","shape":{"type":"number"}},
+        {"field":"rotateEffectWithBloon","shape":{"type":"boolean"}},
+        {"field":"tag","shape":{"type":"string"}},
+        {"field":"triggerImmediate","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageOverTimeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Interval","shape":{"type":"number"}},
+        {"field":"damage","shape":{"type":"number"}},
+        {"field":"damageModifierModels","shape":{"anyOf":[{"type":"null"},{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp"]}}]}},
+        {"field":"damageOnDestroy","shape":{"type":"boolean"}},
+        {"field":"displayLifetime","shape":{"type":"number"}},
+        {"field":"displayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"distributeToChildren","shape":{"type":"boolean"}},
+        {"field":"immuneBloonProperties","shape":{"type":"number"}},
+        {"field":"immuneBloonPropertiesOriginal","shape":{"type":"number"}},
+        {"field":"initialDelay","shape":{"type":"number"}},
+        {"field":"initialDelayFrames","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"isFireBased","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overrideDistributionBlocker","shape":{"type":"boolean"}},
+        {"field":"payloadCount","shape":{"type":"number"}},
+        {"field":"rotateEffectWithBloon","shape":{"type":"boolean"}},
+        {"field":"triggerImmediate","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageReductionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"amount","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageStateModel, Assembly-CSharp",
+      "fields": [
+        {"field":"displayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"healthPercent","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageTakenTriggerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"amount","shape":{"type":"number"}},
+        {"field":"chance","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"repeatCount","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DesperadoMarkModel, Assembly-CSharp",
+      "fields": [
+        {"field":"desperadoDamageMultiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"popCashMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DestroyProjectilesInRadiusActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"destroyedItemEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"destroyedItemEffectTime","shape":{"type":"number"}},
+        {"field":"ignorePowerProjectiles","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DestroySelfActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"destroyDelay","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DiamondbackBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonBleedHealthPercent","shape":{"type":"number"}},
+        {"field":"extraHeadSpacing","shape":{"type":"number"}},
+        {"field":"extraTailSpacing","shape":{"type":"number"}},
+        {"field":"headSegmentBloonId","shape":{"type":"string"}},
+        {"field":"middleSegmentBloonId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"numOfMiddleSegments","shape":{"type":"number"}},
+        {"field":"playIntro","shape":{"type":"boolean"}},
+        {"field":"repairTraverseEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"segmentSpacing","shape":{"type":"number"}},
+        {"field":"skullActionId","shape":{"type":"string"}},
+        {"field":"skullInvulnerableTime","shape":{"type":"number"}},
+        {"field":"tailDamageMultiplier","shape":{"type":"number"}},
+        {"field":"tailSegmentBloonId","shape":{"type":"string"}},
+        {"field":"tailShieldBrokenActionId","shape":{"type":"string"}},
+        {"field":"tailShieldDamageStates","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"tailShieldMaxHealthPercent","shape":{"type":"number"}},
+        {"field":"tailShieldRegenerateActionId","shape":{"type":"string"}},
+        {"field":"tailShieldRegenerateTime","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DistributeCashModel, Assembly-CSharp",
+      "fields": [
+        {"field":"additionalCash","shape":{"type":"number"}},
+        {"field":"additive","shape":{"type":"number"}},
+        {"field":"cash","shape":{"type":"number"}},
+        {"field":"giveNoCash","shape":{"type":"boolean"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.DynamiteBloonBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"countdownTimerEffect","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"emission","shape":{"type":"null"}},
+        {"field":"explosionEffect","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"explosionProjectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"explosionSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"fuseDuration","shape":{"type":"number"}},
+        {"field":"fuseDurationFrames","shape":{"type":"number"}},
+        {"field":"fuseEffectRadius","shape":{"type":"number"}},
+        {"field":"fuseIgnitedSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"litFuseEffect","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"shakeIntensity","shape":{"type":"number"}},
+        {"field":"stunTowersInRadiusActionModel","shape":{"type":"null"}},
+        {"field":"towerStunAsset","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"towerStunDuration","shape":{"type":"number"}},
+        {"field":"triggerHealth","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.EmitOnDestroyModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"sound1","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"sound2","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.EmitOnPopModel, Assembly-CSharp",
+      "fields": [
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.ArcEmissionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"ignoreSameFrameDegrade","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pierceOverride","shape":{"type":"number"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.FireballActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"actionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"animationCurveId","shape":{"type":"string"}},
+        {"field":"fireballDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"fireballTargetting","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"heatPercents","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"magmaPoolDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"magmaPoolDuration","shape":{"type":"number"}},
+        {"field":"magmaPoolRadius","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileSpeed","shape":{"type":"number"}},
+        {"field":"rangeMultiplier","shape":{"type":"number"}},
+        {"field":"rateMultiplier","shape":{"type":"number"}},
+        {"field":"sounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}},
+        {"field":"stunDuration","shape":{"type":"number"}},
+        {"field":"towerStunEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.GiveCashOnBloonHitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"cash","shape":{"type":"number"}},
+        {"field":"extraCashOnPop","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pitchChangePerHit","shape":{"type":"number"}},
+        {"field":"pitchEnd","shape":{"type":"number"}},
+        {"field":"pitchShiftSound","shape":{"type":"boolean"}},
+        {"field":"pitchStart","shape":{"type":"number"}},
+        {"field":"popSoundEffect","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"textAssetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.GlassBloonBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"reflectProjectileSounds","shape":{"type":"null"}},
+        {"field":"reflectRadius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.GoldenBloonModel, Assembly-CSharp",
+      "fields": [
+        {"field":"cantJumpTime","shape":{"type":"number"}},
+        {"field":"cantJumpTimeFrames","shape":{"type":"number"}},
+        {"field":"damageFX","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"invulnerableTime","shape":{"type":"number"}},
+        {"field":"invulnerableTimeFrames","shape":{"type":"number"}},
+        {"field":"jumpChanceBackward","shape":{"type":"number"}},
+        {"field":"jumpChanceForward","shape":{"type":"number"}},
+        {"field":"jumpChanceTotal","shape":{"type":"number"}},
+        {"field":"jumpSpeedMultiplier","shape":{"type":"number"}},
+        {"field":"maxJumpDistPercOfTrack","shape":{"type":"number"}},
+        {"field":"minJumpDist","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rewardText","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"rewardTextLifeTime","shape":{"type":"number"}},
+        {"field":"speedIncreaseTime","shape":{"type":"number"}},
+        {"field":"speedIncreaseTimeFrames","shape":{"type":"number"}},
+        {"field":"speedIncreaseWhenDamaged","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.GrowBlockModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.GrowModel, Assembly-CSharp",
+      "fields": [
+        {"field":"growToId","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overrideChildWithColor","shape":{"anyOf":[{"type":"null"},{"type":"string"}]}},
+        {"field":"rate","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.HauntModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bonusEnergyDamage","shape":{"type":"number"}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"manaPerRbe","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileOnDestroyModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"singleEmissionModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.HealSelfActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"bossSkullIncreasePercent","shape":{"type":"number"}},
+        {"field":"healAmount","shape":{"type":"number"}},
+        {"field":"healPercent","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.HealthPercentTriggerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percentageValues","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"preventFallthrough","shape":{"type":"boolean"}},
+        {"field":"repeatFirst","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.HexModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damagePercentOfMax","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"payloadCount","shape":{"type":"number"}},
+        {"field":"totalDuration","shape":{"type":"number"}},
+        {"field":"totalIntervalFrames","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.IgnoreDmgImmunityModel, Assembly-CSharp",
+      "fields": [
+        {"field":"chance","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"removeBloonProperties","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.IncreaseDamageFromTypeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"amount","shape":{"type":"number"}},
+        {"field":"damageTypes","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"useOriginalType","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.IncreasePierceConsumptionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addition","shape":{"type":"number"}},
+        {"field":"damageTypes","shape":{"type":"array","maxItems":0}},
+        {"field":"fullDepletionEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"useOriginalType","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.IncreaseWorthTextEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"assetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayFullPayout","shape":{"type":"boolean"}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.LychBossSuperScriptModel, Assembly-CSharp",
+      "fields": [
+        {"field":"TombstoneSpawnHealthOverrides","shape":{"type":"null"}},
+        {"field":"drainActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"drainEtherealExitInterval","shape":{"type":"number"}},
+        {"field":"drainInitialInterval","shape":{"type":"number"}},
+        {"field":"drainInterval","shape":{"type":"number"}},
+        {"field":"etherealEnterActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"etherealExitActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"etherealHealthPercentageValues","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"preventFallthrough","shape":{"type":"boolean"}},
+        {"field":"regrowActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"regrowDrainInterval","shape":{"type":"number"}},
+        {"field":"regrowEtherealExitInterval","shape":{"type":"number"}},
+        {"field":"regrowInitialInterval","shape":{"type":"number"}},
+        {"field":"regrowInterval","shape":{"type":"number"}},
+        {"field":"tombstoneActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"tombstoneBfbHealthOverride","shape":{"type":"number"}},
+        {"field":"tombstoneEtherealExitInterval","shape":{"type":"number"}},
+        {"field":"tombstoneHealthOverride","shape":{"type":"number"}},
+        {"field":"tombstoneInitialInterval","shape":{"type":"number"}},
+        {"field":"tombstoneInterval","shape":{"type":"number"}},
+        {"field":"tombstoneMoabHealthOverride","shape":{"type":"number"}},
+        {"field":"tombstoneSpawnSpeedModifier","shape":{"type":"number"}},
+        {"field":"tombstoneZomgHealthOverride","shape":{"type":"number"}},
+        {"field":"totalKills","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.LychTombstoneSpawnActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"bloonType","shape":{"type":"string"}},
+        {"field":"bossName","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"spawnCount","shape":{"type":"number"}},
+        {"field":"spawnDistAhead","shape":{"type":"number"}},
+        {"field":"spawnOverTime","shape":{"type":"number"}},
+        {"field":"spawnTrackMax","shape":{"type":"number"}},
+        {"field":"spawnTrackMin","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.MinibossImmunityModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.MoabBarrageBloonBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"InitialDelay","shape":{"type":"number"}},
+        {"field":"Interval","shape":{"type":"number"}},
+        {"field":"damage","shape":{"type":"number"}},
+        {"field":"explosionDisplayLifespan","shape":{"type":"number"}},
+        {"field":"explosionDisplayPath","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.AssetPathModel, Assembly-CSharp"]}},
+        {"field":"ignoreImmunityForBloonTypes","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"immuneBloonProperties","shape":{"type":"number"}},
+        {"field":"initialDelay","shape":{"type":"number"}},
+        {"field":"initialDelayFrames","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"missileDisplayLifespan","shape":{"type":"number"}},
+        {"field":"missileDisplayPath","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.AssetPathModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"numOfMissiles","shape":{"type":"number"}},
+        {"field":"randomDelayMax","shape":{"type":"number"}},
+        {"field":"randomDelayMaxFrames","shape":{"type":"number"}},
+        {"field":"rotateEffectWithBloon","shape":{"type":"boolean"}},
+        {"field":"sound1","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound2","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound3","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound4","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sound5","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.OverheatTriggerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"abilityCooldownAddition","shape":{"type":"number"}},
+        {"field":"abilityCooldownHeatModifier","shape":{"type":"number"}},
+        {"field":"abilityTowerFilter","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"animTriggerId","shape":{"type":"string"}},
+        {"field":"damagedHeat","shape":{"type":"number"}},
+        {"field":"fillHeatOnSpawn","shape":{"type":"boolean"}},
+        {"field":"fullscreenEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"heatDecayStrength","shape":{"type":"number"}},
+        {"field":"heatEffectCooldown","shape":{"type":"number"}},
+        {"field":"heatEffectDuration","shape":{"type":"number"}},
+        {"field":"heatIdleDelay","shape":{"type":"number"}},
+        {"field":"iceHeatReduction","shape":{"type":"number"}},
+        {"field":"idleHeatReduction","shape":{"type":"number"}},
+        {"field":"immuneHeat","shape":{"type":"number"}},
+        {"field":"maxHeatLevel","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"passiveHeatReduction","shape":{"type":"number"}},
+        {"field":"projectileBurnLifespan","shape":{"type":"number"}},
+        {"field":"projectileExplosionEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"sounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}},
+        {"field":"stunDuration","shape":{"type":"number"}},
+        {"field":"stunEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.PhayzeBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"camoRemovalTowerDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"camoRemovalTowerDisplayModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.GenericBehaviors.DisplayModel, Assembly-CSharp"]}},
+        {"field":"enterCamoAnimationName","shape":{"type":"string"}},
+        {"field":"enterCamoImmunityAnimationName","shape":{"type":"string"}},
+        {"field":"exitCamoAnimationName","shape":{"type":"string"}},
+        {"field":"exitCamoImmunityAnimationName","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"powerLevels","shape":{"type":"array","items":{"type":"number"}}},
+        {"field":"shieldSpeedBoost","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.PhayzeTimerActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"restore","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.PlayAnimTriggerActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pauseMovementDuration","shape":{"type":"number"}},
+        {"field":"triggerName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.PopEffectModel, Assembly-CSharp",
+      "fields": [
+        {"field":"displayAssetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"soundEffect1Id","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundEffect2Id","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundEffect3Id","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundEffect4Id","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundEffectGroupID","shape":{"type":"string"}},
+        {"field":"soundEffectGroupLimit","shape":{"type":"number"}},
+        {"field":"soundEffectTimeDelay","shape":{"type":"number"}},
+        {"field":"soundEffectTimeDelayFF","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.ProjectileOverTimeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"Interval","shape":{"type":"number"}},
+        {"field":"collideWithSelf","shape":{"type":"boolean"}},
+        {"field":"displayLifetime","shape":{"type":"number"}},
+        {"field":"displayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"emissionModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"emitOnDestroy","shape":{"type":"boolean"}},
+        {"field":"initialDelay","shape":{"type":"number"}},
+        {"field":"initialDelayFrames","shape":{"type":"number"}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"intervalFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"rotateEffectWithBloon","shape":{"type":"boolean"}},
+        {"field":"triggerImmediate","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.PsiBloonBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damagePerTick","shape":{"type":"number"}},
+        {"field":"displayAgeingDestroyModel","shape":{"type":"null"}},
+        {"field":"effectOnBloonDestroyModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"emissionModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overlayType","shape":{"type":"string"}},
+        {"field":"projectileOnBloonDestroyModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}]}},
+        {"field":"tickRate","shape":{"type":"number"}},
+        {"field":"tickRateFrames","shape":{"type":"number"}},
+        {"field":"trembleDistanceMax","shape":{"type":"number"}},
+        {"field":"trembleDistanceMin","shape":{"type":"number"}},
+        {"field":"trembleFramesThresholdMax","shape":{"type":"number"}},
+        {"field":"trembleFramesThresholdMin","shape":{"type":"number"}},
+        {"field":"trembleSpeed","shape":{"type":"number"}},
+        {"field":"trembleSpeedFrames","shape":{"type":"number"}},
+        {"field":"trembleTimeThresholdMax","shape":{"type":"number"}},
+        {"field":"trembleTimeThresholdMin","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.RangeReductionZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rangeMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.RedirectBloonSpawnActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"durationFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"portalAsset","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"portalExpiryEffect","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"redirectBloonSpawningModel","shape":{"type":"null"}},
+        {"field":"rotatePortalToBloon","shape":{"type":"boolean"}},
+        {"field":"rounds","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.ReduceLeakDamageModel, Assembly-CSharp",
+      "fields": [
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.RemoveAllDotActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"effect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"effectLifespan","shape":{"type":"number"}},
+        {"field":"effectOffsetY","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.RemoveAllMutatorsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"mutatorsToIgnoreList","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.RetributionBloonBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"hitEffectAtBloon","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"hitEffectAtTower","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"hitLineDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"hitLineDisplayDuration","shape":{"type":"number"}},
+        {"field":"hitLineDisplayDurationFrames","shape":{"type":"number"}},
+        {"field":"hitLineDisplayLength","shape":{"type":"number"}},
+        {"field":"hitStunDuration","shape":{"type":"number"}},
+        {"field":"hitStunDurationFrames","shape":{"type":"number"}},
+        {"field":"hitsRequired","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"popEffectAtBloon","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"popEffectAtTower","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"popLineDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"popLineDisplayDuration","shape":{"type":"number"}},
+        {"field":"popLineDisplayDurationFrames","shape":{"type":"number"}},
+        {"field":"popLineDisplayLength","shape":{"type":"number"}},
+        {"field":"popSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"popStunDuration","shape":{"type":"number"}},
+        {"field":"popStunDurationFrames","shape":{"type":"number"}},
+        {"field":"towerStunAsset","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"zapSounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.RingleaderBloonBehaviorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"absorbProjectileSounds","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}},
+        {"field":"barrierBreakSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"barrierEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"barrierEffectRadius","shape":{"type":"number"}},
+        {"field":"barrierHealth","shape":{"type":"number"}},
+        {"field":"barrierRadius","shape":{"type":"number"}},
+        {"field":"barrierRestoreSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"barrierRestoreTime","shape":{"type":"number"}},
+        {"field":"barrierRestoreTimeFrames","shape":{"type":"number"}},
+        {"field":"bloonOverlayType","shape":{"type":"string"}},
+        {"field":"bloonsSpeedCap","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SellTriggerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SetInvulnerableActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"set","shape":{"type":"boolean"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.AudioClipReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SetSpeedPercentActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"distance","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percent","shape":{"type":"number"}},
+        {"field":"revert","shape":{"type":"boolean"}},
+        {"field":"time","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.ShowDamageTextModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"showText","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnBloonsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"animCurveIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"animationLength","shape":{"type":"number"}},
+        {"field":"bloonType","shape":{"type":"string"}},
+        {"field":"bossName","shape":{"type":"string"}},
+        {"field":"healthOverride","shape":{"type":"number"}},
+        {"field":"healthPercentOfSelf","shape":{"type":"number"}},
+        {"field":"invulnerableWhileAnimating","shape":{"type":"boolean"}},
+        {"field":"moabAnimCurveIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"spawnCount","shape":{"type":"number"}},
+        {"field":"spawnDistAhead","shape":{"type":"number"}},
+        {"field":"spawnOverTime","shape":{"type":"number"}},
+        {"field":"spawnTrackMax","shape":{"type":"number"}},
+        {"field":"spawnTrackMin","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnChildrenModel, Assembly-CSharp",
+      "fields": [
+        {"field":"children","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnDeathAnimModel, Assembly-CSharp",
+      "fields": [
+        {"field":"deathAnimLength","shape":{"type":"number"}},
+        {"field":"deathAnimTrigLabel","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"spawnAnimLength","shape":{"type":"number"}},
+        {"field":"spawnAnimTrigLabel","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnTombstoneBloonsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"animCurveIds","shape":{"type":"array","maxItems":0}},
+        {"field":"animationLength","shape":{"type":"number"}},
+        {"field":"bloonTypePerTombstoneTier","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"bossName","shape":{"type":"string"}},
+        {"field":"invulnerableWhileAnimating","shape":{"type":"boolean"}},
+        {"field":"moabAnimCurveIds","shape":{"type":"array","maxItems":0}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"spawnCount","shape":{"type":"number"}},
+        {"field":"spawnDistAhead","shape":{"type":"number"}},
+        {"field":"spawnOverTime","shape":{"type":"number"}},
+        {"field":"spawnTrackMax","shape":{"type":"number"}},
+        {"field":"spawnTrackMin","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.StunTowersInRadiusActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"blockTowerSelling","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"paragonStunTimeMultiplier","shape":{"type":"number"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"stunDuration","shape":{"type":"number"}},
+        {"field":"towerStunEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.ThrowBloonsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"addCamo","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetMax","shape":{"type":"number"}},
+        {"field":"offsetMin","shape":{"type":"number"}},
+        {"field":"speedMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.TimeTriggerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"interval","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"triggerImmediately","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.TombstoneSpawnerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rushActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"rushTier","shape":{"type":"number"}},
+        {"field":"spawnActionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"spawnInitialInterval","shape":{"type":"number"}},
+        {"field":"spawnInterval","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.UnstableConcoctionSplashModel, Assembly-CSharp",
+      "fields": [
+        {"field":"baseIdToBloonDmg","shape":{"type":"model","models":["Il2CppSystem.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Single, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null"]}},
+        {"field":"baseIdToMoabDmg","shape":{"type":"model","models":["Il2CppSystem.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Single, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Il2Cppmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null"]}},
+        {"field":"bossToMoabDmg","shape":{"type":"number"}},
+        {"field":"defaultBloonDmg","shape":{"type":"number"}},
+        {"field":"defaultMoabDmg","shape":{"type":"number"}},
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"ignoreSameFrameDegrade","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pierceOverride","shape":{"type":"number"}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.WaitForSecondsActionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"actionId","shape":{"type":"string"}},
+        {"field":"actionIds","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"delayTime","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.Behaviors.WorthReductionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"worthMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Bloons.BloonModel, Assembly-CSharp",
+      "fields": [
+        {"field":"CanAddToRoundSets","shape":{"type":"boolean"}},
+        {"field":"IsBase","shape":{"type":"boolean"}},
+        {"field":"IsBaseType","shape":{"type":"boolean"}},
+        {"field":"IsExclusiveToLegends","shape":{"type":"boolean"}},
+        {"field":"IsRock","shape":{"type":"boolean"}},
+        {"field":"IsVariant","shape":{"type":"boolean"}},
+        {"field":"Speed","shape":{"type":"number"}},
+        {"field":"alwaysRecordsDamage","shape":{"type":"boolean"}},
+        {"field":"armourMultiplier","shape":{"type":"number"}},
+        {"field":"baseId","shape":{"type":"string"}},
+        {"field":"basicTypeFlags","shape":{"type":"number"}},
+        {"field":"behaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Bloons.Behaviors.AbilityCooldownZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.AbsorbTowerBuffsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.ApplyTowerSetImmunityModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.DashForwardsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.GenerateArmourActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.GenerateShieldActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.ReflectProjectilesInRadiusActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.Actions.SpawnBloonsUntilArmourBreaksActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.AddHeatActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.AnimDamageStateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.BadImmunityModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.BloonDeathEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.BloonSpawnEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.BloonSpeedUpZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.BuffBloonSpeedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CapReceivedDamageModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.ChangeSpeedBasedOnCurrentHealthModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateEffectActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateEffectOnPopModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreatePropsOnBloonActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnBreakArmourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnDamageArmourModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnDamageBloonModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.CreateSoundOnSpawnBloonModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageReductionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageTakenTriggerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DestroyProjectilesInRadiusActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DestroySelfActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DiamondbackBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DistributeCashModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.DynamiteBloonBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.FireballActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.GiveCashOnBloonHitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.GlassBloonBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.GoldenBloonModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.GrowModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.HealSelfActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.HealthPercentTriggerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.IncreaseDamageFromTypeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.IncreasePierceConsumptionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.LychBossSuperScriptModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.LychTombstoneSpawnActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.MinibossImmunityModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.OverheatTriggerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.PhayzeBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.PhayzeTimerActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.PlayAnimTriggerActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.PopEffectModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.RangeReductionZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.RedirectBloonSpawnActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.RemoveAllDotActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.RemoveAllMutatorsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.RetributionBloonBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.RingleaderBloonBehaviorModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SellTriggerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SetInvulnerableActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SetSpeedPercentActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.ShowDamageTextModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnBloonsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnChildrenModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnDeathAnimModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.SpawnTombstoneBloonsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.StunTowersInRadiusActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.ThrowBloonsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.TimeTriggerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.TombstoneSpawnerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.WaitForSecondsActionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Bloons.Behaviors.WorthReductionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.GenericBehaviors.DisplayModel, Assembly-CSharp"]}}},
+        {"field":"bloonProperties","shape":{"type":"number"}},
+        {"field":"bonusDamagePerHit","shape":{"type":"number"}},
+        {"field":"childBloonModels","shape":{"type":"null"}},
+        {"field":"collisionGroup","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Physics.CollisionGroupModel, Assembly-CSharp"]}]}},
+        {"field":"coopMultiplier","shape":{"type":"number"}},
+        {"field":"currentOverlays","shape":{"type":"null"}},
+        {"field":"damageDisplayStates","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Bloons.Behaviors.DamageStateModel, Assembly-CSharp"]}}},
+        {"field":"danger","shape":{"type":"number"}},
+        {"field":"depletionEffects","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}}},
+        {"field":"disallowCosmetics","shape":{"type":"boolean"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"distributeDamageToChildren","shape":{"type":"boolean"}},
+        {"field":"dontShowInSandbox","shape":{"type":"boolean"}},
+        {"field":"dontShowInSandboxOnRelease","shape":{"type":"boolean"}},
+        {"field":"hasChildrenWithDifferentTotalHealths","shape":{"type":"boolean"}},
+        {"field":"icon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"id","shape":{"type":"string"}},
+        {"field":"isBoss","shape":{"type":"boolean"}},
+        {"field":"isBossSegment","shape":{"type":"boolean"}},
+        {"field":"isCamo","shape":{"type":"boolean"}},
+        {"field":"isFixedMaxHealth","shape":{"type":"boolean"}},
+        {"field":"isFortified","shape":{"type":"boolean"}},
+        {"field":"isGrow","shape":{"type":"boolean"}},
+        {"field":"isImmuneToSlow","shape":{"type":"boolean"}},
+        {"field":"isInvulnerable","shape":{"type":"boolean"}},
+        {"field":"isMoab","shape":{"type":"boolean"}},
+        {"field":"isRock","shape":{"type":"null"}},
+        {"field":"isSaved","shape":{"type":"boolean"}},
+        {"field":"layerNumber","shape":{"type":"number"}},
+        {"field":"leakDamage","shape":{"type":"number"}},
+        {"field":"leakDamageMultiplier","shape":{"type":"number"}},
+        {"field":"leakDamageSet","shape":{"type":"number"}},
+        {"field":"legendsType","shape":{"type":"number"}},
+        {"field":"maxHealth","shape":{"type":"number"}},
+        {"field":"mods","shape":{"anyOf":[{"type":"null"},{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Mods.ApplyModModel, Assembly-CSharp"]}}]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overlayClass","shape":{"type":"number"}},
+        {"field":"propertyFlags","shape":{"type":"number"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"speed","shape":{"type":"number"}},
+        {"field":"speedFrames","shape":{"type":"number"}},
+        {"field":"storedLayers","shape":{"type":"null"}},
+        {"field":"tags","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"totalLeakDamage","shape":{"type":"null"}},
+        {"field":"updateChildBloonModels","shape":{"type":"boolean"}},
+        {"field":"variantName","shape":{"type":"null"}},
+        {"field":"variantPrefix","shape":{"type":"null"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Condition.TowerHasStaminaModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.AggressionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"displaySwap","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"manaDrainInterval","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"ongoingManaCost","shape":{"type":"number"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"reapplyOnUpgrade","shape":{"type":"boolean"}},
+        {"field":"rehitCooldownMultiplier","shape":{"type":"number"}},
+        {"field":"sizeMultiplier","shape":{"type":"number"}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"null"}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.AncestralMightModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"absorptionDuration","shape":{"type":"number"}},
+        {"field":"attack","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp"]}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"null"}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}},
+        {"field":"withEchoSwap","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.Continuous.MalevolenceModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"absorptionDuration","shape":{"type":"number"}},
+        {"field":"attack","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp"]}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"null"}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"manaDrainInterval","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"ongoingManaCost","shape":{"type":"number"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"reapplyOnUpgrade","shape":{"type":"boolean"}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"null"}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.EchoModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duplicateSpiritModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerModel, Assembly-CSharp"]}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"null"}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.HasteModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"orbitSpeedMultiplier","shape":{"type":"number"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"null"}},
+        {"field":"turnSpeedMultiplier","shape":{"type":"number"}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.Instant.EmberModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"attack","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp"]}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"null"}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.Instant.FrostboundModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"null"}},
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"projectile","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.Instant.RecoveryModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"absorptionDuration","shape":{"type":"number"}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"null"}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"spellRecoveryRate","shape":{"type":"number"}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"null"}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.CorvusSpells.Instant.TrampleModel, Assembly-CSharp",
+      "fields": [
+        {"field":"SpellCategory","shape":{"type":"number"}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"corvusAnimationState","shape":{"type":"number"}},
+        {"field":"corvusEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"defaultIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"defaultIconSwaps","shape":{"type":"null"}},
+        {"field":"duration","shape":{"type":"number"}},
+        {"field":"effectDuringCorvusModel","shape":{"type":"null"}},
+        {"field":"effectDuringSpiritModel","shape":{"type":"null"}},
+        {"field":"emission","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"iconSwapLevels","shape":{"type":"null"}},
+        {"field":"initialManaCost","shape":{"type":"number"}},
+        {"field":"locsId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"placingPrefabReference","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"projectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"soundModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"speedBonus","shape":{"type":"number"}},
+        {"field":"speedBonusFrames","shape":{"type":"number"}},
+        {"field":"spellType","shape":{"type":"number"}},
+        {"field":"spiritAnimationState","shape":{"type":"number"}},
+        {"field":"spiritEffectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"unlocksAtLevel","shape":{"type":"number"}}
+      ]
+    }
+  ]
+}
