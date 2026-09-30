@@ -1,46 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw upgrade model",
+  "title": "Upgrade model",
   "type": "object",
   "required": [
-    "$type",
-    "name",
-    "cost",
-    "xpCost",
-    "path",
-    "tier",
-    "LocsKey"
+    "kind",
+    "id"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(UpgradeModel|PowerProUpgradeModel)(,|$)"
+    "kind": {
+      "const": "upgrade"
     },
-    "name": {
+    "id": {
       "type": "string",
       "minLength": 1
     },
-    "cost": {
+    "price": {
       "type": "number",
       "minimum": 0
     },
-    "xpCost": {
-      "type": "number",
-      "minimum": -1,
-      "description": "The accepted capture uses -1 for some upgrade XP values."
+    "experiencePrice": {
+      "type": "number"
     },
-    "path": {
+    "pathIndex": {
       "type": "integer"
     },
     "tier": {
       "type": "integer"
     },
-    "LocsKey": {
+    "localizationKey": {
       "type": "string",
       "minLength": 1
     },
-    "IsParagon": {
+    "isAdvanced": {
       "type": "boolean"
     }
   },

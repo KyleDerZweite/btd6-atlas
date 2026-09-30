@@ -195,30 +195,32 @@ func TestScopeMemberSchemaIsRequiredAndResolved(t *testing.T) {
 }
 
 func TestTowerClassificationFieldsCannotEvadeValidation(t *testing.T) {
-	_, profileDir := fixture(t)
-	loader, err := newProfileLoader(profileDir)
+	p, schemas, err := loadProfile(filepath.Join("..", "..", "profile"))
 	if err != nil {
 		t.Fatal(err)
 	}
-	schema, err := loader.resolve("schemas/game-data/tower.schema.json")
-	if err != nil {
-		t.Fatal(err)
+	validate := func(tower map[string]any) error {
+		view := p.project(tower).(map[string]any)
+		if err := p.requiredModelFields("TowerModel", view); err != nil {
+			return err
+		}
+		return schemas[p.ModelSchemas["TowerModel"]].Validate(view)
 	}
 	// Synthetic minimum raw Tower shape, with no copied capture values.
 	tower := map[string]any{"$type": "Example.TowerModel", "name": "test", "baseId": "test", "cost": 0.0, "range": 0.0, "tiers": []any{0.0, 0.0, 0.0}, "towerSet": 0.0, "upgrades": []any{}, "appliedUpgrades": []any{}, "behaviors": []any{}, "IsBaseTower": true, "isSubTower": false, "isParagon": false}
-	if err := schema.Validate(tower); err != nil {
+	if err := validate(tower); err != nil {
 		t.Fatalf("valid minimum Tower rejected: %v", err)
 	}
 	for _, field := range []string{"IsBaseTower", "isSubTower", "isParagon"} {
 		t.Run(field, func(t *testing.T) {
 			original := tower[field]
 			delete(tower, field)
-			if err := schema.Validate(tower); err == nil {
+			if err := validate(tower); err == nil {
 				t.Fatalf("missing %s accepted", field)
 			}
 			for _, malformed := range []any{nil, "false", 0.0} {
 				tower[field] = malformed
-				if err := schema.Validate(tower); err == nil {
+				if err := validate(tower); err == nil {
 					t.Fatalf("malformed %s=%v accepted", field, malformed)
 				}
 			}

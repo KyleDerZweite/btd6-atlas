@@ -1,26 +1,22 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw purchase model",
+  "title": "Purchase model",
   "type": "object",
   "required": [
-    "$type",
-    "tower",
-    "upgrade"
+    "kind"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(UpgradePathModel|PowerProUpgradePathModel)(,|$)"
+    "kind": {
+      "const": "purchase"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
-    "tower": {
+    "targetTower": {
       "type": "string",
       "minLength": 1
     },
-    "upgrade": {
+    "upgradeId": {
       "type": "string",
       "minLength": 1
     }

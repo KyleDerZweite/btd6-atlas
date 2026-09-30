@@ -2,9 +2,9 @@ package atlasvalidate
 
 import "github.com/google/jsonschema-go/jsonschema"
 
-const profileFormatVersion = 3
-const validatorFormatVersion = 3
-const Version = "3.0.0"
+const profileFormatVersion = 4
+const validatorFormatVersion = 4
+const Version = "4.0.0"
 
 type documentRef struct {
 	File, Schema string
@@ -19,14 +19,16 @@ type manifest struct {
 
 type collection struct {
 	Name, Path, IDField, Schema string
+	Typed                       bool
+	ExcludedKeys                []string
 	Layout                      *recordLayout
 	Enabled                     *bool
 	RequireWhen                 []requirement
 }
 
 type requirement struct {
-	Collection, SelectorSchema, Field string
-	Models                            []string
+	Collection, SelectorSchema, Selector, Field string
+	Models                                      []string
 }
 type metadataBinding struct {
 	Base, Path string
@@ -44,7 +46,7 @@ type recordLayout struct {
 }
 
 type scope struct {
-	Name, Collection, RootSchema, MemberSchema, EdgesField, TargetField string
+	Name, Collection, RootSchema, MemberSchema, RootSelector, MemberSelector, EdgesField, TargetField string
 }
 
 type collectionsDocument struct {
@@ -67,6 +69,8 @@ type referencesDocument struct {
 type mechanic struct {
 	ID, Schema, Role string
 	Models           []string
+	Fields           map[string]string
+	RequiredFields   []string
 }
 
 type mechanicsDocument struct {
@@ -79,14 +83,20 @@ type progressionLimits struct {
 	PathCount, MaxTier, MaxPurchasedPaths, SecondaryTierLimit, MaxPathsAboveSecondaryTier int
 }
 
+type levelRange struct {
+	First, Last int
+}
+
 type rule struct {
-	ID, Operation, Scope, TiersField, FamilyField string
-	Limits                                        progressionLimits
-	RequireCompleteStates                         bool
+	ID, Operation, Scope, TiersField, FamilyField, LevelField string
+	Limits                                                    progressionLimits
+	Levels                                                    levelRange
+	RequireCompleteStates                                     bool
 }
 
 type rulesDocument struct {
-	Rules []rule
+	Selectors map[string]sourceSelector
+	Rules     []rule
 }
 
 type unitDefinition struct {
@@ -104,19 +114,22 @@ type unitsDocument struct {
 }
 
 type profile struct {
-	Manifest       manifest
-	TypeIdentity   typeIdentity
-	Scoring        scoringDocument
-	Collections    []collection
-	Scopes         []scope
-	UnmatchedFiles string
-	References     []referenceRule
-	Mechanics      []mechanic
-	ModelSchemas   map[string]string
-	UnknownModels  string
-	Rules          []rule
-	Units          unitsDocument
-	Identity       ProfileIdentity
+	Manifest        manifest
+	Classifications classificationsDocument
+	TypeIdentity    typeIdentity
+	Scoring         scoringDocument
+	Collections     []collection
+	Scopes          []scope
+	UnmatchedFiles  string
+	References      []referenceRule
+	Mechanics       []mechanic
+	ModelSchemas    map[string]string
+	MechanicByModel map[string]mechanic
+	Selectors       map[string]sourceSelector
+	UnknownModels   string
+	Rules           []rule
+	Units           unitsDocument
+	Identity        ProfileIdentity
 }
 
 type record struct {

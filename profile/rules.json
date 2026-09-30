@@ -14,6 +14,138 @@
         "maxPathsAboveSecondaryTier": 1
       },
       "requireCompleteStates": true
+    },
+    {
+      "id": "levelled-tower-progression",
+      "operation": "linearProgression",
+      "scope": "levelledTowerStates",
+      "levelField": "tier",
+      "familyField": "baseId",
+      "levels": {
+        "first": 1,
+        "last": 20
+      },
+      "requireCompleteStates": true
+    },
+    {
+      "id": "branch-tower-progression",
+      "operation": "purchaseProgression",
+      "scope": "branchTowerStates",
+      "tiersField": "tiers",
+      "familyField": "baseId",
+      "limits": {
+        "pathCount": 3,
+        "maxTier": 3,
+        "maxPurchasedPaths": 1,
+        "secondaryTierLimit": 3,
+        "maxPathsAboveSecondaryTier": 0
+      },
+      "requireCompleteStates": true
     }
-  ]
+  ],
+  "selectors": {
+    "ordinaryMember": {
+      "fields": {
+        "towerSet": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "isSubTower": [
+          false
+        ],
+        "isParagon": [
+          false
+        ]
+      }
+    },
+    "ordinaryRoot": {
+      "all": [
+        "ordinaryMember"
+      ],
+      "fields": {
+        "IsBaseTower": [
+          true
+        ]
+      }
+    },
+    "levelledMember": {
+      "fields": {
+        "isSubTower": [
+          false
+        ],
+        "isTransformedTower": [
+          false
+        ]
+      },
+      "contains": {
+        "field": "behaviors",
+        "models": [
+          "HeroModel"
+        ]
+      }
+    },
+    "levelledRoot": {
+      "all": [
+        "levelledMember"
+      ],
+      "fields": {
+        "IsBaseTower": [
+          true
+        ]
+      }
+    },
+    "branchMember": {
+      "fields": {
+        "isPowerProTower": [
+          true
+        ],
+        "isSubTower": [
+          false
+        ]
+      }
+    },
+    "branchRoot": {
+      "all": [
+        "branchMember"
+      ],
+      "fields": {
+        "IsBaseTower": [
+          true
+        ]
+      }
+    },
+    "advanced": {
+      "fields": {
+        "isParagon": [
+          true
+        ]
+      }
+    },
+    "subordinate": {
+      "fields": {
+        "isSubTower": [
+          true
+        ]
+      }
+    },
+    "transformed": {
+      "fields": {
+        "isTransformedTower": [
+          true
+        ],
+        "isSubTower": [
+          false
+        ]
+      }
+    },
+    "excludedFeature": {
+      "fields": {
+        "towerTheme": [
+          "FrontierLegends"
+        ]
+      }
+    }
+  }
 }

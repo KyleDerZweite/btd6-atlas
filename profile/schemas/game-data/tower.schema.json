@@ -1,53 +1,42 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw tower model",
+  "title": "Tower model",
   "type": "object",
   "required": [
-    "$type",
-    "name",
-    "baseId",
-    "cost",
-    "range",
-    "tiers",
-    "towerSet",
-    "upgrades",
-    "appliedUpgrades",
-    "behaviors",
-    "IsBaseTower",
-    "isSubTower",
-    "isParagon"
+    "kind",
+    "id"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(TowerModel)(,|$)"
+    "kind": {
+      "const": "tower"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
-    "baseId": {
+    "familyId": {
       "type": "string"
     },
-    "cost": {
+    "placementPrice": {
       "type": "number",
       "minimum": 0
     },
     "range": {
       "type": "number"
     },
-    "tiers": {
+    "buildTiers": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "integer",
         "minimum": 0
       }
     },
-    "towerSet": {
-      "type": "integer"
+    "category": {
+      "type": [
+        "string",
+        "integer"
+      ]
     },
-    "upgrades": {
+    "upgradeOptions": {
       "type": [
         "array",
         "null"
@@ -75,10 +64,10 @@
         "$ref": "model.schema.json#/$defs/model"
       }
     },
-    "isParagon": {
+    "isAdvanced": {
       "type": "boolean"
     },
-    "paragonUpgrade": {
+    "advancedUpgrade": {
       "anyOf": [
         {
           "$ref": "purchase.schema.json"
@@ -88,17 +77,24 @@
         }
       ]
     },
-    "areaTypes": {
+    "placementAreas": {
       "type": "array",
       "items": {
-        "type": "integer"
+        "type": [
+          "string",
+          "integer"
+        ]
       }
     },
-    "IsBaseTower": {
+    "isBase": {
       "type": "boolean"
     },
-    "isSubTower": {
+    "isSubordinate": {
       "type": "boolean"
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0
     }
   },
   "additionalProperties": true

@@ -1,8 +1,8 @@
 {
-  "formatVersion": 3,
-  "validatorFormatVersion": 3,
+  "formatVersion": 4,
+  "validatorFormatVersion": 4,
   "id": "btd6-raw",
-  "revision": "3.0.0",
+  "revision": "4.0.0",
   "game": "btd6",
   "documents": {
     "collections": {
@@ -28,6 +28,10 @@
     "scoring": {
       "file": "scoring.json",
       "schema": "schemas/profile/scoring.schema.json"
+    },
+    "classifications": {
+      "file": "classifications.json",
+      "schema": "schemas/profile/classifications.schema.json"
     }
   },
   "proposalSchema": "schemas/profile/mechanic-proposal.schema.json",

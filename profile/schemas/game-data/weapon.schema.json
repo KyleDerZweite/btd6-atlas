@@ -1,23 +1,18 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw weapon model",
+  "title": "Weapon model",
   "type": "object",
   "required": [
-    "$type",
-    "rate",
-    "projectile",
-    "emission"
+    "kind"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(WeaponModel)(,|$)"
+    "kind": {
+      "const": "weapon"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
-    "rate": {
+    "interval": {
       "type": "number"
     },
     "projectile": {

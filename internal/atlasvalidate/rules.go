@@ -33,8 +33,21 @@ func validateRules(p profile) error {
 		if strings.HasPrefix(c.IDField, "@") {
 			return fmt.Errorf("scope %q requires a record identity field", s.Name)
 		}
-		if s.RootSchema == "" || s.MemberSchema == "" || s.EdgesField == "" || s.TargetField == "" {
-			return fmt.Errorf("scope %q requires rootSchema, memberSchema, edgesField and targetField", s.Name)
+		if s.EdgesField == "" || s.TargetField == "" {
+			return fmt.Errorf("scope %q requires edgesField and targetField", s.Name)
+		}
+		for _, binding := range []struct{ label, schema, selector string }{
+			{"root", s.RootSchema, s.RootSelector},
+			{"member", s.MemberSchema, s.MemberSelector},
+		} {
+			if (binding.schema == "") == (binding.selector == "") {
+				return fmt.Errorf("scope %q requires exactly one of %sSchema and %sSelector", s.Name, binding.label, binding.label)
+			}
+			if binding.selector != "" {
+				if _, exists := p.Selectors[binding.selector]; !exists {
+					return fmt.Errorf("scope %q names unknown %s selector %q", s.Name, binding.label, binding.selector)
+				}
+			}
 		}
 		scopes[s.Name] = s
 	}
@@ -44,11 +57,20 @@ func validateRules(p profile) error {
 			return fmt.Errorf("empty or duplicate rule ID %q", rule.ID)
 		}
 		seen[rule.ID] = true
-		if rule.Operation != "purchaseProgression" {
+		if rule.Operation != "purchaseProgression" && rule.Operation != "linearProgression" {
 			return fmt.Errorf("rule %q has unknown operation %q", rule.ID, rule.Operation)
 		}
 		if _, exists := scopes[rule.Scope]; !exists {
 			return fmt.Errorf("rule %q names unknown scope %q", rule.ID, rule.Scope)
+		}
+		if rule.Operation == "linearProgression" {
+			if rule.LevelField == "" || rule.FamilyField == "" {
+				return fmt.Errorf("rule %q requires levelField and familyField", rule.ID)
+			}
+			if err := validateLevelRange(rule.Levels); err != nil {
+				return fmt.Errorf("rule %q: %w", rule.ID, err)
+			}
+			continue
 		}
 		if rule.TiersField == "" || rule.FamilyField == "" {
 			return fmt.Errorf("rule %q requires tiersField and familyField", rule.ID)
@@ -185,6 +207,10 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 	}
 	for _, rule := range p.Rules {
 		s := scopes[rule.Scope]
+		if rule.Operation == "linearProgression" {
+			checkLinearRule(p, schemas, records, rule, s, report)
+			continue
+		}
 		result := RuleResult{ID: rule.ID, Operation: rule.Operation, Scope: rule.Scope}
 		before := len(report.Errors)
 		add := func(file, pointer, code, message string) { report.addRule(rule.ID, file, pointer, code, message) }
@@ -203,10 +229,10 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 		sort.Slice(all, func(i, j int) bool { return all[i].File < all[j].File })
 		members := 0
 		for _, rec := range all {
-			if schemas[s.MemberSchema].Validate(rec.Value) == nil {
+			if p.scopeMatches(s, false, schemas, rec.Value) {
 				members++
 			}
-			if schemas[s.RootSchema].Validate(rec.Value) == nil {
+			if p.scopeMatches(s, true, schemas, rec.Value) {
 				roots = append(roots, rec)
 			}
 		}
@@ -217,6 +243,9 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 		visited := map[string]bool{}
 		rootFamilies := map[string]string{}
 		for _, root := range roots {
+			if !p.scopeMatches(s, false, schemas, root.Value) {
+				add(root.File, "", "root-outside-members", "progression root does not match its member selector")
+			}
 			family, ok := root.Value[rule.FamilyField].(string)
 			if !ok || family == "" {
 				add(root.File, "/"+pointerToken(rule.FamilyField), "rule-family", "progression root requires a nonempty family identifier")
@@ -238,6 +267,7 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 				seen[rec.File] = true
 				if !visited[rec.File] {
 					result.RecordsChecked++
+					report.checked(rule.ID, rec.File)
 					visited[rec.File] = true
 				}
 				tiers, tierErr := readTiers(rec.Value[rule.TiersField], rule.Limits)
@@ -281,6 +311,10 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 					next := matches[0]
 					if next.Value[rule.FamilyField] != family {
 						add(rec.File, pointer, "purchase-family", fmt.Sprintf("purchase target %q is outside family %q", target, family))
+						continue
+					}
+					if !p.scopeMatches(s, false, schemas, next.Value) {
+						add(rec.File, pointer, "purchase-scope", fmt.Sprintf("purchase target %q is outside the progression member selector", target))
 						continue
 					}
 					queue = append(queue, next)
@@ -328,7 +362,7 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 		if rule.RequireCompleteStates {
 			missingFamilies := map[string]bool{}
 			for _, rec := range all {
-				if schemas[s.MemberSchema].Validate(rec.Value) != nil {
+				if !p.scopeMatches(s, false, schemas, rec.Value) {
 					continue
 				}
 				family, ok := rec.Value[rule.FamilyField].(string)

@@ -34,8 +34,9 @@ type CheckerIdentity struct {
 }
 
 type ModelCount struct {
-	Type      string `json:"type"`
-	Instances int    `json:"instances"`
+	Type      string    `json:"type"`
+	Instances int       `json:"instances"`
+	Example   *Location `json:"example,omitempty"`
 }
 
 type Coverage struct {
@@ -69,6 +70,8 @@ type Report struct {
 	Metadata           map[string]any `json:"metadata,omitempty"`
 	Score              *TowerScore    `json:"score,omitempty"`
 	checks             map[string]map[string]bool
+	ruleRecords        map[string]map[string]bool
+	RecordTypes        []RecordTypeResult    `json:"recordTypes,omitempty"`
 	Profile            *ProfileIdentity      `json:"profile,omitempty"`
 	Checker            CheckerIdentity       `json:"checker"`
 	FilesChecked       int                   `json:"filesChecked"`

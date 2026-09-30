@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/fs"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -24,7 +25,7 @@ func recordIDs(c collection, path string, object map[string]any) []string {
 	case "@keys":
 		var ids []string
 		for key := range object {
-			if !strings.HasPrefix(key, "$") {
+			if !slices.Contains(c.ExcludedKeys, key) {
 				ids = append(ids, key)
 			}
 		}
@@ -72,6 +73,30 @@ func walkObjects(value any, visit func(map[string]any)) {
 	}
 }
 
+func (p profile) recordHasModelRoot(path string) bool {
+	matched := false
+	for _, c := range p.Collections {
+		if !c.active() || !matches(path, c.Path) {
+			continue
+		}
+		matched = true
+		if c.Typed || c.IDField != "@keys" {
+			return true
+		}
+	}
+	return !matched
+}
+
+func (p profile) walkRecordObjects(path string, value map[string]any, visit func(map[string]any)) {
+	if p.recordHasModelRoot(path) {
+		walkObjects(value, visit)
+		return
+	}
+	for _, child := range value {
+		walkObjects(child, visit)
+	}
+}
+
 // Conditions describe consumers, not a saved inventory of a capture.
 func requiredRole(c collection, p profile, schemas schemaIndex, values map[string]map[string]any) bool {
 	if !c.active() {
@@ -81,13 +106,13 @@ func requiredRole(c collection, p profile, schemas schemaIndex, values map[strin
 		for path, value := range values {
 			if condition.Collection != "" {
 				for _, source := range p.Collections {
-					if source.Name == condition.Collection && source.active() && matches(path, source.Path) && (condition.SelectorSchema == "" || schemas[condition.SelectorSchema].Validate(value) == nil) {
+					if source.Name == condition.Collection && source.active() && matches(path, source.Path) && (condition.SelectorSchema == "" || schemas[condition.SelectorSchema].Validate(value) == nil) && (condition.Selector == "" || p.matchesSelector(condition.Selector, value)) {
 						return true
 					}
 				}
 			} else {
 				found := false
-				walkObjects(value, func(object map[string]any) {
+				p.walkRecordObjects(path, value, func(object map[string]any) {
 					for _, model := range condition.Models {
 						if p.kind(object) == model {
 							if field, ok := object[condition.Field]; ok && field != nil && field != "" {
@@ -217,7 +242,7 @@ func selectTower(directory, target string, p profile, schemas schemaIndex) ([]st
 		path := queue[0]
 		queue = queue[1:]
 		value := values[path]
-		walkObjects(value, func(object map[string]any) {
+		p.walkRecordObjects(path, value, func(object map[string]any) {
 			for _, ref := range p.References {
 				for _, model := range ref.Models {
 					if model != p.kind(object) {

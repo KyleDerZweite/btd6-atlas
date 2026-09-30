@@ -1,27 +1,24 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw damage model",
+  "title": "Damage model",
   "type": "object",
   "required": [
-    "$type",
-    "damage"
+    "kind"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(DamageModel)(,|$)"
+    "kind": {
+      "const": "damage"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
-    "damage": {
+    "amount": {
       "type": "number"
     },
-    "maxDamage": {
+    "maximumAmount": {
       "type": "number"
     },
-    "immuneBloonProperties": {
+    "immunityMask": {
       "type": "integer"
     }
   },

@@ -217,6 +217,12 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 	}{
 		{"scoring", &p.Scoring}, {"collections", &collections}, {"references", &references}, {"mechanics", &mechanics}, {"rules", &rules}, {"numericalUnits", &p.Units},
 	}
+	if _, exists := p.Manifest.Documents["classifications"]; exists {
+		targets = append(targets, struct {
+			role   string
+			target any
+		}{"classifications", &p.Classifications})
+	}
 	for _, target := range targets {
 		doc, exists := p.Manifest.Documents[target.role]
 		if !exists {
@@ -246,7 +252,12 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 	}
 	p.References, p.Mechanics, p.UnknownModels, p.Rules = references.References, mechanics.Mechanics, mechanics.UnknownModels, rules.Rules
 	p.TypeIdentity = mechanics.TypeIdentity
+	p.Selectors = rules.Selectors
+	if err := validateSelectors(p); err != nil {
+		return p, nil, documentError(p.Manifest.Documents["rules"].File, err)
+	}
 	p.ModelSchemas = map[string]string{}
+	p.MechanicByModel = map[string]mechanic{}
 	names := map[string]bool{}
 	for i := range p.Collections {
 		c := &p.Collections[i]
@@ -280,6 +291,11 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 					return p, nil, fmt.Errorf("unknown required-role source %q", condition.Collection)
 				}
 			}
+			if condition.Selector != "" {
+				if _, exists := p.Selectors[condition.Selector]; !exists {
+					return p, nil, fmt.Errorf("unknown required-role selector %q", condition.Selector)
+				}
+			}
 			if condition.SelectorSchema != "" {
 				if err := resolve(condition.SelectorSchema); err != nil {
 					return p, nil, err
@@ -307,6 +323,7 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 				return p, nil, documentError(p.Manifest.Documents["mechanics"].File, fmt.Errorf("model %q has more than one mechanic binding", model))
 			}
 			p.ModelSchemas[model] = m.Schema
+			p.MechanicByModel[model] = m
 		}
 	}
 	if p.UnknownModels != "report" && p.UnknownModels != "error" {
@@ -323,15 +340,31 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 		}
 	}
 	for _, s := range p.Scopes {
-		if err := resolve(s.RootSchema); err != nil {
-			return p, nil, err
+		if s.RootSchema != "" {
+			if err := resolve(s.RootSchema); err != nil {
+				return p, nil, err
+			}
 		}
-		if err := resolve(s.MemberSchema); err != nil {
-			return p, nil, err
+		if s.MemberSchema != "" {
+			if err := resolve(s.MemberSchema); err != nil {
+				return p, nil, err
+			}
 		}
 	}
 	if err := validateRules(p); err != nil {
 		return p, nil, documentError(p.Manifest.Documents["rules"].File, err)
+	}
+	for _, group := range p.Classifications.Groups {
+		for _, kind := range group.Types {
+			if kind.SelectorSchema != "" {
+				if err := resolve(kind.SelectorSchema); err != nil {
+					return p, nil, err
+				}
+			}
+		}
+	}
+	if err := validateClassifications(p); err != nil {
+		return p, nil, documentError(p.Manifest.Documents["classifications"].File, err)
 	}
 	unitIDs := map[string]bool{}
 	for _, unit := range p.Units.Units {

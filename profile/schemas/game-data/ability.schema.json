@@ -1,19 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw ability model",
+  "title": "Ability model",
   "type": "object",
   "required": [
-    "$type",
-    "cooldown",
-    "behaviors"
+    "kind"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(AbilityModel)(,|$)"
+    "kind": {
+      "const": "ability"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
     "cooldown": {
@@ -28,7 +24,7 @@
         "$ref": "model.schema.json#/$defs/model"
       }
     },
-    "addedViaUpgrade": {
+    "sourceUpgrade": {
       "type": [
         "string",
         "null"

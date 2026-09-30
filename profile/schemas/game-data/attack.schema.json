@@ -1,19 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw attack model",
+  "title": "Attack model",
   "type": "object",
   "required": [
-    "$type",
-    "weapons",
-    "range"
+    "kind"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(AttackModel)(,|$)"
+    "kind": {
+      "const": "attack"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
     "weapons": {

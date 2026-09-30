@@ -1,25 +1,21 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw projectile model",
+  "title": "Projectile model",
   "type": "object",
   "required": [
-    "$type",
-    "pierce",
-    "behaviors"
+    "kind"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(ProjectileModel)(,|$)"
+    "kind": {
+      "const": "projectile"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
-    "pierce": {
+    "hitCapacity": {
       "type": "number"
     },
-    "maxPierce": {
+    "maximumHitCapacity": {
       "type": "number"
     },
     "behaviors": {

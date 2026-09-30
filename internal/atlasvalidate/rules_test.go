@@ -330,3 +330,37 @@ func TestPurchaseTargetsUseMatchingReferenceAliases(t *testing.T) {
 		})
 	}
 }
+
+func TestPurchaseProgressionRequiresMembersForRootsAndTargets(t *testing.T) {
+	for _, tt := range []struct{ recordID, code string }{
+		{"base", "root-outside-members"},
+		{"first", "purchase-scope"},
+	} {
+		t.Run(tt.recordID, func(t *testing.T) {
+			p, _, records := progressionFixture(t)
+			p.Selectors = map[string]sourceSelector{
+				"root":   {Fields: map[string][]any{"origin": {true}}},
+				"member": {Fields: map[string][]any{"summoned": {false}}},
+			}
+			p.Scopes[0].RootSchema, p.Scopes[0].MemberSchema = "", ""
+			p.Scopes[0].RootSelector, p.Scopes[0].MemberSelector = "root", "member"
+			for _, matches := range records["units"] {
+				matches[0].Value["summoned"] = false
+			}
+			records["units"][tt.recordID][0].Value["summoned"] = true
+			var report Report
+			checkRules(p, nil, records, &report)
+			if !hasRuleCode(report, tt.code) {
+				t.Fatalf("want %s for nonmember %s, got %+v", tt.code, tt.recordID, report.Errors)
+			}
+			if tt.recordID == "first" {
+				if report.ruleRecords[p.Rules[0].ID]["first.json"] || report.Rules[0].RecordsChecked != 1 {
+					t.Fatalf("nonmember target must not be traversed or counted as a progression state: %+v", report)
+				}
+				if !hasRuleCode(report, "missing-build") {
+					t.Fatalf("nonmember target must not satisfy required state completeness: %+v", report.Errors)
+				}
+			}
+		})
+	}
+}

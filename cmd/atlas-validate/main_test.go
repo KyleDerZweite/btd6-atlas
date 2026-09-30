@@ -44,7 +44,23 @@ func TestCLI(t *testing.T) {
 	}
 
 	// This CLI fixture checks only collection integrity, without a Tower corpus.
-	if err := os.WriteFile(filepath.Join(profile, "rules.json"), []byte(`{"rules":[]}`), 0644); err != nil {
+	if err := os.WriteFile(filepath.Join(profile, "classifications.json"), []byte(`{"groups":[]}`), 0644); err != nil {
+		t.Fatal(err)
+	}
+	rawRules, err := os.ReadFile(filepath.Join(profile, "rules.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var rules map[string]any
+	if err := json.Unmarshal(rawRules, &rules); err != nil {
+		t.Fatal(err)
+	}
+	rules["rules"] = []any{}
+	rawRules, err = json.Marshal(rules)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(profile, "rules.json"), rawRules, 0644); err != nil {
 		t.Fatal(err)
 	}
 	base := []string{"--data", data, "--profile", profile}

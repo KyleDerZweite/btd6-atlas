@@ -72,8 +72,14 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 	for _, s := range p.Scopes {
 		records[s.Collection] = map[string][]record{}
 	}
+	for _, group := range p.Classifications.Groups {
+		if records[group.Collection] == nil {
+			records[group.Collection] = map[string][]record{}
+		}
+	}
 	values := map[string]map[string]any{}
 	unknownModels := map[string]int{}
+	unknownExamples := map[string]*Location{}
 	unitsByModel := map[string][]unitBinding{}
 	for _, binding := range p.Units.Bindings {
 		for _, model := range binding.Models {
@@ -116,7 +122,14 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 			continue
 		}
 		values[path] = object
-		checked := map[string]bool{}
+		type rootProjection struct {
+			schema string
+			value  map[string]any
+			model  bool
+		}
+		var rootViews []rootProjection
+		typedRequired := false
+		detectRootModel := p.recordHasModelRoot(path)
 		layoutChecked := false
 		for _, collection := range p.Collections {
 			if !collection.active() || !matches(path, collection.Path) {
@@ -127,11 +140,12 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 				checkLayout(path, object, collection, &r)
 				layoutChecked = true
 			}
-			if !checked[collection.Schema] {
-				if err := schemas[collection.Schema].Validate(object); err != nil {
-					r.add(path, "", "schema", err.Error())
-				}
-				checked[collection.Schema] = true
+			typedRequired = typedRequired || collection.Typed
+			projected := p.projectRecord(object, collection, path).(map[string]any)
+			modelRoot := collection.Typed || collection.IDField != "@keys"
+			rootViews = append(rootViews, rootProjection{collection.Schema, projected, modelRoot})
+			if err := schemas[collection.Schema].Validate(projected); err != nil {
+				r.add(path, "", "schema", err.Error())
 			}
 			ids := recordIDs(collection, path, object)
 			if len(ids) == 0 && !strings.HasPrefix(collection.IDField, "@") {
@@ -148,10 +162,13 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 				}
 			}
 		}
+		if _, present := object[p.TypeIdentity.Field]; typedRequired && !present {
+			r.add(path, "/"+pointerToken(p.TypeIdentity.Field), "schema", "typed collection records require discriminator field "+p.TypeIdentity.Field)
+		}
 		if layoutChecked {
 			r.Coverage.LayoutFilesChecked++
 		}
-		if len(checked) > 0 {
+		if len(rootViews) > 0 {
 			r.Coverage.FilesWithSchema++
 		} else {
 			r.Coverage.FilesWithoutSchema++
@@ -165,7 +182,8 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 			switch value := value.(type) {
 			case map[string]any:
 				kind := ""
-				if rawType, exists := value[p.TypeIdentity.Field]; exists {
+				detectModel := pointer != "" || detectRootModel
+				if rawType, exists := value[p.TypeIdentity.Field]; exists && detectModel {
 					typeString, ok := rawType.(string)
 					if !ok || typeString == "" {
 						r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "schema", p.TypeIdentity.Field+" must be a nonempty string")
@@ -179,6 +197,10 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 					} else {
 						r.Coverage.UnboundModelInstances++
 						unknownModels[kind]++
+						// Pick the first location lexically, independent of map traversal order.
+						if example := unknownExamples[kind]; example == nil || path < example.File || (path == example.File && pointer < example.Pointer) {
+							unknownExamples[kind] = &Location{File: path, Pointer: pointer}
+						}
 						if p.UnknownModels == "error" {
 							r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "unknown_model", fmt.Sprintf("model %q has no mechanic schema binding", kind))
 						}
@@ -193,9 +215,23 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 						}
 					}
 				}
-				if schema := p.ModelSchemas[kind]; schema != "" && (pointer != "" || !checked[schema]) {
-					if err := schemas[schema].Validate(value); err != nil {
-						r.add(path, pointer, "schema", err.Error())
+				if schema := p.ModelSchemas[kind]; schema != "" {
+					views := rootViews
+					if pointer != "" || len(views) == 0 {
+						views = []rootProjection{{value: p.project(value).(map[string]any), model: true}}
+					}
+					for _, projected := range views {
+						if !projected.model {
+							continue
+						}
+						if err := p.requiredModelFields(kind, projected.value); err != nil {
+							r.add(path, pointer, "schema", err.Error())
+						}
+						if projected.schema != schema {
+							if err := schemas[schema].Validate(projected.value); err != nil {
+								r.add(path, pointer, "schema", err.Error())
+							}
+						}
 					}
 				}
 				for _, rule := range rulesByModel[kind] {
@@ -231,7 +267,7 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 				}
 				sort.Strings(keys)
 				for _, key := range keys {
-					if key != p.TypeIdentity.Field {
+					if !detectModel || key != p.TypeIdentity.Field {
 						walk(value[key], pointer+"/"+pointerToken(key))
 					}
 				}
@@ -295,13 +331,19 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 		readCaptureMetadata(dataDirectory, p, &r)
 	}
 	for kind, count := range unknownModels {
-		r.Coverage.UnboundModelTypes = append(r.Coverage.UnboundModelTypes, ModelCount{Type: kind, Instances: count})
+		r.Coverage.UnboundModelTypes = append(r.Coverage.UnboundModelTypes, ModelCount{Type: kind, Instances: count, Example: unknownExamples[kind]})
 	}
 	sort.Slice(r.Coverage.UnboundModelTypes, func(i, j int) bool {
 		return r.Coverage.UnboundModelTypes[i].Type < r.Coverage.UnboundModelTypes[j].Type
 	})
 	r.IntegrityValid = len(r.Errors) == 0
 	checkRules(p, schemas, records, &r)
+	checkClassifications(p, schemas, records, &r)
+	for _, diagnostic := range r.Errors {
+		if diagnostic.RuleID == "" {
+			r.IntegrityValid = false
+		}
+	}
 	r.RulesValid = true
 	for _, result := range r.Rules {
 		if result.Errors > 0 {

@@ -8,7 +8,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "artifacts",
@@ -18,7 +19,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "enemyOverlays",
@@ -27,18 +29,20 @@
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
       "layout": {
         "depth": 1
-      }
+      },
+      "typed": true
     },
     {
       "name": "enemies",
       "path": "Bloons",
       "idField": "name",
-      "schema": "schemas/game-data/bloon.schema.json",
+      "schema": "schemas/game-data/enemy.schema.json",
       "layout": {
         "depth": 2,
         "parentField": "baseId",
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "bosses",
@@ -48,7 +52,8 @@
       "layout": {
         "depth": 1,
         "stemField": "LocsKey"
-      }
+      },
+      "typed": true
     },
     {
       "name": "buffs",
@@ -58,7 +63,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "geraldoItems",
@@ -68,7 +74,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "incomeSets",
@@ -78,7 +85,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "knowledge",
@@ -88,7 +96,8 @@
       "layout": {
         "depth": 2,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "maps",
@@ -98,7 +107,8 @@
       "layout": {
         "depth": 2,
         "stemField": "id"
-      }
+      },
+      "typed": true
     },
     {
       "name": "mods",
@@ -108,7 +118,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "powers",
@@ -118,7 +129,8 @@
       "layout": {
         "depth": 1,
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "rounds",
@@ -127,7 +139,8 @@
       "schema": "schemas/game-data/round.schema.json",
       "layout": {
         "depth": 2
-      }
+      },
+      "typed": true
     },
     {
       "name": "skins",
@@ -138,7 +151,8 @@
         "depth": 2,
         "parentField": "baseTowerName",
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "towers",
@@ -149,7 +163,8 @@
         "depth": 2,
         "parentField": "baseId",
         "stemField": "name"
-      }
+      },
+      "typed": true
     },
     {
       "name": "trophyStoreItems",
@@ -159,7 +174,8 @@
       "layout": {
         "depth": 3,
         "stemField": "Id"
-      }
+      },
+      "typed": true
     },
     {
       "name": "upgrades",
@@ -168,7 +184,8 @@
       "schema": "schemas/game-data/upgrade.schema.json",
       "layout": {
         "depth": 1
-      }
+      },
+      "typed": true
     },
     {
       "name": "localization",
@@ -185,6 +202,9 @@
         {
           "collection": "upgrades"
         }
+      ],
+      "excludedKeys": [
+        "$type"
       ]
     },
     {
@@ -204,25 +224,31 @@
           ],
           "field": "guidRef"
         }
+      ],
+      "excludedKeys": [
+        "$type"
       ]
     },
     {
       "name": "roundSets",
       "path": "Rounds",
       "idField": "@parent",
-      "schema": "schemas/game-data/round.schema.json"
+      "schema": "schemas/game-data/round.schema.json",
+      "typed": true
     },
     {
       "name": "towerFamilies",
       "path": "Towers",
       "idField": "@parent",
-      "schema": "schemas/game-data/tower.schema.json"
+      "schema": "schemas/game-data/tower.schema.json",
+      "typed": true
     },
     {
       "name": "enemyFamilies",
       "path": "Bloons",
       "idField": "@parent",
-      "schema": "schemas/game-data/bloon.schema.json"
+      "schema": "schemas/game-data/enemy.schema.json",
+      "typed": true
     },
     {
       "name": "advancedProgression",
@@ -235,9 +261,10 @@
       "requireWhen": [
         {
           "collection": "towers",
-          "selectorSchema": "schemas/scopes/advanced-tower.schema.json"
+          "selector": "advanced"
         }
-      ]
+      ],
+      "typed": true
     },
     {
       "name": "rogueMode",
@@ -247,7 +274,8 @@
       "layout": {
         "depth": 0
       },
-      "enabled": false
+      "enabled": false,
+      "typed": true
     },
     {
       "name": "frontierMode",
@@ -257,17 +285,34 @@
       "layout": {
         "depth": 0
       },
-      "enabled": false
+      "enabled": false,
+      "typed": true
     }
   ],
   "scopes": [
     {
       "name": "ordinaryTowerStates",
       "collection": "towers",
-      "rootSchema": "schemas/scopes/ordinary-tower-root.schema.json",
       "edgesField": "upgrades",
       "targetField": "tower",
-      "memberSchema": "schemas/scopes/ordinary-tower-member.schema.json"
+      "rootSelector": "ordinaryRoot",
+      "memberSelector": "ordinaryMember"
+    },
+    {
+      "name": "levelledTowerStates",
+      "collection": "towers",
+      "edgesField": "upgrades",
+      "targetField": "tower",
+      "rootSelector": "levelledRoot",
+      "memberSelector": "levelledMember"
+    },
+    {
+      "name": "branchTowerStates",
+      "collection": "towers",
+      "edgesField": "upgrades",
+      "targetField": "tower",
+      "rootSelector": "branchRoot",
+      "memberSelector": "branchMember"
     }
   ],
   "unmatchedFiles": "error"

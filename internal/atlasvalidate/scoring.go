@@ -9,6 +9,7 @@ import (
 
 type ScoreCategory struct {
 	Category string  `json:"category"`
+	Label    string  `json:"label"`
 	Weight   float64 `json:"weight"`
 	Checked  int     `json:"checked"`
 	Passed   int     `json:"passed"`
@@ -98,7 +99,11 @@ func scoreReport(p profile, r *Report) *TowerScore {
 				passed = 0
 			}
 		}
-		category := ScoreCategory{Category: name, Weight: p.Scoring.Weights[name], Checked: checked, Passed: passed}
+		label := name
+		if name == "mechanics" {
+			label = "model-schema coverage"
+		}
+		category := ScoreCategory{Category: name, Label: label, Weight: p.Scoring.Weights[name], Checked: checked, Passed: passed}
 		score.Categories = append(score.Categories, category)
 		if checked == 0 {
 			continue

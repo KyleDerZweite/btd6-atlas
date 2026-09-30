@@ -73,6 +73,10 @@
                 "field": {
                   "type": "string",
                   "minLength": 1
+                },
+                "selector": {
+                  "type": "string",
+                  "minLength": 1
                 }
               },
               "required": [],
@@ -113,12 +117,39 @@
                         "required": [
                           "selectorSchema"
                         ]
+                      },
+                      {
+                        "required": [
+                          "selector"
+                        ]
                       }
+                    ]
+                  }
+                }
+              ],
+              "allOf": [
+                {
+                  "not": {
+                    "required": [
+                      "selector",
+                      "selectorSchema"
                     ]
                   }
                 }
               ]
             }
+          },
+          "typed": {
+            "type": "boolean",
+            "description": "Require a root model discriminator using the configured type identity field."
+          },
+          "excludedKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true,
+            "description": "Exact root keys excluded from @keys record identities."
           }
         },
         "required": [
@@ -159,17 +190,73 @@
           "memberSchema": {
             "type": "string",
             "minLength": 1
+          },
+          "rootSelector": {
+            "type": "string",
+            "minLength": 1
+          },
+          "memberSelector": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "required": [
           "name",
           "collection",
-          "rootSchema",
           "edgesField",
-          "targetField",
-          "memberSchema"
+          "targetField"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "required": [
+                  "rootSchema"
+                ],
+                "not": {
+                  "required": [
+                    "rootSelector"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "rootSelector"
+                ],
+                "not": {
+                  "required": [
+                    "rootSchema"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "oneOf": [
+              {
+                "required": [
+                  "memberSchema"
+                ],
+                "not": {
+                  "required": [
+                    "memberSelector"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "memberSelector"
+                ],
+                "not": {
+                  "required": [
+                    "memberSchema"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       }
     },
     "unmatchedFiles": {

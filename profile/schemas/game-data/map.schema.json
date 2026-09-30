@@ -1,24 +1,24 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw map model",
+  "title": "Map model",
   "type": "object",
   "required": [
-    "$type",
-    "id",
-    "difficulty"
+    "kind",
+    "id"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(MapDetails)(,|$)"
+    "kind": {
+      "const": "map"
     },
     "id": {
       "type": "string",
       "minLength": 1
     },
     "difficulty": {
-      "type": "integer"
+      "type": [
+        "string",
+        "integer"
+      ]
     }
   },
   "additionalProperties": true

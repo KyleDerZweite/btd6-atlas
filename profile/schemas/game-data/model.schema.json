@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Shared raw model shapes",
+  "title": "Shared model shapes",
   "$defs": {
     "model": {
       "type": "object",
       "required": [
-        "$type"
+        "kind"
       ],
       "properties": {
-        "$type": {
+        "kind": {
           "type": "string",
           "minLength": 1
         }
@@ -18,15 +18,15 @@
     "namedModel": {
       "type": "object",
       "required": [
-        "$type",
-        "name"
+        "kind",
+        "id"
       ],
       "properties": {
-        "$type": {
+        "kind": {
           "type": "string",
           "minLength": 1
         },
-        "name": {
+        "id": {
           "type": "string",
           "minLength": 1
         }

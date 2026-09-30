@@ -1,22 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raw mod model",
+  "title": "Mod model",
   "type": "object",
   "required": [
-    "$type",
-    "name",
-    "mutatorMods"
+    "kind",
+    "id"
   ],
   "properties": {
-    "$type": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "(^|\\.)(ModModel)(,|$)"
+    "kind": {
+      "const": "mod"
     },
-    "name": {
+    "id": {
       "type": "string"
     },
-    "mutatorMods": {
+    "modifiers": {
       "type": [
         "array",
         "null"

@@ -1,47 +1,51 @@
 # Profile implementation
 
-Implement on `feat/profile-rule-validation` in PR #3. The user approved the final interview decisions on 2026-09-30. Keep the branch separate and do not merge.
-
-The earlier Profile format 2 established split schemas, reusable layout checks and purchase progression. The confirmed follow-up uses format 3. Atlas owns both the Profile and checker. Preserve captured records and embedded abilities. No mod or game-model accesses change.
+Implement on `feat/profile-rule-validation` in [PR #3](https://github.com/KyleDerZweite/btd6-atlas/pull/3). Keep this review branch unmerged. The user approved the interview decisions and clarified the schema boundary on 2026-09-30.
 
 ## Confirmed decisions
 
-Use generic logical collections with configured source paths. Express required data as roles with conditional consumers. Empty unused collections are valid. A present ordinary Tower family requires its root, all legal builds, all legal outgoing purchases and referenced dependencies. Derive states from limits, without a capture inventory, expected capture counts, filename lists or game-data content-hash checks.
+The bundled settings define the BTD6 Profile. Every schema file defines a reusable shape. Game-specific source names, required concepts, category selectors, supported model bindings and progression limits belong in JSON settings. Validate a temporary generic view while preserving the raw exports, embedded abilities and `$type`. No `data/` or `mod/` files change.
 
-Feature settings control applicability. Rogue and Frontier data are disabled and outside primary-game scope. Required role paths can move without changing Go. Resource usage requires the resource catalog, without claiming complete asset-key resolution.
+Describe logical collections through configurable source paths, identities and layout. Require data roles only when enabled features or present consumers need them. Empty unused collections are valid. Completeness follows declared references and progression rules, without capture inventories, filename lists, expected capture counts or game-data content hashes.
 
-Configure the model discriminator and type-name encoding in mechanics data. Apply them consistently to validation, dependency discovery, aliases and units. Configure metadata base, path and source-field bindings. Metadata remains informational.
+Add `score-tower --profile <path> --game-data <path> --tower <path>`. All three flags are mandatory. Check the selected family, outgoing dependencies and applicable roles. Unrelated missing or malformed records must not affect the report. Backlinks describe the checked graph. Profile weights award partial credit across six categories. Incomplete model-schema coverage prevents 100, including after rounding. Scores measure contract compliance, without balance or simulation claims.
 
-Add `score-tower --profile <path> --game-data <path> --tower <path>`. All three flags are mandatory. Check the selected family, outbound dependencies and applicable roles. Unrelated missing or malformed records must not affect the score. Backlinks describe the checked graph without expanding into unrelated incoming consumers.
+Account explicitly for every Tower record. Ordinary Towers and Power Pro Towers use configured purchase rules; canonical heroes use a configured linear rule. Paragons, forms, subtowers and other family variants receive shared schemas and reference checks with explicit coverage limits. Unknown or ambiguous classifications fail. Do not infer ownership, lifetime or transformations from a classification alone.
 
-Use Profile weights for six categories. Award partial credit; incomplete mechanic schema coverage prevents 100 even after rounding. Scoring measures compliance, without simulation or balance claims. Keep command parsing and output in the reusable package and preserve whole-dataset invocation.
-
-Review implementation against these decisions and test scoped isolation, conditional roles, alternate fields and formats, broken progression, partial scores and complete coverage. Run unchanged accepted data and a disposable corrected copy. Keep originals unchanged.
+Configure model discriminator fields and encodings, metadata bindings and native units through the Profile. Unknown operations fail loading. Keep the command entry point minimal and the Profile dependency closure local and reproducible. Changing configuration values can reuse supported concepts; a new behavior still requires a shared schema and an implemented rule operation where appropriate.
 
 ## Implementation
 
-Profile format 3 contains seven configuration documents and split schemas under `schemas/profile/`, `schemas/game-data/` and `schemas/scopes/`. The requested Tower, mechanics and proposal schemas remain separate. Profile loading validates every document and resolves only local schema dependencies.
+Profile and validator interface format 4 use revision/version `4.0.0`. The format bump makes the new normalized-schema boundary explicit rather than silently reinterpreting older Profiles. Eight configuration documents reference smaller schemas under `schemas/profile/` and `schemas/game-data/`. The requested Tower, mechanics and mechanic-proposal schemas remain separate. There is no game-specific scopes schema directory.
 
-Logical `enemies` binds to `Bloons`; `localization` binds to `textTable.json`. Collections configure depth and family/filename bindings. Towers use `Towers/<baseId>/<name>.json`. Upgrades retain identity independent of sanitized filenames. Conditional roles require localization for Tower/upgrade consumers, resources for asset consumers and advanced progression data for paragons.
+Mechanic `fields` map shared names to direct source fields, such as `familyId` to `baseId` and `placementPrice` to `cost`. `requiredFields` supplies game-specific requiredness. Projection handles nested models without mutating raw values. Typed collections require their configured discriminator; untyped tables retain their original keys. `excludedKeys` configures source metadata exclusions for table identities. Each overlapping collection validates its own identity projection.
 
-The same configured type identity drives every engine operation. BTD6 uses `$type` and .NET names. Tests use literal `kind` values, renamed fields and different progression limits. Metadata labels bind to source fields without BTD6 names in Go.
+Named selectors in `rules.json` select raw categories and contained model classes. Collections use those selectors for rule scopes and conditional roles. Classifications distinguish records inspected by progression from structurally checked records. Purchase targets must satisfy their member selector. Linear rules check level ranges, required levels, roots and next-level transitions.
 
-The command entry point delegates to `internal/atlasvalidate`. Tower scoring selects the family before validation, indexes possible dependencies without collecting global errors, then checks only its outgoing closure and required roles. Cycles terminate. Rule results, coverage and backlinks use the selected set.
+The command delegates to `internal/atlasvalidate`. Tower scoring selects a family, indexes possible dependencies without global diagnostics, and validates only the outgoing closure and required roles. Reference cycles terminate. Unknown model types include deterministic example locations and remain visible as coverage gaps.
 
-Scores report category weights and passed/checked counts. Schema, reference and unit credit is per file; layout includes role presence; rule credit is per applicable result; mechanics credit is per model instance. Inapplicable categories are excluded. Missing coverage and failed checks prevent 100.
+## Verification plan
 
-## Verification
+Run unit tests, race tests, vet, builds and diff checks. Test identical schemas with .NET source types, renamed literal fields and native generic fields. Test invalid bindings, missing discriminators, alias collisions, unknown selectors, illegal builds, missing roots and levels, progression scope violations, unknown rules, partial scores and complete coverage.
 
-Final verification results follow below. The historical single-file deletion trial selected Glue Gunner state `240` using seed `20260930` and rejected its deletion. The confirmed implementation deliberately replaces the previously proposed capture inventory with conditional roles and graph completeness.
+Validate the unchanged accepted capture. Validate a disposable standalone copy after correcting only the known duplicate Boomerang purchase. Delete required ordinary, hero and Power Pro states and required roles in the copy; verify specific failures. Delete or break an unrelated family and confirm Dart scoring is unchanged. Keep capture corrections and reports local.
 
-`go test ./...`, `go test -race ./...`, `go vet ./...`, both binary builds and `git diff --check` passed. The command entry point is 13 lines. Tests cover literal type identities, typed aliases, conditional roles, relocated data, generic metadata, disabled features, dependency cycles, complete and partial scores, unknown coverage, rounding, configurable weights, invalid settings and CLI flags. Ordinary-root requirements apply only when ordinary candidate members exist.
+## Earlier verification
 
-The final unchanged BTD6 56.3 run checked 10,053 files, skipping Rogue and Frontier. It checked 65,854 references, including 93 documented external references. Integrity passed. Progression checked 26 roots, 1,664 states and 2,887 purchases. It still found the existing duplicate at `Towers/BoomerangMonkey/BoomerangMonkey-012.json#/upgrades/2/tower`, repeating `BoomerangMonkey-013`. Original data stayed unchanged.
+The format 3 implementation passed tests, race tests, vet and standalone builds. The unchanged capture checked 10,053 files and 65,854 references, including 93 documented external references. Integrity passed. Ordinary progression found the existing duplicate at `Towers/BoomerangMonkey/BoomerangMonkey-012.json#/upgrades/2/tower`. Removing only that duplicate in a disposable copy passed with 65,852 references.
 
-A disposable standalone copy with only that duplicate removed passed with 65,852 references and 2,886 purchase transitions. Its graph contained 122,288 target/backlink links. The copied Profile, binary and data ran outside the repository. There were 1,155 unbound model types, 503 Tower records outside ordinary progression and 20,325 checked unit values. Mode exclusion accounts for the difference from earlier whole-capture counts.
+Earlier deletion trials rejected a randomly selected `SpikeFactory-140` state and missing resources, localization or advanced-progression roles. Removing Rogue or Frontier data passed. Breaking or deleting an unrelated Glue Gunner state left Dart's report unchanged. Deleting Dart's `100` state lowered its score and reported missing references and progression states. These results are in ignored `bin/profile-v3-*.json` files.
 
-Deletion trials on that passing baseline used seed `20260930`. The selected `Towers/SpikeFactory/SpikeFactory-140.json` failed with missing-reference and progression diagnostics. Removing `resources.json`, `textTable.json` or `paragonDegreeData.json` failed with a specific required-role error. Removing Rogue or Frontier data passed. Each file was restored between cases.
+## Final verification
 
-Dart Monkey scoring checked 99 files, 1,001 references, 64 ordinary states and 111 purchases. It passed the declared validation checks and scored 84.73 because 63 model types were unbound. Mechanics coverage bound 531 of 6,347 model instances. Breaking or deleting an unrelated Glue Gunner state left the full score report unchanged. Deleting Dart's `100` state produced missing-reference and progression errors and lowered the score to 67.84. Synthetic complete coverage scored 100.
+`go test ./...`, `go test -race ./...`, `go vet ./...`, both binary builds and `git diff --check` passed. Three source configurations reuse identical schema files. Complete synthetic coverage scores 100. Regression tests cover source-binding bypasses, table metadata, progression membership, invalid selectors and classifications, and scoped dependency checks. The command entry point remains 13 lines.
 
-The final Profile dependency closure contains 32 files with SHA-256 `d241f56408b4bfc071c34e847b0657811e8563768cb76470683c7d226f0cb270`. This identifies Profile content, without hashing or inventorying game-data for completeness. Reports and mutation evidence are in ignored `bin/profile-v3-*.json` files. No C# build is needed because the mod is unchanged.
+The unchanged BTD6 56.3 capture checked 10,053 files, skipped two disabled mode files, and checked 65,854 references with 93 documented external references. Integrity passed. The only error is the existing duplicate Boomerang purchase. All 2,167 Tower records are classified: 1,664 ordinary states, 360 hero levels, 50 Power Pro states, 13 paragons, 56 subtowers, 20 transformed forms, three family variants and one Frontier record.
+
+A disposable standalone Profile, binary and capture passed after removing only that duplicate in the copy. It checked 65,852 references. Ordinary progression covered 26 roots, 1,664 states and 2,886 transitions; hero progression covered 18 roots, 360 levels and 342 transitions; Power Pro progression covered five roots, 50 states and 45 transitions. There are 1,155 unbound model types and 20,325 checked unit values.
+
+Deletion trials used seed `20260930`. Removing the selected `SpikeFactory-230` state, Quincy level 10, Quincy's root or `PortableLakePro-200` failed with specific progression and reference diagnostics. Removing resources, localization or advanced progression data failed with required-role errors. Removing disabled Rogue or Frontier data passed. Files were restored between cases in the disposable copy.
+
+Dart checked 99 files, 1,001 references, 64 ordinary states and 111 purchases. Its score is 84.73. Model-schema coverage is 531 of 6,346 instances with 62 unbound types. A dictionary wrapper is no longer miscounted as a gameplay model. Breaking or deleting an unrelated Glue Gunner state left the complete Dart report unchanged. Removing Dart's `100` state produced missing references and states and lowered its score to 67.84.
+
+The final Profile dependency closure contains 32 files with SHA-256 `b477e2bfee4b542443fa45d4e4476d1ea800c03f2c4748cff7941b3d6261d1a6`. Reports identify the actual checker build and executable used. This hashes Profile dependencies, without hashing game-data for completeness. Reports and mutation evidence remain in ignored `bin/profile-v4-*.json` files. No raw capture or exporter files changed; no C# build was needed.

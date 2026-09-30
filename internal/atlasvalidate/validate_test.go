@@ -57,6 +57,7 @@ func fixture(t *testing.T) (string, string) {
 		t.Fatal(err)
 	}
 
+	editDocument(t, profileDir, "manifest.json", func(v map[string]any) { delete(v["documents"].(map[string]any), "classifications") })
 	writeFixture(t, data, "Things/a.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "a", "target": "b"})
 	writeFixture(t, data, "Things/b.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "b"})
 	writeFixture(t, data, "text.json", map[string]any{"hello": "Hello"})
@@ -66,8 +67,8 @@ func fixture(t *testing.T) (string, string) {
 	})
 	writeFixture(t, profileDir, "references.json", map[string]any{"references": []any{map[string]any{"models": []string{"ThingModel"}, "field": "target", "target": "things", "aliases": map[string]string{"legacy-b": "b"}, "externalSymbols": map[string]string{"runtime-only": "This test symbol has no file definition."}}}})
 	writeFixture(t, profileDir, "mechanics.json", map[string]any{"typeIdentity": map[string]any{"field": "$type", "encoding": "dotnet"}, "unknownModels": "report", "mechanics": []any{
-		map[string]any{"id": "thing", "models": []string{"ThingModel"}, "schema": "schemas/game-data/model.schema.json#/$defs/namedModel", "role": "structure"},
-		map[string]any{"id": "weapon", "models": []string{"WeaponModel"}, "schema": "schemas/game-data/weapon.schema.json", "role": "structure"},
+		map[string]any{"id": "thing", "models": []string{"ThingModel"}, "schema": "schemas/game-data/model.schema.json#/$defs/namedModel", "role": "structure", "fields": map[string]string{"id": "name"}},
+		map[string]any{"id": "weapon", "models": []string{"WeaponModel"}, "schema": "schemas/game-data/weapon.schema.json", "role": "structure", "fields": map[string]string{"id": "name", "interval": "rate", "projectile": "projectile", "emission": "emission"}},
 		map[string]any{"id": "attack", "models": []string{"AttackModel"}, "schema": "schemas/game-data/attack.schema.json", "role": "structure"},
 	}})
 	writeFixture(t, profileDir, "rules.json", map[string]any{"rules": []any{}})
@@ -224,8 +225,12 @@ func TestUnknownModelCoveragePolicy(t *testing.T) {
 	data, profileDir := fixture(t)
 	writeFixture(t, data, "extra.json", map[string]any{"$type": "Example.UnsupportedModel", "child": map[string]any{"$type": "Example.UnsupportedModel"}})
 	r, status := Validate(data, profileDir, false)
-	if status != 0 || !r.Valid || r.Coverage.FilesWithSchema != 3 || r.Coverage.FilesWithoutSchema != 1 || r.Coverage.BoundModelInstances != 2 || r.Coverage.UnboundModelInstances != 2 || len(r.Coverage.UnboundModelTypes) != 1 || r.Coverage.UnboundModelTypes[0] != (ModelCount{Type: "UnsupportedModel", Instances: 2}) {
+	if status != 0 || !r.Valid || r.Coverage.FilesWithSchema != 3 || r.Coverage.FilesWithoutSchema != 1 || r.Coverage.BoundModelInstances != 2 || r.Coverage.UnboundModelInstances != 2 || len(r.Coverage.UnboundModelTypes) != 1 {
 		t.Fatalf("inaccurate partial coverage: %+v, status=%d", r, status)
+	}
+	model := r.Coverage.UnboundModelTypes[0]
+	if model.Type != "UnsupportedModel" || model.Instances != 2 || model.Example == nil || *model.Example != (Location{File: "extra.json", Pointer: ""}) {
+		t.Fatalf("inaccurate missing-schema example: %+v", model)
 	}
 	editDocument(t, profileDir, "mechanics.json", func(p map[string]any) { p["unknownModels"] = "error" })
 	r, status = Validate(data, profileDir, false)
@@ -278,9 +283,10 @@ func TestReportProvenanceAndExternalReference(t *testing.T) {
 
 func TestDeclaredProgressionIntegration(t *testing.T) {
 	data, profileDir := fixture(t)
+	writeFixture(t, profileDir, "fixture-member.schema.json", map[string]any{"type": "object", "required": []string{"name", "kind"}})
 	writeFixture(t, profileDir, "fixture-root.schema.json", map[string]any{"type": "object", "required": []string{"origin"}, "properties": map[string]any{"origin": map[string]any{"const": true}}})
 	editDocument(t, profileDir, "collections.json", func(p map[string]any) {
-		p["scopes"] = []any{map[string]any{"name": "ordinary", "collection": "things", "rootSchema": "fixture-root.schema.json", "memberSchema": "schemas/game-data/model.schema.json#/$defs/namedModel", "edgesField": "buys", "targetField": "next"}}
+		p["scopes"] = []any{map[string]any{"name": "ordinary", "collection": "things", "rootSchema": "fixture-root.schema.json", "memberSchema": "fixture-member.schema.json", "edgesField": "buys", "targetField": "next"}}
 	})
 	writeFixture(t, profileDir, "rules.json", map[string]any{"rules": []any{map[string]any{
 		"id": "fixture-progression", "operation": "purchaseProgression", "scope": "ordinary", "tiersField": "levels", "familyField": "kind", "requireCompleteStates": true,

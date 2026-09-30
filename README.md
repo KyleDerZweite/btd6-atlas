@@ -17,8 +17,8 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 | `mod/` | The installable exporter mod (build + install: `mod/README.md`). |
 | `data/` | Accepted captures per patch. |
 | `patterns/` | Our derived analyses (empty until first write-up). |
-| `profile/` | Reusable schemas, mechanics, references, numerical units and game rules. |
-| `profile/schemas/` | Schemas grouped into `profile/`, `game-data/` and `scopes/`. |
+| `profile/` | BTD6 settings and reusable schemas for game-data validation. |
+| `profile/schemas/` | Reusable schemas grouped into `profile/` and `game-data/`. |
 | `cmd/atlas-validate/` | Small CLI for the Profile checker. |
 | `internal/atlasvalidate/` | Reusable Go validation package. |
 | `docs/` | Workflow plans for mod, data, patterns. |
@@ -36,10 +36,12 @@ Build the data validator with `go build -o bin/atlas-validator ./cmd/atlas-valid
 Run `bin/atlas-validator --data data/56.3-build-24829026/game-data --profile profile`.
 See [the game profile](profile/README.md) for validation coverage and diagnostics.
 Add `--relations` to include resolved references and file backlinks in the JSON result.
-The checker applies the Profile to separate raw game-data, including ordinary purchase progression.
+The checker applies the Profile to separate raw game-data, including ordinary, Hero and Power Pro progression.
+Configuration maps source fields into shared schema shapes for validation while preserving the raw files.
 The Profile also defines directory depth and field bindings for family folders and record filenames.
 For example, Towers use `Towers/<baseId>/<name>.json`; upgrades retain independent record identifiers and filenames.
 Its report records Profile and checker identities, rule coverage and model types without schemas.
+Each Tower receives a declared category with explicit validation coverage.
 Tower scoring checks one family and its outgoing dependencies, with category weights from `profile/scoring.json`.
 Use `bin/atlas-validator score-tower --profile profile --game-data <path> --tower <path>`.
 Required roles are conditional; empty unused collections are valid. Rogue and Frontier settings are outside scope.
