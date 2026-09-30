@@ -23,6 +23,10 @@ Reference declarations define identity relationships. Rules supply cross-record 
 The Go package implements those operations without embedding BTD6 names, purchase limits or Tower inventories.
 The CLI in `cmd/atlas-validate/` handles invocation and output; `internal/atlasvalidate/` owns reusable validation.
 
+Profile configuration keys describe general concepts. A collection can be named `enemies` while its configured path remains `Bloons`, and a mechanic named `enemy` can bind the raw `BloonModel` class. References use the logical collection name. This already works without changing Go or captured records. Raw schema properties retain their exact source names because they describe the game's JSON format.
+
+Further generalization can make the model discriminator and type-name encoding configurable, then replace fixed capture-report fields with metadata bindings. The current checker still reads `$type`, shortens .NET class names and recognizes BTD6 capture metadata keys. These are proposed follow-up changes.
+
 The checker validates the Profile before reading game-data. Unknown operations, malformed arguments and unresolved Profile references fail loading.
 It then checks JSON syntax, declared layouts and schemas, indexes identities and collects references recursively.
 After scanning all files, it resolves references and runs the declared rules. Forward links and cycles remain valid.
@@ -46,6 +50,8 @@ Reports identify the Profile revision and content digest, checker build and exec
 Each error provides a file, JSON pointer, code and message. Optional relation output includes resolved targets and backlinks.
 Exit codes are 0 for valid data, 1 for invalid data, and 2 for an invalid invocation or Profile.
 Passing means that the declared requirements passed. It does not establish runtime equivalence, simulation coverage or balance.
+
+The checker does not verify the full capture inventory. Missing required files, references and ordinary progression states fail, but deleting an unreferenced record can pass. A guarantee for every deleted file requires a capture-owned inventory or expected counts. Keep those expected records beside the capture; the reusable Profile should declare how to check them rather than contain capture-specific filenames. Inventory checking remains a proposed follow-up.
 
 Use the existing JSON Schema dependency. Keep field constraints and game parameters in the Profile and reusable operations in Go.
 Test broken records for illegal builds, duplicate identities, missing targets, invalid transitions, incomplete families and unknown operations.

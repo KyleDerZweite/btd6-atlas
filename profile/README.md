@@ -206,6 +206,11 @@ Collections support recorded fields plus `@keys`, `@parent`, `@stem` and `@path`
 Collection and required-file paths normalize locally; a `.` collection includes root and nested records.
 The same files can supply separate state and family indexes. Renaming preserves a field-based identity, but the new path must also satisfy any declared layout.
 The Profile requires `textTable.json`; other unreferenced records can be removed unless a declared completeness rule requires them.
+Deleting `resources.json` currently passes on an otherwise valid capture copy. Capture-wide inventory checking is not implemented.
+
+Logical collection names are independent of source directories. For example, a collection named `enemies` can keep `path: "Bloons"` and its raw Bloon schema.
+Its references then target `enemies`; a mechanic named `enemy` can bind `models: ["BloonModel"]`.
+The settings supply game-specific names while configuration keys remain general. Raw schema properties retain the names in the source JSON.
 
 Reuse the Profile across captures while their format remains compatible. Change its revision when its requirements change.
 See [the design](../docs/game-profile.md), [implementation evidence](../docs/profile-implementation.md) and [domain terms](../CONTEXT.md).
