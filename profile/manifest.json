@@ -1,8 +1,8 @@
 {
-  "formatVersion": 2,
-  "validatorFormatVersion": 2,
+  "formatVersion": 3,
+  "validatorFormatVersion": 3,
   "id": "btd6-raw",
-  "revision": "2.0.0",
+  "revision": "3.0.0",
   "game": "btd6",
   "documents": {
     "collections": {
@@ -24,7 +24,21 @@
     "numericalUnits": {
       "file": "numerical-units.json",
       "schema": "schemas/profile/numerical-units.schema.json"
+    },
+    "scoring": {
+      "file": "scoring.json",
+      "schema": "schemas/profile/scoring.schema.json"
     }
   },
-  "proposalSchema": "schemas/profile/mechanic-proposal.schema.json"
+  "proposalSchema": "schemas/profile/mechanic-proposal.schema.json",
+  "captureMetadata": {
+    "path": "manifest.json",
+    "fields": {
+      "gameVersion": "gameVersion",
+      "buildId": "steamBuildId",
+      "exporterVersion": "atlasExporterVersion",
+      "helperVersion": "modHelperVersion"
+    },
+    "base": "parent"
+  }
 }

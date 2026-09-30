@@ -32,14 +32,17 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
    at the main menu (press twice to confirm) and let it walk the catalog.
 4. Copy outputs into `data/<patch>/`, publish to GitHub.
 
-Build the data validator with `go build -o bin/atlas-validate ./cmd/atlas-validate`.
-Run `bin/atlas-validate --data data/56.3-build-24829026/game-data --profile profile`.
+Build the data validator with `go build -o bin/atlas-validator ./cmd/atlas-validate`.
+Run `bin/atlas-validator --data data/56.3-build-24829026/game-data --profile profile`.
 See [the game profile](profile/README.md) for validation coverage and diagnostics.
 Add `--relations` to include resolved references and file backlinks in the JSON result.
 The checker applies the Profile to separate raw game-data, including ordinary purchase progression.
 The Profile also defines directory depth and field bindings for family folders and record filenames.
 For example, Towers use `Towers/<baseId>/<name>.json`; upgrades retain independent record identifiers and filenames.
 Its report records Profile and checker identities, rule coverage and model types without schemas.
+Tower scoring checks one family and its outgoing dependencies, with category weights from `profile/scoring.json`.
+Use `bin/atlas-validator score-tower --profile profile --game-data <path> --tower <path>`.
+Required roles are conditional; empty unused collections are valid. Rogue and Frontier settings are outside scope.
 Atlas owns this contract and checker independently of any consuming game or generator.
 
 ## Attribution

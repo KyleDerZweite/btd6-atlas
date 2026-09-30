@@ -16,11 +16,32 @@
         "$ref": "#/$defs/mechanic"
       },
       "minItems": 1
+    },
+    "typeIdentity": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "encoding": {
+          "enum": [
+            "dotnet",
+            "literal"
+          ]
+        }
+      },
+      "required": [
+        "field",
+        "encoding"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
     "unknownModels",
-    "mechanics"
+    "mechanics",
+    "typeIdentity"
   ],
   "additionalProperties": false,
   "$defs": {

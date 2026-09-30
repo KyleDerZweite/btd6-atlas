@@ -64,7 +64,7 @@ func TestCLI(t *testing.T) {
 	if status := run(append(base, "--relations"), &stdout, &stderr); status != 0 || json.Unmarshal(stdout.Bytes(), &report) != nil {
 		t.Fatalf("relations output failed: %s", stdout.String())
 	}
-	if err := os.Remove(filepath.Join(data, "textTable.json")); err != nil {
+	if err := os.WriteFile(filepath.Join(data, "textTable.json"), []byte(`{"invalid":123}`), 0644); err != nil {
 		t.Fatal(err)
 	}
 	stdout.Reset()

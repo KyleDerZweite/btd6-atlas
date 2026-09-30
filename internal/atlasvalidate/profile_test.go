@@ -240,7 +240,7 @@ func TestCollectionAndRequiredPathsAreNormalized(t *testing.T) {
 			data, profileDir := fixture(t)
 			editDocument(t, profileDir, "collections.json", func(p map[string]any) {
 				p["collections"].([]any)[0].(map[string]any)["path"] = test.collectionPath
-				p["requiredFiles"] = []string{test.requiredPath}
+				p["collections"].([]any)[1].(map[string]any)["path"] = test.requiredPath
 			})
 			r, status := Validate(data, profileDir, false)
 			if status != 0 || !r.Valid || r.Coverage.FilesWithSchema != 3 || r.ReferencesChecked != 1 {

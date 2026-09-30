@@ -29,9 +29,10 @@ func progressionFixture(t *testing.T) (profile, schemaIndex, recordIndex) {
 		t.Fatal(err)
 	}
 	p := profile{
-		Collections: []collection{{Name: "units", IDField: "id"}},
-		Scopes:      []scope{{Name: "purchases", Collection: "units", RootSchema: "root", MemberSchema: "member", EdgesField: "buys", TargetField: "next"}},
-		Rules:       []rule{{ID: "progression", Operation: "purchaseProgression", Scope: "purchases", TiersField: "levels", FamilyField: "kind", Limits: progressionLimits{PathCount: 1, MaxTier: 2, MaxPurchasedPaths: 1, SecondaryTierLimit: 2, MaxPathsAboveSecondaryTier: 0}, RequireCompleteStates: true}},
+		TypeIdentity: typeIdentity{Field: "$type", Encoding: "dotnet"},
+		Collections:  []collection{{Name: "units", IDField: "id"}},
+		Scopes:       []scope{{Name: "purchases", Collection: "units", RootSchema: "root", MemberSchema: "member", EdgesField: "buys", TargetField: "next"}},
+		Rules:        []rule{{ID: "progression", Operation: "purchaseProgression", Scope: "purchases", TiersField: "levels", FamilyField: "kind", Limits: progressionLimits{PathCount: 1, MaxTier: 2, MaxPurchasedPaths: 1, SecondaryTierLimit: 2, MaxPathsAboveSecondaryTier: 0}, RequireCompleteStates: true}},
 	}
 	records := recordIndex{"units": {}}
 	for i, id := range []string{"base", "first", "second"} {
@@ -260,13 +261,13 @@ func TestProgressionRequiresRootForEveryMemberFamily(t *testing.T) {
 	}
 }
 
-func TestCompleteProgressionRejectsEmptyCollection(t *testing.T) {
+func TestCompleteProgressionAllowsEmptyCollection(t *testing.T) {
 	p, s, r := progressionFixture(t)
 	delete(r, "units")
 	var report Report
 	checkRules(p, s, r, &report)
-	if len(report.Errors) != 1 || report.Errors[0].Code != "scope-empty" {
-		t.Fatalf("want scope-empty, got %+v", report.Errors)
+	if len(report.Errors) != 0 {
+		t.Fatalf("empty unused collection must be valid: %+v", report.Errors)
 	}
 	p.Rules[0].RequireCompleteStates = false
 	report = Report{}

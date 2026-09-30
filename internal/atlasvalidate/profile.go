@@ -215,7 +215,7 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 		role   string
 		target any
 	}{
-		{"collections", &collections}, {"references", &references}, {"mechanics", &mechanics}, {"rules", &rules}, {"numericalUnits", &p.Units},
+		{"scoring", &p.Scoring}, {"collections", &collections}, {"references", &references}, {"mechanics", &mechanics}, {"rules", &rules}, {"numericalUnits", &p.Units},
 	}
 	for _, target := range targets {
 		doc, exists := p.Manifest.Documents[target.role]
@@ -236,7 +236,7 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 			return p, nil, documentError(doc.File, fmt.Errorf("%s: %w", doc.File, err))
 		}
 	}
-	p.Collections, p.RequiredFiles, p.Scopes = collections.Collections, collections.RequiredFiles, collections.Scopes
+	p.Collections, p.Scopes = collections.Collections, collections.Scopes
 	p.UnmatchedFiles = collections.UnmatchedFiles
 	if p.UnmatchedFiles == "" {
 		p.UnmatchedFiles = "report"
@@ -245,6 +245,7 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 		return p, nil, documentError(p.Manifest.Documents["collections"].File, fmt.Errorf("unknown unmatched-file policy %q", p.UnmatchedFiles))
 	}
 	p.References, p.Mechanics, p.UnknownModels, p.Rules = references.References, mechanics.Mechanics, mechanics.UnknownModels, rules.Rules
+	p.TypeIdentity = mechanics.TypeIdentity
 	p.ModelSchemas = map[string]string{}
 	names := map[string]bool{}
 	for i := range p.Collections {
@@ -266,6 +267,30 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 		}
 		if strings.HasPrefix(c.IDField, "@") && c.IDField != "@keys" && c.IDField != "@parent" && c.IDField != "@stem" && c.IDField != "@path" {
 			return p, nil, documentError(p.Manifest.Documents["collections"].File, fmt.Errorf("unknown identity selector %q", c.IDField))
+		}
+	}
+
+	if !names[p.Scoring.Collection] {
+		return p, nil, documentError(p.Manifest.Documents["scoring"].File, fmt.Errorf("unknown scoring collection %q", p.Scoring.Collection))
+	}
+	for _, c := range p.Collections {
+		for _, condition := range c.RequireWhen {
+			if condition.Collection != "" {
+				if !names[condition.Collection] {
+					return p, nil, fmt.Errorf("unknown required-role source %q", condition.Collection)
+				}
+			}
+			if condition.SelectorSchema != "" {
+				if err := resolve(condition.SelectorSchema); err != nil {
+					return p, nil, err
+				}
+			}
+		}
+	}
+	if binding := p.Manifest.CaptureMetadata; binding != nil {
+		cleaned := filepath.ToSlash(filepath.Clean(binding.Path))
+		if !filepath.IsLocal(cleaned) {
+			return p, nil, fmt.Errorf("capture metadata path must be local to its configured base")
 		}
 	}
 	ids := map[string]bool{}
@@ -296,13 +321,6 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 				return p, nil, fmt.Errorf("external symbols require a value and reason")
 			}
 		}
-	}
-	for i, path := range p.RequiredFiles {
-		normalized, err := localPath(".", path)
-		if err != nil {
-			return p, nil, documentError(p.Manifest.Documents["collections"].File, err)
-		}
-		p.RequiredFiles[i] = filepath.ToSlash(normalized)
 	}
 	for _, s := range p.Scopes {
 		if err := resolve(s.RootSchema); err != nil {

@@ -33,20 +33,13 @@ type CheckerIdentity struct {
 	ExecutableSHA256 string `json:"executableSha256,omitempty"`
 }
 
-type CaptureIdentity struct {
-	GameVersion          string `json:"gameVersion,omitempty"`
-	SteamBuildID         string `json:"steamBuildId,omitempty"`
-	ModHelperVersion     string `json:"modHelperVersion,omitempty"`
-	AtlasExporterVersion string `json:"atlasExporterVersion,omitempty"`
-	ManifestSHA256       string `json:"manifestSha256,omitempty"`
-}
-
 type ModelCount struct {
 	Type      string `json:"type"`
 	Instances int    `json:"instances"`
 }
 
 type Coverage struct {
+	FilesSkipped          int          `json:"filesSkipped"`
 	LayoutFilesChecked    int          `json:"layoutFilesChecked"`
 	FilesWithSchema       int          `json:"filesWithSchema"`
 	FilesWithoutSchema    int          `json:"filesWithoutSchema"`
@@ -69,14 +62,15 @@ type RuleResult struct {
 }
 
 type Report struct {
-	Valid              bool                  `json:"valid"`
-	IntegrityValid     bool                  `json:"integrityValid"`
-	RulesValid         bool                  `json:"rulesValid"`
-	Game               string                `json:"game,omitempty"`
-	GameVersion        string                `json:"gameVersion,omitempty"`
+	Valid              bool           `json:"valid"`
+	IntegrityValid     bool           `json:"integrityValid"`
+	RulesValid         bool           `json:"rulesValid"`
+	Game               string         `json:"game,omitempty"`
+	Metadata           map[string]any `json:"metadata,omitempty"`
+	Score              *TowerScore    `json:"score,omitempty"`
+	checks             map[string]map[string]bool
 	Profile            *ProfileIdentity      `json:"profile,omitempty"`
 	Checker            CheckerIdentity       `json:"checker"`
-	Capture            *CaptureIdentity      `json:"capture,omitempty"`
 	FilesChecked       int                   `json:"filesChecked"`
 	ReferencesChecked  int                   `json:"referencesChecked"`
 	ExternalReferences int                   `json:"externalReferences"`

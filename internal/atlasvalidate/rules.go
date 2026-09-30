@@ -158,11 +158,11 @@ func onePurchase(from, to []int) bool {
 
 // Apply the same typed, single-step aliases as reference validation.
 func purchaseTarget(p profile, s scope, edge map[string]any, target string) string {
-	rawType, _ := edge["$type"].(string)
+	rawType, _ := edge[p.TypeIdentity.Field].(string)
 	if rawType == "" {
 		return target
 	}
-	kind := typeName(rawType)
+	kind := p.modelKind(rawType)
 	for _, reference := range p.References {
 		if reference.Field != s.TargetField || reference.Target != s.Collection {
 			continue
@@ -201,13 +201,17 @@ func checkRules(p profile, schemas schemaIndex, records recordIndex, report *Rep
 			all = append(all, matches...)
 		}
 		sort.Slice(all, func(i, j int) bool { return all[i].File < all[j].File })
+		members := 0
 		for _, rec := range all {
+			if schemas[s.MemberSchema].Validate(rec.Value) == nil {
+				members++
+			}
 			if schemas[s.RootSchema].Validate(rec.Value) == nil {
 				roots = append(roots, rec)
 			}
 		}
 		result.Roots = len(roots)
-		if len(roots) == 0 && rule.RequireCompleteStates {
+		if len(roots) == 0 && members > 0 && rule.RequireCompleteStates {
 			add("", "", "scope-empty", fmt.Sprintf("scope %q matched no roots in collection %q", s.Name, s.Collection))
 		}
 		visited := map[string]bool{}

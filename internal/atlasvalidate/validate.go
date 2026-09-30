@@ -4,7 +4,6 @@ package atlasvalidate
 import (
 	"errors"
 	"fmt"
-	"io/fs"
 	"os"
 	"path/filepath"
 	"sort"
@@ -24,7 +23,11 @@ func matches(path, collectionPath string) bool {
 // Validate reads game-data and its Profile without modifying either directory.
 // Status is 0 for valid data, 1 for invalid data, and 2 for invocation/Profile errors.
 func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Report, int) {
-	r := Report{Errors: []Diagnostic{}, Checker: checker(), Rules: []RuleResult{}, Coverage: Coverage{UnboundModelTypes: []ModelCount{}}}
+	return validate(dataDirectory, profileDirectory, includeRelations, "")
+}
+
+func validate(dataDirectory, profileDirectory string, includeRelations bool, tower string) (Report, int) {
+	r := Report{checks: map[string]map[string]bool{}, Errors: []Diagnostic{}, Checker: checker(), Rules: []RuleResult{}, Coverage: Coverage{UnboundModelTypes: []ModelCount{}}}
 	p, schemas, err := loadProfile(profileDirectory)
 	if err != nil {
 		file := "manifest.json"
@@ -43,17 +46,16 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 		return r, 2
 	}
 	var paths []string
-	err = filepath.WalkDir(dataDirectory, func(path string, entry fs.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
-		if !entry.IsDir() && strings.HasSuffix(entry.Name(), ".json") {
-			relative, _ := filepath.Rel(dataDirectory, path)
-			paths = append(paths, filepath.ToSlash(relative))
-		}
-		return nil
-	})
+	if tower != "" {
+		paths, err = selectTower(dataDirectory, tower, p, schemas)
+	} else {
+		paths, err = dataPaths(dataDirectory)
+	}
 	if err != nil {
+		if tower != "" {
+			r.add(dataDirectory, "", "selection", err.Error())
+			return r, 2
+		}
 		r.add(dataDirectory, "", "read", err.Error())
 		return r, 1
 	}
@@ -61,11 +63,6 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 	files := map[string]bool{}
 	for _, path := range paths {
 		files[path] = true
-	}
-	for _, path := range p.RequiredFiles {
-		if !files[path] {
-			r.add(path, "", "missing_file", "file required by the profile is missing")
-		}
 	}
 	indices := map[string]map[string][]string{}
 	for _, collection := range p.Collections {
@@ -75,6 +72,7 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 	for _, s := range p.Scopes {
 		records[s.Collection] = map[string][]record{}
 	}
+	values := map[string]map[string]any{}
 	unknownModels := map[string]int{}
 	unitsByModel := map[string][]unitBinding{}
 	for _, binding := range p.Units.Bindings {
@@ -90,6 +88,22 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 	}
 	var pending []pendingReference
 	for _, path := range paths {
+		disabled := false
+		active := false
+		for _, c := range p.Collections {
+			if matches(path, c.Path) {
+				if c.active() {
+					active = true
+				} else {
+					disabled = true
+				}
+			}
+		}
+		if disabled && !active {
+			r.Coverage.FilesSkipped++
+			continue
+		}
+		r.attempt("schema", path)
 		value, err := readJSON(filepath.Join(dataDirectory, filepath.FromSlash(path)))
 		r.FilesChecked++
 		if err != nil {
@@ -101,13 +115,15 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 			r.add(path, "", "schema", "capture files must contain a JSON object")
 			continue
 		}
+		values[path] = object
 		checked := map[string]bool{}
 		layoutChecked := false
 		for _, collection := range p.Collections {
-			if !matches(path, collection.Path) {
+			if !collection.active() || !matches(path, collection.Path) {
 				continue
 			}
 			if collection.Layout != nil {
+				r.attempt("layout", path)
 				checkLayout(path, object, collection, &r)
 				layoutChecked = true
 			}
@@ -117,27 +133,9 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 				}
 				checked[collection.Schema] = true
 			}
-			var ids []string
-			switch collection.IDField {
-			case "@keys":
-				for key := range object {
-					if !strings.HasPrefix(key, "$") {
-						ids = append(ids, key)
-					}
-				}
-			case "@parent":
-				ids = []string{filepath.Base(filepath.Dir(path))}
-			case "@stem":
-				ids = []string{strings.TrimSuffix(filepath.Base(path), ".json")}
-			case "@path":
-				ids = []string{strings.TrimPrefix(path, collection.Path+"/")}
-			default:
-				id, _ := object[collection.IDField].(string)
-				if id == "" {
-					r.add(path, "/"+pointerToken(collection.IDField), "identity", "record identity must be a nonempty string")
-				} else {
-					ids = []string{id}
-				}
+			ids := recordIDs(collection, path, object)
+			if len(ids) == 0 && !strings.HasPrefix(collection.IDField, "@") {
+				r.add(path, "/"+pointerToken(collection.IDField), "identity", "record identity must be a nonempty string")
 			}
 			for _, id := range ids {
 				if scoped := records[collection.Name]; scoped != nil {
@@ -157,6 +155,7 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 			r.Coverage.FilesWithSchema++
 		} else {
 			r.Coverage.FilesWithoutSchema++
+			r.checks["schema"][path] = false
 			if p.UnmatchedFiles == "error" {
 				r.add(path, "", "unmatched_file", "file does not belong to a declared collection")
 			}
@@ -166,12 +165,12 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 			switch value := value.(type) {
 			case map[string]any:
 				kind := ""
-				if rawType, exists := value["$type"]; exists {
+				if rawType, exists := value[p.TypeIdentity.Field]; exists {
 					typeString, ok := rawType.(string)
 					if !ok || typeString == "" {
-						r.add(path, pointer+"/$type", "schema", "$type must be a nonempty string")
+						r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "schema", p.TypeIdentity.Field+" must be a nonempty string")
 					} else {
-						kind = typeName(typeString)
+						kind = p.modelKind(typeString)
 					}
 				}
 				if kind != "" {
@@ -181,11 +180,12 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 						r.Coverage.UnboundModelInstances++
 						unknownModels[kind]++
 						if p.UnknownModels == "error" {
-							r.add(path, pointer+"/$type", "unknown_model", fmt.Sprintf("model %q has no mechanic schema binding", kind))
+							r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "unknown_model", fmt.Sprintf("model %q has no mechanic schema binding", kind))
 						}
 					}
 					for _, binding := range unitsByModel[kind] {
 						if number, exists := value[binding.Field]; exists {
+							r.attempt("units", path)
 							r.Coverage.UnitBindingsChecked++
 							if _, ok := number.(float64); !ok {
 								r.add(path, pointer+"/"+pointerToken(binding.Field), "unit_type", fmt.Sprintf("field bound to unit %q must be numeric", binding.Unit))
@@ -231,7 +231,7 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 				}
 				sort.Strings(keys)
 				for _, key := range keys {
-					if key != "$type" {
+					if key != p.TypeIdentity.Field {
 						walk(value[key], pointer+"/"+pointerToken(key))
 					}
 				}
@@ -247,6 +247,7 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 		r.Backlinks = map[string][]Location{}
 	}
 	for _, reference := range pending {
+		r.attempt("references", reference.File)
 		r.ReferencesChecked++
 		value := reference.Value
 		if alias, exists := reference.Rule.Aliases[value]; exists {
@@ -274,27 +275,24 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 			}
 		}
 	}
-	// Capture metadata is informational and does not restrict which data versions are valid.
-	manifestPath := filepath.Join(filepath.Dir(filepath.Clean(dataDirectory)), "manifest.json")
-	if _, err := os.Stat(manifestPath); err == nil {
-		value, err := readJSON(manifestPath)
-		if err != nil {
-			r.add("../manifest.json", "", "json", err.Error())
-		} else if manifest, ok := value.(map[string]any); ok {
-			r.GameVersion, _ = manifest["gameVersion"].(string)
-			capture := &CaptureIdentity{GameVersion: r.GameVersion}
-			capture.SteamBuildID, _ = manifest["steamBuildId"].(string)
-			capture.ModHelperVersion, _ = manifest["modHelperVersion"].(string)
-			capture.AtlasExporterVersion, _ = manifest["atlasExporterVersion"].(string)
-			if raw, err := os.ReadFile(manifestPath); err == nil {
-				capture.ManifestSHA256 = digest(raw)
+	for _, c := range p.Collections {
+		if requiredRole(c, p, schemas, values) {
+			present := false
+			for path := range files {
+				if matches(path, c.Path) {
+					present = true
+				}
 			}
-			r.Capture = capture
-		} else {
-			r.add("../manifest.json", "", "schema", "manifest must be a JSON object")
+			r.attempt("layout", c.Path)
+			if !present {
+				r.add(c.Path, "", "missing_file", fmt.Sprintf("required data role %q is missing", c.Name))
+			} else if len(indices[c.Name]) == 0 {
+				r.add(c.Path, "", "empty_required_role", fmt.Sprintf("required data role %q contains no identifiable records", c.Name))
+			}
 		}
-	} else if !os.IsNotExist(err) {
-		r.add("../manifest.json", "", "read", err.Error())
+	}
+	if tower == "" {
+		readCaptureMetadata(dataDirectory, p, &r)
 	}
 	for kind, count := range unknownModels {
 		r.Coverage.UnboundModelTypes = append(r.Coverage.UnboundModelTypes, ModelCount{Type: kind, Instances: count})
@@ -314,6 +312,10 @@ func Validate(dataDirectory, profileDirectory string, includeRelations bool) (Re
 		a, b := r.Errors[i], r.Errors[j]
 		return a.File+"\x00"+a.Pointer+"\x00"+a.Code+"\x00"+a.Message < b.File+"\x00"+b.Pointer+"\x00"+b.Code+"\x00"+b.Message
 	})
+	if tower != "" {
+		r.Score = scoreReport(p, &r)
+		r.Score.Tower = tower
+	}
 	r.Valid = len(r.Errors) == 0
 	if !r.Valid {
 		return r, 1

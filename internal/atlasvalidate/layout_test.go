@@ -20,8 +20,9 @@ func layoutFixture(t *testing.T, collectionPath string, layout any) (string, str
 		collection["layout"] = layout
 	}
 	writeFixture(t, profileDir, "layout-record.schema.json", map[string]any{"type": "object"})
-	writeFixture(t, profileDir, "collections.json", map[string]any{"collections": []any{collection}, "requiredFiles": []string{}, "scopes": []any{}})
+	writeFixture(t, profileDir, "collections.json", map[string]any{"collections": []any{collection}, "scopes": []any{}})
 	writeFixture(t, profileDir, "references.json", map[string]any{"references": []any{}})
+	editDocument(t, profileDir, "scoring.json", func(p map[string]any) { p["collection"] = "creatures" })
 	return data, profileDir
 }
 

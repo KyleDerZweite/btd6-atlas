@@ -84,7 +84,7 @@
       "role": "structure"
     },
     {
-      "id": "bloon",
+      "id": "enemy",
       "models": [
         "BloonModel"
       ],
@@ -115,5 +115,9 @@
       "schema": "schemas/game-data/map.schema.json",
       "role": "structure"
     }
-  ]
+  ],
+  "typeIdentity": {
+    "field": "$type",
+    "encoding": "dotnet"
+  }
 }

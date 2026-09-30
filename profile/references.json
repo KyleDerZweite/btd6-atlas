@@ -6,7 +6,7 @@
         "PowerProUpgradePathModel"
       ],
       "field": "tower",
-      "target": "Towers"
+      "target": "towers"
     },
     {
       "models": [
@@ -14,21 +14,21 @@
         "PowerProUpgradePathModel"
       ],
       "field": "upgrade",
-      "target": "Upgrades"
+      "target": "upgrades"
     },
     {
       "models": [
         "TowerModel"
       ],
       "field": "appliedUpgrades",
-      "target": "Upgrades"
+      "target": "upgrades"
     },
     {
       "models": [
         "ApplyModModel"
       ],
       "field": "mod",
-      "target": "Knowledge",
+      "target": "knowledge",
       "externalSymbols": {
         "AlchemistTouch": "Referenced in accepted capture 56.3, but no target record is exported in this collection.",
         "DeepHeat": "Referenced in accepted capture 56.3, but no target record is exported in this collection.",
@@ -42,42 +42,42 @@
         "KnowledgeModel"
       ],
       "field": "prerequisiteIds",
-      "target": "Knowledge"
+      "target": "knowledge"
     },
     {
       "models": [
         "AbilityModel"
       ],
       "field": "addedViaUpgrade",
-      "target": "Upgrades"
+      "target": "upgrades"
     },
     {
       "models": [
         "UpgradeCostModModel"
       ],
       "field": "upgradeName",
-      "target": "Upgrades"
+      "target": "upgrades"
     },
     {
       "models": [
         "DiscountZoneModel"
       ],
       "field": "upgradeId",
-      "target": "Upgrades"
+      "target": "upgrades"
     },
     {
       "models": [
         "BloonGroupModel"
       ],
       "field": "bloon",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "BloonModel"
       ],
       "field": "baseId",
-      "target": "bloonFamilies"
+      "target": "enemyFamilies"
     },
     {
       "models": [
@@ -88,14 +88,14 @@
         "BloonAssetChange"
       ],
       "field": "bloonId",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "DamageModifierForBloonTypeModel"
       ],
       "field": "bloonIds",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
@@ -103,7 +103,7 @@
         "ColdChainBuffModel"
       ],
       "field": "bloonTypes",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
@@ -111,14 +111,14 @@
         "SlowForBloonModel"
       ],
       "field": "bloonIds",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "CreateGreatWhiteEffectModel"
       ],
       "field": "maxGrabBloonName",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
@@ -127,70 +127,70 @@
         "SpawnBloonsUntilArmourBreaksActionModel"
       ],
       "field": "bloonType",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "SpawnTombstoneBloonsActionModel"
       ],
       "field": "bloonTypePerTombstoneTier",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "DiamondbackBehaviorModel"
       ],
       "field": "headSegmentBloonId",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "DiamondbackBehaviorModel"
       ],
       "field": "middleSegmentBloonId",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "DiamondbackBehaviorModel"
       ],
       "field": "tailSegmentBloonId",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "VigilanteTowerBehaviorModel"
       ],
       "field": "oneHealthHighestBloon",
-      "target": "Bloons"
+      "target": "enemies"
     },
     {
       "models": [
         "GeraldoItemModel"
       ],
       "field": "towerId",
-      "target": "Towers"
+      "target": "towers"
     },
     {
       "models": [
         "GeraldoUpgradeTowerModel"
       ],
       "field": "towerId",
-      "target": "Towers"
+      "target": "towers"
     },
     {
       "models": [
         "GeraldoItemModel"
       ],
       "field": "blockPurchaseIfTowerPlaced",
-      "target": "Towers"
+      "target": "towers"
     },
     {
       "models": [
         "PetRabbitMergeModel"
       ],
       "field": "wererabbitTowerId",
-      "target": "Towers"
+      "target": "towers"
     },
     {
       "models": [
@@ -230,7 +230,7 @@
         "GeraldoChangeTowerBehaviorModel"
       ],
       "field": "upgradeBlockId",
-      "target": "GeraldoItems"
+      "target": "geraldoItems"
     },
     {
       "models": [
@@ -327,28 +327,28 @@
         "TowerAssetChange"
       ],
       "field": "skinId",
-      "target": "Skins"
+      "target": "skins"
     },
     {
       "models": [
         "FilterInHeroSkinIdModel"
       ],
       "field": "skinIds",
-      "target": "Skins"
+      "target": "skins"
     },
     {
       "models": [
         "PowerAssetChange"
       ],
       "field": "powerId",
-      "target": "Powers"
+      "target": "powers"
     },
     {
       "models": [
         "MuatorModXpShopMod"
       ],
       "field": "modName",
-      "target": "Knowledge"
+      "target": "knowledge"
     },
     {
       "models": [
@@ -361,7 +361,7 @@
         "TraitData"
       ],
       "field": "ArtifactName",
-      "target": "Artifacts"
+      "target": "artifacts"
     },
     {
       "models": [
@@ -369,21 +369,21 @@
         "RemoveArtifactIfNoTowerBanAmountBehaviorModel"
       ],
       "field": "artifactModelName",
-      "target": "Artifacts"
+      "target": "artifacts"
     },
     {
       "models": [
         "EndOfRoundClearBypassModel"
       ],
       "field": "gameModesList",
-      "target": "Mods"
+      "target": "mods"
     },
     {
       "models": [
         "GeraldoItemModel"
       ],
       "field": "bannedForModesList",
-      "target": "Mods",
+      "target": "mods",
       "externalSymbols": {
         "BossRush": "Referenced in accepted capture 56.3, but no target record is exported in this collection."
       }
@@ -393,7 +393,7 @@
         "RogueData"
       ],
       "field": "bannedBossMaps",
-      "target": "Maps",
+      "target": "maps",
       "aliases": {
         "ProtecttheYacht": "ProtectTheYacht"
       }
@@ -403,7 +403,7 @@
         "RogueData"
       ],
       "field": "bannedBossRushMaps",
-      "target": "Maps",
+      "target": "maps",
       "aliases": {
         "ProtecttheYacht": "ProtectTheYacht"
       }

@@ -44,6 +44,81 @@
               "depth"
             ],
             "additionalProperties": false
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "requireWhen": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "collection": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "selectorSchema": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "models": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "field": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [],
+              "additionalProperties": false,
+              "oneOf": [
+                {
+                  "required": [
+                    "collection"
+                  ],
+                  "not": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "models"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "field"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "required": [
+                    "models",
+                    "field"
+                  ],
+                  "not": {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "collection"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "selectorSchema"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         },
         "required": [
@@ -55,14 +130,6 @@
         "additionalProperties": false
       },
       "minItems": 1
-    },
-    "requiredFiles": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "minLength": 1
-      },
-      "uniqueItems": true
     },
     "scopes": {
       "type": "array",
@@ -115,7 +182,6 @@
   },
   "required": [
     "collections",
-    "requiredFiles",
     "scopes"
   ],
   "additionalProperties": false

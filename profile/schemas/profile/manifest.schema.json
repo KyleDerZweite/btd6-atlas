@@ -4,10 +4,10 @@
   "type": "object",
   "properties": {
     "formatVersion": {
-      "const": 2
+      "const": 3
     },
     "validatorFormatVersion": {
-      "const": 2
+      "const": 3
     },
     "id": {
       "type": "string",
@@ -113,6 +113,24 @@
             "schema"
           ],
           "additionalProperties": false
+        },
+        "scoring": {
+          "type": "object",
+          "properties": {
+            "file": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "file",
+            "schema"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -120,13 +138,43 @@
         "references",
         "mechanics",
         "rules",
-        "numericalUnits"
+        "numericalUnits",
+        "scoring"
       ],
       "additionalProperties": false
     },
     "proposalSchema": {
       "type": "string",
       "minLength": 1
+    },
+    "captureMetadata": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minProperties": 1
+        },
+        "base": {
+          "enum": [
+            "gameData",
+            "parent"
+          ]
+        }
+      },
+      "required": [
+        "path",
+        "fields",
+        "base"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [

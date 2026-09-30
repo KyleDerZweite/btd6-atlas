@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": [
+    "isParagon"
+  ],
+  "properties": {
+    "isParagon": {
+      "const": true
+    }
+  }
+}

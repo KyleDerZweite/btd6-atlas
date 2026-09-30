@@ -1,7 +1,7 @@
 {
   "collections": [
     {
-      "name": "Achievements",
+      "name": "achievements",
       "path": "Achievements",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -11,7 +11,7 @@
       }
     },
     {
-      "name": "Artifacts",
+      "name": "artifacts",
       "path": "Artifacts",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -21,7 +21,7 @@
       }
     },
     {
-      "name": "BloonOverlays",
+      "name": "enemyOverlays",
       "path": "BloonOverlays",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "name": "Bloons",
+      "name": "enemies",
       "path": "Bloons",
       "idField": "name",
       "schema": "schemas/game-data/bloon.schema.json",
@@ -41,7 +41,7 @@
       }
     },
     {
-      "name": "Bosses",
+      "name": "bosses",
       "path": "Bosses",
       "idField": "@stem",
       "schema": "schemas/game-data/model.schema.json#/$defs/model",
@@ -51,7 +51,7 @@
       }
     },
     {
-      "name": "Buffs",
+      "name": "buffs",
       "path": "Buffs",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -61,7 +61,7 @@
       }
     },
     {
-      "name": "GeraldoItems",
+      "name": "geraldoItems",
       "path": "GeraldoItems",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -71,7 +71,7 @@
       }
     },
     {
-      "name": "IncomeSets",
+      "name": "incomeSets",
       "path": "IncomeSets",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -81,7 +81,7 @@
       }
     },
     {
-      "name": "Knowledge",
+      "name": "knowledge",
       "path": "Knowledge",
       "idField": "name",
       "schema": "schemas/game-data/knowledge.schema.json",
@@ -91,7 +91,7 @@
       }
     },
     {
-      "name": "Maps",
+      "name": "maps",
       "path": "Maps",
       "idField": "id",
       "schema": "schemas/game-data/map.schema.json",
@@ -101,7 +101,7 @@
       }
     },
     {
-      "name": "Mods",
+      "name": "mods",
       "path": "Mods",
       "idField": "name",
       "schema": "schemas/game-data/mod.schema.json",
@@ -111,7 +111,7 @@
       }
     },
     {
-      "name": "Powers",
+      "name": "powers",
       "path": "Powers",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -121,7 +121,7 @@
       }
     },
     {
-      "name": "Rounds",
+      "name": "rounds",
       "path": "Rounds",
       "idField": "@path",
       "schema": "schemas/game-data/round.schema.json",
@@ -130,7 +130,7 @@
       }
     },
     {
-      "name": "Skins",
+      "name": "skins",
       "path": "Skins",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -141,7 +141,7 @@
       }
     },
     {
-      "name": "Towers",
+      "name": "towers",
       "path": "Towers",
       "idField": "name",
       "schema": "schemas/game-data/tower.schema.json",
@@ -152,7 +152,7 @@
       }
     },
     {
-      "name": "TrophyStoreItems",
+      "name": "trophyStoreItems",
       "path": "TrophyStoreItems",
       "idField": "name",
       "schema": "schemas/game-data/model.schema.json#/$defs/namedModel",
@@ -162,7 +162,7 @@
       }
     },
     {
-      "name": "Upgrades",
+      "name": "upgrades",
       "path": "Upgrades",
       "idField": "name",
       "schema": "schemas/game-data/upgrade.schema.json",
@@ -171,13 +171,21 @@
       }
     },
     {
-      "name": "text",
+      "name": "localization",
       "path": "textTable.json",
       "idField": "@keys",
       "schema": "schemas/game-data/model.schema.json#/$defs/stringTable",
       "layout": {
         "depth": 0
-      }
+      },
+      "requireWhen": [
+        {
+          "collection": "towers"
+        },
+        {
+          "collection": "upgrades"
+        }
+      ]
     },
     {
       "name": "resources",
@@ -186,7 +194,17 @@
       "schema": "schemas/game-data/model.schema.json#/$defs/stringTable",
       "layout": {
         "depth": 0
-      }
+      },
+      "requireWhen": [
+        {
+          "models": [
+            "PrefabReference",
+            "AudioClipReference",
+            "SpriteReference"
+          ],
+          "field": "guidRef"
+        }
+      ]
     },
     {
       "name": "roundSets",
@@ -201,46 +219,51 @@
       "schema": "schemas/game-data/tower.schema.json"
     },
     {
-      "name": "bloonFamilies",
+      "name": "enemyFamilies",
       "path": "Bloons",
       "idField": "@parent",
       "schema": "schemas/game-data/bloon.schema.json"
     },
     {
-      "name": "paragonDegreeData",
+      "name": "advancedProgression",
       "path": "paragonDegreeData.json",
       "idField": "@stem",
       "schema": "schemas/game-data/model.schema.json#/$defs/model",
       "layout": {
         "depth": 0
-      }
+      },
+      "requireWhen": [
+        {
+          "collection": "towers",
+          "selectorSchema": "schemas/scopes/advanced-tower.schema.json"
+        }
+      ]
     },
     {
-      "name": "rogueData",
+      "name": "rogueMode",
       "path": "rogueData.json",
       "idField": "@stem",
       "schema": "schemas/game-data/model.schema.json#/$defs/model",
       "layout": {
         "depth": 0
-      }
+      },
+      "enabled": false
     },
     {
-      "name": "frontierData",
+      "name": "frontierMode",
       "path": "frontierData.json",
       "idField": "@stem",
       "schema": "schemas/game-data/model.schema.json#/$defs/model",
       "layout": {
         "depth": 0
-      }
+      },
+      "enabled": false
     }
-  ],
-  "requiredFiles": [
-    "textTable.json"
   ],
   "scopes": [
     {
       "name": "ordinaryTowerStates",
-      "collection": "Towers",
+      "collection": "towers",
       "rootSchema": "schemas/scopes/ordinary-tower-root.schema.json",
       "edgesField": "upgrades",
       "targetField": "tower",

@@ -2,9 +2,9 @@ package atlasvalidate
 
 import "github.com/google/jsonschema-go/jsonschema"
 
-const profileFormatVersion = 2
-const validatorFormatVersion = 2
-const Version = "2.0.0"
+const profileFormatVersion = 3
+const validatorFormatVersion = 3
+const Version = "3.0.0"
 
 type documentRef struct {
 	File, Schema string
@@ -14,11 +14,28 @@ type manifest struct {
 	FormatVersion, ValidatorFormatVersion int
 	ID, Revision, Game, ProposalSchema    string
 	Documents                             map[string]documentRef
+	CaptureMetadata                       *metadataBinding
 }
 
 type collection struct {
 	Name, Path, IDField, Schema string
 	Layout                      *recordLayout
+	Enabled                     *bool
+	RequireWhen                 []requirement
+}
+
+type requirement struct {
+	Collection, SelectorSchema, Field string
+	Models                            []string
+}
+type metadataBinding struct {
+	Base, Path string
+	Fields     map[string]string
+}
+type typeIdentity struct{ Field, Encoding string }
+type scoringDocument struct {
+	Collection, FamilyField string
+	Weights                 map[string]float64
 }
 
 type recordLayout struct {
@@ -32,7 +49,6 @@ type scope struct {
 
 type collectionsDocument struct {
 	Collections    []collection
-	RequiredFiles  []string
 	Scopes         []scope
 	UnmatchedFiles string
 }
@@ -55,6 +71,7 @@ type mechanic struct {
 
 type mechanicsDocument struct {
 	UnknownModels string
+	TypeIdentity  typeIdentity
 	Mechanics     []mechanic
 }
 
@@ -88,8 +105,9 @@ type unitsDocument struct {
 
 type profile struct {
 	Manifest       manifest
+	TypeIdentity   typeIdentity
+	Scoring        scoringDocument
 	Collections    []collection
-	RequiredFiles  []string
 	Scopes         []scope
 	UnmatchedFiles string
 	References     []referenceRule

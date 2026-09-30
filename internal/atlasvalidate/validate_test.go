@@ -61,16 +61,17 @@ func fixture(t *testing.T) (string, string) {
 	writeFixture(t, data, "Things/b.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "b"})
 	writeFixture(t, data, "text.json", map[string]any{"hello": "Hello"})
 	writeFixture(t, profileDir, "collections.json", map[string]any{
-		"requiredFiles": []string{"text.json"}, "scopes": []any{},
-		"collections": []any{map[string]any{"name": "things", "path": "Things", "idField": "name", "schema": "schemas/game-data/model.schema.json#/$defs/namedModel"}, map[string]any{"name": "text", "path": "text.json", "idField": "@keys", "schema": "schemas/game-data/model.schema.json#/$defs/stringTable"}},
+		"scopes":      []any{},
+		"collections": []any{map[string]any{"name": "things", "path": "Things", "idField": "name", "schema": "schemas/game-data/model.schema.json#/$defs/namedModel"}, map[string]any{"name": "text", "path": "text.json", "idField": "@keys", "schema": "schemas/game-data/model.schema.json#/$defs/stringTable", "requireWhen": []any{map[string]any{"collection": "things"}}}},
 	})
 	writeFixture(t, profileDir, "references.json", map[string]any{"references": []any{map[string]any{"models": []string{"ThingModel"}, "field": "target", "target": "things", "aliases": map[string]string{"legacy-b": "b"}, "externalSymbols": map[string]string{"runtime-only": "This test symbol has no file definition."}}}})
-	writeFixture(t, profileDir, "mechanics.json", map[string]any{"unknownModels": "report", "mechanics": []any{
+	writeFixture(t, profileDir, "mechanics.json", map[string]any{"typeIdentity": map[string]any{"field": "$type", "encoding": "dotnet"}, "unknownModels": "report", "mechanics": []any{
 		map[string]any{"id": "thing", "models": []string{"ThingModel"}, "schema": "schemas/game-data/model.schema.json#/$defs/namedModel", "role": "structure"},
 		map[string]any{"id": "weapon", "models": []string{"WeaponModel"}, "schema": "schemas/game-data/weapon.schema.json", "role": "structure"},
 		map[string]any{"id": "attack", "models": []string{"AttackModel"}, "schema": "schemas/game-data/attack.schema.json", "role": "structure"},
 	}})
 	writeFixture(t, profileDir, "rules.json", map[string]any{"rules": []any{}})
+	editDocument(t, profileDir, "scoring.json", func(p map[string]any) { p["collection"] = "things"; p["familyField"] = "family" })
 	return data, profileDir
 }
 
@@ -188,7 +189,7 @@ func TestDynamicDataAndRelations(t *testing.T) {
 	writeFixture(t, data, "extra.json", map[string]any{"customField": true})
 	writeFixture(t, filepath.Dir(data), "manifest.json", map[string]any{"gameVersion": "another-version", "totalFiles": 999})
 	r, status := Validate(data, profileDir, true)
-	if status != 0 || !r.Valid || r.FilesChecked != 5 || r.GameVersion != "another-version" || len(r.Relations) != 2 {
+	if status != 0 || !r.Valid || r.FilesChecked != 5 || r.Metadata["gameVersion"] != "another-version" || len(r.Relations) != 2 {
 		t.Fatalf("dynamic data rejected: %+v, status=%d", r, status)
 	}
 	if len(r.Backlinks["Things/renamed.json"]) != 2 || r.Relations[1].TargetID != "b" || r.Relations[1].Value != "legacy-b" {
@@ -267,8 +268,8 @@ func TestReportProvenanceAndExternalReference(t *testing.T) {
 	if status != 0 || !r.IntegrityValid || !r.RulesValid || r.Profile == nil || len(r.Profile.SHA256) != 64 || r.Checker.Version != Version || len(r.Checker.ExecutableSHA256) != 64 {
 		t.Fatalf("missing checker/Profile provenance: %+v", r)
 	}
-	if r.Capture == nil || r.Capture.GameVersion != "test-version" || r.Capture.SteamBuildID != "build-123" || r.Capture.ModHelperVersion != "helper-version" || r.Capture.AtlasExporterVersion != "exporter-version" || len(r.Capture.ManifestSHA256) != 64 {
-		t.Fatalf("missing capture identity: %+v", r.Capture)
+	if r.Metadata["gameVersion"] != "test-version" || r.Metadata["buildId"] != "build-123" || r.Metadata["helperVersion"] != "helper-version" || r.Metadata["exporterVersion"] != "exporter-version" {
+		t.Fatalf("missing configured capture metadata: %+v", r.Metadata)
 	}
 	if r.ExternalReferences != 1 || len(r.Relations) != 1 || !r.Relations[0].External || len(r.Relations[0].TargetFiles) != 0 || len(r.Backlinks) != 0 {
 		t.Fatalf("incorrect external relation: %+v", r)
