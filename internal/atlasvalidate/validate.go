@@ -40,6 +40,9 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 	}
 	r.Game = p.Manifest.Game
 	r.Profile = &p.Identity
+	if p.ModelContracts.Contracts != nil {
+		r.ModelContracts = &ModelContractCoverage{Types: len(p.ModelContracts.Contracts), Required: p.ModelContracts.Required, Provenance: p.ContractProvenance}
+	}
 	info, err := os.Stat(dataDirectory)
 	if err != nil || !info.IsDir() {
 		r.add(dataDirectory, "", "data_directory", "data path must be an existing directory")
@@ -182,27 +185,55 @@ func validate(dataDirectory, profileDirectory string, includeRelations bool, tow
 			switch value := value.(type) {
 			case map[string]any:
 				kind := ""
+				sourceType := ""
 				detectModel := pointer != "" || detectRootModel
 				if rawType, exists := value[p.TypeIdentity.Field]; exists && detectModel {
 					typeString, ok := rawType.(string)
 					if !ok || typeString == "" {
 						r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "schema", p.TypeIdentity.Field+" must be a nonempty string")
 					} else {
+						sourceType = typeString
 						kind = p.modelKind(typeString)
+						if kind == "" {
+							r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "schema", "model discriminator must resolve to a nonempty model name")
+						}
 					}
 				}
-				if kind != "" {
-					if p.ModelSchemas[kind] != "" {
+				if sourceType != "" {
+					canonical := p.ModelSchemas[kind] != ""
+					if canonical {
+						r.Coverage.CanonicalSchemaModelInstances++
+					}
+					structural := false
+					if p.ModelContracts.Contracts != nil {
+						structural = p.ModelContracts.check(value, path, pointer, &r)
+						if structural {
+							r.Coverage.StructuralContractModelInstances++
+						}
+					}
+					covered := canonical || structural
+					if p.ModelContracts.Required {
+						covered = structural
+					}
+					if covered {
 						r.Coverage.BoundModelInstances++
 					} else {
 						r.Coverage.UnboundModelInstances++
-						unknownModels[kind]++
+						unknownKind := kind
+						if unknownKind == "" {
+							unknownKind = sourceType
+						}
+						unknownModels[unknownKind]++
 						// Pick the first location lexically, independent of map traversal order.
-						if example := unknownExamples[kind]; example == nil || path < example.File || (path == example.File && pointer < example.Pointer) {
-							unknownExamples[kind] = &Location{File: path, Pointer: pointer}
+						if example := unknownExamples[unknownKind]; example == nil || path < example.File || (path == example.File && pointer < example.Pointer) {
+							unknownExamples[unknownKind] = &Location{File: path, Pointer: pointer}
 						}
 						if p.UnknownModels == "error" {
-							r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "unknown_model", fmt.Sprintf("model %q has no mechanic schema binding", kind))
+							message := fmt.Sprintf("model %q has no mechanic schema binding or structural contract", unknownKind)
+							if p.ModelContracts.Required {
+								message = fmt.Sprintf("model %q has no required structural contract for source type %q", unknownKind, sourceType)
+							}
+							r.add(path, pointer+"/"+pointerToken(p.TypeIdentity.Field), "unknown_model", message)
 						}
 					}
 					for _, binding := range unitsByModel[kind] {

@@ -1,8 +1,8 @@
 {
-  "formatVersion": 4,
-  "validatorFormatVersion": 4,
+  "formatVersion": 5,
+  "validatorFormatVersion": 5,
   "id": "btd6-raw",
-  "revision": "4.0.0",
+  "revision": "5.0.0",
   "game": "btd6",
   "documents": {
     "collections": {
@@ -32,6 +32,10 @@
     "classifications": {
       "file": "classifications.json",
       "schema": "schemas/profile/classifications.schema.json"
+    },
+    "modelContracts": {
+      "file": "model-contracts.json",
+      "schema": "schemas/profile/model-contracts.schema.json"
     }
   },
   "proposalSchema": "schemas/profile/mechanic-proposal.schema.json",

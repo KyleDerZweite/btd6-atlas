@@ -17,7 +17,7 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 | `mod/` | The installable exporter mod (build + install: `mod/README.md`). |
 | `data/` | Accepted captures per patch. |
 | `patterns/` | Our derived analyses (empty until first write-up). |
-| `profile/` | BTD6 settings and reusable schemas for game-data validation. |
+| `profile/` | BTD6 settings, source contracts and reusable schemas for game-data validation. |
 | `profile/schemas/` | Reusable schemas grouped into `profile/` and `game-data/`. |
 | `cmd/atlas-validate/` | Small CLI for the Profile checker. |
 | `internal/atlasvalidate/` | Reusable Go validation package. |
@@ -38,9 +38,11 @@ See [the game profile](profile/README.md) for validation coverage and diagnostic
 Add `--relations` to include resolved references and file backlinks in the JSON result.
 The checker applies the Profile to separate raw game-data, including ordinary, Hero and Power Pro progression.
 Configuration maps source fields into shared schema shapes for validation while preserving the raw files.
+Source contracts check required raw fields and value shapes for all 1,175 captured model types.
+The reusable schemas define the contract format; BTD6 field names and type names remain configuration values.
 The Profile also defines directory depth and field bindings for family folders and record filenames.
 For example, Towers use `Towers/<baseId>/<name>.json`; upgrades retain independent record identifiers and filenames.
-Its report records Profile and checker identities, rule coverage and model types without schemas.
+Its report records Profile and checker identities, rule coverage, source contract coverage and shared schema coverage.
 Each Tower receives a declared category with explicit validation coverage.
 Tower scoring checks one family and its outgoing dependencies, with category weights from `profile/scoring.json`.
 Use `bin/atlas-validator score-tower --profile profile --game-data <path> --tower <path>`.

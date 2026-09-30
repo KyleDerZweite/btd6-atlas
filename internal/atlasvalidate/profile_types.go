@@ -2,9 +2,9 @@ package atlasvalidate
 
 import "github.com/google/jsonschema-go/jsonschema"
 
-const profileFormatVersion = 4
-const validatorFormatVersion = 4
-const Version = "4.0.0"
+const profileFormatVersion = 5
+const validatorFormatVersion = 5
+const Version = "5.0.0"
 
 type documentRef struct {
 	File, Schema string
@@ -114,22 +114,24 @@ type unitsDocument struct {
 }
 
 type profile struct {
-	Manifest        manifest
-	Classifications classificationsDocument
-	TypeIdentity    typeIdentity
-	Scoring         scoringDocument
-	Collections     []collection
-	Scopes          []scope
-	UnmatchedFiles  string
-	References      []referenceRule
-	Mechanics       []mechanic
-	ModelSchemas    map[string]string
-	MechanicByModel map[string]mechanic
-	Selectors       map[string]sourceSelector
-	UnknownModels   string
-	Rules           []rule
-	Units           unitsDocument
-	Identity        ProfileIdentity
+	Manifest           manifest
+	ModelContracts     modelContractIndex
+	ContractProvenance map[string]any
+	Classifications    classificationsDocument
+	TypeIdentity       typeIdentity
+	Scoring            scoringDocument
+	Collections        []collection
+	Scopes             []scope
+	UnmatchedFiles     string
+	References         []referenceRule
+	Mechanics          []mechanic
+	ModelSchemas       map[string]string
+	MechanicByModel    map[string]mechanic
+	Selectors          map[string]sourceSelector
+	UnknownModels      string
+	Rules              []rule
+	Units              unitsDocument
+	Identity           ProfileIdentity
 }
 
 type record struct {

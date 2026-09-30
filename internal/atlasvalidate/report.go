@@ -40,14 +40,22 @@ type ModelCount struct {
 }
 
 type Coverage struct {
-	FilesSkipped          int          `json:"filesSkipped"`
-	LayoutFilesChecked    int          `json:"layoutFilesChecked"`
-	FilesWithSchema       int          `json:"filesWithSchema"`
-	FilesWithoutSchema    int          `json:"filesWithoutSchema"`
-	BoundModelInstances   int          `json:"boundModelInstances"`
-	UnboundModelInstances int          `json:"unboundModelInstances"`
-	UnboundModelTypes     []ModelCount `json:"unboundModelTypes"`
-	UnitBindingsChecked   int          `json:"unitBindingsChecked"`
+	FilesSkipped                     int          `json:"filesSkipped"`
+	LayoutFilesChecked               int          `json:"layoutFilesChecked"`
+	FilesWithSchema                  int          `json:"filesWithSchema"`
+	FilesWithoutSchema               int          `json:"filesWithoutSchema"`
+	BoundModelInstances              int          `json:"boundModelInstances"`
+	UnboundModelInstances            int          `json:"unboundModelInstances"`
+	UnboundModelTypes                []ModelCount `json:"unboundModelTypes"`
+	UnitBindingsChecked              int          `json:"unitBindingsChecked"`
+	CanonicalSchemaModelInstances    int          `json:"canonicalSchemaModelInstances"`
+	StructuralContractModelInstances int          `json:"structuralContractModelInstances"`
+}
+
+type ModelContractCoverage struct {
+	Types      int            `json:"types"`
+	Required   bool           `json:"required"`
+	Provenance map[string]any `json:"provenance,omitempty"`
 }
 
 type RuleResult struct {
@@ -71,17 +79,18 @@ type Report struct {
 	Score              *TowerScore    `json:"score,omitempty"`
 	checks             map[string]map[string]bool
 	ruleRecords        map[string]map[string]bool
-	RecordTypes        []RecordTypeResult    `json:"recordTypes,omitempty"`
-	Profile            *ProfileIdentity      `json:"profile,omitempty"`
-	Checker            CheckerIdentity       `json:"checker"`
-	FilesChecked       int                   `json:"filesChecked"`
-	ReferencesChecked  int                   `json:"referencesChecked"`
-	ExternalReferences int                   `json:"externalReferences"`
-	Coverage           Coverage              `json:"coverage"`
-	Rules              []RuleResult          `json:"rules"`
-	Errors             []Diagnostic          `json:"errors"`
-	Relations          []Relation            `json:"relations,omitempty"`
-	Backlinks          map[string][]Location `json:"backlinks,omitempty"`
+	RecordTypes        []RecordTypeResult     `json:"recordTypes,omitempty"`
+	Profile            *ProfileIdentity       `json:"profile,omitempty"`
+	Checker            CheckerIdentity        `json:"checker"`
+	FilesChecked       int                    `json:"filesChecked"`
+	ReferencesChecked  int                    `json:"referencesChecked"`
+	ExternalReferences int                    `json:"externalReferences"`
+	Coverage           Coverage               `json:"coverage"`
+	ModelContracts     *ModelContractCoverage `json:"modelContracts,omitempty"`
+	Rules              []RuleResult           `json:"rules"`
+	Errors             []Diagnostic           `json:"errors"`
+	Relations          []Relation             `json:"relations,omitempty"`
+	Backlinks          map[string][]Location  `json:"backlinks,omitempty"`
 }
 
 type Location struct {

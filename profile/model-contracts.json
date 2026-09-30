@@ -1,0 +1,27 @@
+{
+  "requireContracts": true,
+  "includes": [
+    "model-contracts/models-001.json",
+    "model-contracts/models-002.json",
+    "model-contracts/models-003.json",
+    "model-contracts/models-004.json",
+    "model-contracts/models-005.json",
+    "model-contracts/models-006.json",
+    "model-contracts/models-007.json",
+    "model-contracts/models-008.json",
+    "model-contracts/models-009.json",
+    "model-contracts/models-010.json"
+  ],
+  "contracts": [],
+  "provenance": {
+    "captureRevision": "56.3-build-24829026",
+    "method": "Conservative structural derivation from all active capture records; reviewed map types use value shapes instead of entry keys.",
+    "limitations": [
+      "Observed structure only; does not establish behavior semantics, balance, or engine implementation.",
+      "Every recorded field is required. Unexpected fields and unobserved model types fail.",
+      "Null-only fields accept only null; arrays with no observed elements accept only empty arrays.",
+      "Numerical ranges, integer intent, and gameplay strings are not inferred. All observed JSON numbers use number shapes; named nonfinite tokens retain explicit string alternatives.",
+      "New captures or previously unseen variants require review and an explicit contract revision."
+    ]
+  }
+}

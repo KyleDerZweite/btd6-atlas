@@ -1,0 +1,1513 @@
+{
+  "contracts": [
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"addsToSharedGrid","shape":{"type":"boolean"}},
+        {"field":"attackThroughWalls","shape":{"type":"boolean"}},
+        {"field":"behaviors","shape":{"anyOf":[{"type":"null"},{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.GenericBehaviors.DisplayModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AmbushPointsSettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AnimateOnBeastHandlerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AttackFilterModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AttackMinimumRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AutoTargetTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.BrewTargettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CheckTargetsWithoutOffsetsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternCloseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternLastModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternStrongModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CloseTargetTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CreateEffectOnParentOnAttackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CreateEffectWhileAttackingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternCloseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternLastModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternStrongModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FigureEightPatternModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FollowTouchSettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.HideAttackDisplayIfPausedModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.LockInPlaceSettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.NecromancerTargetTrackWithinRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.NoAmbushSettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PathMovementFromScreenCenterPatternModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PatrolPointsSettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PrioritiseRotationModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PursuitSettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomPositionBasicModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomPositionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToMiddleOfTargetsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToParentModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToPointerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToTargetAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToTargetAttackOffsetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SheRaTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SmartTargetTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SubmergedTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetClosePrioCamoModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseSharedRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoCloseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoLastModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoStrongModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDivideAndConquerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetEliteTargettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstPrioCamoModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstSharedRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstWithPreferenceModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFriendlyModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetGrapplableModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetIndependantModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastPrioCamoModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastSharedRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLeftHandModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetMoabModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetPointerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetRightHandModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSelectedPointModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSelectedPointOrDefaultModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongPrioCamoModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongSharedRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSuppliedPositionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackOrDefaultAcidPoolModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackOrDefaultModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetWererabbitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetZoneDefenceModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.UsePresetTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.UseTowerRangeModel, Assembly-CSharp"]}}]}},
+        {"field":"disableOnCreate","shape":{"type":"boolean"}},
+        {"field":"drawRangeCircle","shape":{"type":"boolean"}},
+        {"field":"fireWithoutTarget","shape":{"type":"boolean"}},
+        {"field":"fixedRange","shape":{"type":"boolean"}},
+        {"field":"framesBeforeRetarget","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetX","shape":{"type":"number"}},
+        {"field":"offsetY","shape":{"type":"number"}},
+        {"field":"offsetZ","shape":{"type":"number"}},
+        {"field":"range","shape":{"type":"number"}},
+        {"field":"sharedGridRange","shape":{"type":"number"}},
+        {"field":"targetProvider","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.BrewTargettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CloseTargetTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.NecromancerTargetTrackWithinRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PathMovementFromScreenCenterPatternModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomPositionBasicModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomPositionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SheRaTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetEliteTargettingModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstAirUnitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstWithPreferenceModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFriendlyModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetGrapplableModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLeftHandModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetMoabModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetRightHandModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSelectedPointModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSelectedPointOrDefaultModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongPrioCamoModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSuppliedPositionModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackOrDefaultAcidPoolModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackOrDefaultModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetWererabbitModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.UsePresetTargetModel, Assembly-CSharp"]}]}},
+        {"field":"weapons","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Weapons.WeaponModel, Assembly-CSharp"]}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AmbushPointsSettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"dotOffset","shape":{"type":"number"}},
+        {"field":"dotSpacing","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"lineDelay","shape":{"type":"number"}},
+        {"field":"lineDelayFrames","shape":{"type":"number"}},
+        {"field":"lineDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"minimumPointDistance","shape":{"type":"number"}},
+        {"field":"minimumPointDistanceSquared","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pointSwitchDistance","shape":{"type":"number"}},
+        {"field":"pointSwitchDistanceSquared","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AnimateOnBeastHandlerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animationStateMaxContributor","shape":{"type":"number"}},
+        {"field":"animationStateMaxParent","shape":{"type":"number"}},
+        {"field":"animationStateMinContributor","shape":{"type":"number"}},
+        {"field":"animationStateMinParent","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AttackFilterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"filters","shape":{"anyOf":[{"type":"null"},{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Filters.FilterBadImmunityModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterBloonIfDamageTypeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterBloonsToWithinAngleModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterFrozenBloonsModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterGlueLevelModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterIfAttackHasTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterInvisibleModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterInvisibleSubIntelModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterMarkedToPopModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterMoabModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterMutatedTargetModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterOfftrackModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterOnlyCamoInModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterOutBloonModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterOutOffscreenModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterOutTagModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterParentTowerRangeModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterTargetAngleModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterWithTagModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Filters.FilterWithTagsModel, Assembly-CSharp"]}}]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AttackMinimumRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"minimumRange","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.AutoTargetTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.BrewTargettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ignoreMutationsByOrder","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"towerIgnoreList","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CenterElipsePatternModel, Assembly-CSharp",
+      "fields": [
+        {"field":"canSelectPoint","shape":{"type":"boolean"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"heightRadius","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pointDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"reverse","shape":{"type":"boolean"}},
+        {"field":"widthRadius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CheckTargetsWithoutOffsetsModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternCloseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"reverse","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternFirstModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"reverse","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternLastModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"reverse","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"reverse","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CirclePatternStrongModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"reverse","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CloseTargetTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CreateEffectOnParentOnAttackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"cancelIfTowerHidden","shape":{"type":"boolean"}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"exitEffectModel","shape":{"type":"null"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.CreateEffectWhileAttackingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"exitEffectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternCloseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetDistance","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternFirstModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetDistance","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternLastModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetDistance","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FighterPilotPatternStrongModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"offsetDistance","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FigureEightPatternModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayCount","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"rotated","shape":{"type":"boolean"}},
+        {"field":"useTowerPosition","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FindDeploymentLocationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pointDistance","shape":{"type":"number"}},
+        {"field":"searchRadius","shape":{"type":"number"}},
+        {"field":"towerModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.FollowTouchSettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.GyrfalconPatternModel, Assembly-CSharp",
+      "fields": [
+        {"field":"beginMovementAnimationState","shape":{"type":"number"}},
+        {"field":"bfbPiercePenalty","shape":{"type":"number"}},
+        {"field":"bloonTargetSpeedMultiplier","shape":{"type":"number"}},
+        {"field":"ceramicPiercePenalty","shape":{"type":"number"}},
+        {"field":"continuePickingUpBloons","shape":{"type":"boolean"}},
+        {"field":"cooldown","shape":{"type":"number"}},
+        {"field":"cooldownFrames","shape":{"type":"number"}},
+        {"field":"ddtPiercePenalty","shape":{"type":"number"}},
+        {"field":"enableAdjacentHover","shape":{"type":"boolean"}},
+        {"field":"extraGrabAmount","shape":{"type":"number"}},
+        {"field":"grabAmount","shape":{"type":"number"}},
+        {"field":"grabProjectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"grabRadius","shape":{"type":"number"}},
+        {"field":"grappleDamageRate","shape":{"type":"number"}},
+        {"field":"grappleDamageRateFrames","shape":{"type":"number"}},
+        {"field":"grapplingDamageMoabModifierModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp"]}]}},
+        {"field":"grapplingDamageModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModel, Assembly-CSharp"]}},
+        {"field":"handlerHoverAnimationState","shape":{"type":"number"}},
+        {"field":"handlerSendAnimationState","shape":{"type":"number"}},
+        {"field":"hoverAnimationState","shape":{"type":"number"}},
+        {"field":"idleMaxTime","shape":{"type":"number"}},
+        {"field":"idleMaxTimeFrames","shape":{"type":"number"}},
+        {"field":"idleMinTime","shape":{"type":"number"}},
+        {"field":"idleMinTimeFrames","shape":{"type":"number"}},
+        {"field":"initialDamageMoabModifierModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp"]}]}},
+        {"field":"initialDamageModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModel, Assembly-CSharp"]}},
+        {"field":"initialYOffset","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"keepPickingBloonsRange","shape":{"type":"number"}},
+        {"field":"keepPickingUpBloons","shape":{"type":"boolean"}},
+        {"field":"leadPiercePenalty","shape":{"type":"number"}},
+        {"field":"maxSpeed","shape":{"type":"number"}},
+        {"field":"moabPiercePenalty","shape":{"type":"number"}},
+        {"field":"moabSpeedScale","shape":{"type":"number"}},
+        {"field":"moveWithAirUnitModel","shape":{"type":"null"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"noGrabEffectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"regrowDamageModifierModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp"]}},
+        {"field":"rotationSpeed","shape":{"type":"number"}},
+        {"field":"selectPointDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"selectPointDisplayInvalid","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"snapDistance","shape":{"type":"number"}},
+        {"field":"snatchFlyingAnimationState","shape":{"type":"number"}},
+        {"field":"snatchHoverAnimationState","shape":{"type":"number"}},
+        {"field":"zomgPiercePenalty","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.HideAttackDisplayIfPausedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animationStateOnReveal","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.LockInPlaceSettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.NecromancerTargetTrackWithinRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayInvalid","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyTargetPathsWithBloons","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.NoAmbushSettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PathMovementFromScreenCenterPatternModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PatrolPointsSettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"dotOffset","shape":{"type":"number"}},
+        {"field":"dotSpacing","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"lineDelay","shape":{"type":"number"}},
+        {"field":"lineDelayFrames","shape":{"type":"number"}},
+        {"field":"lineDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"minimumPointDistance","shape":{"type":"number"}},
+        {"field":"minimumPointDistanceSquared","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pointSwitchDistance","shape":{"type":"number"}},
+        {"field":"pointSwitchDistanceSquared","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PrioritiseRotationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PursuitSettingCustomModel, Assembly-CSharp",
+      "fields": [
+        {"field":"initialTargetType","shape":{"type":"string"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"mustBeInRangeOfParent","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pursuitDistance","shape":{"type":"number"}},
+        {"field":"useParentForClose","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.PursuitSettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pursuitDistance","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomPositionBasicModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"mapBorder","shape":{"type":"number"}},
+        {"field":"maxRadius","shape":{"type":"number"}},
+        {"field":"minRadius","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"useTerrainHeight","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomPositionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"areaType","shape":{"type":"string"}},
+        {"field":"dontUseTowerPosition","shape":{"type":"boolean"}},
+        {"field":"idealDistanceWithinTrack","shape":{"type":"number"}},
+        {"field":"ignoreTerrain","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxDistance","shape":{"type":"number"}},
+        {"field":"minDistance","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"pointDistance","shape":{"type":"number"}},
+        {"field":"targetRadius","shape":{"type":"number"}},
+        {"field":"targetRadiusSquared","shape":{"type":"number"}},
+        {"field":"towerSet","shape":{"type":"string"}},
+        {"field":"useInverted","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RandomTargetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"canTargetMoab","shape":{"type":"boolean"}},
+        {"field":"ignoreOtherRandomTargets","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"keepTargetUntilInvalid","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"targetPathIfNoBloon","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToMiddleOfTargetsModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyRotateDuringThrow","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToParentModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToPointerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rate","shape":{"type":"number"}},
+        {"field":"rateFrames","shape":{"type":"number"}},
+        {"field":"rotateOnlyOnEmit","shape":{"type":"boolean"}},
+        {"field":"rotateTower","shape":{"type":"boolean"}},
+        {"field":"weaponEjectZ","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToTargetAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"additionalRotation","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyRotateDuringThrow","shape":{"type":"boolean"}},
+        {"field":"rotateOnlyOnThrow","shape":{"type":"boolean"}},
+        {"field":"rotateTower","shape":{"type":"boolean"}},
+        {"field":"useMainAttackRotation","shape":{"type":"boolean"}},
+        {"field":"useThrowMarkerHeight","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToTargetAttackOffsetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"additionalRotation","shape":{"type":"number"}},
+        {"field":"alwaysIgnoreParentRotation","shape":{"type":"boolean"}},
+        {"field":"ignoreParentRotationFrames","shape":{"type":"number"}},
+        {"field":"ignoreParentRotationTime","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyRotateDuringThrow","shape":{"type":"boolean"}},
+        {"field":"rotateOnlyOnThrow","shape":{"type":"boolean"}},
+        {"field":"rotateTower","shape":{"type":"boolean"}},
+        {"field":"startRotation","shape":{"type":"number"}},
+        {"field":"useMainAttackRotation","shape":{"type":"boolean"}},
+        {"field":"useThrowMarkerHeight","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.RotateToTargetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"additionalRotation","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyRotateDuringThrow","shape":{"type":"boolean"}},
+        {"field":"rotateOnlyOnThrow","shape":{"type":"boolean"}},
+        {"field":"rotateTower","shape":{"type":"boolean"}},
+        {"field":"useMainAttackRotation","shape":{"type":"boolean"}},
+        {"field":"useThrowMarkerHeight","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SheRaTargetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SmartTargetTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.SubmergedTargetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetClosePrioCamoModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseSharedRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isGettingRangeFromSpecificTower","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"isSharedRangeEnabled","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"shareLineOfSight","shape":{"type":"boolean"}},
+        {"field":"specificTowerType","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoCloseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"canPrioritiseCamo","shape":{"type":"boolean"}},
+        {"field":"canTargetMarked","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoFirstModel, Assembly-CSharp",
+      "fields": [
+        {"field":"canPrioritiseCamo","shape":{"type":"boolean"}},
+        {"field":"canTargetMarked","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoLastModel, Assembly-CSharp",
+      "fields": [
+        {"field":"canPrioritiseCamo","shape":{"type":"boolean"}},
+        {"field":"canTargetMarked","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDesperadoStrongModel, Assembly-CSharp",
+      "fields": [
+        {"field":"canPrioritiseCamo","shape":{"type":"boolean"}},
+        {"field":"canTargetMarked","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetDivideAndConquerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetEliteTargettingModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percentageThroughMap","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstPrioCamoModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstSharedRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isGettingRangeFromSpecificTower","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"isSharedRangeEnabled","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"shareLineOfSight","shape":{"type":"boolean"}},
+        {"field":"specificTowerType","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstWithPreferenceModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"priorityBloonTags","shape":{"type":"string"}},
+        {"field":"priorityBloonTagsList","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFriendlyModel, Assembly-CSharp",
+      "fields": [
+        {"field":"ignoreList","shape":{"type":"string"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"mustHaveWeapon","shape":{"type":"boolean"}},
+        {"field":"mutationId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetGrapplableModel, Assembly-CSharp",
+      "fields": [
+        {"field":"badHooksRequired","shape":{"type":"number"}},
+        {"field":"grappleEmissionModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.GrappleEmissionModel, Assembly-CSharp"]}},
+        {"field":"hooks","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"zomgHooksRequired","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetInFrontOfAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetIndependantModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"targetProvider","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetCloseModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetFirstModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastPrioCamoModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLastSharedRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isGettingRangeFromSpecificTower","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"isSharedRangeEnabled","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"shareLineOfSight","shape":{"type":"boolean"}},
+        {"field":"specificTowerType","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetLeftHandModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetMoabModel, Assembly-CSharp",
+      "fields": [
+        {"field":"findStrongest","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetPointerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"customName","shape":{"type":"string"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"setOnAttached","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetRightHandModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSelectedPointModel, Assembly-CSharp",
+      "fields": [
+        {"field":"alwaysShowTarget","shape":{"type":"boolean"}},
+        {"field":"customName","shape":{"type":"string"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayInvalid","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"lockToInsideTowerRange","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileToExpireOnTargetChangeModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}]}},
+        {"field":"scale","shape":{"type":"number"}},
+        {"field":"startWithClosestTrackPoint","shape":{"type":"boolean"}},
+        {"field":"useTerrainHeight","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSelectedPointOrDefaultModel, Assembly-CSharp",
+      "fields": [
+        {"field":"alwaysShowTarget","shape":{"type":"boolean"}},
+        {"field":"customName","shape":{"type":"string"}},
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"displayInvalid","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"lockToInsideTowerRange","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileToExpireOnTargetChangeModel","shape":{"type":"null"}},
+        {"field":"scale","shape":{"type":"number"}},
+        {"field":"startWithClosestTrackPoint","shape":{"type":"boolean"}},
+        {"field":"useTerrainHeight","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongPrioCamoModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetStrongSharedRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isGettingRangeFromSpecificTower","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"isSharedRangeEnabled","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"shareLineOfSight","shape":{"type":"boolean"}},
+        {"field":"specificTowerType","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetSuppliedPositionModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyTargetPathsWithBloons","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackOrDefaultAcidPoolModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isActive","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"useTowerRange","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetTrackOrDefaultModel, Assembly-CSharp",
+      "fields": [
+        {"field":"forceTargetTrack","shape":{"type":"boolean"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"maxTrackOffset","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}},
+        {"field":"useClosestTrack","shape":{"type":"boolean"}},
+        {"field":"useTowerRange","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetWererabbitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"timeUntilIdle","shape":{"type":"number"}},
+        {"field":"timeUntilIdleFrames","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.TargetZoneDefenceModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"isSelectable","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.UsePresetTargetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.UseTowerRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors.WingmonkeyPatternModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bankAngleMax","shape":{"type":"number"}},
+        {"field":"bankSmoothness","shape":{"type":"number"}},
+        {"field":"distanceOfFlyover","shape":{"type":"number"}},
+        {"field":"isOnSubTower","shape":{"type":"boolean"}},
+        {"field":"maxSpeed","shape":{"type":"number"}},
+        {"field":"maximumAdjacentTargetAngle","shape":{"type":"number"}},
+        {"field":"minDistanceToTargetBeforeFlyover","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overshootDistance","shape":{"type":"number"}},
+        {"field":"turningSpeed","shape":{"type":"number"}},
+        {"field":"updateDelay","shape":{"type":"number"}},
+        {"field":"useGrouping","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BananaCashIncreaseSupportModel, Assembly-CSharp",
+      "fields": [
+        {"field":"appliesToOwningTower","shape":{"type":"boolean"}},
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"customRadius","shape":{"type":"number"}},
+        {"field":"filters","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerFilters.FilterInBaseTowerIdModel, Assembly-CSharp"]}}},
+        {"field":"firstPathTier","shape":{"type":"number"}},
+        {"field":"isCustomRadius","shape":{"type":"boolean"}},
+        {"field":"isGlobal","shape":{"type":"boolean"}},
+        {"field":"isUnique","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyAffectParagon","shape":{"type":"boolean"}},
+        {"field":"onlyShowBuffIfMutated","shape":{"type":"boolean"}},
+        {"field":"secondPathTier","shape":{"type":"number"}},
+        {"field":"showBuffIcon","shape":{"type":"boolean"}},
+        {"field":"thirdPathTier","shape":{"type":"number"}},
+        {"field":"useTiers","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BananaCentralBuffModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BananaFarmerCamoBananasModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffIndicatorModel","shape":{"type":"null"}},
+        {"field":"camoBananaFarmCount","shape":{"type":"number"}},
+        {"field":"camoBananaWeaponModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Weapons.WeaponModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BananaFarmerRegrowBananasModel, Assembly-CSharp",
+      "fields": [
+        {"field":"activateSound","shape":{"type":"null"}},
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffIndicatorModel","shape":{"type":"null"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"confirmSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"createProjectileOnExpireModel","shape":{"type":"null"}},
+        {"field":"createProjectileOnPickupModel","shape":{"type":"null"}},
+        {"field":"isBananaIntelligenceBureau","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"isSelectableGameObject","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"lineDisplayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"lineDotOffset","shape":{"type":"number"}},
+        {"field":"lineDotSpacing","shape":{"type":"number"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"regrowBananaSkinModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"regrowPerBanana","shape":{"type":"number"}},
+        {"field":"selectionObjectPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"weaponBehaviorStrongModel","shape":{"type":"null"}},
+        {"field":"weaponBehaviorWeakModel","shape":{"type":"null"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BankModel, Assembly-CSharp",
+      "fields": [
+        {"field":"assetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"autoCollect","shape":{"type":"boolean"}},
+        {"field":"capacity","shape":{"type":"number"}},
+        {"field":"collectAnimation","shape":{"type":"number"}},
+        {"field":"fullBankAssetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"interest","shape":{"type":"number"}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerLeashModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffIndicatorGyrfalcon","shape":{"type":"null"}},
+        {"field":"buffIndicatorMicroraptor","shape":{"type":"null"}},
+        {"field":"buffIndicatorPiranha","shape":{"type":"null"}},
+        {"field":"buffedTextDisplayPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"contributedFromLineDisplayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"contributedToLineDisplayPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"contributionDotOffset","shape":{"type":"number"}},
+        {"field":"contributionDotSpacing","shape":{"type":"number"}},
+        {"field":"contributionDotSpeed","shape":{"type":"number"}},
+        {"field":"gyrfalconPetModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerPetModel, Assembly-CSharp"]}},
+        {"field":"mergeSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"mergedTextDisplayPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"microraptorPetModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerPetModel, Assembly-CSharp"]}},
+        {"field":"moveAnimationState","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"piranhaPetModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerPetModel, Assembly-CSharp"]}},
+        {"field":"powerTextDisplayPrefab","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"rotateToLeashedTower","shape":{"type":"boolean"}},
+        {"field":"spawnerAttackModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp"]}]}},
+        {"field":"spawnerAttackModelSecond","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.AttackModel, Assembly-CSharp"]}]}},
+        {"field":"towerModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerModel, Assembly-CSharp"]}]}},
+        {"field":"towerModelSecond","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerModel, Assembly-CSharp"]}]}},
+        {"field":"validMergeTargetObjectPath","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerPetDisplayStepModel, Assembly-CSharp",
+      "fields": [
+        {"field":"display","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"percent","shape":{"type":"number"}},
+        {"field":"projectileDisplay","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerPetModel, Assembly-CSharp",
+      "fields": [
+        {"field":"basePower","shape":{"type":"number"}},
+        {"field":"canMove","shape":{"type":"boolean"}},
+        {"field":"cooldownScaleRange","shape":{"type":"number"}},
+        {"field":"damageRange","shape":{"type":"number"}},
+        {"field":"damageRangeGrappleGyrfalcon","shape":{"type":"number"}},
+        {"field":"destroyTimeScaleRangePiranha","shape":{"type":"number"}},
+        {"field":"displayStepModels","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerPetDisplayStepModel, Assembly-CSharp"]}}},
+        {"field":"enableContribution","shape":{"type":"boolean"}},
+        {"field":"genericIcon","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.SpriteReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"maxPower","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"path","shape":{"type":"number"}},
+        {"field":"pierceRange","shape":{"type":"number"}},
+        {"field":"requiredCount","shape":{"type":"number"}},
+        {"field":"rotateWhenMoved","shape":{"type":"boolean"}},
+        {"field":"speedRangeGyrfalcon","shape":{"type":"number"}},
+        {"field":"stunBonusDivideMicroraptor","shape":{"type":"number"}},
+        {"field":"thrashKnockbackLifetimeRange","shape":{"type":"number"}},
+        {"field":"tier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BeastHandlerUpgradeLockModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BerserkerBrewCheckModel, Assembly-CSharp",
+      "fields": [
+        {"field":"maxCount","shape":{"type":"number"}},
+        {"field":"mutationId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BonusCashZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"groupName","shape":{"type":"string"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"stackLimit","shape":{"type":"number"}},
+        {"field":"stackName","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BonusLivesPerRoundModel, Assembly-CSharp",
+      "fields": [
+        {"field":"amount","shape":{"type":"number"}},
+        {"field":"assetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BountyHunterZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"appliesToOwningTower","shape":{"type":"boolean"}},
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"customRadius","shape":{"type":"number"}},
+        {"field":"filters","shape":{"type":"array","maxItems":0}},
+        {"field":"isCustomRadius","shape":{"type":"boolean"}},
+        {"field":"isGlobal","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyAffectParagon","shape":{"type":"boolean"}},
+        {"field":"onlyShowBuffIfMutated","shape":{"type":"boolean"}},
+        {"field":"showBuffIcon","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BuffBlowbackZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"mutationId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"range","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.BuffIconPerTowerInRangeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffLocsFullName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rangeOverride","shape":{"type":"number"}},
+        {"field":"towerIdFilter","shape":{"type":"array","items":{"type":"string"}}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CamoBlockZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"filters","shape":{"type":"null"}},
+        {"field":"isDisabled","shape":{"type":"boolean"}},
+        {"field":"isUnique","shape":{"type":"boolean"}},
+        {"field":"mutationId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"overlayType","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CanBuffIndicatorModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"isDisabled","shape":{"type":"boolean"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CashIncreaseModel, Assembly-CSharp",
+      "fields": [
+        {"field":"increase","shape":{"type":"number"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CashPerTowerInMakeshiftAreaModel, Assembly-CSharp",
+      "fields": [
+        {"field":"assetLifespan","shape":{"type":"number"}},
+        {"field":"cashAmount","shape":{"type":"number"}},
+        {"field":"cashTxtAssetId","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CashbackZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"baseIds","shape":{"type":"string"}},
+        {"field":"baseIdsArray","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"cashbackMaxPercent","shape":{"type":"number"}},
+        {"field":"cashbackZoneMultiplier","shape":{"type":"number"}},
+        {"field":"groupName","shape":{"type":"string"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"maxStacks","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CentralMarketBuffModel, Assembly-CSharp",
+      "fields": [
+        {"field":"buffIconName","shape":{"type":"string"}},
+        {"field":"buffLocsName","shape":{"type":"string"}},
+        {"field":"isGlobalRange","shape":{"type":"boolean"}},
+        {"field":"maxStackCount","shape":{"type":"number"}},
+        {"field":"maxStackSize","shape":{"type":"number"}},
+        {"field":"multiplier","shape":{"type":"number"}},
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ChurchillBaseRotationModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animationMovingAntiClockwise","shape":{"type":"number"}},
+        {"field":"animationMovingClockwise","shape":{"type":"number"}},
+        {"field":"animationStateNotMoving","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotationSpeed","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CircleFootprintModel, Assembly-CSharp",
+      "fields": [
+        {"field":"doesntBlockTowerPlacement","shape":{"type":"boolean"}},
+        {"field":"ignoresPlacementCheck","shape":{"type":"boolean"}},
+        {"field":"ignoresTowerOverlap","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ColdChainBuffModel, Assembly-CSharp",
+      "fields": [
+        {"field":"bloonTypes","shape":{"type":"array","items":{"type":"string"}}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CollectCashZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"animateTower","shape":{"type":"boolean"}},
+        {"field":"attractRange","shape":{"type":"number"}},
+        {"field":"collectRange","shape":{"type":"number"}},
+        {"field":"countCollectedCash","shape":{"type":"boolean"}},
+        {"field":"lerpMultiplier","shape":{"type":"number"}},
+        {"field":"minEmitWaitTime","shape":{"type":"number"}},
+        {"field":"minEmitWaitTimeFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"onlyAttractsCamo","shape":{"type":"boolean"}},
+        {"field":"rotate","shape":{"type":"boolean"}},
+        {"field":"towerFilter","shape":{"type":"string"}},
+        {"field":"useTowerRange","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CollectCreatedProjectileModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ComancheDefenceModel, Assembly-CSharp",
+      "fields": [
+        {"field":"cooldownFrames","shape":{"type":"number"}},
+        {"field":"durationFrames","shape":{"type":"number"}},
+        {"field":"immediate","shape":{"type":"boolean"}},
+        {"field":"maxActivationsPerRound","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"reinforcementCount","shape":{"type":"number"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"towerModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.TowerModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledDamageModifierZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"damageModifierModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForBloonStateModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors.DamageModifierForTagModel, Assembly-CSharp"]}},
+        {"field":"filters","shape":{"type":"null"}},
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledDamageTypeZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"filters","shape":{"type":"null"}},
+        {"field":"immuneBloonProperties","shape":{"type":"number"}},
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledEffectZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"towerEffect","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledRateZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rateMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledSheriffMoraleDrainModel, Assembly-CSharp",
+      "fields": [
+        {"field":"drainAmount","shape":{"type":"number"}},
+        {"field":"drainRate","shape":{"type":"number"}},
+        {"field":"drainRateFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledSheriffMoraleFillModel, Assembly-CSharp",
+      "fields": [
+        {"field":"fillAmount","shape":{"type":"number"}},
+        {"field":"fillRate","shape":{"type":"number"}},
+        {"field":"fillRateFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledSlowZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"mutatorId","shape":{"type":"string"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"slowMultiplier","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledStaminaDrainZoneModel, Assembly-CSharp",
+      "fields": [
+        {"field":"affectOthers","shape":{"type":"boolean"}},
+        {"field":"affectSelf","shape":{"type":"boolean"}},
+        {"field":"drainAmount","shape":{"type":"number"}},
+        {"field":"drainRate","shape":{"type":"number"}},
+        {"field":"drainRateFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledZoneControllerModel, Assembly-CSharp",
+      "fields": [
+        {"field":"behaviors","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledEffectZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledRateZoneModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledSheriffMoraleDrainModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledSheriffMoraleFillModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.ControlledStaminaDrainZoneModel, Assembly-CSharp"]}}},
+        {"field":"effectOnDisable","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"effectOnEnable","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"lifespanFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"zoneId","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectAfterTimeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"lifespan","shape":{"type":"number"}},
+        {"field":"lifespanFrames","shape":{"type":"number"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"useRoundTime","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnAirUnitDestroyModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotation","shape":{"type":"number"}},
+        {"field":"scale","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnAirUnitModel, Assembly-CSharp",
+      "fields": [
+        {"field":"displayCategory","shape":{"type":"number"}},
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"rotation","shape":{"type":"number"}},
+        {"field":"scale","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnExpireModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnPlaceModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnRoundEndModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnSellModel, Assembly-CSharp",
+      "fields": [
+        {"field":"effectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateEffectOnUpgradeModel, Assembly-CSharp",
+      "fields": [
+        {"field":"createOnAirUnit","shape":{"type":"boolean"}},
+        {"field":"effectModel","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Effects.EffectModel, Assembly-CSharp"]}]}},
+        {"field":"name","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateNearbyWaterModel, Assembly-CSharp",
+      "fields": [
+        {"field":"areaHeightOffset","shape":{"type":"number"}},
+        {"field":"freezeAsset","shape":{"type":"model","models":["Il2CppNinjaKiwi.Common.ResourceUtils.PrefabReference, Il2CppNinjaKiwi.Common"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"radius","shape":{"type":"number"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateProjectileOnTowerDestroyModel, Assembly-CSharp",
+      "fields": [
+        {"field":"conditions","shape":{"type":"array","items":{"type":"model","models":["Il2CppAssets.Scripts.Models.Condition.TowerHasStaminaModel, Assembly-CSharp"]}}},
+        {"field":"emissionModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionAtTowerModel, Assembly-CSharp","Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions.SingleEmissionModel, Assembly-CSharp"]}},
+        {"field":"ignoreSubTowers","shape":{"type":"boolean"}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"projectileModel","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Towers.Projectiles.ProjectileModel, Assembly-CSharp"]}},
+        {"field":"setAgeZeroOnSell","shape":{"type":"boolean"}},
+        {"field":"useTowerRotation","shape":{"type":"boolean"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnAttachedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"altSound","shape":{"anyOf":[{"type":"null"},{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnBloonDestroyedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sound1","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound2","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"tag","shape":{"type":"string"}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnBloonEnterTrackModel, Assembly-CSharp",
+      "fields": [
+        {"field":"badSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"bfbSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"ddtSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"moabSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"zomgSound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnBloonLeakModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sound1","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}},
+        {"field":"sound2","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnEndOfRoundModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}
+      ]
+    },
+    {
+      "sourceType": "Il2CppAssets.Scripts.Models.Towers.Behaviors.CreateSoundOnMonkeyMoneyActivatedModel, Assembly-CSharp",
+      "fields": [
+        {"field":"name","shape":{"type":"string"}},
+        {"field":"sound","shape":{"type":"model","models":["Il2CppAssets.Scripts.Models.Audio.SoundModel, Assembly-CSharp"]}}
+      ]
+    }
+  ]
+}

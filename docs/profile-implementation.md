@@ -14,7 +14,7 @@ Account explicitly for every Tower record. Ordinary Towers and Power Pro Towers 
 
 Configure model discriminator fields and encodings, metadata bindings and native units through the Profile. Unknown operations fail loading. Keep the command entry point minimal and the Profile dependency closure local and reproducible. Changing configuration values can reuse supported concepts; a new behavior still requires a shared schema and an implemented rule operation where appropriate.
 
-## Implementation
+## Format 4 implementation
 
 Profile and validator interface format 4 use revision/version `4.0.0`. The format bump makes the new normalized-schema boundary explicit rather than silently reinterpreting older Profiles. Eight configuration documents reference smaller schemas under `schemas/profile/` and `schemas/game-data/`. The requested Tower, mechanics and mechanic-proposal schemas remain separate. There is no game-specific scopes schema directory.
 
@@ -36,7 +36,7 @@ The format 3 implementation passed tests, race tests, vet and standalone builds.
 
 Earlier deletion trials rejected a randomly selected `SpikeFactory-140` state and missing resources, localization or advanced-progression roles. Removing Rogue or Frontier data passed. Breaking or deleting an unrelated Glue Gunner state left Dart's report unchanged. Deleting Dart's `100` state lowered its score and reported missing references and progression states. These results are in ignored `bin/profile-v3-*.json` files.
 
-## Final verification
+## Format 4 verification
 
 `go test ./...`, `go test -race ./...`, `go vet ./...`, both binary builds and `git diff --check` passed. Three source configurations reuse identical schema files. Complete synthetic coverage scores 100. Regression tests cover source-binding bypasses, table metadata, progression membership, invalid selectors and classifications, and scoped dependency checks. The command entry point remains 13 lines.
 
@@ -49,3 +49,26 @@ Deletion trials used seed `20260930`. Removing the selected `SpikeFactory-230` s
 Dart checked 99 files, 1,001 references, 64 ordinary states and 111 purchases. Its score is 84.73. Model-schema coverage is 531 of 6,346 instances with 62 unbound types. A dictionary wrapper is no longer miscounted as a gameplay model. Breaking or deleting an unrelated Glue Gunner state left the complete Dart report unchanged. Removing Dart's `100` state produced missing references and states and lowered its score to 67.84.
 
 The final Profile dependency closure contains 32 files with SHA-256 `b477e2bfee4b542443fa45d4e4476d1ea800c03f2c4748cff7941b3d6261d1a6`. Reports identify the actual checker build and executable used. This hashes Profile dependencies, without hashing game-data for completeness. Reports and mutation evidence remain in ignored `bin/profile-v4-*.json` files. No raw capture or exporter files changed; no C# build was needed.
+
+
+## Complete model-contract follow-up
+
+The user requested coverage for all detected model types and a proposal for extracting the generic tooling on 2026-09-30. Continue implementation here and update PR #3. Keep the extraction as a proposal.
+
+Add explicit structural contracts for each exact source discriminator, using reusable contract syntax and a generic checker. Require known fields, accepted primitive shapes, nested model identities and checked dictionary values. Retain the existing stronger canonical schemas. Keep capture-derived structural coverage separate from canonical concept coverage in reports. Do not infer behavior semantics or silently replace missing coverage with a kind-only fallback.
+
+Derive contracts deterministically from the fixed accepted capture. Record source revision and capture-derived limits without raw record values, filenames or game-data hashes. Null-only fields and empty-only arrays stay narrow until further evidence exists. Namespace collisions and generic dictionary specializations use exact source identities. Split configuration files to keep individual files manageable. BTD6 type names and field names remain configuration values; schema files remain reusable.
+
+Test required-field deletion, wrong primitive values, incompatible nested model types, unexpected fields, dictionary values, source type collisions, unknown models and incomplete capture evidence. Verify all active capture models receive contracts, Dart can receive 100 when its checks pass, other Tower families score correctly, and missing related data still lowers the score. Preserve original captures and the exporter.
+
+## Format 5 verification
+
+Unit tests, race tests, vet, both binary builds, generator doctests and diff checks passed. An independent review found no remaining concrete bugs after the exact-discriminator and include-resolution fixes. Generic integration tests cover strict fields, partial scores, required exact contracts, shared includes, digest changes and invalid Profile documents. The command entry point remains 13 lines.
+
+The unchanged capture checks 10,053 files, 65,854 references and 482,492 model instances. Two disabled mode files are skipped. All 1,175 exact source types have contracts, with zero unbound instances. There are 61,421 overlapping canonical schema checks. Integrity passes; the sole error remains the existing duplicate Boomerang purchase. A standalone copied binary, Profile and capture pass after correcting only that duplicate in the disposable copy, checking 65,852 references and 482,491 model instances.
+
+Dart, Monkey Village, Banana Farm, Alchemist, Wizard, Quincy and Portable Lake Pro each score 100/100 with complete structural coverage. Dart checks 99 files, 1,001 references and 6,346 model instances, including 531 overlapping canonical schema checks. Removing Dart's `100` state lowers the score to 83.11 and reports missing progression and references. Breaking or deleting an unrelated Glue Gunner state leaves Dart's complete report unchanged.
+
+Deletion trials use seed `20260930`. Removing the selected ordinary state, Quincy level 10 or a Power Pro state fails with specific progression and reference diagnostics. Missing localization fails its required-role check. Removing disabled Rogue or Frontier data passes. Corruption trials reject missing required fields on a previously unbound type, wrong primitives, unexpected fields, incompatible known nested models, namespace collisions, unknown exact types, malformed normalized names, null-only alternatives, nonempty restricted arrays and bad dictionary values. New dictionary keys with valid values pass. Empty game-data passes with zero files.
+
+The Profile closure contains 44 dependencies with SHA-256 `e63bbc90a8f74482cf216b00107b09352a6173e3efdaff735b36a4b58b3ba5a8`. Reports identify checker version `5.0.0`, its actual build and executable digest, and contract provenance. Evidence remains in ignored `bin/profile-v5-*.json` files. Original captures and the exporter are unchanged. [The extraction proposal](profile-project.md) records future ownership and release bundles; no repository move or packaging was implemented.

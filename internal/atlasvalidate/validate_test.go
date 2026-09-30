@@ -36,6 +36,12 @@ func fixture(t *testing.T) (string, string) {
 		if err != nil {
 			return err
 		}
+		if entry.IsDir() && entry.Name() == "model-contracts" {
+			return filepath.SkipDir
+		}
+		if entry.Name() == "model-contracts.json" {
+			return nil
+		}
 		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
 			return nil
 		}
@@ -57,7 +63,11 @@ func fixture(t *testing.T) (string, string) {
 		t.Fatal(err)
 	}
 
-	editDocument(t, profileDir, "manifest.json", func(v map[string]any) { delete(v["documents"].(map[string]any), "classifications") })
+	editDocument(t, profileDir, "manifest.json", func(v map[string]any) {
+		documents := v["documents"].(map[string]any)
+		delete(documents, "classifications")
+		delete(documents, "modelContracts")
+	})
 	writeFixture(t, data, "Things/a.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "a", "target": "b"})
 	writeFixture(t, data, "Things/b.json", map[string]any{"$type": "Example.ThingModel, Assembly-CSharp", "name": "b"})
 	writeFixture(t, data, "text.json", map[string]any{"hello": "Hello"})

@@ -63,6 +63,7 @@ func RunCLI(args []string, stdout, stderr io.Writer) int {
 			fmt.Fprintf(stdout, "type=%s; records=%d; validation=%s; rule=%s\n", kind.Type, kind.Records, kind.Validation, kind.Rule)
 		}
 		fmt.Fprintf(stdout, "coverage: schemaFiles=%d; layoutFiles=%d; unboundModelTypes=%d; unitBindings=%d\n", result.Coverage.FilesWithSchema, result.Coverage.LayoutFilesChecked, len(result.Coverage.UnboundModelTypes), result.Coverage.UnitBindingsChecked)
+		fmt.Fprintf(stdout, "models: bound=%d; unbound=%d; structuralContracts=%d; canonicalSchemas=%d\n", result.Coverage.BoundModelInstances, result.Coverage.UnboundModelInstances, result.Coverage.StructuralContractModelInstances, result.Coverage.CanonicalSchemaModelInstances)
 	} else {
 		encoder := json.NewEncoder(stdout)
 		encoder.SetIndent("", "  ")

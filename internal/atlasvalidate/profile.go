@@ -211,6 +211,7 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 	var references referencesDocument
 	var mechanics mechanicsDocument
 	var rules rulesDocument
+	var contracts modelContractsDocument
 	targets := []struct {
 		role   string
 		target any
@@ -222,6 +223,12 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 			role   string
 			target any
 		}{"classifications", &p.Classifications})
+	}
+	if _, exists := p.Manifest.Documents["modelContracts"]; exists {
+		targets = append(targets, struct {
+			role   string
+			target any
+		}{"modelContracts", &contracts})
 	}
 	for _, target := range targets {
 		doc, exists := p.Manifest.Documents[target.role]
@@ -252,6 +259,17 @@ func loadProfile(directory string) (profile, schemaIndex, error) {
 	}
 	p.References, p.Mechanics, p.UnknownModels, p.Rules = references.References, mechanics.Mechanics, mechanics.UnknownModels, rules.Rules
 	p.TypeIdentity = mechanics.TypeIdentity
+	if ref, exists := p.Manifest.Documents["modelContracts"]; exists {
+		contracts, err = loadModelContractDocuments(loader, schemas[ref.Schema], ref.File, contracts)
+		if err != nil {
+			return p, nil, err
+		}
+		p.ModelContracts, err = compileModelContracts(contracts, p.TypeIdentity)
+		if err != nil {
+			return p, nil, documentError(ref.File, err)
+		}
+		p.ContractProvenance = contracts.Provenance
+	}
 	p.Selectors = rules.Selectors
 	if err := validateSelectors(p); err != nil {
 		return p, nil, documentError(p.Manifest.Documents["rules"].File, err)

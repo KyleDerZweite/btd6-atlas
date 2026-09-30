@@ -1,5 +1,5 @@
 {
-  "unknownModels": "report",
+  "unknownModels": "error",
   "mechanics": [
     {
       "id": "tower",
