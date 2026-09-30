@@ -1,0 +1,107 @@
+:root {
+  --bg: #0f1420;
+  --panel: #171e2e;
+  --line: #263049;
+  --text: #dbe3f0;
+  --dim: #8b96ad;
+  --accent: #f2b234;
+  --blue: #38bdf8;
+  --green: #4ade80;
+  --yellow: #facc15;
+  --red: #ef4444;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  max-width: 960px; margin-inline: auto; padding: 0 16px 48px;
+}
+header { padding: 20px 0 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 20px; }
+.patch {
+  font-size: 12px; color: var(--dim); border: 1px solid var(--line);
+  border-radius: 999px; padding: 1px 10px;
+}
+/* Bloons are pure CSS circles, difficulty colored. */
+.bloon {
+  width: 26px; height: 32px; border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+  position: relative; flex: none;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.75), transparent 42%), var(--c, var(--blue));
+}
+.bloon::after {
+  content: ""; position: absolute; left: 50%; bottom: -5px;
+  border: 4px solid transparent; border-top: 6px solid var(--c, var(--blue));
+  transform: translateX(-50%);
+}
+.bloon-blue { --c: var(--blue); }
+.bloon-green { --c: var(--green); }
+.bloon-yellow { --c: var(--yellow); }
+.bloon-red { --c: var(--red); }
+nav {
+  display: flex; justify-content: center; gap: 8px; margin: 16px 0;
+}
+nav button {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--panel); color: var(--text);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 8px 18px; font-size: 15px; cursor: pointer;
+}
+nav button.active { border-color: var(--accent); color: var(--accent); }
+.search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 8px 12px;
+}
+.search input {
+  flex: 1; background: none; border: 0; color: var(--text); font-size: 15px;
+}
+.search input:focus { outline: none; }
+#results {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; margin: 12px 0; padding: 8px 14px;
+}
+#results h3 { margin: 10px 0 4px; font-size: 13px; color: var(--dim); text-transform: uppercase; }
+#results ul { list-style: none; margin: 0; padding: 0; }
+#results li { padding: 3px 0; }
+#results a { color: var(--text); }
+#results .tag {
+  display: inline-block; font-size: 12px; color: var(--dim);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 0 6px; margin-left: 8px;
+}
+h2 { font-size: 17px; margin: 28px 0 10px; }
+h2 small { color: var(--dim); font-weight: normal; }
+.chips, .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.chips span {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 4px 12px;
+}
+.chips b { color: var(--accent); }
+.filters button {
+  background: none; color: var(--dim); border: 1px solid var(--line);
+  border-radius: 999px; padding: 3px 12px; font-size: 13px; cursor: pointer;
+}
+.filters button.active { color: var(--accent); border-color: var(--accent); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px;
+}
+.card .row { display: flex; align-items: center; gap: 8px; font-weight: bold; }
+.card dl { margin: 8px 0 0; font-size: 13px; color: var(--dim); }
+.card dt { display: inline; } .card dt::after { content: ": "; }
+.card dd { display: inline; margin: 0; color: var(--text); }
+.card dd::after { content: "\A"; white-space: pre; }
+/* Charts are plain div bars, no chart library. */
+.bars { display: grid; gap: 6px; }
+.bar { display: grid; grid-template-columns: 150px 1fr 70px; gap: 10px; align-items: center; font-size: 13px; }
+.bar .track { background: var(--panel); border-radius: 6px; height: 14px; }
+.bar .fill { background: var(--accent); border-radius: 6px; height: 100%; min-width: 2px; }
+.bar .num { text-align: right; color: var(--dim); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--dim); font-weight: normal; font-size: 13px; }
+ul { padding-left: 20px; }
+footer { margin-top: 36px; color: var(--dim); font-size: 13px; }
+footer a { color: var(--dim); }
+a { color: var(--accent); }
