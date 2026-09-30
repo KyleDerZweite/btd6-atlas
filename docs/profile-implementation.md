@@ -1,6 +1,8 @@
 # Profile implementation
 
-Implement on `feat/profile-rule-validation` in [PR #3](https://github.com/KyleDerZweite/btd6-atlas/pull/3). Keep this review branch unmerged. The user approved the interview decisions and clarified the schema boundary on 2026-09-30.
+Historical implementation record, 2026-09-30. [PR #3](https://github.com/KyleDerZweite/btd6-atlas/pull/3) is merged. The sections below preserve the decisions and verification from that work, including earlier coverage limits that format 5 resolved.
+
+The checker and its tests now live in [td-profile](https://github.com/mardwerk/td-profile). Atlas uses release `v1.0.2`, checker `5.0.1` and interface `5`, installed with `python3 scripts/install-validator.py`. See [the project split](profile-project.md) for the current ownership and migration checks.
 
 ## Confirmed decisions
 
@@ -14,7 +16,7 @@ Account explicitly for every Tower record. Ordinary Towers and Power Pro Towers 
 
 Configure model discriminator fields and encodings, metadata bindings and native units through the Profile. Unknown operations fail loading. Keep the command entry point minimal and the Profile dependency closure local and reproducible. Changing configuration values can reuse supported concepts; a new behavior still requires a shared schema and an implemented rule operation where appropriate.
 
-## Format 4 implementation
+## Historical format 4 implementation
 
 Profile and validator interface format 4 use revision/version `4.0.0`. The format bump makes the new normalized-schema boundary explicit rather than silently reinterpreting older Profiles. Eight configuration documents reference smaller schemas under `schemas/profile/` and `schemas/game-data/`. The requested Tower, mechanics and mechanic-proposal schemas remain separate. There is no game-specific scopes schema directory.
 
@@ -24,7 +26,7 @@ Named selectors in `rules.json` select raw categories and contained model classe
 
 The command delegates to `internal/atlasvalidate`. Tower scoring selects a family, indexes possible dependencies without global diagnostics, and validates only the outgoing closure and required roles. Reference cycles terminate. Unknown model types include deterministic example locations and remain visible as coverage gaps.
 
-## Verification plan
+## Original verification plan
 
 Run unit tests, race tests, vet, builds and diff checks. Test identical schemas with .NET source types, renamed literal fields and native generic fields. Test invalid bindings, missing discriminators, alias collisions, unknown selectors, illegal builds, missing roots and levels, progression scope violations, unknown rules, partial scores and complete coverage.
 
@@ -53,7 +55,7 @@ The final Profile dependency closure contains 32 files with SHA-256 `b477e2bfee4
 
 ## Complete model-contract follow-up
 
-The user requested coverage for all detected model types and a proposal for extracting the generic tooling on 2026-09-30. Continue implementation here and update PR #3. Keep the extraction as a proposal.
+The user requested coverage for all detected model types and a proposal for extracting the generic tooling on 2026-09-30. This follow-up was implemented in Atlas and merged through PR #3. Extraction remained a proposal during this stage.
 
 Add explicit structural contracts for each exact source discriminator, using reusable contract syntax and a generic checker. Require known fields, accepted primitive shapes, nested model identities and checked dictionary values. Retain the existing stronger canonical schemas. Keep capture-derived structural coverage separate from canonical concept coverage in reports. Do not infer behavior semantics or silently replace missing coverage with a kind-only fallback.
 
@@ -61,7 +63,7 @@ Derive contracts deterministically from the fixed accepted capture. Record sourc
 
 Test required-field deletion, wrong primitive values, incompatible nested model types, unexpected fields, dictionary values, source type collisions, unknown models and incomplete capture evidence. Verify all active capture models receive contracts, Dart can receive 100 when its checks pass, other Tower families score correctly, and missing related data still lowers the score. Preserve original captures and the exporter.
 
-## Format 5 verification
+## Historical format 5 verification
 
 Unit tests, race tests, vet, both binary builds, generator doctests and diff checks passed. An independent review found no remaining concrete bugs after the exact-discriminator and include-resolution fixes. Generic integration tests cover strict fields, partial scores, required exact contracts, shared includes, digest changes and invalid Profile documents. The command entry point remains 13 lines.
 
@@ -71,4 +73,4 @@ Dart, Monkey Village, Banana Farm, Alchemist, Wizard, Quincy and Portable Lake P
 
 Deletion trials use seed `20260930`. Removing the selected ordinary state, Quincy level 10 or a Power Pro state fails with specific progression and reference diagnostics. Missing localization fails its required-role check. Removing disabled Rogue or Frontier data passes. Corruption trials reject missing required fields on a previously unbound type, wrong primitives, unexpected fields, incompatible known nested models, namespace collisions, unknown exact types, malformed normalized names, null-only alternatives, nonempty restricted arrays and bad dictionary values. New dictionary keys with valid values pass. Empty game-data passes with zero files.
 
-The Profile closure contains 44 dependencies with SHA-256 `e63bbc90a8f74482cf216b00107b09352a6173e3efdaff735b36a4b58b3ba5a8`. Reports identify checker version `5.0.0`, its actual build and executable digest, and contract provenance. Evidence remains in ignored `bin/profile-v5-*.json` files. Original captures and the exporter are unchanged. [The extraction proposal](profile-project.md) records future ownership and release bundles; no repository move or packaging was implemented.
+The Profile closure contains 44 dependencies with SHA-256 `e63bbc90a8f74482cf216b00107b09352a6173e3efdaff735b36a4b58b3ba5a8`. Reports identify checker version `5.0.0`, its actual build and executable digest, and contract provenance. Evidence remains in ignored `bin/profile-v5-*.json` files. Original captures and the exporter are unchanged. No repository move or packaging was implemented during this stage. [The project split](profile-project.md) records the subsequent extraction and current release setup.

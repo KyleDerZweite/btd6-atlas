@@ -18,7 +18,7 @@ Workflow: install the mod (`../mod/README.md`), run the base export, run the atl
 export per map, copy the files here, record them in PROVENANCE.md, then publish.
 
 Read the raw files through [the game profile](../profile/README.md).
-Build the validator with `go build -o bin/atlas-validate ./cmd/atlas-validate`.
-Run `bin/atlas-validate --data data/56.3-build-24829026/game-data --profile profile` from the repository root.
+Install the pinned td-profile binary with `python3 scripts/install-validator.py`.
+Run `bin/validator --game-data data/56.3-build-24829026/game-data --profile profile` from the repository root.
 The validator reports structural and reference errors without rewriting the capture.
 It discovers files and identities dynamically; different versions and collection sizes do not require an inventory update.

@@ -1,6 +1,6 @@
 # BTD6 Profile
 
-Atlas owns the BTD6 Profile and checker. Its settings describe BTD6's separate `game-data/` records, and its schemas define reusable shapes. It contains no Tower instances or capture inventory. Raw field names, nesting, embedded abilities and `$type` remain unchanged.
+Atlas keeps the BTD6 Profile and uses the released [td-profile](https://github.com/mardwerk/td-profile) checker. Its settings describe BTD6's separate `game-data/` records. Its reusable schemas are local copies from td-profile release `v1.0.2`. It contains no Tower instances or capture inventory. Raw field names, nesting, embedded abilities and `$type` remain unchanged.
 
 ## Structure
 
@@ -50,7 +50,7 @@ profile/
 | [mechanics.schema.json](schemas/profile/mechanics.schema.json) | The mechanics catalog format. |
 | [mechanic-proposal.schema.json](schemas/profile/mechanic-proposal.schema.json) | Separate proposals. A proposal does not enable a mechanic. |
 
-Schemas own reusable field shapes, the source contract vocabulary and local numerical constraints. BTD6 source names, requirements and limits stay in the configuration documents. All required schemas resolve inside the Profile directory without network access.
+Schemas own reusable field shapes, the source contract vocabulary and local numerical constraints. BTD6 source names, requirements and limits stay in the configuration documents. All required schemas resolve inside the Profile directory without network access. Keep these schema copies byte-identical to the pinned td-profile release. Propose Profile, schema and checker updates through a PR to [td-profile](https://github.com/mardwerk/td-profile), then adopt the released changes here.
 
 `mechanics.json` maps shared schema fields to source fields. For example, Tower `placementPrice` reads raw `cost`, and `familyId` reads `baseId`. Its `requiredFields` declares which shared fields this game requires. The checker builds a temporary schema view, validates it and leaves the raw record unchanged. Another game can use the same schemas with different bindings.
 
@@ -73,7 +73,7 @@ python3 scripts/derive-model-contracts.py audit \
   --map-types-from profile/model-contracts.json
 ```
 
-Its `generate` command requires an explicit `--output` directory and `--capture-revision`. Derive candidates from a trusted capture, then review their differences. Regenerating contracts from a failing record would change the requirement instead of proving the record valid.
+Its `generate` command requires an explicit `--output` directory and `--capture-revision`. Derive candidates from a trusted capture, then submit their differences for Profile review through a td-profile PR. Regenerating contracts from a failing record would change the requirement instead of proving the record valid.
 
 ## Layout and required data
 
@@ -102,7 +102,7 @@ Each Tower family has one directory and each state has one JSON file. Collection
 
 `typed: true` requires the configured model discriminator on each collection record. Localization and resource tables use untyped `@keys` identities; their keys remain ordinary data even if one is named `kind`. `excludedKeys` omits configured metadata keys from identity lookup. BTD6 uses it for `$type`.
 
-Logical names and source paths are separate. `enemies` uses path `Bloons` and raw `BloonModel` bindings. `localization` uses path `textTable.json`. Change the configured path to rename or relocate a role without changing Go.
+Logical names and source paths are separate. `enemies` uses path `Bloons` and raw `BloonModel` bindings. `localization` uses path `textTable.json`. Change the configured path to rename or relocate a role without changing the checker.
 
 `requireWhen` is an OR list of consumers. A condition selects a present collection, optionally filtered by a named selector, or a nonempty field on configured model types. A required role must contain at least one JSON record. Its records receive their declared schema checks.
 
@@ -135,19 +135,19 @@ These counts describe the capture rather than imposing an inventory. Structural 
 
 ## Validate and score
 
-Build the binary from the existing command package:
+Install the pinned release binary, then validate the capture:
 
 ```sh
-go build -o bin/atlas-validator ./cmd/atlas-validate
-bin/atlas-validator --data data/56.3-build-24829026/game-data --profile profile
+python3 scripts/install-validator.py
+bin/validator --game-data data/56.3-build-24829026/game-data --profile profile
 ```
 
-The existing `atlas-validate` binary name and `--data` invocation still work. Whole-dataset validation also accepts `--game-data`.
+The installer uses td-profile release `v1.0.2`, checker `5.0.1` and interface `5`. The executable stays in ignored `bin/`; Windows uses `bin/validator.exe`. Go is not required. Whole-dataset validation also accepts `--data`.
 
 Score one Tower with all three required flags:
 
 ```sh
-bin/atlas-validator score-tower \
+bin/validator score-tower \
   --profile profile \
   --game-data data/56.3-build-24829026/game-data \
   --tower data/56.3-build-24829026/game-data/Towers/DartMonkey/DartMonkey.json
@@ -175,10 +175,10 @@ Capture metadata uses a configured `base`, `path` and label-to-source-field map.
 
 Reports record Profile revision and dependency digest, actual checker version and executable identity, errors, counts and coverage. Numerical checks do not convert or rewrite data. Shared schemas permit additional projected fields, while source contracts reject undeclared raw fields unless they define a dictionary value shape. Coverage reports and contract provenance state the checked structure and its limits.
 
-Reusable operations live in `internal/atlasvalidate/`. The command entry point only delegates to the package. Unknown operations and malformed Profile documents fail before checking game-data.
+Reusable operations and their tests live in [td-profile](https://github.com/mardwerk/td-profile). Atlas contains no local checker implementation. Unknown operations and malformed Profile documents fail before checking game-data.
 
 The current Profile and checker interface use format 5. Older Profiles must migrate their manifest version and review their source contracts and schema bindings before using this checker.
 
 See [the implementation record](../docs/profile-implementation.md) for verification and the existing Boomerang duplicate found in the accepted capture.
 
-See [the separate project proposal](../docs/profile-project.md) for a possible validator and base Profile repository. Implementation remains in Atlas while that split is planned.
+See [the project split](../docs/profile-project.md) for release ownership and the migration checks.

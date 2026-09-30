@@ -17,10 +17,9 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
 | `mod/` | The installable exporter mod (build + install: `mod/README.md`). |
 | `data/` | Accepted captures per patch. |
 | `patterns/` | Our derived analyses (empty until first write-up). |
-| `profile/` | BTD6 settings, source contracts and reusable schemas for game-data validation. |
-| `profile/schemas/` | Reusable schemas grouped into `profile/` and `game-data/`. |
-| `cmd/atlas-validate/` | Small CLI for the Profile checker. |
-| `internal/atlasvalidate/` | Reusable Go validation package. |
+| `profile/` | BTD6 settings and source contracts for game-data validation. |
+| `profile/schemas/` | Self-contained copies of the pinned td-profile schemas. |
+| `scripts/install-validator.py` | Install the pinned native td-profile binary with checksum verification. |
 | `docs/` | Workflow plans for mod, data, patterns. |
 | `AGENTS.md` | Contributor rules for agents and humans. |
 
@@ -32,8 +31,16 @@ Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; noth
    at the main menu (press twice to confirm) and let it walk the catalog.
 4. Copy outputs into `data/<patch>/`, publish to GitHub.
 
-Build the data validator with `go build -o bin/atlas-validator ./cmd/atlas-validate`.
-Run `bin/atlas-validator --data data/56.3-build-24829026/game-data --profile profile`.
+Install the released [td-profile](https://github.com/mardwerk/td-profile) validator. Atlas does not require Go:
+
+```sh
+python3 scripts/install-validator.py
+bin/validator --profile profile --game-data data/56.3-build-24829026/game-data --format text
+```
+
+The installer pins release `v1.0.2`, verifies its archive checksum and checks that Atlas's schema copies match.
+It supports Linux amd64, macOS arm64 and Windows amd64. Windows uses `bin/validator.exe`.
+The executable, upstream notices and release identity stay in ignored `bin/`.
 See [the game profile](profile/README.md) for validation coverage and diagnostics.
 Add `--relations` to include resolved references and file backlinks in the JSON result.
 The checker applies the Profile to separate raw game-data, including ordinary, Hero and Power Pro progression.
@@ -45,9 +52,10 @@ For example, Towers use `Towers/<baseId>/<name>.json`; upgrades retain independe
 Its report records Profile and checker identities, rule coverage, source contract coverage and shared schema coverage.
 Each Tower receives a declared category with explicit validation coverage.
 Tower scoring checks one family and its outgoing dependencies, with category weights from `profile/scoring.json`.
-Use `bin/atlas-validator score-tower --profile profile --game-data <path> --tower <path>`.
+Use `bin/validator score-tower --profile profile --game-data <path> --tower <path>`.
 Required roles are conditional; empty unused collections are valid. Rogue and Frontier settings are outside scope.
-Atlas owns this contract and checker independently of any consuming game or generator.
+Atlas keeps its BTD6 settings and captures. [td-profile](https://github.com/mardwerk/td-profile) owns the checker and reusable schemas.
+Propose Profile changes in a PR to td-profile, then adopt the released changes here.
 
 ## Attribution
 

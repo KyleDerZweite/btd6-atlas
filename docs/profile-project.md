@@ -1,78 +1,27 @@
-# Separate Profile project
+# Profile project split
 
-Proposal, 2026-09-30. Continue the current implementation in Atlas. No repository move or new remote is part of this proposal.
+Updated 2026-09-30. The generic checker and Profile Template are published at [mardwerk/td-profile](https://github.com/mardwerk/td-profile). Atlas uses its released binary. The local Go checker, duplicate checker tests and Go module files have been removed.
 
-A separate project makes sense. Atlas collects BTD6 data; the validator and shared schemas also serve other games. Keep two repositories initially. A separate repository for every Profile document or schema would add coordination without helping this use case.
+Atlas retains the exporter, accepted captures, patterns and the BTD6 Profile. The Profile includes BTD6 settings, source structure contracts and local copies of the shared schemas. Keep those schema copies byte-identical to the pinned release. Every Profile dependency resolves inside `profile/`, without a neighboring checkout or network access during validation.
 
-## Ownership and layout
+Propose Profile, shared schema and checker updates through a PR to td-profile. Adopt the released changes here after upstream review. Preserve BTD6 settings and source contracts when updating shared schemas; the generic Profile Template does not replace the BTD6 Profile. `scripts/derive-model-contracts.py` remains available for capture audits and candidate authoring. Derived candidates require Profile review through a td-profile PR.
 
-Use `td-profile` as a working project name. `/home/kyle/CodingProjects` exists with that spelling, so a future checkout could live at `/home/kyle/CodingProjects/td-profile`. `mardwerk/td-profile` is a possible future remote; its availability has not been checked.
+Install the pinned [v1.0.2 release](https://github.com/mardwerk/td-profile/releases/tag/v1.0.2):
 
-```text
-td-profile/
-  cmd/atlas-validator/
-  internal/atlasvalidate/
-  profile/
-    manifest.json
-    collections.json
-    mechanics.json
-    rules.json
-    references.json
-    numerical-units.json
-    scoring.json
-    schemas/
-      profile/
-      game-data/
-  game-data/
-    .gitkeep
-  examples/
-    minimal-game/
-  docs/
-  go.mod
+```sh
+python3 scripts/install-validator.py
+bin/validator --profile profile --game-data data/56.3-build-24829026/game-data
+bin/validator score-tower --profile profile --game-data data/56.3-build-24829026/game-data --tower Towers/DartMonkey/DartMonkey.json
 ```
 
-Keep the established `atlas-validator` binary name at first. A repository rename does not require users to change their commands. Move the existing package and its tests together. Keep the package internal until another Go application actually needs an importable library.
+The release supplies checker `5.0.1` with interface `5`. Supported binaries are Linux amd64, Windows amd64 and macOS arm64. Windows uses `bin/validator.exe`. Compiled binaries remain in ignored `bin/`; running the checker requires no Go installation. Archive checksums identify released software, not game-data completeness.
 
-The root `profile/` becomes the base Profile. It uses generic source names such as `kind`, `id`, `familyId` and `placementPrice`. It includes the same reusable `tower.schema.json`, `mechanics.schema.json` and `mechanic-proposal.schema.json` used by game Profiles. Its settings define a small documented starting contract. They do not pretend to express every possible tower-defense mechanic.
+The public td-profile release includes a Profile Template, an empty `game-data/` directory and a synthetic example. The empty directory passes with zero records. Its example receives a complete score of 100. Atlas supplies its own BTD6 Profile and local capture to the same checker. Validation and scores describe declared structural coverage, not simulation or balance.
 
-Atlas retains `mod/`, captures, patterns and the BTD6 Profile configuration. Its Profile includes a pinned copy of the shared schemas. A release update copies that exact schema version and verifies the BTD6 bindings against it. This preserves the existing requirement that every Profile resolves locally without network access or parent-directory dependencies. Avoid Git submodules and runtime Profile inheritance for the first split.
+Migration verification checks the native binary installation, equality of all shared schema copies, Dart scoring 100 and the unchanged full capture retaining only its known duplicate Boomerang purchase. A required state deletion in temporary game-data must fail and lower the Tower score. Keep accepted captures unchanged and record results below.
 
-## An empty game that passes
+Verification passed on 2026-09-30. The published Linux archive installed successfully and all 25 schema copies matched. The cached installer also ran without downloading again. Installer tests cover all three archive targets and reject damaged archives, schema drift and incompatible interfaces while preserving the installed binary. Run them with `python3 scripts/test-install-validator.py`. The retained derivation script's doctests and `git diff --check` passed.
 
-Declare enabled collections for Towers, enemies, upgrades and other supported record kinds. Allow each collection to contain zero records. Keep schemas, unknown-model errors, reference checks and applicable progression rules enabled. Conditional dependencies become required when records use them.
+The released checker validated 10,053 files, 65,854 references and 482,492 model instances with zero unbound instances. Integrity passed. The sole error remains the accepted capture's duplicate Boomerang purchase. The BTD6 Profile revision, dependency digest and settings are unchanged.
 
-An empty directory can then pass because no records violate the contract. It does not receive a Tower score or establish that a playable game exists. The report should say zero files and zero applicable checks. Git needs a `.gitkeep` to retain the directory; the release archive can contain an actually empty directory.
-
-Keep a small synthetic game under `examples/`, separate from the empty directory. Release checks should prove that the empty game passes, the example passes, and a missing required dependency or progression state fails. Unknown mechanics and malformed records must still fail. The base progression policy should be an explicit starter choice, with BTD6's three-path limits remaining in its own settings.
-
-## Ship a matching binary and Profile
-
-Publish downloadable release archives containing the executable and a self-contained Profile. Keep compiled binaries out of Git.
-
-```text
-td-profile-<release>-<os>-<architecture>/
-  atlas-validator
-  profile/
-  game-data/
-  README.md
-  LICENSE
-  release.json
-```
-
-Build separate archives for supported operating systems and architectures. Windows uses `atlas-validator.exe`; Linux and macOS builds use their native executable. Start with Linux amd64, Windows amd64 and macOS arm64, then add targets with actual users and release tests. Every advertised target needs its own build and smoke test.
-
-`release.json` should record the checker version, checker interface version, Profile revision, source commit and build target. Publish archive checksums alongside releases. These identify distributed software and configuration, not an inventory of game-data files.
-
-Version the checker and Profile independently. A checker bug fix need not change a game's rules; a Profile rule change need not change the executable. The existing manifest interface version controls compatibility, and the bundle pins an exact tested pair. Existing validation reports already record the checker identity and Profile digest.
-
-The base release contains no BTD6 exports. A BTD6 bundle can combine the same binary with the BTD6 Profile and an empty `game-data/` directory. Atlas users supply their local capture. Keep current source notices when moving files and separate the generic project's code license from BTD6 data notices.
-
-## Extraction order
-
-1. Finish and test the current BTD6 contract here.
-2. Build the base Profile and synthetic example here, proving shared schemas work without BTD6 settings.
-3. Move the validator, reusable schemas and generic tests into the new project. Move BTD6 integration tests with the BTD6 configuration owner.
-4. Add release bundles and verify them from an extracted archive outside either checkout.
-5. Replace Atlas's validator source with commands that use the pinned release. Keep its BTD6 Profile independently editable.
-
-The current code supports this boundary: `cmd/atlas-validate/main.go` delegates to `internal/atlasvalidate`, and portability tests already reuse identical schemas across different source-field conventions. There is no release workflow yet. The base Profile, bundle builder and extraction remain proposed work.
+Dart scored 100/100 with complete coverage across 99 files and 1,001 references. Deleting `DartMonkey-100.json` in a temporary copy produced `missing_reference`, `missing-build` and purchase errors, exited with code 1 and lowered its score to 83.11. The accepted capture and exporter were unchanged. Reports remain in ignored `bin/td-profile-*-report.json` files.
