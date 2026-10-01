@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the pinned td-profile release without building a local checker."""
+"""Place one pinned native td-profile binary beside the BTD6 Profile."""
 
 import hashlib
 import io
@@ -32,20 +32,14 @@ def native_target():
 def install(root, target):
     extension, checksum = ARCHIVES[target]
     bundle = f"td-profile-{RELEASE}-{target}"
-    destination = root / "bin"
-    destination.mkdir(exist_ok=True)
-    cache = destination / f"{bundle}.{extension}"
-    if cache.exists():
-        data = cache.read_bytes()
-    else:
-        url = f"https://github.com/mardwerk/td-profile/releases/download/{RELEASE}/{cache.name}"
-        print(f"Downloading {url}", flush=True)
-        with urlopen(url, timeout=30) as response:
-            data = response.read()
+    destination = root / "profile"
+    asset = f"{bundle}.{extension}"
+    url = f"https://github.com/mardwerk/td-profile/releases/download/{RELEASE}/{asset}"
+    print(f"Downloading {url}", flush=True)
+    with urlopen(url, timeout=30) as response:
+        data = response.read()
     if hashlib.sha256(data).hexdigest() != checksum:
-        raise ValueError(f"Archive checksum mismatch: {cache}. Remove the cached archive and retry.")
-    if not cache.exists():
-        cache.write_bytes(data)
+        raise ValueError(f"Archive checksum mismatch: {asset}")
 
     if extension == "zip":
         archive = zipfile.ZipFile(io.BytesIO(data))
@@ -73,25 +67,34 @@ def install(root, target):
         if not schemas or differences:
             raise ValueError(f"Profile schemas differ from {RELEASE}: {', '.join(differences)}")
 
-        metadata = read(f"{bundle}/release.json")
+        release = json.loads(read(f"{bundle}/release.json"))
         manifest = json.loads((root / "profile/manifest.json").read_text())
-        if json.loads(metadata)["checkerInterface"] != manifest["validatorFormatVersion"]:
+        if release["checkerInterface"] != manifest["validatorFormatVersion"]:
             raise ValueError("Pinned checker interface does not match the BTD6 Profile")
 
         binary = "validator.exe" if target.startswith("windows-") else "validator"
         executable = read(f"{bundle}/{binary}")
-        notices = {name: read(f"{bundle}/{name}") for name in
-                   ("LICENSE", "NOTICE.md", "licenses/jsonschema-go.LICENSE")}
+        notices = {
+            "td-profile.LICENSE": read(f"{bundle}/LICENSE"),
+            "td-profile.NOTICE.md": read(f"{bundle}/NOTICE.md"),
+            "jsonschema-go.LICENSE": read(f"{bundle}/licenses/jsonschema-go.LICENSE"),
+        }
 
-    provenance = destination / "td-profile"
-    for name, content in {**notices, "release.json": metadata}.items():
-        path = provenance / name
-        path.parent.mkdir(parents=True, exist_ok=True)
+    # Release metadata describes the checker, not the upstream starter Profile.
+    release.pop("profile", None)
+    release["archiveSha256"] = checksum
+    release["executableSha256"] = hashlib.sha256(executable).hexdigest()
+    (destination / "licenses").mkdir(exist_ok=True)
+    for name, content in notices.items():
+        path = destination / "licenses" / name
         path.write_bytes(content)
+    (destination / "validator-release.json").write_text(json.dumps(release, indent=2) + "\n")
     temporary = destination / f"{binary}.tmp"
     temporary.write_bytes(executable)
     temporary.chmod(0o755)
     temporary.replace(destination / binary)
+    alternate = destination / ("validator" if binary == "validator.exe" else "validator.exe")
+    alternate.unlink(missing_ok=True)
     print(f"Installed {RELEASE} to {destination / binary}")
 
 

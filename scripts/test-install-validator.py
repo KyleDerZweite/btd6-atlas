@@ -27,7 +27,6 @@ class InstallTests(unittest.TestCase):
                 schema = schemas / "tower.schema.json"
                 schema.write_bytes(b"{}\n")
                 (root / "profile/manifest.json").write_text('{"validatorFormatVersion":5}')
-                (root / "bin").mkdir()
                 binary = "validator.exe" if target.startswith("windows-") else "validator"
                 bundle = f"td-profile-{installer.RELEASE}-{target}"
                 files = {
@@ -50,15 +49,19 @@ class InstallTests(unittest.TestCase):
                             member.size = len(data)
                             archive.addfile(member, io.BytesIO(data))
                 data = output.getvalue()
-                cache = root / "bin" / f"{bundle}.{extension}"
-                cache.write_bytes(data)
                 checksum = hashlib.sha256(data).hexdigest()
                 with patch.dict(installer.ARCHIVES, {target: (extension, checksum)}), \
-                     patch.object(installer, "urlopen", side_effect=AssertionError("Must work offline")):
+                     patch.object(installer, "urlopen", side_effect=lambda *args, **kwargs: io.BytesIO(data)):
+                    alternate = root / "profile" / ("validator" if binary == "validator.exe" else "validator.exe")
+                    alternate.write_bytes(b"old platform binary")
                     installer.install(root, target)
-                    executable = root / "bin" / binary
+                    executable = root / "profile" / binary
                     self.assertEqual(executable.read_bytes(), b"verified binary")
-                    self.assertTrue((root / "bin/td-profile/licenses/jsonschema-go.LICENSE").is_file())
+                    self.assertFalse(alternate.exists())
+                    self.assertFalse((root / "bin").exists())
+                    self.assertTrue((root / "profile/licenses/jsonschema-go.LICENSE").is_file())
+                    metadata = json.loads((root / "profile/validator-release.json").read_text())
+                    self.assertEqual(metadata["executableSha256"], hashlib.sha256(b"verified binary").hexdigest())
                     (root / "profile/manifest.json").write_text('{"validatorFormatVersion":99}')
                     with self.assertRaisesRegex(ValueError, "interface does not match"):
                         installer.install(root, target)
@@ -68,7 +71,7 @@ class InstallTests(unittest.TestCase):
                     with self.assertRaisesRegex(ValueError, "schemas differ.*tower.schema.json"):
                         installer.install(root, target)
                     self.assertEqual(executable.read_bytes(), b"verified binary")
-                    cache.write_bytes(b"damaged archive")
+                    data = b"damaged archive"
                     with self.assertRaisesRegex(ValueError, "checksum mismatch"):
                         installer.install(root, target)
                     self.assertEqual(executable.read_bytes(), b"verified binary")

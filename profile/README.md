@@ -6,6 +6,9 @@ Atlas keeps the BTD6 Profile and uses the released [td-profile](https://github.c
 
 ```text
 profile/
+  validator
+  validator-release.json
+  licenses/
   manifest.json
   collections.json
   references.json
@@ -135,19 +138,20 @@ These counts describe the capture rather than imposing an inventory. Structural 
 
 ## Validate and score
 
-Install the pinned release binary, then validate the capture:
+The Profile ships the Linux amd64 binary from td-profile `v1.0.2`. Validate a capture from the repository root:
 
 ```sh
-python3 scripts/install-validator.py
-bin/validator --game-data data/56.3-build-24829026/game-data --profile profile
+profile/validator --game-data data/56.3-build-24829026/game-data --profile profile
 ```
 
-The installer uses td-profile release `v1.0.2`, checker `5.0.1` and interface `5`. The executable stays in ignored `bin/`; Windows uses `bin/validator.exe`. Go is not required. Whole-dataset validation also accepts `--data`.
+No installation or Go runtime is required on Linux amd64. For Windows amd64 or macOS arm64, run `python3 scripts/install-validator.py` to replace the shipped binary with the pinned native build. Windows uses `profile/validator.exe`. The installer verifies archive checksums, local schemas and interface compatibility, leaving one executable without download caches. Whole-dataset validation also accepts `--data`.
+
+`validator-release.json` records the checker release, source revision, platform and software checksums. The BTD6 Profile identity remains in `manifest.json`. Upstream notices and licenses stay in `licenses/`.
 
 Score one Tower with all three required flags:
 
 ```sh
-bin/validator score-tower \
+profile/validator score-tower \
   --profile profile \
   --game-data data/56.3-build-24829026/game-data \
   --tower data/56.3-build-24829026/game-data/Towers/DartMonkey/DartMonkey.json

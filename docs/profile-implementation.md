@@ -36,7 +36,7 @@ Validate the unchanged accepted capture. Validate a disposable standalone copy a
 
 The format 3 implementation passed tests, race tests, vet and standalone builds. The unchanged capture checked 10,053 files and 65,854 references, including 93 documented external references. Integrity passed. Ordinary progression found the existing duplicate at `Towers/BoomerangMonkey/BoomerangMonkey-012.json#/upgrades/2/tower`. Removing only that duplicate in a disposable copy passed with 65,852 references.
 
-Earlier deletion trials rejected a randomly selected `SpikeFactory-140` state and missing resources, localization or advanced-progression roles. Removing Rogue or Frontier data passed. Breaking or deleting an unrelated Glue Gunner state left Dart's report unchanged. Deleting Dart's `100` state lowered its score and reported missing references and progression states. These results are in ignored `bin/profile-v3-*.json` files.
+Earlier deletion trials rejected a randomly selected `SpikeFactory-140` state and missing resources, localization or advanced-progression roles. Removing Rogue or Frontier data passed. Breaking or deleting an unrelated Glue Gunner state left Dart's report unchanged. Deleting Dart's `100` state lowered its score and reported missing references and progression states. The local report files were removed during the 2026-10-01 output cleanup; these findings remain recorded here.
 
 ## Format 4 verification
 
@@ -50,7 +50,7 @@ Deletion trials used seed `20260930`. Removing the selected `SpikeFactory-230` s
 
 Dart checked 99 files, 1,001 references, 64 ordinary states and 111 purchases. Its score is 84.73. Model-schema coverage is 531 of 6,346 instances with 62 unbound types. A dictionary wrapper is no longer miscounted as a gameplay model. Breaking or deleting an unrelated Glue Gunner state left the complete Dart report unchanged. Removing Dart's `100` state produced missing references and states and lowered its score to 67.84.
 
-The final Profile dependency closure contains 32 files with SHA-256 `b477e2bfee4b542443fa45d4e4476d1ea800c03f2c4748cff7941b3d6261d1a6`. Reports identify the actual checker build and executable used. This hashes Profile dependencies, without hashing game-data for completeness. Reports and mutation evidence remain in ignored `bin/profile-v4-*.json` files. No raw capture or exporter files changed; no C# build was needed.
+The final Profile dependency closure contains 32 files with SHA-256 `b477e2bfee4b542443fa45d4e4476d1ea800c03f2c4748cff7941b3d6261d1a6`. Reports identify the actual checker build and executable used. This hashes Profile dependencies, without hashing game-data for completeness. Local reports were removed during the 2026-10-01 output cleanup. No raw capture or exporter files changed; no C# build was needed.
 
 
 ## Complete model-contract follow-up
@@ -73,4 +73,4 @@ Dart, Monkey Village, Banana Farm, Alchemist, Wizard, Quincy and Portable Lake P
 
 Deletion trials use seed `20260930`. Removing the selected ordinary state, Quincy level 10 or a Power Pro state fails with specific progression and reference diagnostics. Missing localization fails its required-role check. Removing disabled Rogue or Frontier data passes. Corruption trials reject missing required fields on a previously unbound type, wrong primitives, unexpected fields, incompatible known nested models, namespace collisions, unknown exact types, malformed normalized names, null-only alternatives, nonempty restricted arrays and bad dictionary values. New dictionary keys with valid values pass. Empty game-data passes with zero files.
 
-The Profile closure contains 44 dependencies with SHA-256 `e63bbc90a8f74482cf216b00107b09352a6173e3efdaff735b36a4b58b3ba5a8`. Reports identify checker version `5.0.0`, its actual build and executable digest, and contract provenance. Evidence remains in ignored `bin/profile-v5-*.json` files. Original captures and the exporter are unchanged. No repository move or packaging was implemented during this stage. [The project split](profile-project.md) records the subsequent extraction and current release setup.
+The Profile closure contains 44 dependencies with SHA-256 `e63bbc90a8f74482cf216b00107b09352a6173e3efdaff735b36a4b58b3ba5a8`. Reports identify checker version `5.0.0`, its actual build and executable digest, and contract provenance. Local evidence files were removed during the 2026-10-01 output cleanup. Original captures and the exporter are unchanged. No repository move or packaging was implemented during this stage. [The project split](profile-project.md) records the subsequent extraction and current release setup.

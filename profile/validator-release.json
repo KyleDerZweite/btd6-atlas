@@ -1,0 +1,12 @@
+{
+  "release": "v1.0.2",
+  "checkerVersion": "5.0.1",
+  "checkerInterface": 5,
+  "sourceCommit": "48fc5daa723d13d89d33bce4a863ba5bf38a1b39",
+  "goos": "linux",
+  "goarch": "amd64",
+  "goVersion": "go1.23.0",
+  "cgoEnabled": false,
+  "archiveSha256": "830f263683bbe895ed0be51a2e1c9afd4b9cc30b5d93d57d3ad33fb6dfdadd20",
+  "executableSha256": "8cdc97a24568c74b918a31ca72f490e790cbe7ac3d67da937ede8c9ec86e1ec1"
+}

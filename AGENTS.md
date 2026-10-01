@@ -10,7 +10,7 @@ Independent BTD6 fan project. Not affiliated with Ninja Kiwi.
 - `patterns/`: our derived analyses. First thing that goes public.
 - `docs/`: workflow plans. Keep them shorter than the code.
 - `profile/`: BTD6 settings, source contracts and pinned copies of the reusable schemas. Preserve raw field names and `$type`.
-- `bin/validator`: the released [td-profile](https://github.com/mardwerk/td-profile) binary. Install with `python3 scripts/install-validator.py`; binaries stay out of Git.
+- `profile/validator`: the shipped Linux amd64 [td-profile](https://github.com/mardwerk/td-profile) binary. `python3 scripts/install-validator.py` replaces it for supported native platforms. Track upstream binaries, identity and licenses alongside the Profile.
 
 ## Rules
 
@@ -25,5 +25,5 @@ Independent BTD6 fan project. Not affiliated with Ninja Kiwi.
    here. Keep BTD6 bindings and source contracts local, and shared schemas identical
    to the pinned release. Do not restore a local checker implementation.
 6. After changing the validator release or Profile, validate the accepted capture
-   and score Dart with `bin/validator`. Check a missing required dependency in a
+   and score Dart with `profile/validator`. Check a missing required dependency in a
    disposable copy. Preserve the accepted capture and record actual coverage.

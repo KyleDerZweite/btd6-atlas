@@ -1,65 +1,96 @@
-# btd6-atlas
+# BTD6 Atlas
 
-Independent fan project: the map-and-behavior layer Mod Helper's static export doesn't cover, plus indexed game-data storage and derived patterns.
+Versioned Bloons TD 6 game data, map geometry and analyses for fan research.
+Atlas pairs a map exporter with a BTD6 Profile that checks raw records, references
+and upgrade progression using [td-profile](https://github.com/mardwerk/td-profile).
 
-Not affiliated with Ninja Kiwi. Requires a legitimately owned copy of BTD6; nothing here helps piracy.
+Independent fan project. Not affiliated with Ninja Kiwi.
 
-## Licenses
+## Explore the data
 
-- Code: MIT (`LICENSE`).
-- Exported game data and derived tables: CC BY-NC 4.0 (see `NOTICE`). Non-commercial fan research.
-- We host current-version exports ourselves because upstream lags the live patch.
+- [Accepted captures](data/README.md) keep game data, map exports and provenance together by patch.
+- [Tower patterns](patterns/towers.md) describe the roster, costs and crosspaths.
+- [Map patterns](patterns/maps.md) compare routes, placement geometry and difficulty.
+- [Progression patterns](patterns/progression.md) describe purchases and upgrade paths.
+- [The BTD6 Profile](profile/README.md) defines validation rules, model contracts and score coverage.
 
-## Layout
+The current capture is BTD6 `56.3`, build `24829026`. The Profile preserves raw
+fields, embedded abilities and `$type` names. Tower families have one directory
+with one JSON file per state.
 
-| Path | Meaning |
-|---|---|
-| `mod/` | The installable exporter mod (build + install: `mod/README.md`). |
-| `data/` | Accepted captures per patch. |
-| `patterns/` | Our derived analyses (empty until first write-up). |
-| `profile/` | BTD6 settings and source contracts for game-data validation. |
-| `profile/schemas/` | Self-contained copies of the pinned td-profile schemas. |
-| `scripts/install-validator.py` | Install the pinned native td-profile binary with checksum verification. |
-| `docs/` | Workflow plans for mod, data, patterns. |
-| `AGENTS.md` | Contributor rules for agents and humans. |
+## Validate a capture
 
-## Workflow
+The Linux amd64 validator ships at `profile/validator` beside the Profile.
+Run it from the repository root, without installing Go or Python:
 
-1. Install the mod (`mod/README.md`).
-2. Mod Helper **Export Game Data** → base catalog.
-3. Per map: load solo, pause, **Export Atlas Data**. Or arm **Export All Maps**
-   at the main menu (press twice to confirm) and let it walk the catalog.
-4. Copy outputs into `data/<patch>/`, publish to GitHub.
+```sh
+./profile/validator \
+  --profile profile \
+  --game-data data/56.3-build-24829026/game-data \
+  --format text
+```
 
-Install the released [td-profile](https://github.com/mardwerk/td-profile) validator. Atlas does not require Go:
+Score the Dart Monkey family and its required dependencies:
+
+```sh
+./profile/validator score-tower \
+  --profile profile \
+  --game-data data/56.3-build-24829026/game-data \
+  --tower Towers/DartMonkey/DartMonkey.json \
+  --format text
+```
+
+Dart scores **100/100**. This measures compliance with the declared contract;
+it does not measure gameplay balance or simulate behavior. Whole-capture
+validation currently exits with code 1 for one known duplicate Boomerang
+purchase. See the [verification record](docs/profile-project.md) for coverage
+and the missing-dependency check.
+
+The bundled executable comes from td-profile release `v1.0.2`, checker `5.0.1`.
+For Windows amd64 or macOS arm64, install the matching native executable:
 
 ```sh
 python3 scripts/install-validator.py
-bin/validator --profile profile --game-data data/56.3-build-24829026/game-data --format text
 ```
 
-The installer pins release `v1.0.2`, verifies its archive checksum and checks that Atlas's schema copies match.
-It supports Linux amd64, macOS arm64 and Windows amd64. Windows uses `bin/validator.exe`.
-The executable, upstream notices and release identity stay in ignored `bin/`.
-See [the game profile](profile/README.md) for validation coverage and diagnostics.
-Add `--relations` to include resolved references and file backlinks in the JSON result.
-The checker applies the Profile to separate raw game-data, including ordinary, Hero and Power Pro progression.
-Configuration maps source fields into shared schema shapes for validation while preserving the raw files.
-Source contracts check required raw fields and value shapes for all 1,175 captured model types.
-The reusable schemas define the contract format; BTD6 field names and type names remain configuration values.
-The Profile also defines directory depth and field bindings for family folders and record filenames.
-For example, Towers use `Towers/<baseId>/<name>.json`; upgrades retain independent record identifiers and filenames.
-Its report records Profile and checker identities, rule coverage, source contract coverage and shared schema coverage.
-Each Tower receives a declared category with explicit validation coverage.
-Tower scoring checks one family and its outgoing dependencies, with category weights from `profile/scoring.json`.
-Use `bin/validator score-tower --profile profile --game-data <path> --tower <path>`.
-Required roles are conditional; empty unused collections are valid. Rogue and Frontier settings are outside scope.
-Atlas keeps its BTD6 settings and captures. [td-profile](https://github.com/mardwerk/td-profile) owns the checker and reusable schemas.
-Propose Profile changes in a PR to td-profile, then adopt the released changes here.
+The installer verifies the release checksum and shared schemas, then replaces
+the bundled executable. Windows uses `profile/validator.exe`; other supported
+platforms use `profile/validator`. Validation works offline.
 
-## Attribution
+## Capture a new patch
 
-Built on [BTD Mod Helper](https://github.com/gurrenm3/BTD-Mod-Helper) (GPL-3.0) and
-MelonLoader. Cross-checked against [btd6-game-data](https://github.com/Btd6ModHelper/btd6-game-data)
-and [Cyber Quincy costs](https://raw.githubusercontent.com/hemisemidemipresent/cyberquincy/master/jsons/costs.json).
-Bloons TD 6 and all related game content belong to Ninja Kiwi.
+The [exporter setup](mod/README.md) explains the required BTD6 installation,
+MelonLoader, BTD Mod Helper and .NET build.
+
+1. Run Mod Helper's **Export Game Data** for the static catalog.
+2. Run **Export Atlas Data** in a loaded solo map, or use the confirmed **Export All Maps** workflow.
+3. Keep matching outputs under `data/<game-version>-build-<steam-build>/` with their provenance.
+4. Validate the capture and review its diagnostics before accepting it.
+5. Regenerate and review the [derived analyses](patterns/README.md).
+
+## Project layout and contributions
+
+| Path | Contents |
+| --- | --- |
+| [mod/](mod/README.md) | C# exporter for loaded map geometry. |
+| [data/](data/README.md) | Versioned captures and derived tables. |
+| [patterns/](patterns/README.md) | Reviewed observations from captures. |
+| [profile/](profile/README.md) | BTD6 settings, source contracts, reusable schemas and the validator binary. |
+| [scripts/](scripts/) | Analysis, contract derivation and validator installation. |
+| [docs/](docs/) | Workflow plans and verification records. |
+
+Read [AGENTS.md](AGENTS.md) before contributing. Propose Profile, shared schema
+and validator changes through a PR to [td-profile](https://github.com/mardwerk/td-profile),
+then adopt released changes here. Atlas keeps its BTD6 bindings and source
+contracts alongside the capture exporter.
+
+## License and attribution
+
+Code is [MIT licensed](LICENSE). Exported game data and derived tables are
+shared for non-commercial fan research under CC BY-NC 4.0, as recorded in
+[NOTICE](NOTICE). Bloons TD 6 and all related game content belong to Ninja Kiwi.
+
+The exporter uses [BTD Mod Helper](https://github.com/gurrenm3/BTD-Mod-Helper)
+and MelonLoader under their own licenses. Reference checks include
+[btd6-game-data](https://github.com/Btd6ModHelper/btd6-game-data) and
+[Cyber Quincy costs](https://raw.githubusercontent.com/hemisemidemipresent/cyberquincy/master/jsons/costs.json).

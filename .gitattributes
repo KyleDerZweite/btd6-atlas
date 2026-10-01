@@ -1,1 +1,3 @@
 profile/schemas/** text eol=lf
+profile/validator binary
+profile/validator.exe binary

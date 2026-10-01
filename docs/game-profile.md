@@ -18,7 +18,7 @@ Tower scoring checks the selected family, outbound dependencies and applicable r
 
 All Profile dependencies stay local. Unknown operations fail loading. The Profile and checker use interface version 5. Reports identify both versions, state actual coverage and include source contract provenance. Original captures and the exporter remain unchanged.
 
-Install the pinned td-profile `v1.0.2` binary with `python3 scripts/install-validator.py`. It supplies checker `5.0.1` at `bin/validator`, or `bin/validator.exe` on Windows. The executable stays outside Git. Atlas has no local Go checker.
+The Profile ships the pinned td-profile `v1.0.2` Linux amd64 binary at `profile/validator`. It supplies checker `5.0.1`. `python3 scripts/install-validator.py` replaces it for another supported native platform; Windows uses `profile/validator.exe`. The executable, identity and licenses are tracked beside the Profile. Atlas has no local Go checker.
 
 Propose Profile, shared schema and checker updates through a PR to [td-profile](https://github.com/mardwerk/td-profile), then adopt the released changes here. Keep the schema copies byte-identical to the pinned release and preserve BTD6 settings and raw captures.
 
