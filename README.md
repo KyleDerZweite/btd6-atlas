@@ -50,12 +50,33 @@ The bundled executable comes from td-profile release `v1.0.2`, checker `5.0.1`.
 For Windows amd64 or macOS arm64, install the matching native executable:
 
 ```sh
-python3 scripts/install-validator.py
+uv run --no-project scripts/install-validator.py
 ```
 
 The installer verifies the release checksum and shared schemas, then replaces
 the bundled executable. Windows uses `profile/validator.exe`; other supported
 platforms use `profile/validator`. Validation works offline.
+
+## Development checks
+
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) at the version
+required by `uv.toml`, then run `uv python install` from the repository root.
+The scripts use only the Python standard library. `.python-version` selects the
+development interpreter; there are no package dependencies to resolve or lock.
+Node.js and pnpm are not required.
+
+```sh
+uv run --offline --no-project scripts/test-install-validator.py
+uv run --offline --no-project python -m doctest scripts/derive-model-contracts.py
+uv run --offline --no-project scripts/test-profile.py
+```
+
+GitHub Actions runs these checks on Linux amd64 using the shipped validator.
+The installer tests use archive fixtures without downloads. Profile acceptance
+requires exactly the known Boomerang diagnostic, Dart scoring 100, and a failed
+score after deleting a required state in a temporary copy. These checks preserve
+the accepted capture. The exporter build remains a separate local check with
+the game references described in [exporter setup](mod/README.md).
 
 ## Capture a new patch
 

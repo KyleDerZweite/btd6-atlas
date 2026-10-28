@@ -5,16 +5,18 @@ Export Game Data button: run theirs first (static catalog), then ours (spatial l
 
 ## Build
 
-Requires .NET 6 SDK, a Steam copy of BTD6, and MelonLoader + BTD Mod Helper installed
-(their DLLs are referenced, never copied).
+Requires a .NET SDK capable of targeting `net6.0`, a Steam copy of BTD6, and
+MelonLoader + BTD Mod Helper installed. The build references their local DLLs.
+Keep the `net6.0` target compatible with the installed MelonLoader runtime.
+The target is a game compatibility requirement, separate from the SDK version.
 
 ```sh
 export BTD6_GAME_DIR="$HOME/.var/app/com.valvesoftware.Steam/data/Steam/steamapps/common/BloonsTD6"
 dotnet build mod/Btd6Atlas.csproj
 ```
 
-(Flatpak Steam on this machine; plain `~/.steam` does not exist here. dotnet runs
-natively on Linux (only the path matters; Proton is irrelevant to the build).
+This example uses Flatpak Steam. Set the path to your own installation.
+`dotnet` runs natively on Linux; Proton does not affect the build.
 
 ## Install
 

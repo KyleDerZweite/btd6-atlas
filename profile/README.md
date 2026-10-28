@@ -70,7 +70,7 @@ These contracts were derived from `56.3-build-24829026`. They describe observed 
 The derivation script audits a capture without modifying it:
 
 ```sh
-python3 scripts/derive-model-contracts.py audit \
+uv run --no-project scripts/derive-model-contracts.py audit \
   --profile profile \
   --game-data data/56.3-build-24829026/game-data \
   --map-types-from profile/model-contracts.json
@@ -144,7 +144,7 @@ The Profile ships the Linux amd64 binary from td-profile `v1.0.2`. Validate a ca
 profile/validator --game-data data/56.3-build-24829026/game-data --profile profile
 ```
 
-No installation or Go runtime is required on Linux amd64. For Windows amd64 or macOS arm64, run `python3 scripts/install-validator.py` to replace the shipped binary with the pinned native build. Windows uses `profile/validator.exe`. The installer verifies archive checksums, local schemas and interface compatibility, leaving one executable without download caches. Whole-dataset validation also accepts `--data`.
+No installation or Go runtime is required on Linux amd64. For Windows amd64 or macOS arm64, run `uv run --no-project scripts/install-validator.py` to replace the shipped binary with the pinned native build. Windows uses `profile/validator.exe`. The installer verifies archive checksums, local schemas and interface compatibility, leaving one executable without download caches. Whole-dataset validation also accepts `--data`.
 
 `validator-release.json` records the checker release, source revision, platform and software checksums. The BTD6 Profile identity remains in `manifest.json`. Upstream notices and licenses stay in `licenses/`.
 

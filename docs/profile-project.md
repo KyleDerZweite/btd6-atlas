@@ -13,7 +13,7 @@ profile/validator --profile profile --game-data data/56.3-build-24829026/game-da
 profile/validator score-tower --profile profile --game-data data/56.3-build-24829026/game-data --tower Towers/DartMonkey/DartMonkey.json
 ```
 
-The release supplies checker `5.0.1` with interface `5`. Supported binaries are Linux amd64, Windows amd64 and macOS arm64. For another supported platform, run `python3 scripts/install-validator.py` to replace the shipped binary. Windows uses `profile/validator.exe`. Each installation has one executable. The installer downloads in memory and leaves no archive cache. Running the checker requires no Go installation.
+The release supplies checker `5.0.1` with interface `5`. Supported binaries are Linux amd64, Windows amd64 and macOS arm64. For another supported platform, run `uv run --no-project scripts/install-validator.py` to replace the shipped binary. Windows uses `profile/validator.exe`. Each installation has one executable. The installer downloads in memory and leaves no archive cache. Running the checker requires no Go installation.
 
 Track the Linux binary, `profile/validator-release.json` and `profile/licenses/` in Git so the checkout ships a complete Profile and checker. The identity records upstream software provenance and checksums; the BTD6 Profile identity stays in its manifest. Software checksums do not establish game-data completeness. This shipping choice supersedes the earlier decision to keep every binary out of Git.
 
@@ -21,7 +21,7 @@ The public td-profile release includes a Profile Template, an empty `game-data/`
 
 Migration verification checks the native binary installation, equality of all shared schema copies, Dart scoring 100 and the unchanged full capture retaining only its known duplicate Boomerang purchase. A required state deletion in temporary game-data must fail and lower the Tower score. Keep accepted captures unchanged and record results below.
 
-Verification passed on 2026-09-30. The published Linux archive installed successfully and all 25 schema copies matched. The earlier cached installer also ran without downloading again. Installer tests cover all three archive targets and reject damaged archives, schema drift and incompatible interfaces while preserving the installed binary. Run them with `python3 scripts/test-install-validator.py`. The retained derivation script's doctests and `git diff --check` passed. The current installer no longer caches downloads.
+Verification passed on 2026-09-30. The published Linux archive installed successfully and all 25 schema copies matched. The earlier cached installer also ran without downloading again. Installer tests cover all three archive targets and reject damaged archives, schema drift and incompatible interfaces while preserving the installed binary. Run them with `uv run --offline --no-project scripts/test-install-validator.py`. The retained derivation script's doctests and `git diff --check` passed. The current installer no longer caches downloads.
 
 The released checker validated 10,053 files, 65,854 references and 482,492 model instances with zero unbound instances. Integrity passed. The sole error remains the accepted capture's duplicate Boomerang purchase. The BTD6 Profile revision, dependency digest and settings are unchanged.
 
@@ -30,3 +30,39 @@ Dart scored 100/100 with complete coverage across 99 files and 1,001 references.
 Shipping verification passed on 2026-10-01. The executable at `profile/validator` matches the published binary checksum. Full-capture coverage, Dart's complete score and the missing-state failure reproduce the results above. Installer tests also verify one executable per native target and no root output directory. The root `bin/`, C# build outputs and Python caches were deleted. Shared schemas, BTD6 requirements, accepted captures and exporter source remained unchanged.
 
 A standalone archive of the staged `profile/` runs outside the checkout. Its empty data check passes with zero files, and scoring against the accepted capture gives Dart 100/100. The archived binary retains executable permissions.
+
+## Repository verification maintenance
+
+The maintenance contract reviewed on 2026-10-28 preserves the accepted capture,
+the known duplicate purchase, and the game-specific exporter. td-profile owns
+the checker and shared schemas; Atlas calls the released executable and keeps
+BTD6 settings local. `scripts/test-profile.py` exercises that executable without
+implementing validation rules. It requires the exact known diagnostic and
+coverage, Dart scoring 100, a missing-state failure in a disposable capture copy,
+the shipped binary checksum, and matching exporter/project versions.
+
+Python scripts use only the standard library. Development uses uv pinned in
+`uv.toml` and Python pinned in `.python-version`, without a package manifest or
+dependency lockfile. There is no Node workflow to migrate. The Linux amd64
+GitHub Actions job runs installer fixtures, derivation doctests and Profile
+acceptance offline after tool provisioning. Dependabot updates GitHub Actions
+pins weekly. It does not update the separately reviewed td-profile binary or
+local game DLLs. PR #1 remains a parked preview, outside this maintenance scope.
+
+Local verification on 2026-10-28 reproduced full validation with 10,053 files,
+65,854 references and exactly the known Boomerang diagnostic. Dart scored 100;
+deleting its required `100` state in a temporary copy failed with missing
+reference and progression diagnostics and lowered its score. Installer fixtures
+for all three archive formats and derivation doctests passed. The exporter built
+against the installed game DLLs with .NET SDK `10.0.113`, with zero warnings and
+errors. Its project version now matches exporter `0.2.2`; the game-dependent
+`net6.0` target remains unchanged. These checks do not establish in-game behavior.
+The offline checks passed with uv `0.13.5` and Python `3.14.8`. A separate
+`uv python install` attempt waited on the shared installation lock and was
+stopped. Clean interpreter provisioning remains unverified.
+
+Dependabot vulnerability alerts were enabled through the GitHub API on
+2026-10-28, and the open-alert query returned zero. Code scanning still has no
+analysis; secret scanning remains disabled. Those unavailable checks are not
+clean scan results. No other GitHub security setting changed. The new Actions
+workflow has not run on GitHub during local implementation.

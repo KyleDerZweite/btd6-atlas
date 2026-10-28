@@ -1,0 +1,33 @@
+name: Verify Atlas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  profile:
+    name: Offline Profile acceptance
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GOMAXPROCS: "2"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          enable-cache: false
+      - name: Install pinned Python
+        run: uv python install
+      - name: Test native installer with offline fixtures
+        run: uv run --offline --no-project scripts/test-install-validator.py
+      - name: Check derivation examples
+        run: uv run --offline --no-project python -m doctest scripts/derive-model-contracts.py
+      - name: Test shipped checker and BTD6 acceptance scenarios
+        run: uv run --offline --no-project scripts/test-profile.py
+      - name: Check tracked inputs remain unchanged
+        run: git diff --exit-code

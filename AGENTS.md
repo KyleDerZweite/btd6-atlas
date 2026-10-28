@@ -10,7 +10,7 @@ Independent BTD6 fan project. Not affiliated with Ninja Kiwi.
 - `patterns/`: our derived analyses. First thing that goes public.
 - `docs/`: workflow plans. Keep them shorter than the code.
 - `profile/`: BTD6 settings, source contracts and pinned copies of the reusable schemas. Preserve raw field names and `$type`.
-- `profile/validator`: the shipped Linux amd64 [td-profile](https://github.com/mardwerk/td-profile) binary. `python3 scripts/install-validator.py` replaces it for supported native platforms. Track upstream binaries, identity and licenses alongside the Profile.
+- `profile/validator`: the shipped Linux amd64 [td-profile](https://github.com/mardwerk/td-profile) binary. `uv run --no-project scripts/install-validator.py` replaces it for supported native platforms. Track upstream binaries, identity and licenses alongside the Profile.
 
 ## Rules
 
