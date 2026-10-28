@@ -2,7 +2,7 @@
 
 Historical implementation record, 2026-09-30. [PR #3](https://github.com/KyleDerZweite/btd6-atlas/pull/3) is merged. The sections below preserve the decisions and verification from that work, including earlier coverage limits that format 5 resolved.
 
-The checker and its tests now live in [td-profile](https://github.com/mardwerk/td-profile). Atlas uses release `v1.0.2`, checker `5.0.1` and interface `5`, installed with `python3 scripts/install-validator.py`. See [the project split](profile-project.md) for the current ownership and migration checks.
+The checker and its tests now live in [td-profile](https://github.com/mardwerk/td-profile). Atlas uses release `v1.0.2`, checker `5.0.1` and interface `5`, installed with `uv run --no-project scripts/install-validator.py`. See [the project split](profile-project.md) for the current ownership and migration checks.
 
 ## Confirmed decisions
 

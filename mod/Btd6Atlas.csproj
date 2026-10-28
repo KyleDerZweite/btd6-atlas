@@ -9,7 +9,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>embedded</DebugType>
-    <Version>0.1.0</Version>
+    <Version>0.2.2</Version>
     <Btd6GameDir Condition="'$(Btd6GameDir)' == ''">$(BTD6_GAME_DIR)</Btd6GameDir>
     <Il2CppDir>$(Btd6GameDir)/MelonLoader/Il2CppAssemblies</Il2CppDir>
     <MelonDir>$(Btd6GameDir)/MelonLoader/net6</MelonDir>
